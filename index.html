@@ -142,7 +142,8 @@
             margin-right: auto;
         }
 
-        @media (max-width: 1024px) {
+        
+		@media (max-width: 1024px) {
             .hero-metrics {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -1299,6 +1300,26 @@
                 gap: 0.8rem;
             }
         }
+		/* --- Fix: Contact card size + email overflow --- */
+
+/* Make each contact card a bit wider on desktop */
+.contact-info {
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+}
+
+/* Ensure the card can grow vertically if text wraps */
+.contact-item {
+    align-items: center;
+    min-height: 90px;
+}
+
+/* Let long email IDs wrap instead of overflowing */
+.contact-text {
+    white-space: normal;          /* allow wrapping */
+    overflow-wrap: break-word;    /* break long words if needed */
+    word-break: break-word;       /* extra safety for long IDs/URLs */
+}
+
     </style>
 </head>
 <body>
