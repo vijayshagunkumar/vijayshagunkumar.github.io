@@ -1327,6 +1327,20 @@
             font-size: 0.85rem;
             margin: 0.3rem;
         }
+        /* Independent Product Styling */
+.project-company.independent {
+    color: #0f766e; /* teal-700 */
+}
+
+.project-company.independent i {
+    color: #0f766e;
+}
+
+/* Optional: subtle border accent on card */
+.project-card:has(.project-company.independent) {
+    border-left: 3px solid #14b8a6; /* teal accent */
+}
+
     </style>
 </head>
 <body>
@@ -1764,7 +1778,8 @@
 <div class="project-card">
     <div class="project-header">
         <div class="project-meta">
-            <span class="project-company"><i class="fas fa-lightbulb"></i> Independent Product</span>
+            <span class="project-company independent">  <i class="fas fa-lightbulb"></i> Independent Product </span>
+
             <span class="project-period">2024–Present</span>
         </div>
         <h3>PromptCraft – AI Prompt Studio</h3>
