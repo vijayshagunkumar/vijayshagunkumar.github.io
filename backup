@@ -1327,6 +1327,20 @@
             font-size: 0.85rem;
             margin: 0.3rem;
         }
+        /* Independent Product Styling */
+.project-company.independent {
+    color: #0f766e; /* teal-700 */
+}
+
+.project-company.independent i {
+    color: #0f766e;
+}
+
+/* Optional: subtle border accent on card */
+.project-card:has(.project-company.independent) {
+    border-left: 3px solid #14b8a6; /* teal accent */
+}
+
     </style>
 </head>
 <body>
@@ -1351,7 +1365,7 @@
                     <div class="metric-label">Experience Building Platforms</div>
                 </div>
                 <div class="metric-badge">
-                    <div class="metric-value">50+ Countries</div>
+                    <div class="metric-value">100+ Countries</div>
                     <div class="metric-label">150+ Tax Jurisdictions</div>
                 </div>
                 <div class="metric-badge">
@@ -1758,7 +1772,110 @@
                     </button>
                 </div>
             </div>
+            <!-- ADDITIONAL PROJECTS (INDEPENDENT & CAREER-DEFINING BUILDS) -->
+
+<!-- PromptCraft -->
+<div class="project-card">
+    <div class="project-header">
+        <div class="project-meta">
+            <span class="project-company independent">  <i class="fas fa-lightbulb"></i> Independent Product </span>
+
+            <span class="project-period">2024–Present</span>
         </div>
+        <h3>PromptCraft – AI Prompt Studio</h3>
+        <p class="project-description">
+            A self-initiated web-based productivity product designed to help users convert unstructured ideas
+            into clear, structured AI prompts with minimal friction and improved task completion.
+        </p>
+
+        <div class="project-impact">
+            <strong>Product Focus:</strong>
+            Reduced cognitive load during prompt creation, improved clarity of AI instructions,
+            and minimized drop-offs through guided UX patterns and modular workflows.
+        </div>
+
+        <div class="project-tech">
+            <span class="tech-tag">Product Discovery</span>
+            <span class="tech-tag">UX Design</span>
+            <span class="tech-tag">AI Prompting</span>
+            <span class="tech-tag">Workflow Design</span>
+        </div>
+    </div>
+    <div class="project-actions">
+        <a href="https://prompt-crafter-pro.pages.dev/" target="_blank" class="btn-case-study">
+            <i class="fas fa-external-link-alt"></i> View Live Product
+        </a>
+    </div>
+</div>
+
+<!-- Saarthi Yoga -->
+<div class="project-card">
+    <div class="project-header">
+        <div class="project-meta">
+          <span class="project-company independent">  <i class="fas fa-lightbulb"></i> Independent Product </span>
+            <span class="project-period">2024</span>
+        </div>
+        <h3>Saarthi Yoga – Content & Experience Platform</h3>
+        <p class="project-description">
+            A lightweight content-driven wellness platform focused on structured presentation,
+            discoverability, and consistency of yoga practices for a broad user base.
+        </p>
+
+        <div class="project-impact">
+            <strong>Product Focus:</strong>
+            Designed clean information architecture and navigation flows to ensure
+            simplicity, accessibility, and scalable content updates.
+        </div>
+
+        <div class="project-tech">
+            <span class="tech-tag">Content Architecture</span>
+            <span class="tech-tag">UX Flow Design</span>
+            <span class="tech-tag">CMS Strategy</span>
+            <span class="tech-tag">User Experience</span>
+        </div>
+    </div>
+    <div class="project-actions">
+        <a href="https://saarthiyoga.com" target="_blank" class="btn-case-study">
+            <i class="fas fa-external-link-alt"></i> View Website
+        </a>
+    </div>
+</div>
+
+<!-- Planet M -->
+<div class="project-card">
+    <div class="project-header">
+        <div class="project-meta">
+            <span class="project-company"><i class="fas fa-store"></i> Times Group</span>
+            <span class="project-period">2002–2007</span>
+        </div>
+        <h3>Planet M – India’s First National Music Retail Chain</h3>
+        <p class="project-description">
+            Technology and retail platform enablement for India’s first nationwide music retail chain,
+            scaling to 100+ stores across 20+ cities under the Times Group.
+        </p>
+
+        <div class="project-impact">
+            <strong>Product Focus:</strong>
+            Standardized POS, inventory, pricing, and catalog workflows to deliver
+            a consistent customer purchase experience across geographies.
+        </div>
+
+        <div class="project-tech">
+            <span class="tech-tag">Retail POS</span>
+            <span class="tech-tag">Inventory Systems</span>
+            <span class="tech-tag">Catalog Management</span>
+            <span class="tech-tag">National Rollout</span>
+        </div>
+    </div>
+    <div class="project-actions">
+        <button class="btn-case-study" disabled style="opacity:0.7; cursor:default;">
+            <i class="fas fa-history"></i> Legacy Retail Platform
+        </button>
+    </div>
+</div>
+
+        </div>
+        
     </section>
 
     <!-- Certifications -->
