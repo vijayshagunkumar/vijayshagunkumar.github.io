@@ -113,6 +113,29 @@
             font-weight: 700;
         }
 
+        /* Profile photo styling */
+        .profile-photo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .profile-photo-frame {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .profile-photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
         /* Enhanced Hero Section */
         header.hero {
             background: linear-gradient(135deg, var(--primary-navy) 0%, #1e293b 100%);
@@ -1328,18 +1351,18 @@
             margin: 0.3rem;
         }
         /* Independent Product Styling */
-.project-company.independent {
-    color: #0f766e; /* teal-700 */
-}
+        .project-company.independent {
+            color: #0f766e; /* teal-700 */
+        }
 
-.project-company.independent i {
-    color: #0f766e;
-}
+        .project-company.independent i {
+            color: #0f766e;
+        }
 
-/* Optional: subtle border accent on card */
-.project-card:has(.project-company.independent) {
-    border-left: 3px solid #14b8a6; /* teal accent */
-}
+        /* Optional: subtle border accent on card */
+        .project-card:has(.project-company.independent) {
+            border-left: 3px solid #14b8a6; /* teal accent */
+        }
 
     </style>
 </head>
@@ -1349,9 +1372,16 @@
         <i class="fas fa-chevron-up"></i>
     </button>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Permanent Photo -->
     <header class="hero">
         <div class="hero-content">
+            <!-- PROFESSIONAL PHOTO - Now permanent from GitHub -->
+            <div class="profile-photo-container">
+                <div class="profile-photo-frame">
+                    <img src="1-LinkedIN-Final.jpg" alt="Vijay Kumar" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+                </div>
+            </div>
+            
             <h1>Vijay Kumar</h1>
             <p class="hero-tagline">
                 Senior Product Leader with <span class="hero-highlight">20+ years experience</span> scaling FinTech accounting platforms, modernizing enterprise systems, 
@@ -1774,106 +1804,105 @@
             </div>
             <!-- ADDITIONAL PROJECTS (INDEPENDENT & CAREER-DEFINING BUILDS) -->
 
-<!-- PromptCraft -->
-<div class="project-card">
-    <div class="project-header">
-        <div class="project-meta">
-            <span class="project-company independent">  <i class="fas fa-lightbulb"></i> Independent Product </span>
+            <!-- PromptCraft -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-meta">
+                        <span class="project-company independent">  <i class="fas fa-lightbulb"></i> Independent Product </span>
 
-            <span class="project-period">2024–Present</span>
-        </div>
-        <h3>PromptCraft – AI Prompt Studio</h3>
-        <p class="project-description">
-            A self-initiated web-based productivity product designed to help users convert unstructured ideas
-            into clear, structured AI prompts with minimal friction and improved task completion.
-        </p>
+                        <span class="project-period">2024–Present</span>
+                    </div>
+                    <h3>PromptCraft – AI Prompt Studio</h3>
+                    <p class="project-description">
+                        A self-initiated web-based productivity product designed to help users convert unstructured ideas
+                        into clear, structured AI prompts with minimal friction and improved task completion.
+                    </p>
 
-        <div class="project-impact">
-            <strong>Product Focus:</strong>
-            Reduced cognitive load during prompt creation, improved clarity of AI instructions,
-            and minimized drop-offs through guided UX patterns and modular workflows.
-        </div>
+                    <div class="project-impact">
+                        <strong>Product Focus:</strong>
+                        Reduced cognitive load during prompt creation, improved clarity of AI instructions,
+                        and minimized drop-offs through guided UX patterns and modular workflows.
+                    </div>
 
-        <div class="project-tech">
-            <span class="tech-tag">Product Discovery</span>
-            <span class="tech-tag">UX Design</span>
-            <span class="tech-tag">AI Prompting</span>
-            <span class="tech-tag">Workflow Design</span>
-        </div>
-    </div>
-    <div class="project-actions">
-        <a href="https://prompt-crafter-pro.pages.dev/" target="_blank" class="btn-case-study">
-            <i class="fas fa-external-link-alt"></i> View Live Product
-        </a>
-    </div>
-</div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Product Discovery</span>
+                        <span class="tech-tag">UX Design</span>
+                        <span class="tech-tag">AI Prompting</span>
+                        <span class="tech-tag">Workflow Design</span>
+                    </div>
+                </div>
+                <div class="project-actions">
+                    <a href="https://prompt-crafter-pro.pages.dev/" target="_blank" class="btn-case-study">
+                        <i class="fas fa-external-link-alt"></i> View Live Product
+                    </a>
+                </div>
+            </div>
 
-<!-- Saarthi Yoga -->
-<div class="project-card">
-    <div class="project-header">
-        <div class="project-meta">
-          <span class="project-company independent">  <i class="fas fa-lightbulb"></i> Independent Product </span>
-            <span class="project-period">2024</span>
-        </div>
-        <h3>Saarthi Yoga – Content & Experience Platform</h3>
-        <p class="project-description">
-            A lightweight content-driven wellness platform focused on structured presentation,
-            discoverability, and consistency of yoga practices for a broad user base.
-        </p>
+            <!-- Saarthi Yoga -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-meta">
+                      <span class="project-company independent">  <i class="fas fa-lightbulb"></i> Independent Product </span>
+                        <span class="project-period">2024</span>
+                    </div>
+                    <h3>Saarthi Yoga – Content & Experience Platform</h3>
+                    <p class="project-description">
+                        A lightweight content-driven wellness platform focused on structured presentation,
+                        discoverability, and consistency of yoga practices for a broad user base.
+                    </p>
 
-        <div class="project-impact">
-            <strong>Product Focus:</strong>
-            Designed clean information architecture and navigation flows to ensure
-            simplicity, accessibility, and scalable content updates.
-        </div>
+                    <div class="project-impact">
+                        <strong>Product Focus:</strong>
+                        Designed clean information architecture and navigation flows to ensure
+                        simplicity, accessibility, and scalable content updates.
+                    </div>
 
-        <div class="project-tech">
-            <span class="tech-tag">Content Architecture</span>
-            <span class="tech-tag">UX Flow Design</span>
-            <span class="tech-tag">CMS Strategy</span>
-            <span class="tech-tag">User Experience</span>
-        </div>
-    </div>
-    <div class="project-actions">
-        <a href="https://saarthiyoga.com" target="_blank" class="btn-case-study">
-            <i class="fas fa-external-link-alt"></i> View Website
-        </a>
-    </div>
-</div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Content Architecture</span>
+                        <span class="tech-tag">UX Flow Design</span>
+                        <span class="tech-tag">CMS Strategy</span>
+                        <span class="tech-tag">User Experience</span>
+                    </div>
+                </div>
+                <div class="project-actions">
+                    <a href="https://saarthiyoga.com" target="_blank" class="btn-case-study">
+                        <i class="fas fa-external-link-alt"></i> View Website
+                    </a>
+                </div>
+            </div>
 
-<!-- Planet M -->
-<div class="project-card">
-    <div class="project-header">
-        <div class="project-meta">
-            <span class="project-company"><i class="fas fa-store"></i> Times Group</span>
-            <span class="project-period">2002–2007</span>
-        </div>
-        <h3>Planet M – India’s First National Music Retail Chain</h3>
-        <p class="project-description">
-            Technology and retail platform enablement for India’s first nationwide music retail chain,
-            scaling to 100+ stores across 20+ cities under the Times Group.
-        </p>
+            <!-- Planet M -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-meta">
+                        <span class="project-company"><i class="fas fa-store"></i> Times Group</span>
+                        <span class="project-period">2002–2007</span>
+                    </div>
+                    <h3>Planet M – India’s First National Music Retail Chain</h3>
+                    <p class="project-description">
+                        Technology and retail platform enablement for India’s first nationwide music retail chain,
+                        scaling to 100+ stores across 20+ cities under the Times Group.
+                    </p>
 
-        <div class="project-impact">
-            <strong>Product Focus:</strong>
-            Standardized POS, inventory, pricing, and catalog workflows to deliver
-            a consistent customer purchase experience across geographies.
-        </div>
+                    <div class="project-impact">
+                        <strong>Product Focus:</strong>
+                        Standardized POS, inventory, pricing, and catalog workflows to deliver
+                        a consistent customer purchase experience across geographies.
+                    </div>
 
-        <div class="project-tech">
-            <span class="tech-tag">Retail POS</span>
-            <span class="tech-tag">Inventory Systems</span>
-            <span class="tech-tag">Catalog Management</span>
-            <span class="tech-tag">National Rollout</span>
-        </div>
-    </div>
-    <div class="project-actions">
-        <button class="btn-case-study" disabled style="opacity:0.7; cursor:default;">
-            <i class="fas fa-history"></i> Legacy Retail Platform
-        </button>
-    </div>
-</div>
-
+                    <div class="project-tech">
+                        <span class="tech-tag">Retail POS</span>
+                        <span class="tech-tag">Inventory Systems</span>
+                        <span class="tech-tag">Catalog Management</span>
+                        <span class="tech-tag">National Rollout</span>
+                    </div>
+                </div>
+                <div class="project-actions">
+                    <button class="btn-case-study" disabled style="opacity:0.7; cursor:default;">
+                        <i class="fas fa-history"></i> Legacy Retail Platform
+                    </button>
+                </div>
+            </div>
         </div>
         
     </section>
@@ -2159,7 +2188,7 @@
         </div>
     </footer>
 
-    <!-- Modals (unchanged, kept original functionality) -->
+    <!-- Modals -->
     <div id="modal1" class="modal" style="display: none;">
         <div class="modal-content">
             <div class="modal-header">
@@ -2262,7 +2291,6 @@
     </div>
 
     <script>
-        // JavaScript remains unchanged from your original code
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navLinks = document.getElementById('navLinks');
