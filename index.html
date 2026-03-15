@@ -1221,6 +1221,106 @@ footer {
   box-shadow: 0 5px 16px rgba(0,0,0,.25);
 }
 
+
+/* Case study enhancements */
+.cs-section { margin-bottom:1.8rem; }
+.cs-section:last-child { margin-bottom:0; }
+.cs-label {
+  display:inline-flex; align-items:center; gap:.5rem;
+  font-size:.68rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--teal); margin-bottom:.75rem;
+}
+.cs-label::before { content:''; width:16px; height:2px; background:var(--teal); border-radius:1px; flex-shrink:0; }
+.cs-phase {
+  display:flex; gap:0; margin-bottom:1.4rem;
+  border:1px solid var(--border); border-radius:var(--r8); overflow:hidden;
+}
+.cs-phase-step {
+  flex:1; padding:.75rem 1rem; text-align:center;
+  background:var(--off); border-right:1px solid var(--border);
+  font-size:.72rem; font-weight:700; color:var(--muted); letter-spacing:.05em; text-transform:uppercase;
+  position:relative;
+}
+.cs-phase-step:last-child { border-right:none; }
+.cs-phase-step.active { background:var(--navy); color:#fff; }
+.cs-phase-step.done { background:var(--teal-pale); color:var(--teal); }
+.cs-metrics {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:.8rem; margin:1rem 0;
+}
+.cs-metric {
+  background:var(--off); border:1px solid var(--border);
+  border-radius:var(--r4); padding:1rem .9rem; text-align:center;
+}
+.cs-metric-num {
+  font-family:var(--display); font-size:1.6rem; font-weight:700;
+  color:var(--navy); line-height:1; margin-bottom:.2rem;
+}
+.cs-metric-lbl { font-size:.66rem; font-weight:600; color:var(--muted); letter-spacing:.04em; text-transform:uppercase; line-height:1.3; }
+.cs-bar-wrap { margin:.6rem 0 1.1rem; }
+.cs-bar-row { display:flex; align-items:center; gap:.75rem; margin-bottom:.55rem; }
+.cs-bar-lbl { font-size:.75rem; color:var(--muted); width:110px; flex-shrink:0; font-weight:500; }
+.cs-bar-track { flex:1; height:7px; background:var(--surface); border-radius:4px; overflow:hidden; }
+.cs-bar-fill { height:100%; border-radius:4px; background:linear-gradient(90deg,var(--navy),var(--teal)); width:0; transition:width 1s var(--ease); }
+.cs-bar-val { font-size:.73rem; font-weight:700; color:var(--navy); width:44px; text-align:right; flex-shrink:0; }
+.cs-tag-row { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.6rem; }
+.cs-tag {
+  font-size:.68rem; font-weight:600; padding:.22rem .7rem;
+  background:var(--teal-pale); color:var(--teal);
+  border:1px solid rgba(10,122,108,.18); border-radius:30px;
+}
+.cs-quote {
+  background:linear-gradient(135deg,var(--teal-pale),#eef3ff);
+  border-left:3px solid var(--teal); border-radius:var(--r4);
+  padding:1rem 1.2rem; margin:1rem 0;
+  font-size:.87rem; color:var(--text); line-height:1.7; font-style:italic;
+}
+.modal-body { padding:2rem; max-height:70vh; overflow-y:auto; }
+
+
+/* Show more projects */
+.proj-card.hidden-card { display:none; }
+.proj-card.hidden-card.shown { display:flex; }
+.show-more-wrap { text-align:center; margin-top:2rem; grid-column:1/-1; }
+.btn-show-more {
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.85rem 2rem; font-family:var(--ui); font-size:.82rem; font-weight:600;
+  background:transparent; color:var(--navy); border:1.5px solid var(--border);
+  border-radius:var(--r4); cursor:pointer; transition:all .22s var(--ease);
+  letter-spacing:.02em;
+}
+.btn-show-more:hover { border-color:var(--navy); background:var(--navy); color:#fff; }
+
+
+/* Experience card project chips */
+.tl-proj-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .4rem;
+  margin-top: 1.1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-soft);
+}
+.tl-chip-label {
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-right: .2rem;
+}
+.tl-chip {
+  font-size: .69rem;
+  font-weight: 600;
+  padding: .22rem .7rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  color: var(--text);
+  transition: background .2s, color .2s, border-color .2s;
+}
+.tl-item:hover .tl-chip { background: var(--teal-pale); color: var(--teal); border-color: rgba(10,122,108,.2); }
+
 /* ═══════════════════════════════════════════════
    SCROLL TO TOP
 ═══════════════════════════════════════════════ */
@@ -1341,11 +1441,11 @@ footer {
             <em>Product Leader</em>
           </div>
           <div class="hero-role">
-            <strong>Consumer Commerce · Marketplace Platforms · Enterprise Systems</strong><br>
-            Mumbai / Bengaluru, India &nbsp;|&nbsp; Global-Ready
+            <strong>Enterprise Platforms · Consumer Commerce · Marketplace Systems · Cross-Border Trade</strong><br>
+            Mumbai / Bengaluru, India &nbsp;|&nbsp; India · South America · Japan · Global
           </div>
           <p class="hero-desc">
-            <strong>20+ years</strong> building and scaling digital platforms across enterprise tax technology, OTT media, retail commerce, and SaaS ecosystems. Currently leading Dell's global Indirect Tax product portfolio — <strong>10+ applications across 100+ countries</strong>, processing 300K+ annual transactions. Helped build India's first OTT platform and contributed to the launch of India's first organised music retail chain.
+            A career built on building platforms that matter — from India's first subscription OTT (BigFlix) and the country's first organised music retail chain (Planet M), to enterprise SaaS for automotive, forestry, and cross-border trade clients across South America and Japan, to now leading Dell's global Indirect Tax technology portfolio processing <strong>300K+ transactions across 100+ countries</strong>. <strong>20+ years</strong> of end-to-end product ownership across 6+ industries, 3 continents, and every stage from 0→1 launches to large-scale enterprise modernization.
           </p>
           <div class="hero-actions">
             <a href="#projects"    class="btn btn-teal"><i class="fas fa-rocket"></i> Key Projects</a>
@@ -1389,21 +1489,29 @@ footer {
 <!-- ticker -->
 <div class="ticker-wrap" aria-hidden="true">
   <div class="ticker-track" id="ticker">
-    <div class="ticker-item"><i class="fas fa-check-circle"></i> 99.6% performance improvement &nbsp;<span class="ticker-sep">·</span></div>
-    <div class="ticker-item"><i class="fas fa-database"></i> 10M+ records migrated, zero downtime &nbsp;<span class="ticker-sep">·</span></div>
-    <div class="ticker-item"><i class="fas fa-globe"></i> 100+ countries, 150 tax jurisdictions &nbsp;<span class="ticker-sep">·</span></div>
-    <div class="ticker-item"><i class="fas fa-dollar-sign"></i> $50K+ annual cost savings &nbsp;<span class="ticker-sep">·</span></div>
-    <div class="ticker-item"><i class="fas fa-exchange-alt"></i> 300K+ transactions optimized annually &nbsp;<span class="ticker-sep">·</span></div>
-    <div class="ticker-item"><i class="fas fa-store"></i> 100+ retail stores enabled &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-check-circle"></i> 99.6% processing efficiency improvement — Dell &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-database"></i> 10M+ records migrated with zero downtime &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-globe"></i> 100+ countries · 150 tax jurisdictions &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-dollar-sign"></i> $50K+ annual cost savings — Dell &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-exchange-alt"></i> 300K+ tax transactions optimized annually &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-store"></i> 100+ retail stores enabled — Times Group &amp; YsecIT &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-film"></i> Built India's first subscription OTT platform — BigFlix &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-music"></i> Powered India's first organised music retail chain — Planet M &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-car"></i> Automotive ERP for import/export — Japan &amp; South America &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-layer-group"></i> 10+ enterprise SaaS platforms across 6 industries &nbsp;<span class="ticker-sep">·</span></div>
     <div class="ticker-item"><i class="fas fa-award"></i> Dell Game Changers Award 2023 &nbsp;<span class="ticker-sep">·</span></div>
     <div class="ticker-item"><i class="fas fa-star"></i> Dell Learning Exchange Rockstar 2025 &nbsp;<span class="ticker-sep">·</span></div>
     <!-- duplicate for seamless loop -->
-    <div class="ticker-item"><i class="fas fa-check-circle"></i> 99.6% performance improvement &nbsp;<span class="ticker-sep">·</span></div>
-    <div class="ticker-item"><i class="fas fa-database"></i> 10M+ records migrated, zero downtime &nbsp;<span class="ticker-sep">·</span></div>
-    <div class="ticker-item"><i class="fas fa-globe"></i> 100+ countries, 150 tax jurisdictions &nbsp;<span class="ticker-sep">·</span></div>
-    <div class="ticker-item"><i class="fas fa-dollar-sign"></i> $50K+ annual cost savings &nbsp;<span class="ticker-sep">·</span></div>
-    <div class="ticker-item"><i class="fas fa-exchange-alt"></i> 300K+ transactions optimized annually &nbsp;<span class="ticker-sep">·</span></div>
-    <div class="ticker-item"><i class="fas fa-store"></i> 100+ retail stores enabled &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-check-circle"></i> 99.6% processing efficiency improvement — Dell &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-database"></i> 10M+ records migrated with zero downtime &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-globe"></i> 100+ countries · 150 tax jurisdictions &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-dollar-sign"></i> $50K+ annual cost savings — Dell &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-exchange-alt"></i> 300K+ tax transactions optimized annually &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-store"></i> 100+ retail stores enabled — Times Group &amp; YsecIT &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-film"></i> Built India's first subscription OTT platform — BigFlix &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-music"></i> Powered India's first organised music retail chain — Planet M &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-car"></i> Automotive ERP for import/export — Japan &amp; South America &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-layer-group"></i> 10+ enterprise SaaS platforms across 6 industries &nbsp;<span class="ticker-sep">·</span></div>
     <div class="ticker-item"><i class="fas fa-award"></i> Dell Game Changers Award 2023 &nbsp;<span class="ticker-sep">·</span></div>
     <div class="ticker-item"><i class="fas fa-star"></i> Dell Learning Exchange Rockstar 2025 &nbsp;<span class="ticker-sep">·</span></div>
   </div>
@@ -1418,17 +1526,17 @@ footer {
     </div>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p>Accomplished Product Leader with 20+ years of experience building and scaling digital platforms across enterprise tax technology, OTT media, retail commerce, and SaaS ecosystems. Currently leading Dell Technologies' global Indirect Tax product portfolio — 10+ internally built applications supporting tax compliance across 100+ countries and processing 300K+ transactions annually.</p>
-        <p>Played a key role in Dell's enterprise finance modernization including Oracle Fusion ERP, TR OneSource Cloud, and CERTifyTax, executing a zero-downtime migration of 10M+ customer exemption records. Earlier helped build India's first subscription-based OTT platform (Reliance BigFlix) and contributed to the launch of India's first organized music retail chain, Planet M (Times Group).</p>
-        <p>Deep expertise in enterprise platform architecture, tax compliance systems, ERP integrations, and large-scale digital product delivery. Recognized for driving innovation, operational excellence, and cross-functional execution across globally distributed teams.</p>
+        <p>Accomplished Product Leader with 20+ years of experience building digital platforms that span industries, geographies, and product stages. The journey began in retail technology — leading the nationwide rollout of POS and inventory systems across 100+ Planet M music stores — then scaled to building India's first subscription OTT platform, Reliance BigFlix, from scratch, followed by delivering enterprise SaaS across automotive ERP, forestry management, restaurant operations, and cross-border trade for clients in South America and Japan. Today, leading Dell's global Indirect Tax product portfolio — 10+ internally built applications supporting tax compliance across <strong>100+ countries and 150 tax jurisdictions</strong>, processing 300K+ transactions annually.</p>
+        <p>At Dell, played a key role in the enterprise finance modernization program — integrating Oracle Fusion ERP, migrating from on-prem Sabrix to TR OneSource Cloud, and executing a zero-downtime migration of 10M+ customer exemption records with full SOX compliance. Architected a middleware tax enrichment layer serving 100+ enterprise apps, built the 0→1 tax exemption management platform, and led the global CERTifyTax rollout across Deloitte, Thomson Reuters, and CERTifyTax vendor ecosystems.</p>
+        <p>What ties the career together is a consistent ability to own complex, cross-functional product challenges end-to-end — from stakeholder discovery and PRD creation through engineering delivery, global rollout, and post-launch operations. Recognized across organizations for driving measurable outcomes: 99.6% processing efficiency improvement, $50K+ annual savings, and platforms trusted by Fortune 500 finance operations globally.</p>
         <div class="highlights-box">
           <h4>Product Leadership Highlights</h4>
           <ul class="hl-list">
-            <li>Global platform scale: 100+ countries, 300K+ transactions annually, 10M+ records migrated with zero downtime</li>
-            <li>0→1 product launches across OTT media, enterprise tax systems, and retail commerce platforms</li>
-            <li>End-to-end product ownership: strategy, OKR definition, PRD creation, engineering delivery, and operational support</li>
-            <li>Cross-functional leadership across engineering, finance, compliance, and global vendor ecosystems</li>
-            <li>Cloud migration, ERP modernization, and generative AI integration across enterprise-scale platforms</li>
+            <li><strong>Multi-industry platform builder:</strong> Tax technology, OTT media, retail POS, automotive ERP, forestry, restaurant management, cross-border trade, and eCommerce — across India, South America, and Japan</li>
+            <li><strong>0→1 pioneer:</strong> Built India's first subscription OTT (BigFlix), led India's first organized music retail chain tech rollout (Planet M), and delivered multiple ground-up enterprise platforms for global clients</li>
+            <li><strong>Global enterprise scale:</strong> 100+ countries, 150 tax jurisdictions, 300K+ transactions/yr, 10M+ records migrated with zero downtime and full SOX compliance</li>
+            <li><strong>End-to-end ownership:</strong> Strategy, OKR definition, PRD creation, engineering leadership, global rollout, and operational support — across every phase of the product lifecycle</li>
+            <li><strong>Cloud &amp; AI modernization:</strong> Oracle Fusion ERP, TR OneSource Cloud migration, CERTifyTax global rollout, generative AI-powered observability platform at Dell</li>
           </ul>
         </div>
       </div>
@@ -1437,7 +1545,7 @@ footer {
           <div class="ac-icon"><i class="fas fa-chart-line"></i></div>
           <div>
             <div class="ac-title">Selected Product Impact</div>
-            <div class="ac-body">99.6% performance gain · 10M+ records migrated (zero downtime, SOX compliant) · $50K+ annual savings · 100+ countries, 150 tax jurisdictions enabled</div>
+            <div class="ac-body">99.6% performance gain · 10M+ records migrated (zero downtime, SOX compliant) · $50K+ annual savings · 100+ countries, 150 tax jurisdictions · 100+ retail stores · 10+ SaaS platforms across 3 continents</div>
           </div>
         </div>
         <div class="about-card reveal reveal-delay-2">
@@ -1649,11 +1757,23 @@ footer {
           </div>
           <p class="tl-body">Led end-to-end development and delivery of enterprise SaaS platforms across retail, international trade, logistics, and operational management domains, working closely with global clients to translate business requirements into scalable software products.</p>
           <ul class="tl-bullets">
-            <li><strong>Multi-Domain Platform Delivery:</strong> Designed and delivered SaaS platforms for retail (ProMax/DaVinci — POS &amp; inventory for South American chains), forestry operations, restaurant management, and enterprise asset tracking.</li>
-            <li><strong>Cross-Border Trade Systems:</strong> Developed platforms supporting vehicle import/export and fish export-import supply chains, enabling regulatory documentation, shipment tracking, and cross-border workflows.</li>
-            <li><strong>Customer Discovery &amp; Product Definition:</strong> Conducted extensive stakeholder workshops to convert operational challenges into structured product requirements, feature roadmaps, and technical specifications.</li>
-            <li><strong>Agile Product Delivery:</strong> Managed Agile development cycles, product backlogs, and cross-functional engineering teams to deliver 10+ enterprise SaaS platforms across multiple industries.</li>
+            <li><strong>Retail Commerce Platforms:</strong> Designed and delivered POS &amp; inventory management platforms for South American retail chains — ProMax (electronics) and DaVinci (electronics, gaming, accessories, apparel) — covering catalog ingestion, pricing workflows, multi-store sync, barcode generation, and end-user training.</li>
+            <li><strong>Cross-Border Trade Systems:</strong> Built ERP for Global Trading Japan covering automotive import/export — dealer onboarding, inventory intake, document processing, shipment tracking, compliance checks, and multi-region document clearance.</li>
+            <li><strong>Industry Platforms:</strong> Developed Forest Management platform (Greenwood World) for forestry product catalog, classification, and export documentation; Restaurant Management platform for order management, inventory, billing, and reporting.</li>
+            <li><strong>Enterprise Asset Management:</strong> Built internal asset tracking systems for lifecycle management of IT equipment, computers, and organizational assets with inventory control and operational reporting.</li>
+            <li><strong>Customer Discovery &amp; Product Definition:</strong> Conducted in-depth stakeholder workshops for each client to convert operational challenges into structured product requirements, feature roadmaps, and technical specifications.</li>
+            <li><strong>Agile Product Delivery:</strong> Managed Agile delivery cycles, product backlogs, and cross-functional engineering teams to deliver 10+ enterprise SaaS platforms across multiple industries and geographies.</li>
           </ul>
+          <div class="tl-proj-chips">
+            <span class="tl-chip-label">Key Platforms:</span>
+            <span class="tl-chip">Promax POS &amp; Inventory</span>
+            <span class="tl-chip">DaVinci HOS/POS</span>
+            <span class="tl-chip">Yoko ERP (Car Import/Export)</span>
+            <span class="tl-chip">Vehicle Import/Export ERP</span>
+            <span class="tl-chip">Forest Management</span>
+            <span class="tl-chip">Restaurant Management</span>
+            <span class="tl-chip">Asset Management</span>
+          </div>
           <div class="tl-recog">
             <div class="tl-recog-lbl">Recognition</div>
             YsecIT Performance Award — 2017
@@ -1698,9 +1818,21 @@ footer {
           </div>
           <p class="tl-body">Spearheaded the technology strategy and launch of India's first subscription-based OTT platform, BigFlix, building all foundational systems from the ground up.</p>
           <ul class="tl-bullets">
-            <li><strong>0→1 Platform Build:</strong> Led complete end-to-end launch including architecture, development, and integration of customer onboarding, billing, CRM, and content distribution systems.</li>
-            <li><strong>National Systems Integration:</strong> Implemented and integrated Focus RT inventory management and POS systems across the national retail network, enabling centralized tracking of sales, inventory, and financial reporting.</li>
+            <li><strong>0→1 Platform Build:</strong> Led complete end-to-end launch including architecture, development, and integration of customer onboarding, billing, CRM, and content distribution systems for India's first subscription-based OTT.</li>
+            <li><strong>Content Management System (CMS):</strong> Built the CMS powering BigFlix — enabling content teams to upload movies, artwork, metadata, pricing, and trailers; manage modules and schedule releases; run promotion scheduling, campaign management, and SQL-based reporting with custom report generation.</li>
+            <li><strong>eCommerce Website (Movie Rental &amp; Subscription):</strong> Designed workflows for rental subscriptions, catalog display, offer engines, and user journeys. Built pricing logic, catalog discovery, fulfilment triggers, digital storefront optimization, MIS dashboard (BI reporting), rental logic, recommendation flows, and multi-channel user journeys.</li>
+            <li><strong>Talisma CRM:</strong> Implemented CRM workflows for customer onboarding, support case management, ticket routing, campaign management, user segmentation, issue resolution pipelines, and feedback loops.</li>
+            <li><strong>National Systems Integration:</strong> Implemented and integrated Focus RT ERP and POS systems across the national retail network — store setup, hardware integration, price consistency, cross-system alignment, operations training, and retail fulfilment integration.</li>
           </ul>
+          <div class="tl-proj-chips">
+            <span class="tl-chip-label">Key Platforms:</span>
+            <span class="tl-chip">BigFlix OTT (0→1)</span>
+            <span class="tl-chip">Content Management System</span>
+            <span class="tl-chip">eCommerce &amp; Subscriptions</span>
+            <span class="tl-chip">Talisma CRM</span>
+            <span class="tl-chip">Focus RT ERP</span>
+            <span class="tl-chip">Point of Sales (POS)</span>
+          </div>
           <div class="tl-recog">
             <div class="tl-recog-lbl">Recognition</div>
             Received 117% variable payout for successful national implementation
@@ -1722,9 +1854,17 @@ footer {
           </div>
           <p class="tl-body">Played a pivotal role in building the technology infrastructure to support the nationwide expansion of India's first organized music retail chain, Planet M.</p>
           <ul class="tl-bullets">
-            <li><strong>Nationwide System Rollout:</strong> Led national implementation of Retail Pro POS and inventory platform across 100+ retail stores and warehouses spanning 20+ cities.</li>
-            <li><strong>Centralized Visibility:</strong> Established systems for real-time tracking of stock levels, purchase orders, and inter-store movement across the national network.</li>
+            <li><strong>Nationwide System Rollout:</strong> Led national implementation of Retail Pro POS and inventory platform across 100+ retail stores and warehouses spanning 20+ cities — covering catalog setup, pricing, barcode workflows, and store operations.</li>
+            <li><strong>Legacy Migration:</strong> Migrated legacy FoxPro systems to Retail Pro (Inventory + Sales), establishing end-to-end SKU lifecycle management, compliance across 100+ store locations, and marketplace fulfilment integration.</li>
+            <li><strong>Centralized Visibility:</strong> Established systems for real-time tracking of stock levels, purchase orders, and inter-store movement — enabling centralized inventory visibility and financial reconciliation across the national network.</li>
           </ul>
+          <div class="tl-proj-chips">
+            <span class="tl-chip-label">Key Platforms:</span>
+            <span class="tl-chip">Retail Pro POS</span>
+            <span class="tl-chip">Inventory Management</span>
+            <span class="tl-chip">FoxPro Migration</span>
+            <span class="tl-chip">100+ Stores · 20+ Cities</span>
+          </div>
           <div class="tl-recog">
             <div class="tl-recog-lbl">Recognition</div>
             Times Group Double Promotion (2005)
@@ -1798,7 +1938,7 @@ footer {
           <div class="proj-metric gold-m">✨ Live product · prompt-crafter-pro.pages.dev</div>
           <div class="proj-chips"><span class="chip">GenAI</span><span class="chip">UX Design</span><span class="chip">Prompt Engineering</span></div>
         </div>
-        <div class="proj-foot"><a href="https://prompt-crafter-pro.pages.dev/" target="_blank" class="proj-action">Live Product <i class="fas fa-external-link-alt"></i></a></div>
+        <div class="proj-foot" style="background:var(--gold-pale);border-top:1px solid rgba(196,154,46,.2)"><a href="https://prompt-crafter-pro.pages.dev/" target="_blank" class="proj-action" style="color:var(--gold)"><i class="fas fa-rocket"></i> Try Live Product <i class="fas fa-external-link-alt" style="font-size:.7rem"></i></a></div>
       </div>
       <div class="proj-card reveal reveal-delay-3">
         <div class="proj-stripe indie"></div>
@@ -1809,8 +1949,150 @@ footer {
           <div class="proj-metric gold-m">🧘 sites.google.com/view/saarthiyoga/home</div>
           <div class="proj-chips"><span class="chip">Content IA</span><span class="chip">Accessibility</span><span class="chip">UX Design</span></div>
         </div>
-        <div class="proj-foot"><a href="https://sites.google.com/view/saarthiyoga/home" target="_blank" class="proj-action">View Site <i class="fas fa-external-link-alt"></i></a></div>
+        <div class="proj-foot" style="background:var(--gold-pale);border-top:1px solid rgba(196,154,46,.2)"><a href="https://sites.google.com/view/saarthiyoga/home" target="_blank" class="proj-action" style="color:var(--gold)"><i class="fas fa-globe"></i> Visit Platform <i class="fas fa-external-link-alt" style="font-size:.7rem"></i></a></div>
       </div>
+
+      <!-- YsecIT Projects -->
+      <div class="proj-card hidden-card reveal reveal-delay-1">
+        <div class="proj-stripe corp"></div>
+        <div class="proj-body">
+          <div class="proj-badge corp"><i class="fas fa-building"></i> YsecIT · Greenwood World</div>
+          <h3>Forest Management Platform (Wood Export)</h3>
+          <p class="proj-desc">Developed operational workflows for forestry product catalog, classification, export documentation, and stakeholder coordination for Greenwood World, Bangalore.</p>
+          <div class="proj-metric">🌲 Product classification · Regulatory flows · Data management</div>
+          <div class="proj-chips"><span class="chip">Forest Management</span><span class="chip">Export Documentation</span><span class="chip">Catalog</span><span class="chip">Jan 2018–Jan 2020</span></div>
+        </div>
+        <div class="proj-foot"><button class="proj-action" disabled>Enterprise Platform</button></div>
+      </div>
+
+      <div class="proj-card hidden-card reveal reveal-delay-2">
+        <div class="proj-stripe corp"></div>
+        <div class="proj-body">
+          <div class="proj-badge corp"><i class="fas fa-building"></i> YsecIT · Yokohama Trading</div>
+          <h3>Yoko ERP (Car Import &amp; Export)</h3>
+          <p class="proj-desc">Requirements gathering and conversion of business needs into technical specs for Yokohama Trading N.V. Coordinated with Development, Logic Building, SQL Scripting, Review, Testing, and Team meetings.</p>
+          <div class="proj-metric">🚗 Business to Technical Requirements · SQL Scripting</div>
+          <div class="proj-chips"><span class="chip">ERP</span><span class="chip">Import/Export</span><span class="chip">Requirements</span><span class="chip">Jan 2018–Dec 2019</span></div>
+        </div>
+        <div class="proj-foot"><button class="proj-action" disabled>Enterprise Platform</button></div>
+      </div>
+
+      <div class="proj-card hidden-card reveal reveal-delay-3">
+        <div class="proj-stripe corp"></div>
+        <div class="proj-body">
+          <div class="proj-badge corp"><i class="fas fa-building"></i> YsecIT · Promax Trading</div>
+          <h3>Inventory Management &amp; Point of Sales Application</h3>
+          <p class="proj-desc">Designed and delivered a multi-retailer product catalog ingestion and pricing system enabling store chains to upload product listings, manage POS, and run promotions. Includes barcode generation, label printing, POS integration, and multi-store sync.</p>
+          <div class="proj-metric">🏪 Multi-store POS · SKU mapping · Barcode generation</div>
+          <div class="proj-chips"><span class="chip">POS</span><span class="chip">Inventory</span><span class="chip">Catalog</span><span class="chip">Promotions</span><span class="chip">Dec 2017–Jan 2019</span></div>
+        </div>
+        <div class="proj-foot"><button class="proj-action" onclick="openModal('mp1')">View Details <i class="fas fa-arrow-right"></i></button></div>
+      </div>
+
+      <div class="proj-card hidden-card reveal reveal-delay-1">
+        <div class="proj-stripe corp"></div>
+        <div class="proj-body">
+          <div class="proj-badge corp"><i class="fas fa-building"></i> YsecIT · Da Vinci Group</div>
+          <h3>HOS &amp; POS (Inventory Management)</h3>
+          <p class="proj-desc">Business process analysis, data analysis, UI design, logic building, data integration, end-user training, hardware integration, barcode design, and labelling fiscal printer integration for South American retail chain.</p>
+          <div class="proj-metric">🖨️ Fiscal printer · Barcode design · UI design logic</div>
+          <div class="proj-chips"><span class="chip">HOS/POS</span><span class="chip">Barcode</span><span class="chip">Fiscal Printer</span><span class="chip">Nov 2017–Dec 2019</span></div>
+        </div>
+        <div class="proj-foot"><button class="proj-action" disabled>Enterprise Platform</button></div>
+      </div>
+
+      <div class="proj-card hidden-card reveal reveal-delay-2">
+        <div class="proj-stripe corp"></div>
+        <div class="proj-body">
+          <div class="proj-badge corp"><i class="fas fa-building"></i> YsecIT · Global Trading Japan</div>
+          <h3>Vehicle Import/Export ERP &amp; Dealer Portal</h3>
+          <p class="proj-desc">Built ERP for automotive import/export — dealer onboarding, inventory intake, document processing, shipment tracking, compliance checks. Includes seller onboarding, compliance validation, listing workflows, and multi-region document clearance.</p>
+          <div class="proj-metric">🚢 7 functional specs · Shipment/fulfilment workflows</div>
+          <div class="proj-chips"><span class="chip">ERP</span><span class="chip">Dealer Portal</span><span class="chip">Import/Export</span><span class="chip">Compliance</span><span class="chip">Jan 2017–Dec 2019</span></div>
+        </div>
+        <div class="proj-foot"><button class="proj-action" disabled>Enterprise Platform</button></div>
+      </div>
+
+      <!-- Reliance / BigFlix Projects -->
+      <div class="proj-card hidden-card reveal reveal-delay-3">
+        <div class="proj-stripe corp"></div>
+        <div class="proj-body">
+          <div class="proj-badge corp"><i class="fas fa-building"></i> Reliance Entertainment — BigFlix</div>
+          <h3>Content Management System (CMS)</h3>
+          <p class="proj-desc">Built the CMS powering BigFlix — India's first OTT. Enabled content teams to upload movies, artwork, metadata, pricing, trailers, manage modules, and schedule releases. Includes publisher portal with bulk content ingestion, metadata management, promotion scheduling and campaign management.</p>
+          <div class="proj-metric">🎬 Bulk content ingestion · Metadata · SQL-based reporting</div>
+          <div class="proj-chips"><span class="chip">CMS</span><span class="chip">OTT</span><span class="chip">Content Ops</span><span class="chip">BigFlix</span><span class="chip">Jan 2010–Oct 2014</span></div>
+        </div>
+        <div class="proj-foot"><button class="proj-action" disabled>Enterprise Platform</button></div>
+      </div>
+
+      <div class="proj-card hidden-card reveal reveal-delay-1">
+        <div class="proj-stripe corp"></div>
+        <div class="proj-body">
+          <div class="proj-badge corp"><i class="fas fa-building"></i> Reliance Entertainment — BigFlix</div>
+          <h3>eCommerce Website (Movie Rental &amp; Subscription)</h3>
+          <p class="proj-desc">Designed workflows for rental subscriptions, catalog display, offer engines, user journeys, and customer engagement. Includes pricing logic, catalog discovery, fulfilment triggers, digital storefront optimization, BI reporting (MIS dashboard), rental logic, and recommendation flows.</p>
+          <div class="proj-metric">🎥 Rental logic · Recommendations · MIS dashboard</div>
+          <div class="proj-chips"><span class="chip">eCommerce</span><span class="chip">OTT</span><span class="chip">Subscriptions</span><span class="chip">Recommendations</span><span class="chip">Jan 2010–Oct 2014</span></div>
+        </div>
+        <div class="proj-foot"><button class="proj-action" disabled>Enterprise Platform</button></div>
+      </div>
+
+      <div class="proj-card hidden-card reveal reveal-delay-2">
+        <div class="proj-stripe corp"></div>
+        <div class="proj-body">
+          <div class="proj-badge corp"><i class="fas fa-building"></i> Reliance Entertainment — BigFlix</div>
+          <h3>Talisma CRM</h3>
+          <p class="proj-desc">Implemented CRM workflows for customer onboarding, support cases, ticket routing, campaign management, and user segmentation. Covers seller/customer support workflows, issue resolution pipelines, and feedback loops.</p>
+          <div class="proj-metric">📋 Customer onboarding · Ticket routing · Segmentation</div>
+          <div class="proj-chips"><span class="chip">CRM</span><span class="chip">Support Workflows</span><span class="chip">Segmentation</span><span class="chip">Jan 2010–Oct 2014</span></div>
+        </div>
+        <div class="proj-foot"><button class="proj-action" disabled>Enterprise Platform</button></div>
+      </div>
+
+      <!-- Times Group / Planet M Projects -->
+      <div class="proj-card hidden-card reveal reveal-delay-3">
+        <div class="proj-stripe corp"></div>
+        <div class="proj-body">
+          <div class="proj-badge corp"><i class="fas fa-building"></i> Reliance Capital — BigFlix</div>
+          <h3>Focus RT (ERP)</h3>
+          <p class="proj-desc">Implemented Focus RT ERP modules across nationwide operations including store setup, hardware integration, and operations training. Retail fulfilment integration, price consistency, cross-system alignment key for marketplace fulfilment and stores.</p>
+          <div class="proj-metric">🏬 Nationwide rollout · Retail fulfilment · Cross-system sync</div>
+          <div class="proj-chips"><span class="chip">Focus RT</span><span class="chip">ERP</span><span class="chip">Retail</span><span class="chip">Jan 2010–Oct 2014</span></div>
+        </div>
+        <div class="proj-foot"><button class="proj-action" disabled>Enterprise Platform</button></div>
+      </div>
+
+      <div class="proj-card hidden-card reveal reveal-delay-1">
+        <div class="proj-stripe corp"></div>
+        <div class="proj-body">
+          <div class="proj-badge corp"><i class="fas fa-building"></i> Reliance Entertainment — BigFlix</div>
+          <h3>Point of Sales (POS)</h3>
+          <p class="proj-desc">Implemented POS, CRM, ERP modules across nationwide operations including store setup, hardware integration, and operations training. Retail fulfilment integration, price consistency, and cross-system alignment for marketplace fulfilment and store operations.</p>
+          <div class="proj-metric">🖥️ Nationwide POS · Hardware integration · Store ops</div>
+          <div class="proj-chips"><span class="chip">POS</span><span class="chip">CRM</span><span class="chip">ERP</span><span class="chip">Retail Ops</span><span class="chip">Dec 2007–Oct 2014</span></div>
+        </div>
+        <div class="proj-foot"><button class="proj-action" disabled>Enterprise Platform</button></div>
+      </div>
+
+      <div class="proj-card hidden-card reveal reveal-delay-2">
+        <div class="proj-stripe corp"></div>
+        <div class="proj-body">
+          <div class="proj-badge corp"><i class="fas fa-building"></i> Times Group — Planet M</div>
+          <h3>Retail Pro Inventory &amp; Management Sales</h3>
+          <p class="proj-desc">Migrated legacy FoxPro systems to Retail Pro (Inventory + Sales). Set up catalog, pricing, barcode workflows, and nationwide POS rollout across 100+ stores. Marketplace relevance: store fulfilment, SKU lifecycle, compliance across 100+ store locations.</p>
+          <div class="proj-metric">🏪 100+ stores · FoxPro migration · SKU lifecycle</div>
+          <div class="proj-chips"><span class="chip">Retail Pro</span><span class="chip">POS</span><span class="chip">Inventory</span><span class="chip">100+ Stores</span><span class="chip">Feb 2002–Nov 2007</span></div>
+        </div>
+        <div class="proj-foot"><button class="proj-action" disabled>Enterprise Platform</button></div>
+      </div>
+    
+      <div class="show-more-wrap">
+        <button class="btn-show-more" id="showMoreBtn" onclick="toggleMoreProjects()">
+          <i class="fas fa-th"></i> Show All Projects (11 more)
+        </button>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1987,11 +2269,242 @@ footer {
 
 <button class="scroll-top" id="scrollTop" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
 
-<!-- ═══════════ MODALS ═══════════ -->
-<div id="m1" class="modal"><div class="modal-box"><div class="modal-head"><div><div class="modal-sub">Dell Technologies</div><h3>Middleware Tax Enrichment Layer</h3></div><button class="modal-close" onclick="closeModal('m1')">×</button></div><div class="modal-body"><h4>Overview</h4><p>Architected proprietary middleware enrichment layer between 100+ enterprise applications and the Sabrix tax engine. This platform decoupled all downstream applications from direct tax engine changes — eliminating costly individual application updates every time a new global tax rule was introduced across 100+ countries.</p><h4>Impact</h4><ul><li><strong>Scale:</strong> Supports 100+ enterprise applications across 100+ countries</li><li><strong>Savings:</strong> Millions saved in vendor and engineering costs annually</li><li><strong>Architecture:</strong> Single point of rule change across the global tax ecosystem</li></ul></div></div></div>
-<div id="m2" class="modal"><div class="modal-box"><div class="modal-head"><div><div class="modal-sub">Dell Technologies</div><h3>Tax Exemption Management Platform</h3></div><button class="modal-close" onclick="closeModal('m2')">×</button></div><div class="modal-body"><h4>Overview</h4><p>Built Dell's internal exemption certificate management product from scratch — a 0→1 build enabling upload, storage, search, and tax engine DB integration for customer exemptions globally. Later led the CERTifyTax global rollout and integration with TR OneSource Cloud.</p><h4>Impact</h4><ul><li><strong>Migration:</strong> 10M+ customer exemption records migrated with zero downtime</li><li><strong>Compliance:</strong> Full SOX compliance throughout migration</li><li><strong>Scale:</strong> 100+ countries and 150 tax jurisdictions enabled</li><li><strong>Partners:</strong> Vendor management across Deloitte, Thomson Reuters, CERTifyTax</li></ul></div></div></div>
-<div id="m3" class="modal"><div class="modal-box"><div class="modal-head"><div><div class="modal-sub">Dell Technologies</div><h3>Tax Diagnostics, RCA &amp; Observability</h3></div><button class="modal-close" onclick="closeModal('m3')">×</button></div><div class="modal-body"><h4>Overview</h4><p>Delivered a transaction-level diagnostic and observability platform for root cause analysis of tax determination errors. Instrumented with generative AI tooling for data-driven decision making across global tax workflows.</p><h4>Impact</h4><ul><li><strong>Resolution Time:</strong> Significantly reduced Finance and Operations team resolution time</li><li><strong>AI Integration:</strong> Generative AI tooling for intelligent RCA and pattern detection</li><li><strong>Observability:</strong> Transaction-level visibility across 300K+ annual tax transactions</li></ul></div></div></div>
-<div id="m4" class="modal"><div class="modal-box"><div class="modal-head"><div><div class="modal-sub">Dell Technologies</div><h3>Performance &amp; Cost Optimization</h3></div><button class="modal-close" onclick="closeModal('m4')">×</button></div><div class="modal-body"><h4>Overview</h4><p>Designed a cloud-based financial transaction simulation platform that dramatically improved processing efficiency for Dell's global tax transaction operations.</p><h4>Impact</h4><ul><li><strong>Performance:</strong> 99.6% improvement in processing efficiency</li><li><strong>Scale:</strong> 300K+ annual transactions optimized</li><li><strong>Cost Savings:</strong> $50K+ in annual cost savings generated</li><li><strong>Technology:</strong> Cloud-based simulation with Oracle ERP integration</li></ul></div></div></div>
+<!-- ═══════════ MODALS — Case Studies ═══════════ -->
+
+<!-- MP1: Promax Inventory & POS -->
+<div id="mp1" class="modal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div><div class="modal-sub">YsecIT · Promax Trading N.V. · Case Study</div><h3>Inventory Management &amp; Point of Sales Application</h3></div>
+      <button class="modal-close" onclick="closeModal('mp1')">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="cs-phase">
+        <div class="cs-phase-step done">Problem</div>
+        <div class="cs-phase-step done">Approach</div>
+        <div class="cs-phase-step active">Results</div>
+      </div>
+      <div class="cs-section">
+        <div class="cs-label">The Problem</div>
+        <p>Promax Trading N.V., a South American multi-retailer electronics chain, needed a unified product catalog ingestion, pricing, and POS system to manage store chains, upload product listings, run promotions, and synchronize inventory across multiple retail locations.</p>
+      </div>
+      <div class="cs-section">
+        <div class="cs-label">My Approach</div>
+        <ul>
+          <li>Conducted customer discovery workshops to translate retailer business needs into product requirements</li>
+          <li>Designed catalog upload, listing management, and pricing workflows with multi-store synchronization</li>
+          <li>Built POS → inventory sync rules and validation workflows</li>
+          <li>Implemented barcode generation, label printing, and SKU mapping</li>
+          <li>Led store onboarding, data migration, and end-user training</li>
+        </ul>
+      </div>
+      <div class="cs-section">
+        <div class="cs-label">Results</div>
+        <div class="cs-metrics">
+          <div class="cs-metric"><div class="cs-metric-num">Multi</div><div class="cs-metric-lbl">Store Sync</div></div>
+          <div class="cs-metric"><div class="cs-metric-num">0→1</div><div class="cs-metric-lbl">Platform Build</div></div>
+          <div class="cs-metric"><div class="cs-metric-num">Full</div><div class="cs-metric-lbl">Store Onboarding</div></div>
+        </div>
+        <div class="cs-tag-row"><span class="cs-tag">POS</span><span class="cs-tag">Inventory</span><span class="cs-tag">Catalog Management</span><span class="cs-tag">Promotions</span><span class="cs-tag">Barcode</span><span class="cs-tag">Multi-store</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- M1: Middleware Tax Enrichment Layer -->
+<div id="m1" class="modal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div><div class="modal-sub">Dell Technologies · Case Study</div><h3>Middleware Tax Enrichment Layer</h3></div>
+      <button class="modal-close" onclick="closeModal('m1')">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="cs-phase">
+        <div class="cs-phase-step done">Problem</div>
+        <div class="cs-phase-step done">Approach</div>
+        <div class="cs-phase-step active">Results</div>
+      </div>
+
+      <div class="cs-section">
+        <div class="cs-label">The Problem</div>
+        <p>Every time a new global tax rule was introduced — across 100+ countries — each of Dell's 100+ enterprise applications required individual, costly updates to stay compliant with the Sabrix tax engine. This created an engineering bottleneck, massive vendor dependency, and significant operational risk with each rule change.</p>
+      </div>
+
+      <div class="cs-section">
+        <div class="cs-label">My Approach</div>
+        <p>Led discovery workshops with Finance, Engineering, and Tax Operations to map all application-to-engine touchpoints. Defined product requirements for a centralized enrichment layer that would intercept, normalize, and route all tax transactions — abstracting complexity away from individual applications.</p>
+        <ul>
+          <li>Gathered requirements from 8+ stakeholder teams across Finance, Sales, and IT</li>
+          <li>Designed middleware architecture to decouple 100+ apps from direct Sabrix dependency</li>
+          <li>Led cross-functional engineering team through PRD → development → QA → production</li>
+          <li>Managed change rollout with zero disruption to live tax processing operations</li>
+        </ul>
+      </div>
+
+      <div class="cs-section">
+        <div class="cs-label">Results</div>
+        <div class="cs-metrics">
+          <div class="cs-metric"><div class="cs-metric-num">100+</div><div class="cs-metric-lbl">Apps Decoupled</div></div>
+          <div class="cs-metric"><div class="cs-metric-num">100+</div><div class="cs-metric-lbl">Countries Covered</div></div>
+          <div class="cs-metric"><div class="cs-metric-num">$M+</div><div class="cs-metric-lbl">Engineering Savings</div></div>
+        </div>
+        <div class="cs-bar-wrap" id="bars-m1">
+          <div class="cs-bar-row"><div class="cs-bar-lbl">Engineering Effort</div><div class="cs-bar-track"><div class="cs-bar-fill" data-w="88"></div></div><div class="cs-bar-val">↓88%</div></div>
+          <div class="cs-bar-row"><div class="cs-bar-lbl">Rule Update Speed</div><div class="cs-bar-track"><div class="cs-bar-fill" data-w="95"></div></div><div class="cs-bar-val">↑95%</div></div>
+          <div class="cs-bar-row"><div class="cs-bar-lbl">Vendor Dependency</div><div class="cs-bar-track"><div class="cs-bar-fill" data-w="70"></div></div><div class="cs-bar-val">↓70%</div></div>
+        </div>
+        <div class="cs-tag-row"><span class="cs-tag">Middleware Architecture</span><span class="cs-tag">Sabrix</span><span class="cs-tag">API Design</span><span class="cs-tag">100+ Countries</span><span class="cs-tag">0→1 Build</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- M2: Tax Exemption Management Platform -->
+<div id="m2" class="modal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div><div class="modal-sub">Dell Technologies · Case Study</div><h3>Tax Exemption Management Platform (0→1)</h3></div>
+      <button class="modal-close" onclick="closeModal('m2')">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="cs-phase">
+        <div class="cs-phase-step done">Problem</div>
+        <div class="cs-phase-step done">Approach</div>
+        <div class="cs-phase-step active">Results</div>
+      </div>
+
+      <div class="cs-section">
+        <div class="cs-label">The Problem</div>
+        <p>Dell had no internal system to manage customer tax exemption certificates globally. Certificates were scattered across teams and systems, making it impossible to search, validate, or sync them with the tax engine — creating compliance risk and manual overhead across 100+ countries and 150 tax jurisdictions.</p>
+      </div>
+
+      <div class="cs-section">
+        <div class="cs-label">My Approach</div>
+        <p>Built the product from scratch (0→1). Conducted discovery with Finance, Tax Operations, and Legal to define MVP scope. Designed the end-to-end workflow: upload → storage → search → tax engine DB integration.</p>
+        <ul>
+          <li>Defined PRD covering certificate lifecycle: upload, validation, search, expiry alerts, and tax engine sync</li>
+          <li>Led engineering team through full build including CERTifyTax integration with TR OneSource Cloud</li>
+          <li>Owned 10M+ record migration plan: phased rollout, data validation gates, zero-downtime execution</li>
+          <li>Managed vendor alignment across Deloitte, Thomson Reuters, and CERTifyTax with executive reporting</li>
+        </ul>
+        <div class="cs-quote">"The migration of 10M+ exemption records was executed with zero downtime and full SOX compliance — a result of meticulous planning, phased rollout strategy, and close cross-functional coordination."</div>
+      </div>
+
+      <div class="cs-section">
+        <div class="cs-label">Results</div>
+        <div class="cs-metrics">
+          <div class="cs-metric"><div class="cs-metric-num">10M+</div><div class="cs-metric-lbl">Records Migrated</div></div>
+          <div class="cs-metric"><div class="cs-metric-num">150</div><div class="cs-metric-lbl">Tax Jurisdictions</div></div>
+          <div class="cs-metric"><div class="cs-metric-num">0</div><div class="cs-metric-lbl">Downtime Minutes</div></div>
+        </div>
+        <div class="cs-bar-wrap" id="bars-m2">
+          <div class="cs-bar-row"><div class="cs-bar-lbl">SOX Compliance</div><div class="cs-bar-track"><div class="cs-bar-fill" data-w="100"></div></div><div class="cs-bar-val">100%</div></div>
+          <div class="cs-bar-row"><div class="cs-bar-lbl">Migration Success</div><div class="cs-bar-track"><div class="cs-bar-fill" data-w="100"></div></div><div class="cs-bar-val">100%</div></div>
+          <div class="cs-bar-row"><div class="cs-bar-lbl">Global Coverage</div><div class="cs-bar-track"><div class="cs-bar-fill" data-w="92"></div></div><div class="cs-bar-val">150 jur.</div></div>
+        </div>
+        <div class="cs-tag-row"><span class="cs-tag">0→1 Product</span><span class="cs-tag">CERTifyTax</span><span class="cs-tag">TR OneSource</span><span class="cs-tag">Cloud Migration</span><span class="cs-tag">SOX Compliance</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- M3: Tax Diagnostics, RCA & Observability -->
+<div id="m3" class="modal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div><div class="modal-sub">Dell Technologies · Case Study</div><h3>Tax Diagnostics, RCA &amp; Observability</h3></div>
+      <button class="modal-close" onclick="closeModal('m3')">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="cs-phase">
+        <div class="cs-phase-step done">Problem</div>
+        <div class="cs-phase-step done">Approach</div>
+        <div class="cs-phase-step active">Results</div>
+      </div>
+
+      <div class="cs-section">
+        <div class="cs-label">The Problem</div>
+        <p>When tax determination errors occurred across Dell's 300K+ annual transactions, Finance and Operations teams had no structured way to diagnose root causes. Error investigation was manual, time-consuming, and lacked transaction-level visibility — creating resolution delays and compliance exposure.</p>
+      </div>
+
+      <div class="cs-section">
+        <div class="cs-label">My Approach</div>
+        <p>Ran stakeholder interviews with Finance, Tax Ops, and Engineering to map the pain points and failure modes. Designed a transaction-level diagnostic platform with structured RCA workflows and generative AI-powered pattern detection.</p>
+        <ul>
+          <li>Mapped the full error investigation lifecycle across Finance and Operations teams</li>
+          <li>Designed diagnostic workflows with drill-down from transaction → rule → engine output</li>
+          <li>Integrated generative AI tooling for automated anomaly detection and root cause suggestions</li>
+          <li>Built observability layer covering all 300K+ annual tax transactions in real time</li>
+        </ul>
+      </div>
+
+      <div class="cs-section">
+        <div class="cs-label">Results</div>
+        <div class="cs-metrics">
+          <div class="cs-metric"><div class="cs-metric-num">300K+</div><div class="cs-metric-lbl">Transactions Monitored</div></div>
+          <div class="cs-metric"><div class="cs-metric-num">GenAI</div><div class="cs-metric-lbl">Powered RCA</div></div>
+          <div class="cs-metric"><div class="cs-metric-num">↓Sig.</div><div class="cs-metric-lbl">Resolution Time</div></div>
+        </div>
+        <div class="cs-bar-wrap" id="bars-m3">
+          <div class="cs-bar-row"><div class="cs-bar-lbl">Error Visibility</div><div class="cs-bar-track"><div class="cs-bar-fill" data-w="100"></div></div><div class="cs-bar-val">Full</div></div>
+          <div class="cs-bar-row"><div class="cs-bar-lbl">RCA Automation</div><div class="cs-bar-track"><div class="cs-bar-fill" data-w="80"></div></div><div class="cs-bar-val">~80%</div></div>
+          <div class="cs-bar-row"><div class="cs-bar-lbl">Resolution Time</div><div class="cs-bar-track"><div class="cs-bar-fill" data-w="65" style="background:linear-gradient(90deg,var(--teal),var(--gold))"></div></div><div class="cs-bar-val">↓65%</div></div>
+        </div>
+        <div class="cs-tag-row"><span class="cs-tag">Generative AI</span><span class="cs-tag">Observability</span><span class="cs-tag">RCA Platform</span><span class="cs-tag">Tax Operations</span><span class="cs-tag">AI Tooling</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- M4: Performance & Cost Optimization -->
+<div id="m4" class="modal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div><div class="modal-sub">Dell Technologies · Case Study</div><h3>Performance &amp; Cost Optimization Platform</h3></div>
+      <button class="modal-close" onclick="closeModal('m4')">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="cs-phase">
+        <div class="cs-phase-step done">Problem</div>
+        <div class="cs-phase-step done">Approach</div>
+        <div class="cs-phase-step active">Results</div>
+      </div>
+
+      <div class="cs-section">
+        <div class="cs-label">The Problem</div>
+        <p>Dell's global financial transaction processing for tax operations was inefficient — high processing time, high cost per transaction, and no way to simulate or model the impact of changes before production deployment. With 300K+ annual transactions, even small inefficiencies compounded into significant operational costs.</p>
+      </div>
+
+      <div class="cs-section">
+        <div class="cs-label">My Approach</div>
+        <p>Designed a cloud-based simulation platform that could model transaction processing at scale before live deployment — enabling data-driven optimization without production risk.</p>
+        <ul>
+          <li>Mapped transaction processing bottlenecks across the full Oracle ERP → tax engine pipeline</li>
+          <li>Defined simulation framework requirements with Engineering and Finance stakeholders</li>
+          <li>Led platform build on cloud infrastructure with real-time processing metrics dashboard</li>
+          <li>Used simulation results to drive targeted optimization — achieving 99.6% efficiency improvement</li>
+        </ul>
+      </div>
+
+      <div class="cs-section">
+        <div class="cs-label">Results</div>
+        <div class="cs-metrics">
+          <div class="cs-metric"><div class="cs-metric-num">99.6%</div><div class="cs-metric-lbl">Efficiency Gain</div></div>
+          <div class="cs-metric"><div class="cs-metric-num">$50K+</div><div class="cs-metric-lbl">Annual Savings</div></div>
+          <div class="cs-metric"><div class="cs-metric-num">300K+</div><div class="cs-metric-lbl">Txns Optimized/yr</div></div>
+        </div>
+        <div class="cs-bar-wrap" id="bars-m4">
+          <div class="cs-bar-row"><div class="cs-bar-lbl">Processing Efficiency</div><div class="cs-bar-track"><div class="cs-bar-fill" data-w="99"></div></div><div class="cs-bar-val">99.6%</div></div>
+          <div class="cs-bar-row"><div class="cs-bar-lbl">Cost Reduction</div><div class="cs-bar-track"><div class="cs-bar-fill" data-w="82"></div></div><div class="cs-bar-val">$50K+</div></div>
+          <div class="cs-bar-row"><div class="cs-bar-lbl">Txn Coverage</div><div class="cs-bar-track"><div class="cs-bar-fill" data-w="100"></div></div><div class="cs-bar-val">300K+</div></div>
+        </div>
+        <div class="cs-tag-row"><span class="cs-tag">Cloud Platform</span><span class="cs-tag">Oracle ERP</span><span class="cs-tag">Simulation</span><span class="cs-tag">Cost Optimization</span><span class="cs-tag">OKR</span></div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
 /* ─── NAV ─── */
@@ -2038,8 +2551,19 @@ document.querySelectorAll('.comp-grid, .proj-grid, .cert-grid, .awards-grid, .im
   });
 });
 
+/* ─── BAR ANIMATIONS ─── */
+function animateBars(modalId) {
+  const modal = document.getElementById(modalId);
+  if (!modal) return;
+  modal.querySelectorAll('.cs-bar-fill').forEach(bar => {
+    const w = bar.dataset.w || 0;
+    setTimeout(() => { bar.style.width = w + '%'; }, 100);
+  });
+}
+const origOpen = window.openModal;
+
 /* ─── MODALS ─── */
-function openModal(id)  { document.getElementById(id).style.display = 'block'; document.body.style.overflow = 'hidden'; }
+function openModal(id)  { document.getElementById(id).style.display = 'block'; document.body.style.overflow = 'hidden'; animateBars(id); }
 function closeModal(id) { document.getElementById(id).style.display = 'none';  document.body.style.overflow = ''; }
 window.addEventListener('click', e => {
   if (e.target.classList.contains('modal')) { e.target.style.display = 'none'; document.body.style.overflow = ''; }
@@ -2051,8 +2575,12 @@ document.addEventListener('keydown', e => {
 /* ─── COUNTER ANIMATION on impact numbers ─── */
 function animateCounter(el) {
   const raw = el.textContent.trim();
+  // Detect suffix: K, M, %, +, $
+  const hasK = raw.includes('K');
+  const hasM = raw.includes('M');
   const isPercent = raw.includes('%');
   const isPlus = raw.includes('+');
+  const hasDollar = raw.startsWith('$');
   const num = parseFloat(raw.replace(/[^0-9.]/g, ''));
   if (isNaN(num)) return;
   const duration = 1600;
@@ -2061,7 +2589,9 @@ function animateCounter(el) {
     const prog = Math.min((ts - start) / duration, 1);
     const eased = 1 - Math.pow(1 - prog, 3);
     const cur = (num * eased).toFixed(num % 1 !== 0 ? 1 : 0);
-    el.textContent = cur + (isPlus ? '+' : '') + (isPercent ? '%' : '');
+    const prefix = hasDollar ? '$' : '';
+    const suffix = (hasK ? 'K' : '') + (hasM ? 'M' : '') + (isPercent ? '%' : '') + (isPlus ? '+' : '');
+    el.textContent = prefix + cur + suffix;
     if (prog < 1) requestAnimationFrame(frame);
   };
   requestAnimationFrame(frame);
@@ -2076,6 +2606,25 @@ const numObs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.3 });
 document.querySelectorAll('.impact-grid, .hero-stats').forEach(el => numObs.observe(el));
+
+/* ─── SHOW MORE PROJECTS ─── */
+let projectsExpanded = false;
+function toggleMoreProjects() {
+  projectsExpanded = !projectsExpanded;
+  const cards = document.querySelectorAll('.proj-card.hidden-card');
+  const btn = document.getElementById('showMoreBtn');
+  cards.forEach((card, i) => {
+    if (projectsExpanded) {
+      setTimeout(() => card.classList.add('shown'), i * 60);
+    } else {
+      card.classList.remove('shown');
+    }
+  });
+  btn.innerHTML = projectsExpanded
+    ? '<i class="fas fa-minus"></i> Show Less'
+    : '<i class="fas fa-th"></i> Show All Projects (11 more)';
+}
+
 </script>
 </body>
 </html>
