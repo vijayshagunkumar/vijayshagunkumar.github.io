@@ -6,347 +6,1315 @@
 <title>Vijay Kumar — Product Leader | Enterprise Platforms & Digital Commerce</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
+/* ═══════════════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════════════ */
 :root {
-  --ink:#0a1628;--ink-mid:#152340;--ink-soft:#1e3a5f;
-  --steel:#2d4a6e;--steel-light:#4a7090;
-  --teal:#0b6e62;--teal-mid:#0d8a7a;--teal-light:#11a898;--teal-pale:#e8f5f3;--teal-faint:#f2faf8;
-  --gold:#9a7b2e;--gold-light:#c9a84c;--gold-pale:#fdf6e3;
-  --white:#ffffff;--off:#f7f9fc;--surface:#f0f4f9;--surface2:#e8eef7;
-  --border:#d8e2ef;--border-soft:#e8eef7;
-  --text:#2d3748;--text-muted:#5a6a82;--text-light:#8899b0;
-  --shadow-xs:0 1px 3px rgba(10,22,40,.06);
-  --shadow-sm:0 2px 8px rgba(10,22,40,.08);
-  --shadow-md:0 6px 24px rgba(10,22,40,.10);
-  --shadow-lg:0 16px 48px rgba(10,22,40,.13);
-  --shadow-xl:0 32px 80px rgba(10,22,40,.16);
-  --r-sm:6px;--r:12px;--r-lg:18px;--r-xl:28px;
-  --ease:cubic-bezier(.4,0,.2,1);--spring:cubic-bezier(.16,1,.3,1);
-  --nav-h:64px;
-  --display:'Cormorant Garamond',Georgia,serif;
-  --body:'DM Sans',system-ui,sans-serif;
+  /* palette */
+  --navy:       #0c1f3f;
+  --navy-deep:  #060f1f;
+  --navy-mid:   #132d5a;
+  --navy-glow:  rgba(42,94,160,.18);
+  --teal:       #0a7a6c;
+  --teal-mid:   #0d9a89;
+  --teal-light: #12c0ac;
+  --teal-pale:  #e7f5f3;
+  --gold:       #c49a2e;
+  --gold-pale:  #fdf3d8;
+  --white:      #ffffff;
+  --off:        #f8fafc;
+  --surface:    #f1f5f9;
+  --border:     #e2e8f2;
+  --border-soft:#eef2f8;
+  --text:       #1e293b;
+  --muted:      #64748b;
+  --light:      #94a3b8;
+
+  /* cert brand colors */
+  --duke:       #012169;
+  --google:     #4285F4;
+  --virginia:   #232D4B;
+  --oxford:     #002147;
+  --oracle-red: #C74634;
+  --ibm:        #054ADA;
+  --iim:        #8B0000;
+
+  /* shadows — layered for realistic elevation */
+  --s0: 0 1px 2px rgba(0,0,0,.04);
+  --s1: 0 2px 8px rgba(12,31,63,.06), 0 1px 3px rgba(12,31,63,.04);
+  --s2: 0 8px 24px rgba(12,31,63,.09), 0 2px 8px rgba(12,31,63,.05);
+  --s3: 0 16px 48px rgba(12,31,63,.12), 0 4px 16px rgba(12,31,63,.06);
+  --s4: 0 32px 80px rgba(12,31,63,.16), 0 8px 32px rgba(12,31,63,.08);
+  --s-teal: 0 8px 32px rgba(10,122,108,.22);
+  --s-gold:  0 8px 24px rgba(196,154,46,.25);
+
+  /* radii */
+  --r2:  4px;
+  --r4:  8px;
+  --r8:  12px;
+  --r12: 16px;
+  --r16: 20px;
+  --r24: 28px;
+
+  /* type */
+  --display: 'Playfair Display', Georgia, serif;
+  --ui: 'Inter', system-ui, sans-serif;
+
+  /* spacing scale */
+  --gap-xs: .5rem;
+  --gap-sm: 1rem;
+  --gap-md: 1.5rem;
+  --gap-lg: 2.5rem;
+  --gap-xl: 4rem;
+  --section-pad: clamp(4rem, 7vw, 6.5rem);
+
+  /* motion */
+  --ease: cubic-bezier(.4,0,.2,1);
+  --spring: cubic-bezier(.16,1,.3,1);
+  --nav-h: 68px;
 }
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:var(--nav-h);font-size:15px}
-body{font-family:var(--body);background:var(--white);color:var(--text);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--surface)}::-webkit-scrollbar-thumb{background:var(--steel);border-radius:2px}
-img{display:block;max-width:100%}
-a{color:inherit;text-decoration:none}
 
-/* LAYOUT */
-.wrap{max-width:1100px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem)}
-section{padding:clamp(4.5rem,8vw,7rem) 0}
+/* ═══════════════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════════════ */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:calc(var(--nav-h) + 8px); font-size:17px; }
+body {
+  font-family: var(--ui);
+  background: var(--white);
+  color: var(--text);
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img { display:block; max-width:100%; }
+a { color:inherit; text-decoration:none; }
+::-webkit-scrollbar { width:4px; }
+::-webkit-scrollbar-track { background:var(--surface); }
+::-webkit-scrollbar-thumb { background:var(--navy-mid); border-radius:2px; }
 
-/* TYPOGRAPHY */
-.eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem}
-.eyebrow::before{content:'';width:24px;height:1.5px;background:var(--teal)}
-h2.title{font-family:var(--display);font-size:clamp(2.2rem,4vw,3.2rem);font-weight:700;color:var(--ink);line-height:1.1;letter-spacing:-.025em}
-.sub{color:var(--text-muted);font-size:.92rem;max-width:520px;line-height:1.7;margin-top:.6rem}
-.center-head{text-align:center}
-.center-head .eyebrow{justify-content:center}
-.center-head .sub{margin-left:auto;margin-right:auto}
+/* ═══════════════════════════════════════════════
+   LAYOUT
+═══════════════════════════════════════════════ */
+.wrap { max-width:1180px; margin:0 auto; padding:0 clamp(1.25rem, 4vw, 3rem); }
+section { padding:var(--section-pad) 0; }
+.divider { height:1px; background:linear-gradient(90deg, transparent, var(--border) 20%, var(--border) 80%, transparent); }
 
-/* BUTTONS */
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.5rem;font-family:var(--body);font-size:.8rem;font-weight:600;letter-spacing:.025em;border-radius:var(--r-sm);border:none;cursor:pointer;transition:all .22s var(--ease);white-space:nowrap;text-decoration:none}
-.btn-ink{background:var(--ink);color:#fff;box-shadow:0 4px 14px rgba(10,22,40,.25)}
-.btn-ink:hover{background:var(--ink-mid);box-shadow:0 6px 22px rgba(10,22,40,.35);transform:translateY(-2px)}
-.btn-teal{background:var(--teal);color:#fff;box-shadow:0 4px 14px rgba(11,110,98,.25)}
-.btn-teal:hover{background:var(--teal-mid);transform:translateY(-2px)}
-.btn-outline{background:transparent;color:var(--ink);border:1.5px solid var(--border)}
-.btn-outline:hover{border-color:var(--ink);background:var(--ink);color:#fff;transform:translateY(-2px)}
-.btn-ghost{background:transparent;color:var(--text-muted);border:1.5px solid var(--border-soft)}
-.btn-ghost:hover{color:var(--ink);border-color:var(--ink)}
-.btn-outline-w{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35)}
-.btn-outline-w:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.65);transform:translateY(-2px)}
-.btn-white{background:#fff;color:var(--ink);box-shadow:var(--shadow-sm)}
-.btn-white:hover{background:var(--off);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+/* ═══════════════════════════════════════════════
+   TYPOGRAPHY
+═══════════════════════════════════════════════ */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  font-family: var(--ui);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 1rem;
+}
+.eyebrow::before { content:''; width:22px; height:2px; background:var(--teal); border-radius:1px; flex-shrink:0; }
+.eyebrow.center { justify-content:center; }
+.eyebrow.center::before { display:none; }
+.eyebrow.center::after { content:''; width:22px; height:2px; background:var(--teal); border-radius:1px; flex-shrink:0; }
 
-/* NAV */
-.nav{position:sticky;top:0;z-index:200;height:var(--nav-h);background:rgba(255,255,255,.96);backdrop-filter:blur(24px);border-bottom:1px solid var(--border-soft);box-shadow:var(--shadow-xs)}
-.nav-inner{height:100%;display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem)}
-.nav-brand{font-family:var(--display);font-size:1.2rem;font-weight:700;color:var(--ink)}
-.nav-brand span{color:var(--teal)}
-.nav-links{display:flex;align-items:center;gap:clamp(.7rem,1.6vw,1.8rem);list-style:none}
-.nav-links a{font-size:.78rem;font-weight:500;color:var(--text-muted);position:relative;padding:.2rem 0;transition:color .2s}
-.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1.5px;background:var(--teal);border-radius:1px;transition:width .25s var(--ease)}
-.nav-links a:hover,.nav-links a.active{color:var(--ink)}
-.nav-links a:hover::after,.nav-links a.active::after{width:100%}
-.nav-cta{padding:.45rem 1.1rem!important;background:var(--ink)!important;color:#fff!important;border-radius:var(--r-sm)!important}
-.nav-cta::after{display:none!important}
-.nav-cta:hover{background:var(--teal)!important;color:#fff!important}
-.mob-btn{display:none;background:none;border:1.5px solid var(--border);color:var(--ink);width:38px;height:38px;border-radius:var(--r-sm);cursor:pointer;align-items:center;justify-content:center;font-size:.9rem}
+h2.section-title {
+  font-family: var(--display);
+  font-size: clamp(1.9rem, 2.8vw, 2.5rem);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.1;
+  letter-spacing: -.025em;
+}
+.section-sub {
+  color: var(--muted);
+  font-size: 1rem;
+  max-width: 540px;
+  line-height: 1.7;
+  margin-top: .6rem;
+}
+.section-header { text-align:center; margin-bottom:clamp(2rem, 4vw, 3.5rem); }
+.section-header .section-sub { margin:0.6rem auto 0; }
 
-/* HERO */
-.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;background:var(--white)}
-/* diagonal split */
-.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(118deg,var(--white) 52%,var(--ink) 52%);z-index:0}
-/* top accent line */
-.hero::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal) 0%,var(--ink) 60%,var(--gold) 100%);z-index:3}
-.hero-inner{position:relative;z-index:2;padding:clamp(5rem,9vw,7rem) 0}
-.hero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:2rem;align-items:center}
-.hero-left{max-width:600px}
-.hero-pill{display:inline-flex;align-items:center;gap:.5rem;background:var(--teal-pale);border:1px solid rgba(11,110,98,.2);color:var(--teal);font-size:.67rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.35rem 1rem;border-radius:30px;margin-bottom:1.5rem;animation:fadeUp .7s var(--spring) both}
-.hero-pill::before{content:'';width:6px;height:6px;background:var(--teal-light);border-radius:50%;animation:pulse 2s ease-in-out infinite}
-.hero-name{font-family:var(--display);font-size:clamp(3.5rem,7vw,5.8rem);font-weight:700;color:var(--ink);line-height:.95;letter-spacing:-.03em;margin-bottom:.4rem;animation:fadeUp .8s var(--spring) .06s both}
-.hero-title{font-family:var(--display);font-size:clamp(1rem,1.8vw,1.4rem);font-weight:400;font-style:italic;color:var(--teal);margin-bottom:1.6rem;animation:fadeUp .85s var(--spring) .12s both}
-.hero-desc{font-size:clamp(.85rem,1.2vw,.95rem);color:var(--text);line-height:1.75;margin-bottom:2rem;max-width:520px;animation:fadeUp .9s var(--spring) .18s both}
-.hero-desc strong{color:var(--ink);font-weight:600}
-.hero-actions{display:flex;gap:.7rem;flex-wrap:wrap;margin-bottom:2.8rem;animation:fadeUp .95s var(--spring) .24s both}
-/* stats bar */
-.hero-stats{display:flex;background:var(--white);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-md);animation:fadeUp 1s var(--spring) .3s both}
-.stat{flex:1;min-width:90px;padding:1rem 1.2rem;border-right:1px solid var(--border-soft);text-align:center;transition:background .2s}
-.stat:last-child{border-right:none}
-.stat:hover{background:var(--teal-faint)}
-.stat-v{font-family:var(--display);font-size:1.7rem;font-weight:700;color:var(--ink);line-height:1}
-.stat-l{font-size:.6rem;font-weight:600;color:var(--text-muted);letter-spacing:.06em;text-transform:uppercase;margin-top:.3rem;line-height:1.3}
-/* photo side */
-.hero-right{display:flex;justify-content:center;align-items:center;animation:fadeIn 1s var(--spring) .35s both;position:relative}
-.photo-frame{position:relative;width:clamp(200px,20vw,280px)}
-.photo-img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top center;border-radius:var(--r-lg);border:5px solid var(--white);box-shadow:var(--shadow-xl)}
-.photo-badge{position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);background:var(--teal);color:#fff;font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.4rem 1rem;border-radius:30px;white-space:nowrap;box-shadow:var(--shadow-md)}
-/* floating cards on dark side */
-.hero-card{position:absolute;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:var(--r);backdrop-filter:blur(12px);padding:.8rem 1rem;color:#fff}
-.hero-card.top{top:10%;right:-5%;font-size:.72rem;font-weight:600}
-.hero-card.bot{bottom:15%;right:8%;font-size:.68rem;font-weight:500;line-height:1.5}
-.hero-card .hc-num{font-family:var(--display);font-size:1.6rem;font-weight:700;line-height:1;margin-bottom:.2rem}
-.hero-card .hc-lbl{opacity:.7;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase}
+/* ═══════════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════════ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .8rem 1.65rem;
+  font-family: var(--ui);
+  font-size: .82rem;
+  font-weight: 600;
+  letter-spacing: .03em;
+  border-radius: var(--r4);
+  border: none;
+  cursor: pointer;
+  transition: all .22s var(--ease);
+  white-space: nowrap;
+  text-decoration: none;
+}
+.btn-navy { background:var(--navy); color:#fff; box-shadow:0 4px 14px rgba(12,31,63,.3); }
+.btn-navy:hover { background:var(--navy-mid); box-shadow:0 6px 22px rgba(12,31,63,.4); transform:translateY(-2px); }
+.btn-teal { background:var(--teal); color:#fff; box-shadow:var(--s-teal); }
+.btn-teal:hover { background:var(--teal-mid); transform:translateY(-2px); }
+.btn-outline { background:transparent; color:var(--navy); border:1.5px solid var(--border); }
+.btn-outline:hover { border-color:var(--navy); background:var(--navy); color:#fff; transform:translateY(-2px); }
+.btn-ghost { background:rgba(255,255,255,.08); color:rgba(255,255,255,.85); border:1.5px solid rgba(255,255,255,.2); }
+.btn-ghost:hover { background:rgba(255,255,255,.15); border-color:rgba(255,255,255,.5); transform:translateY(-2px); }
+.btn-white { background:#fff; color:var(--navy); box-shadow:var(--s2); }
+.btn-white:hover { background:var(--off); transform:translateY(-2px); box-shadow:var(--s3); }
+.btn-outline-w { background:transparent; color:#fff; border:1.5px solid rgba(255,255,255,.35); }
+.btn-outline-w:hover { background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.7); transform:translateY(-2px); }
+
+/* ═══════════════════════════════════════════════
+   STICKY NAV
+═══════════════════════════════════════════════ */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  height: var(--nav-h);
+  background: rgba(255,255,255,.97);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border-soft);
+  box-shadow: var(--s0);
+  transition: box-shadow .3s var(--ease);
+}
+.nav.scrolled { box-shadow: var(--s2); }
+.nav-inner {
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 clamp(1.25rem, 4vw, 3rem);
+}
+.nav-brand {
+  font-family: var(--display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -.01em;
+}
+.nav-brand span { color:var(--teal); }
+.nav-links { display:flex; align-items:center; gap:clamp(.75rem, 1.6vw, 1.8rem); list-style:none; }
+.nav-links a {
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--muted);
+  position: relative;
+  padding: .25rem 0;
+  transition: color .2s;
+  letter-spacing: .01em;
+}
+.nav-links a::after {
+  content:'';
+  position:absolute;
+  bottom:-3px; left:0;
+  width:0; height:2px;
+  background:var(--teal);
+  border-radius:1px;
+  transition:width .28s var(--ease);
+}
+.nav-links a:hover, .nav-links a.active { color:var(--navy); }
+.nav-links a:hover::after, .nav-links a.active::after { width:100%; }
+.nav-cta-pill {
+  padding:.5rem 1.25rem !important;
+  background:var(--navy) !important;
+  color:#fff !important;
+  border-radius:30px !important;
+  font-size:.78rem !important;
+  letter-spacing:.03em !important;
+  transition:background .2s, transform .2s !important;
+}
+.nav-cta-pill:hover { background:var(--teal) !important; transform:translateY(-1px) !important; }
+.nav-cta-pill::after { display:none !important; }
+.mob-btn {
+  display:none;
+  background:none;
+  border:1.5px solid var(--border);
+  color:var(--navy);
+  width:40px; height:40px;
+  border-radius:var(--r4);
+  cursor:pointer;
+  align-items:center;
+  justify-content:center;
+  font-size:.95rem;
+}
+
+/* ═══════════════════════════════════════════════
+   HERO — dark navy, editorial
+═══════════════════════════════════════════════ */
+.hero {
+  background: var(--navy-deep);
+  position: relative;
+  overflow: hidden;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* dot matrix texture */
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background-image: radial-gradient(circle, rgba(255,255,255,.055) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events:none;
+  z-index:0;
+}
+/* warm glow bottom-right */
+.hero::after {
+  content:'';
+  position:absolute;
+  bottom:-10%; right:-5%;
+  width:55%; height:70%;
+  background: radial-gradient(ellipse at center, rgba(10,122,108,.18) 0%, transparent 65%);
+  pointer-events:none;
+  z-index:0;
+}
+/* gold top-left glow */
+.hero-glow-gold {
+  position:absolute;
+  top:-5%; left:-5%;
+  width:40%; height:50%;
+  background: radial-gradient(ellipse at center, rgba(196,154,46,.08) 0%, transparent 65%);
+  pointer-events:none;
+  z-index:0;
+}
+/* gold accent top bar */
+.hero-bar {
+  position:absolute;
+  top:0; left:0; right:0;
+  height:3px;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--teal-light) 50%, transparent 100%);
+  z-index:3;
+}
+.hero-inner {
+  position:relative;
+  z-index:2;
+  padding: clamp(5rem,9vw,7.5rem) 0 clamp(4rem,7vw,6rem);
+}
+.hero-layout {
+  display:grid;
+  grid-template-columns: 1fr auto;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
+}
+/* LEFT COLUMN */
+.hero-left { max-width:700px; }
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 30px;
+  padding: .38rem 1.1rem;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.75);
+  margin-bottom: 1.6rem;
+  animation: fadeUp .7s var(--spring) both;
+}
+.hero-pill::before { content:''; width:7px; height:7px; background:#4ade80; border-radius:50%; animation:pulse 2s ease-in-out infinite; flex-shrink:0; }
+.hero-name {
+  font-family: var(--display);
+  font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: .9;
+  letter-spacing: -.04em;
+  margin-bottom: .5rem;
+  animation: fadeUp .8s var(--spring) .07s both;
+}
+.hero-name em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--teal-light);
+  font-size: .55em;
+  display: block;
+  margin-top: .1em;
+}
+.hero-role {
+  font-size: clamp(.88rem, 1.1vw, 1rem);
+  color: rgba(255,255,255,.55);
+  font-weight: 500;
+  letter-spacing: .02em;
+  margin-bottom: 1.8rem;
+  animation: fadeUp .85s var(--spring) .14s both;
+  line-height: 1.5;
+}
+.hero-role strong { color: rgba(255,255,255,.85); font-weight: 600; }
+.hero-desc {
+  font-size: clamp(.87rem, 1vw, .95rem);
+  color: rgba(255,255,255,.6);
+  line-height: 1.8;
+  max-width: 580px;
+  margin-bottom: 2.2rem;
+  animation: fadeUp .9s var(--spring) .2s both;
+}
+.hero-desc strong { color: rgba(255,255,255,.88); font-weight: 600; }
+.hero-actions {
+  display: flex;
+  gap: .75rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+  animation: fadeUp .95s var(--spring) .26s both;
+}
+/* stats strip */
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--r8);
+  overflow: hidden;
+  animation: fadeUp 1s var(--spring) .32s both;
+}
+.stat {
+  padding: 1.1rem 1rem;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,.07);
+  transition: background .25s;
+  cursor: default;
+}
+.stat:last-child { border-right:none; }
+.stat:hover { background: rgba(255,255,255,.08); }
+.stat-v {
+  font-family: var(--display);
+  font-size: clamp(1.3rem, 1.8vw, 1.6rem);
+  font-weight: 900;
+  color: var(--teal-light);
+  line-height: 1;
+  margin-bottom: .3rem;
+}
+.stat-l {
+  font-size: .6rem;
+  font-weight: 600;
+  color: rgba(255,255,255,.45);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+/* RIGHT COLUMN — photo */
+.hero-right { flex-shrink:0; animation:fadeIn 1.1s var(--spring) .4s both; width:clamp(200px,18vw,260px); }
+.photo-shell {
+  position: relative;
+  width: 100%;
+}
+.photo-frame {
+  width: 100%;
+  aspect-ratio: 3/4;
+  border-radius: var(--r16);
+  overflow: hidden;
+  box-shadow: var(--s4), 0 0 0 1px rgba(255,255,255,.06);
+  position: relative;
+}
+.photo-frame img {
+  width:100%; height:100%;
+  object-fit:cover;
+  object-position: top center;
+  display:block;
+}
+.photo-frame::after { display:none; }
+.photo-badge {
+  position:absolute;
+  bottom:-14px; left:50%;
+  transform:translateX(-50%);
+  background: var(--teal);
+  color: #fff;
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .42rem 1.1rem;
+  border-radius: 30px;
+  white-space: nowrap;
+  box-shadow: var(--s-teal);
+  z-index:2;
+}
+.floating-card {
+  position: relative;
+  background: rgba(255,255,255,.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: var(--r8);
+  padding: .8rem 1.1rem;
+  color: #fff;
+  z-index:3;
+}
+.hero-stat-cards { display:flex; gap:.75rem; margin-top:1rem; }
+.fc-card { position:relative; flex:1; min-width:0; }
+.fc-num {
+  font-family: var(--display);
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: .15rem;
+}
+.fc-lbl { font-size: .62rem; font-weight: 600; color: rgba(255,255,255,.65); letter-spacing:.06em; text-transform:uppercase; }
 /* dot grid deco */
-.deco-dots{position:absolute;width:140px;height:140px;background-image:radial-gradient(circle,var(--border) 1.5px,transparent 1.5px);background-size:14px 14px;opacity:.5;pointer-events:none}
-
-/* DIVIDER */
-.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border) 20%,var(--border) 80%,transparent)}
-
-/* SECTION: ABOUT */
-.about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:4rem;align-items:start}
-.about-text p{font-size:.93rem;line-height:1.8;color:var(--text);margin-bottom:1.1rem}
-.about-text p:last-child{margin-bottom:0}
-.highlights-box{margin-top:1.8rem;background:var(--teal-faint);border:1px solid rgba(11,110,98,.15);border-left:3px solid var(--teal);border-radius:var(--r);padding:1.3rem 1.5rem}
-.highlights-box h4{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);margin-bottom:.9rem}
-.hl-list{list-style:none;display:grid;grid-template-columns:1fr;gap:.45rem}
-.hl-list li{font-size:.82rem;color:var(--text);padding-left:1.2rem;position:relative;line-height:1.5}
-.hl-list li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--teal)}
-/* cards on right */
-.about-cards{display:flex;flex-direction:column;gap:1.1rem}
-.about-card{background:var(--white);border:1px solid var(--border-soft);border-radius:var(--r);padding:1.3rem;display:flex;gap:1rem;align-items:flex-start;box-shadow:var(--shadow-xs);transition:box-shadow .25s,transform .25s var(--ease)}
-.about-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
-.ac-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--ink),var(--teal));border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;color:#fff;font-size:.85rem;flex-shrink:0}
-.ac-title{font-size:.83rem;font-weight:700;color:var(--ink);margin-bottom:.3rem}
-.ac-body{font-size:.75rem;color:var(--text-muted);line-height:1.55}
-
-/* SECTION: IMPACT METRICS */
-.impact-section{background:var(--ink);position:relative;overflow:hidden}
-.impact-section::before{content:'';position:absolute;top:-120px;right:-80px;width:380px;height:380px;background:radial-gradient(circle,rgba(11,110,98,.2) 0%,transparent 70%);pointer-events:none}
-.impact-section::after{content:'';position:absolute;bottom:-100px;left:5%;width:300px;height:300px;background:radial-gradient(circle,rgba(154,123,46,.12) 0%,transparent 70%);pointer-events:none}
-.impact-head{text-align:center;margin-bottom:3rem}
-.impact-head .eyebrow{color:var(--teal-light)}
-.impact-head h2{color:#fff}
-.impact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-bottom:2.5rem}
-.impact-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:1.8rem 1.5rem;text-align:center;transition:background .25s,transform .25s var(--ease),border-color .25s}
-.impact-card:hover{background:rgba(255,255,255,.09);transform:translateY(-4px);border-color:rgba(11,168,152,.3)}
-.impact-num{font-family:var(--display);font-size:2.8rem;font-weight:700;color:var(--teal-light);line-height:1;margin-bottom:.4rem}
-.impact-lbl{font-size:.72rem;font-weight:500;color:rgba(255,255,255,.6);letter-spacing:.04em;line-height:1.4}
-.impact-list{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem}
-.impact-item{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-sm);padding:.9rem 1.1rem;display:flex;align-items:center;gap:.8rem;font-size:.8rem;color:rgba(255,255,255,.75);line-height:1.5;transition:background .2s,border-color .2s}
-.impact-item:hover{background:rgba(11,110,98,.15);border-color:rgba(11,110,98,.3)}
-.impact-item i{color:var(--teal-light);font-size:.75rem;flex-shrink:0;width:16px;text-align:center}
-
-/* SECTION: COMPETENCIES */
-.comp-section{background:var(--off)}
-.comp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
-.comp-card{background:var(--white);border:1px solid var(--border-soft);border-radius:var(--r);padding:1.7rem 1.4rem;position:relative;overflow:hidden;transition:box-shadow .25s,transform .25s var(--ease),border-color .25s}
-.comp-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;background:linear-gradient(90deg,var(--ink),var(--teal));border-radius:2px 2px 0 0;transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
-.comp-card:hover::after{transform:scaleX(1)}
-.comp-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px);border-color:var(--border)}
-.comp-icon{width:42px;height:42px;background:linear-gradient(135deg,rgba(10,22,40,.07),rgba(11,110,98,.08));border:1px solid var(--border-soft);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;color:var(--ink);font-size:.95rem;margin-bottom:1rem}
-.comp-card h3{font-family:var(--body);font-size:.85rem;font-weight:700;color:var(--ink);margin-bottom:.85rem;line-height:1.25}
-.comp-list{list-style:none}
-.comp-list li{font-size:.76rem;color:var(--text-muted);padding:.28rem 0 .28rem .95rem;position:relative;border-bottom:1px solid var(--border-soft);line-height:1.45}
-.comp-list li:last-child{border-bottom:none}
-.comp-list li::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:4px;height:4px;background:var(--teal);border-radius:50%}
-
-/* SECTION: EXPERIENCE */
-.exp-section{background:var(--white)}
-.timeline{position:relative;max-width:840px;margin:0 auto}
-.timeline::before{content:'';position:absolute;left:20px;top:10px;bottom:10px;width:1.5px;background:linear-gradient(to bottom,var(--ink) 0%,var(--teal) 60%,transparent 100%)}
-.tl-item{position:relative;padding:0 0 3rem 56px}
-.tl-item:last-child{padding-bottom:0}
-.tl-dot{position:absolute;left:12px;top:10px;width:17px;height:17px;background:var(--white);border:2.5px solid var(--ink);border-radius:50%;z-index:2;transition:border-color .25s,box-shadow .25s}
-.tl-item:hover .tl-dot{border-color:var(--teal);box-shadow:0 0 0 4px rgba(11,110,98,.12)}
-.tl-card{background:var(--white);border:1px solid var(--border-soft);border-radius:var(--r);padding:1.8rem;box-shadow:var(--shadow-xs);transition:box-shadow .25s,transform .25s var(--ease)}
-.tl-item:hover .tl-card{box-shadow:var(--shadow-lg);transform:translateX(3px)}
-.tl-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap;margin-bottom:.9rem}
-.tl-role{font-family:var(--display);font-size:1.15rem;font-weight:700;color:var(--ink);line-height:1.2;margin-bottom:.2rem}
-.tl-company{font-size:.78rem;font-weight:700;color:var(--teal);letter-spacing:.03em}
-.tl-loc{font-size:.72rem;color:var(--text-light);margin-top:.1rem}
-.tl-period{display:inline-flex;align-items:center;gap:.3rem;background:var(--surface);color:var(--text-muted);font-size:.68rem;font-weight:700;padding:.28rem .8rem;border-radius:30px;border:1px solid var(--border-soft);white-space:nowrap;flex-shrink:0}
-.tl-body{font-size:.83rem;color:var(--text);line-height:1.7;margin-bottom:1rem}
-.tl-bullets{list-style:none;margin:.5rem 0}
-.tl-bullets li{font-size:.81rem;color:var(--text);padding:.28rem 0 .28rem 1.3rem;position:relative;line-height:1.55;border-bottom:1px solid var(--border-soft)}
-.tl-bullets li:last-child{border-bottom:none}
-.tl-bullets li::before{content:'';position:absolute;left:0;top:11px;width:5px;height:5px;background:var(--teal-pale);border:1.5px solid var(--teal);border-radius:50%}
-.tl-bullets li strong{color:var(--ink);font-weight:600}
-.tl-recog{margin-top:1rem;background:linear-gradient(135deg,var(--teal-faint),#eef3ff);border:1px solid rgba(11,110,98,.13);border-left:2.5px solid var(--teal);border-radius:var(--r-sm);padding:.8rem 1rem;font-size:.78rem;color:var(--text)}
-.tl-recog-label{font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:.25rem}
-
-/* SECTION: PROJECTS */
-.projects-section{background:var(--off)}
-.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
-.proj-card{background:var(--white);border:1px solid var(--border-soft);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow-xs);transition:box-shadow .25s,transform .25s var(--ease),border-color .25s}
-.proj-card:hover{box-shadow:var(--shadow-xl);transform:translateY(-6px);border-color:var(--border)}
-.proj-stripe{height:3.5px}
-.proj-stripe.corp{background:linear-gradient(90deg,var(--ink),var(--teal))}
-.proj-stripe.indie{background:linear-gradient(90deg,var(--gold),var(--gold-light))}
-.proj-body{padding:1.5rem;flex:1}
-.proj-badge{display:inline-flex;align-items:center;gap:.3rem;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .7rem;border-radius:30px;margin-bottom:.9rem}
-.proj-badge.corp{background:rgba(10,22,40,.07);color:var(--steel);border:1px solid rgba(10,22,40,.12)}
-.proj-badge.indie{background:var(--gold-pale);color:var(--gold);border:1px solid rgba(154,123,46,.18)}
-.proj-card h3{font-family:var(--display);font-size:1.05rem;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:.5rem}
-.proj-desc{font-size:.78rem;color:var(--text-muted);line-height:1.6;margin-bottom:.8rem}
-.proj-metric{font-size:.73rem;font-weight:600;color:var(--teal);background:var(--teal-pale);border:1px solid rgba(11,110,98,.13);border-radius:var(--r-sm);padding:.45rem .8rem;margin-bottom:1rem;line-height:1.4}
-.proj-metric.gold{color:var(--gold);background:var(--gold-pale);border-color:rgba(154,123,46,.14)}
-.proj-chips{display:flex;flex-wrap:wrap;gap:.3rem}
-.chip{font-size:.64rem;font-weight:500;padding:.2rem .58rem;background:var(--surface);border:1px solid var(--border-soft);border-radius:30px;color:var(--text-muted)}
-.proj-card:hover .chip{background:var(--off);color:var(--ink)}
-.proj-foot{padding:.9rem 1.5rem;border-top:1px solid var(--border-soft);background:var(--off)}
-.proj-action{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;font-size:.73rem;font-weight:700;color:var(--ink);width:100%;background:none;border:none;cursor:pointer;padding:0;letter-spacing:.03em;transition:color .2s,gap .2s}
-.proj-action:hover{color:var(--teal);gap:.7rem}
-.proj-action:disabled{opacity:.4;cursor:default;pointer-events:none}
-
-/* SECTION: CERTIFICATIONS */
-.cert-section{background:var(--white)}
-.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
-.cert-card{background:var(--white);border:1px solid var(--border-soft);border-radius:var(--r);padding:1.4rem;position:relative;overflow:hidden;transition:box-shadow .25s,transform .25s var(--ease),border-color .25s}
-.cert-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px);border-color:var(--ink)}
-.cert-card::before{content:'';position:absolute;left:0;top:0;width:2.5px;height:100%;background:linear-gradient(to bottom,var(--ink),var(--teal));opacity:0;transition:opacity .25s}
-.cert-card:hover::before{opacity:1}
-.cert-year{position:absolute;top:.85rem;right:.85rem;font-size:.6rem;font-weight:700;letter-spacing:.07em;background:var(--surface);color:var(--text-light);padding:.18rem .55rem;border-radius:30px;border:1px solid var(--border-soft)}
-.cert-icon{width:42px;height:42px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:1rem;color:#fff;margin-bottom:.85rem;box-shadow:var(--shadow-sm)}
-.cert-card h3{font-size:.82rem;font-weight:700;color:var(--ink);margin-bottom:.22rem;padding-right:3.5rem;line-height:1.3}
-.cert-issuer{font-size:.7rem;font-weight:600;color:var(--teal);margin-bottom:.15rem}
-.cert-detail{font-size:.68rem;color:var(--text-light);margin-bottom:.75rem}
-.cert-link{display:inline-flex;align-items:center;gap:.3rem;font-size:.67rem;font-weight:700;color:var(--text-muted);letter-spacing:.05em;text-transform:uppercase;transition:color .2s}
-.cert-link:hover{color:var(--ink)}
-.cert-wallets{display:flex;gap:.7rem;flex-wrap:wrap;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border-soft)}
-
-/* SECTION: EDUCATION */
-.edu-section{background:var(--off)}
-.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:780px;margin:0 auto}
-.edu-card{background:var(--white);border:1px solid var(--border-soft);border-radius:var(--r);padding:2rem;display:flex;gap:1.2rem;align-items:flex-start;box-shadow:var(--shadow-xs);transition:box-shadow .25s,transform .25s}
-.edu-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px)}
-.edu-icon{width:46px;height:46px;background:linear-gradient(135deg,var(--ink),var(--ink-soft));border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.05rem;flex-shrink:0}
-.edu-degree{font-family:var(--display);font-size:1rem;font-weight:700;color:var(--ink);line-height:1.25;margin-bottom:.28rem}
-.edu-school{font-size:.76rem;font-weight:700;color:var(--teal);margin-bottom:.18rem}
-.edu-meta{font-size:.72rem;color:var(--text-muted)}
-
-/* SECTION: AWARDS */
-.awards-section{background:var(--white)}
-.awards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}
-.award-card{background:var(--white);border:1px solid var(--border-soft);border-radius:var(--r);padding:1.7rem;display:flex;align-items:flex-start;gap:1.1rem;box-shadow:var(--shadow-xs);transition:box-shadow .25s,transform .25s var(--ease),border-color .25s}
-.award-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px);border-color:rgba(154,123,46,.3)}
-.award-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--gold-pale),#fce8a0);border:1px solid rgba(154,123,46,.2);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1rem;flex-shrink:0}
-.award-name{font-size:.86rem;font-weight:700;color:var(--ink);margin-bottom:.35rem}
-.award-desc{font-size:.76rem;color:var(--text-muted);line-height:1.55}
-
-/* SECTION: CONTACT */
-.contact-section{background:var(--off)}
-.contact-banner{background:linear-gradient(135deg,var(--ink) 0%,var(--ink-mid) 55%,#1a4060 100%);border-radius:var(--r-xl);padding:clamp(2.5rem,5vw,4rem);position:relative;overflow:hidden;margin-bottom:2rem}
-.contact-banner::before{content:'';position:absolute;top:-80px;right:-80px;width:280px;height:280px;background:rgba(11,110,98,.15);border-radius:50%}
-.contact-banner::after{content:'';position:absolute;bottom:-100px;left:20%;width:320px;height:320px;background:rgba(154,123,46,.08);border-radius:50%}
-.banner-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center}
-.banner-avail{display:inline-flex;align-items:center;gap:.45rem;font-size:.67rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.8);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:.28rem .9rem;border-radius:30px;margin-bottom:.9rem}
-.banner-avail::before{content:'';width:6px;height:6px;background:#4ade80;border-radius:50%;animation:pulse 2s ease-in-out infinite}
-.banner-inner h3{font-family:var(--display);font-size:clamp(1.7rem,3vw,2.4rem);font-weight:700;color:#fff;margin-bottom:.5rem;line-height:1.2}
-.banner-inner p{color:rgba(255,255,255,.68);font-size:.88rem;max-width:460px;line-height:1.65}
-.banner-actions{display:flex;flex-direction:column;gap:.65rem;flex-shrink:0}
-.contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
-.contact-card{display:flex;align-items:center;gap:1rem;background:var(--white);border:1px solid var(--border-soft);border-radius:var(--r);padding:1.25rem;text-decoration:none;color:inherit;box-shadow:var(--shadow-xs);transition:box-shadow .25s,transform .25s var(--ease),border-color .25s}
-.contact-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px);border-color:var(--teal)}
-.contact-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--ink),var(--teal));border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;color:#fff;font-size:.95rem;flex-shrink:0}
-.c-label{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-light);margin-bottom:.2rem}
-.c-value{font-size:.83rem;font-weight:600;color:var(--ink)}
-
-/* FOOTER */
-footer{background:var(--ink);padding:2rem 0;color:rgba(255,255,255,.55)}
-.foot-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-.foot-brand{font-family:var(--display);font-size:1.05rem;font-weight:700;color:#fff}
-.foot-links{display:flex;gap:1.5rem}
-.foot-links a{font-size:.73rem;font-weight:500;color:rgba(255,255,255,.5);transition:color .2s}
-.foot-links a:hover{color:#fff}
-.foot-copy{font-size:.7rem;color:rgba(255,255,255,.35)}
-
-/* MODALS */
-.modal{display:none;position:fixed;inset:0;z-index:300;background:rgba(10,22,40,.75);backdrop-filter:blur(10px);padding:1rem;overflow-y:auto}
-.modal-box{background:var(--white);border-radius:var(--r-lg);max-width:700px;margin:3rem auto;overflow:hidden;box-shadow:var(--shadow-xl);animation:modalIn .3s var(--spring) both}
-@keyframes modalIn{from{opacity:0;transform:translateY(-18px) scale(.97)}to{opacity:1;transform:none}}
-.modal-head{background:linear-gradient(135deg,var(--ink),var(--ink-mid));padding:1.8rem 2rem;display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
-.modal-sub{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.35rem}
-.modal-head h3{font-family:var(--display);font-size:1.45rem;font-weight:700;color:#fff}
-.modal-close{width:32px;height:32px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:var(--r-sm);color:rgba(255,255,255,.75);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all .2s;flex-shrink:0}
-.modal-close:hover{background:rgba(255,255,255,.22);color:#fff}
-.modal-body{padding:2rem;max-height:60vh;overflow-y:auto}
-.modal-body h4{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:.7rem;margin-top:1.2rem}
-.modal-body h4:first-child{margin-top:0}
-.modal-body p{font-size:.87rem;color:var(--text);line-height:1.7;margin-bottom:.8rem}
-.modal-body ul{list-style:none}
-.modal-body ul li{font-size:.84rem;color:var(--text);padding:.35rem 0 .35rem 1.2rem;position:relative;border-bottom:1px solid var(--border-soft);line-height:1.5}
-.modal-body ul li:last-child{border-bottom:none}
-.modal-body ul li::before{content:'';position:absolute;left:0;top:12px;width:5px;height:5px;background:var(--teal-pale);border:1.5px solid var(--teal);border-radius:50%}
-.modal-body ul li strong{color:var(--ink);font-weight:700}
-
-/* SCROLL TOP */
-.scroll-top{position:fixed;bottom:1.5rem;right:1.5rem;width:40px;height:40px;background:var(--ink);color:#fff;border:none;border-radius:var(--r-sm);display:none;align-items:center;justify-content:center;font-size:.85rem;cursor:pointer;z-index:50;box-shadow:var(--shadow-lg);transition:all .2s}
-.scroll-top:hover{background:var(--teal);transform:translateY(-3px)}
-
-/* ANIMATIONS */
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.75)}}
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
-.reveal.visible{opacity:1;transform:translateY(0)}
-
-/* RESPONSIVE */
-@media(max-width:1024px){
-  .comp-grid{grid-template-columns:repeat(2,1fr)}
-  .proj-grid{grid-template-columns:repeat(2,1fr)}
-  .cert-grid{grid-template-columns:repeat(2,1fr)}
-  .impact-grid{grid-template-columns:repeat(2,1fr)}
+.deco-grid {
+  position:absolute;
+  width:120px; height:120px;
+  background-image:radial-gradient(circle, rgba(255,255,255,.15) 1.5px, transparent 1.5px);
+  background-size:12px 12px;
+  pointer-events:none;
 }
-@media(max-width:768px){
-  .nav-links{display:none}.mob-btn{display:flex}
-  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--white);border-top:1px solid var(--border-soft);border-bottom:1px solid var(--border-soft);padding:.8rem;box-shadow:var(--shadow-lg);gap:.15rem}
-  .nav-links.open a{padding:.6rem .8rem;border-radius:var(--r-sm);display:block}
-  .hero::before{clip-path:none;opacity:.3;width:100%}
-  .hero-grid{grid-template-columns:1fr}.hero-right{display:none}
-  .hero-stats{flex-direction:row;flex-wrap:wrap}
-  .stat{flex:1;min-width:100px;border-right:1px solid var(--border-soft)!important}
-  .about-grid{grid-template-columns:1fr;gap:2.5rem}
-  .comp-grid{grid-template-columns:1fr}
-  .proj-grid{grid-template-columns:1fr}
-  .cert-grid{grid-template-columns:1fr}
-  .edu-grid{grid-template-columns:1fr}
-  .awards-grid{grid-template-columns:1fr}
-  .impact-grid{grid-template-columns:repeat(2,1fr)}
-  .impact-list{grid-template-columns:1fr}
-  .banner-inner{grid-template-columns:1fr}.banner-actions{flex-direction:row}
-  .contact-cards{grid-template-columns:1fr}
+.deco-grid.tl { top:-16px; left:-16px; }
+
+/* ═══════════════════════════════════════════════
+   TICKER — scrolling metrics
+═══════════════════════════════════════════════ */
+.ticker-wrap {
+  background: var(--navy);
+  border-top: 1px solid rgba(255,255,255,.06);
+  padding: .85rem 0;
+  overflow: hidden;
 }
-@media(max-width:480px){
-  .hero-name{font-size:3rem}
-  .hero-actions{flex-direction:column}.hero-actions .btn{width:100%;justify-content:center}
-  .hero-stats{flex-direction:column}.stat{border-right:none!important;border-bottom:1px solid var(--border-soft)}
-  .impact-grid{grid-template-columns:1fr}
+.ticker-track {
+  display: flex;
+  gap: 0;
+  animation: tickerScroll 40s linear infinite;
+  width: max-content;
+}
+.ticker-item {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  padding: 0 2.5rem;
+  font-size: .78rem;
+  font-weight: 600;
+  color: rgba(255,255,255,.6);
+  letter-spacing: .03em;
+  white-space: nowrap;
+}
+.ticker-item i { color: var(--teal-light); font-size: .7rem; }
+.ticker-sep { color: rgba(255,255,255,.2); }
+@keyframes tickerScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+/* ═══════════════════════════════════════════════
+   ABOUT SECTION
+═══════════════════════════════════════════════ */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: start;
+  margin-top: 2.5rem;
+}
+.about-text p {
+  font-size: clamp(.9rem, 1.2vw, 1rem);
+  line-height: 1.85;
+  color: var(--muted);
+  margin-bottom: 1.1rem;
+}
+.about-text p:last-child { margin-bottom:0; }
+.highlights-box {
+  margin-top: 2rem;
+  background: linear-gradient(135deg, var(--teal-pale), #eef5ff);
+  border: 1px solid rgba(10,122,108,.15);
+  border-left: 3px solid var(--teal);
+  border-radius: var(--r8);
+  padding: 1.4rem 1.6rem;
+}
+.highlights-box h4 {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 1rem;
+}
+.hl-list { list-style:none; display:flex; flex-direction:column; gap:.55rem; }
+.hl-list li {
+  font-size: .88rem;
+  color: var(--text);
+  padding-left: 1.3rem;
+  position: relative;
+  line-height: 1.55;
+}
+.hl-list li::before {
+  content:'';
+  position:absolute; left:0; top:8px;
+  width:5px; height:5px;
+  border-radius:50%;
+  background:var(--teal);
+}
+.about-cards { display:flex; flex-direction:column; gap:1rem; }
+.about-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r8);
+  padding: 1.25rem 1.4rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  box-shadow: var(--s1);
+  transition: box-shadow .25s var(--ease), transform .25s var(--ease), border-color .25s;
+}
+.about-card:hover { box-shadow:var(--s3); transform:translateY(-3px); border-color:var(--border); }
+.ac-icon {
+  width:40px; height:40px; flex-shrink:0;
+  background:linear-gradient(135deg, var(--navy), var(--teal));
+  border-radius:var(--r4);
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; font-size:.85rem;
+}
+.ac-title { font-size:.85rem; font-weight:700; color:var(--navy); margin-bottom:.3rem; }
+.ac-body { font-size:.78rem; color:var(--muted); line-height:1.55; }
+
+/* ═══════════════════════════════════════════════
+   IMPACT SECTION — prominent, not footer-like
+═══════════════════════════════════════════════ */
+.impact-section {
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.impact-section::before {
+  content:'';
+  position:absolute; inset:0;
+  background-image: radial-gradient(circle, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size:24px 24px;
+  pointer-events:none;
+}
+.impact-section::after {
+  content:'';
+  position:absolute; bottom:-120px; right:-80px;
+  width:440px; height:440px;
+  background:radial-gradient(circle, rgba(10,122,108,.2) 0%, transparent 65%);
+  pointer-events:none;
+}
+.impact-inner { position:relative; z-index:2; }
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin: 2.8rem 0 2.5rem;
+}
+.impact-big {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--r12);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: background .25s, transform .25s var(--ease), border-color .25s;
+  position: relative;
+  overflow: hidden;
+}
+.impact-big::after {
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg, var(--teal), var(--gold));
+  opacity:0; transition:opacity .3s;
+}
+.impact-big:hover { background:rgba(255,255,255,.1); transform:translateY(-5px); border-color:rgba(10,154,137,.3); }
+.impact-big:hover::after { opacity:1; }
+.impact-num {
+  font-family: var(--display);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 900;
+  color: var(--teal-light);
+  line-height: 1;
+  margin-bottom: .5rem;
+}
+.impact-label {
+  font-size: .72rem;
+  font-weight: 600;
+  color: rgba(255,255,255,.55);
+  letter-spacing: .04em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+.impact-bullets {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .75rem;
+}
+.impact-bullet {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--r4);
+  padding: 1rem 1.2rem;
+  transition: background .2s, border-color .2s;
+  font-size: .85rem;
+  color: rgba(255,255,255,.72);
+  line-height: 1.5;
+}
+.impact-bullet:hover { background:rgba(10,122,108,.18); border-color:rgba(10,154,137,.3); }
+.impact-bullet i { color:var(--teal-light); font-size:.75rem; flex-shrink:0; width:18px; text-align:center; }
+
+/* ═══════════════════════════════════════════════
+   COMPETENCIES
+═══════════════════════════════════════════════ */
+.comp-section { background:var(--off); }
+.comp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.comp-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r12);
+  padding: 1.8rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--s1);
+  transition: box-shadow .28s var(--ease), transform .28s var(--ease), border-color .28s;
+}
+.comp-card::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg, var(--navy), var(--teal));
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .32s var(--ease);
+  border-radius:2px 2px 0 0;
+}
+.comp-card:hover { box-shadow:var(--s3); transform:translateY(-5px); border-color:var(--border); }
+.comp-card:hover::before { transform:scaleX(1); }
+.comp-icon {
+  width:46px; height:46px;
+  background:linear-gradient(135deg, rgba(12,31,63,.07), rgba(10,122,108,.09));
+  border:1px solid var(--border);
+  border-radius:var(--r4);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--navy); font-size:1rem;
+  margin-bottom:1.1rem;
+}
+.comp-card h3 {
+  font-family: var(--ui);
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: .9rem;
+  line-height: 1.25;
+}
+.comp-list { list-style:none; }
+.comp-list li {
+  font-size: .8rem;
+  color: var(--muted);
+  padding: .3rem 0 .3rem .95rem;
+  position: relative;
+  border-bottom: 1px solid var(--border-soft);
+  line-height: 1.45;
+}
+.comp-list li:last-child { border-bottom:none; }
+.comp-list li::before {
+  content:'';
+  position:absolute; left:0; top:50%;
+  transform:translateY(-50%);
+  width:4px; height:4px;
+  background:var(--teal);
+  border-radius:50%;
+}
+
+/* ═══════════════════════════════════════════════
+   EXPERIENCE TIMELINE
+═══════════════════════════════════════════════ */
+.exp-section { background:var(--white); }
+.timeline {
+  position: relative;
+  max-width: 880px;
+  margin: 3rem auto 0;
+}
+.timeline::before {
+  content:'';
+  position:absolute; left:22px; top:12px; bottom:12px;
+  width:2px;
+  background:linear-gradient(to bottom, var(--navy) 0%, var(--teal) 65%, transparent 100%);
+  border-radius:1px;
+}
+.tl-item {
+  position: relative;
+  padding: 0 0 3rem 64px;
+}
+.tl-item:last-child { padding-bottom:0; }
+.tl-dot {
+  position:absolute; left:13px; top:10px;
+  width:20px; height:20px;
+  background:var(--white);
+  border:3px solid var(--navy);
+  border-radius:50%;
+  z-index:2;
+  transition:border-color .25s, box-shadow .25s;
+}
+.tl-item:hover .tl-dot { border-color:var(--teal); box-shadow:0 0 0 5px rgba(10,122,108,.12); }
+.tl-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r12);
+  padding: 2rem;
+  box-shadow: var(--s1);
+  transition: box-shadow .28s var(--ease), transform .28s var(--ease);
+}
+.tl-item:hover .tl-card { box-shadow:var(--s3); transform:translateX(4px); }
+.tl-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.tl-role {
+  font-family: var(--display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: .22rem;
+}
+.tl-company { font-size:.82rem; font-weight:700; color:var(--teal); letter-spacing:.03em; }
+.tl-loc { font-size:.75rem; color:var(--light); margin-top:.1rem; }
+.tl-period {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: .72rem;
+  font-weight: 700;
+  padding: .3rem .9rem;
+  border-radius: 30px;
+  border: 1px solid var(--border);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.tl-body {
+  font-size: .88rem;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 1.1rem;
+}
+.tl-bullets { list-style:none; margin:.5rem 0; }
+.tl-bullets li {
+  font-size: .85rem;
+  color: var(--text);
+  padding: .32rem 0 .32rem 1.4rem;
+  position: relative;
+  line-height: 1.6;
+  border-bottom: 1px solid var(--border-soft);
+}
+.tl-bullets li:last-child { border-bottom:none; }
+.tl-bullets li::before {
+  content:'';
+  position:absolute; left:0; top:11px;
+  width:6px; height:6px;
+  background:var(--teal-pale);
+  border:1.5px solid var(--teal);
+  border-radius:50%;
+}
+.tl-bullets li strong { color:var(--navy); font-weight:700; }
+.tl-recog {
+  margin-top: 1.2rem;
+  background: linear-gradient(135deg, var(--teal-pale), #eef3ff);
+  border: 1px solid rgba(10,122,108,.14);
+  border-left: 3px solid var(--teal);
+  border-radius: var(--r4);
+  padding: .85rem 1.1rem;
+  font-size: .82rem;
+  color: var(--text);
+}
+.tl-recog-lbl {
+  font-size: .63rem;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: .3rem;
+}
+
+/* ═══════════════════════════════════════════════
+   PROJECTS
+═══════════════════════════════════════════════ */
+.projects-section { background:var(--off); }
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.proj-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r12);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--s1);
+  transition: box-shadow .28s var(--ease), transform .28s var(--ease), border-color .28s;
+}
+.proj-card:hover { box-shadow:var(--s4); transform:translateY(-7px); border-color:var(--border); }
+.proj-stripe { height:4px; }
+.proj-stripe.corp { background:linear-gradient(90deg, var(--navy), var(--teal)); }
+.proj-stripe.indie { background:linear-gradient(90deg, var(--gold), #e8b84b); }
+.proj-body { padding:1.6rem; flex:1; }
+.proj-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  font-size: .64rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .24rem .75rem;
+  border-radius: 30px;
+  margin-bottom: .9rem;
+}
+.proj-badge.corp { background:rgba(12,31,63,.07); color:var(--navy-mid); border:1px solid rgba(12,31,63,.12); }
+.proj-badge.indie { background:var(--gold-pale); color:var(--gold); border:1px solid rgba(196,154,46,.2); }
+.proj-card h3 {
+  font-family: var(--display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+  margin-bottom: .55rem;
+}
+.proj-desc { font-size:.8rem; color:var(--muted); line-height:1.65; margin-bottom:.9rem; }
+.proj-metric {
+  font-size: .75rem;
+  font-weight: 600;
+  color: var(--teal);
+  background: var(--teal-pale);
+  border: 1px solid rgba(10,122,108,.14);
+  border-radius: var(--r4);
+  padding: .5rem .9rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+.proj-metric.gold-m { color:var(--gold); background:var(--gold-pale); border-color:rgba(196,154,46,.15); }
+.proj-chips { display:flex; flex-wrap:wrap; gap:.35rem; }
+.chip {
+  font-size: .66rem;
+  font-weight: 600;
+  padding: .22rem .65rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  color: var(--muted);
+  transition: background .2s, color .2s;
+}
+.proj-card:hover .chip { background:var(--off); color:var(--navy); }
+.proj-foot {
+  padding: 1rem 1.6rem;
+  border-top: 1px solid var(--border-soft);
+  background: var(--off);
+}
+.proj-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .45rem;
+  font-size: .76rem;
+  font-weight: 700;
+  color: var(--navy);
+  width:100%;
+  background:none;
+  border:none;
+  cursor:pointer;
+  padding:0;
+  letter-spacing:.03em;
+  transition:color .2s, gap .2s;
+}
+.proj-action:hover { color:var(--teal); gap:.7rem; }
+.proj-action:disabled { opacity:.4; cursor:default; pointer-events:none; }
+
+/* ═══════════════════════════════════════════════
+   CERTIFICATIONS — brand colors
+═══════════════════════════════════════════════ */
+.cert-section { background:var(--white); }
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  margin-top: 2.5rem;
+}
+.cert-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r12);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--s1);
+  transition: box-shadow .28s var(--ease), transform .28s var(--ease), border-color .28s;
+}
+.cert-card:hover { box-shadow:var(--s3); transform:translateY(-4px); }
+.cert-card::after {
+  content:'';
+  position:absolute; left:0; top:0;
+  width:3px; height:100%;
+  opacity:0;
+  transition:opacity .28s;
+}
+.cert-card:hover::after { opacity:1; }
+/* individual brand accent colors */
+.cert-card[data-brand="duke"]::after    { background:var(--duke); }
+.cert-card[data-brand="google"]::after  { background:var(--google); }
+.cert-card[data-brand="uva"]::after     { background:var(--virginia); }
+.cert-card[data-brand="oxford"]::after  { background:var(--oxford); }
+.cert-card[data-brand="oracle"]::after  { background:var(--oracle-red); }
+.cert-card[data-brand="ibm"]::after     { background:var(--ibm); }
+.cert-card[data-brand="iim"]::after     { background:var(--iim); }
+.cert-card:hover[data-brand="duke"]    { border-color:rgba(1,33,105,.25); }
+.cert-card:hover[data-brand="google"]  { border-color:rgba(66,133,244,.25); }
+.cert-card:hover[data-brand="uva"]     { border-color:rgba(35,45,75,.25); }
+.cert-card:hover[data-brand="oxford"]  { border-color:rgba(0,33,71,.25); }
+.cert-card:hover[data-brand="oracle"]  { border-color:rgba(199,70,52,.25); }
+.cert-card:hover[data-brand="ibm"]     { border-color:rgba(5,74,218,.25); }
+.cert-card:hover[data-brand="iim"]     { border-color:rgba(139,0,0,.25); }
+.cert-year {
+  position:absolute; top:.9rem; right:.9rem;
+  font-size:.62rem; font-weight:700; letter-spacing:.07em;
+  background:var(--surface); color:var(--light);
+  padding:.18rem .58rem; border-radius:30px;
+  border:1px solid var(--border);
+}
+.cert-icon {
+  width:46px; height:46px;
+  border-radius:var(--r4);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.05rem; color:#fff;
+  margin-bottom:.9rem;
+  box-shadow:var(--s2);
+}
+.cert-card h3 {
+  font-size:.86rem; font-weight:700; color:var(--navy);
+  margin-bottom:.22rem; padding-right:4rem; line-height:1.3;
+}
+.cert-issuer { font-size:.72rem; font-weight:700; color:var(--teal); margin-bottom:.15rem; }
+.cert-detail { font-size:.7rem; color:var(--light); margin-bottom:.8rem; }
+.cert-link {
+  display:inline-flex; align-items:center; gap:.3rem;
+  font-size:.68rem; font-weight:700;
+  color:var(--muted); letter-spacing:.05em; text-transform:uppercase;
+  transition:color .2s;
+}
+.cert-link:hover { color:var(--navy); }
+.cert-wallets {
+  display:flex; gap:.75rem; flex-wrap:wrap;
+  padding-top:2rem; margin-top:2rem;
+  border-top:1px solid var(--border);
+}
+
+/* ═══════════════════════════════════════════════
+   EDUCATION
+═══════════════════════════════════════════════ */
+.edu-section { background:var(--off); }
+.edu-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:1.5rem; max-width:800px; margin:2.5rem auto 0;
+}
+.edu-card {
+  background:var(--white); border:1px solid var(--border);
+  border-radius:var(--r12); padding:2rem;
+  display:flex; gap:1.2rem; align-items:flex-start;
+  box-shadow:var(--s1);
+  transition:box-shadow .25s, transform .25s var(--ease);
+}
+.edu-card:hover { box-shadow:var(--s3); transform:translateY(-3px); }
+.edu-icon {
+  width:48px; height:48px; flex-shrink:0;
+  background:linear-gradient(135deg, var(--navy), var(--navy-mid));
+  border-radius:var(--r4);
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; font-size:1.1rem;
+}
+.edu-degree { font-family:var(--display); font-size:1.05rem; font-weight:700; color:var(--navy); line-height:1.25; margin-bottom:.28rem; }
+.edu-school { font-size:.78rem; font-weight:700; color:var(--teal); margin-bottom:.2rem; }
+.edu-meta { font-size:.74rem; color:var(--muted); }
+
+/* ═══════════════════════════════════════════════
+   AWARDS
+═══════════════════════════════════════════════ */
+.awards-section { background:var(--white); }
+.awards-grid {
+  display:grid; grid-template-columns:repeat(2,1fr);
+  gap:1.4rem; margin-top:2.5rem;
+}
+.award-card {
+  background:var(--white); border:1px solid var(--border);
+  border-radius:var(--r12); padding:1.8rem;
+  display:flex; align-items:flex-start; gap:1.2rem;
+  box-shadow:var(--s1);
+  transition:box-shadow .25s var(--ease), transform .25s var(--ease), border-color .25s;
+}
+.award-card:hover { box-shadow:var(--s3); transform:translateY(-3px); border-color:rgba(196,154,46,.3); }
+.award-icon {
+  width:44px; height:44px; flex-shrink:0;
+  background:linear-gradient(135deg, var(--gold-pale), #fce898);
+  border:1px solid rgba(196,154,46,.22);
+  border-radius:var(--r4);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--gold); font-size:1.05rem;
+}
+.award-name { font-size:.9rem; font-weight:700; color:var(--navy); margin-bottom:.35rem; }
+.award-desc { font-size:.79rem; color:var(--muted); line-height:1.6; }
+
+/* ═══════════════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════════════ */
+.contact-section { background:var(--off); }
+.contact-banner {
+  background: linear-gradient(140deg, var(--navy) 0%, var(--navy-deep) 60%, #0a2240 100%);
+  border-radius: var(--r24);
+  padding: clamp(2.5rem, 5vw, 4rem);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  box-shadow: var(--s4);
+}
+.contact-banner::before {
+  content:'';
+  position:absolute; inset:0;
+  background-image:radial-gradient(circle, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size:22px 22px;
+}
+.contact-banner::after {
+  content:'';
+  position:absolute; top:-60px; right:-60px;
+  width:300px; height:300px;
+  background:radial-gradient(circle, rgba(10,122,108,.2) 0%, transparent 65%);
+  pointer-events:none;
+}
+.banner-inner {
+  position:relative; z-index:2;
+  display:grid; grid-template-columns:1fr auto; gap:2.5rem; align-items:center;
+}
+.banner-avail {
+  display:inline-flex; align-items:center; gap:.45rem;
+  font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+  color:rgba(255,255,255,.75);
+  background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.18);
+  padding:.3rem .95rem; border-radius:30px; margin-bottom:.9rem;
+}
+.banner-avail::before { content:''; width:7px; height:7px; background:#4ade80; border-radius:50%; animation:pulse 2s ease-in-out infinite; }
+.banner-inner h3 {
+  font-family:var(--display);
+  font-size:clamp(1.8rem, 3vw, 2.6rem);
+  font-weight:700; color:#fff; line-height:1.15; margin-bottom:.55rem;
+}
+.banner-inner p { color:rgba(255,255,255,.6); font-size:.95rem; max-width:460px; line-height:1.7; }
+.banner-actions { display:flex; flex-direction:column; gap:.75rem; flex-shrink:0; }
+.contact-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; }
+.contact-card {
+  display:flex; align-items:center; gap:1rem;
+  background:var(--white); border:1px solid var(--border);
+  border-radius:var(--r8); padding:1.3rem;
+  color:inherit; box-shadow:var(--s1);
+  transition:box-shadow .25s var(--ease), transform .25s var(--ease), border-color .25s;
+}
+.contact-card:hover { box-shadow:var(--s3); transform:translateY(-3px); border-color:var(--teal); }
+.c-icon {
+  width:44px; height:44px; flex-shrink:0;
+  background:linear-gradient(135deg, var(--navy), var(--teal));
+  border-radius:var(--r4);
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; font-size:.95rem;
+}
+.c-label { font-size:.64rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--light); margin-bottom:.2rem; }
+.c-value { font-size:.86rem; font-weight:600; color:var(--navy); }
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════ */
+footer {
+  background:var(--navy-deep);
+  padding:2.2rem 0;
+  color:rgba(255,255,255,.5);
+}
+.foot-inner {
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;
+}
+.foot-brand { font-family:var(--display); font-size:1.1rem; font-weight:700; color:#fff; }
+.foot-links { display:flex; gap:1.6rem; }
+.foot-links a { font-size:.75rem; font-weight:600; color:rgba(255,255,255,.45); transition:color .2s; }
+.foot-links a:hover { color:#fff; }
+.foot-copy { font-size:.71rem; }
+
+/* ═══════════════════════════════════════════════
+   MODALS
+═══════════════════════════════════════════════ */
+.modal {
+  display:none; position:fixed; inset:0; z-index:400;
+  background:rgba(6,15,31,.78);
+  backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  padding:1rem; overflow-y:auto;
+}
+.modal-box {
+  background:var(--white); border-radius:var(--r16);
+  max-width:720px; margin:3rem auto;
+  overflow:hidden; box-shadow:var(--s4);
+  animation:modalIn .32s var(--spring) both;
+}
+@keyframes modalIn { from{opacity:0;transform:translateY(-20px) scale(.97)} to{opacity:1;transform:none} }
+.modal-head {
+  background:linear-gradient(135deg, var(--navy), var(--navy-mid));
+  padding:2rem 2rem 1.8rem;
+  display:flex; justify-content:space-between; align-items:flex-start; gap:1rem;
+}
+.modal-sub { font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.45); margin-bottom:.35rem; }
+.modal-head h3 { font-family:var(--display); font-size:1.5rem; font-weight:700; color:#fff; }
+.modal-close {
+  width:34px; height:34px;
+  background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.18);
+  border-radius:var(--r4); color:rgba(255,255,255,.7); cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.1rem; transition:all .2s; flex-shrink:0;
+}
+.modal-close:hover { background:rgba(255,255,255,.2); color:#fff; }
+.modal-body { padding:2rem; max-height:60vh; overflow-y:auto; }
+.modal-body h4 {
+  font-size:.68rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--teal); margin:.2rem 0 .75rem; margin-top:1.4rem;
+}
+.modal-body h4:first-child { margin-top:0; }
+.modal-body p { font-size:.9rem; color:var(--text); line-height:1.75; margin-bottom:.9rem; }
+.modal-body ul { list-style:none; }
+.modal-body ul li {
+  font-size:.87rem; color:var(--text);
+  padding:.38rem 0 .38rem 1.3rem; position:relative;
+  border-bottom:1px solid var(--border-soft); line-height:1.55;
+}
+.modal-body ul li:last-child { border-bottom:none; }
+.modal-body ul li::before {
+  content:''; position:absolute; left:0; top:12px;
+  width:5px; height:5px;
+  background:var(--teal-pale); border:1.5px solid var(--teal); border-radius:50%;
+}
+.modal-body ul li strong { color:var(--navy); font-weight:700; }
+
+
+.btn-wallet {
+  background: var(--wc);
+  color: var(--wct) !important;
+  border: none;
+  box-shadow: 0 3px 10px rgba(0,0,0,.18);
+}
+.btn-wallet:hover {
+  filter: brightness(1.12);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 16px rgba(0,0,0,.25);
+}
+
+/* ═══════════════════════════════════════════════
+   SCROLL TO TOP
+═══════════════════════════════════════════════ */
+.scroll-top {
+  position:fixed; bottom:1.75rem; right:1.75rem;
+  width:44px; height:44px;
+  background:var(--navy); color:#fff; border:none;
+  border-radius:var(--r4); display:none; align-items:center; justify-content:center;
+  font-size:.9rem; cursor:pointer; z-index:50;
+  box-shadow:var(--s3); transition:all .22s var(--ease);
+}
+.scroll-top:hover { background:var(--teal); transform:translateY(-3px); }
+
+/* ═══════════════════════════════════════════════
+   ANIMATIONS & REVEAL
+═══════════════════════════════════════════════ */
+@keyframes fadeUp   { from{opacity:0;transform:translateY(26px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn   { from{opacity:0} to{opacity:1} }
+@keyframes pulse    { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.75)} }
+
+.reveal { opacity:0; transform:translateY(20px); transition:opacity .65s var(--ease), transform .65s var(--ease); }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.reveal-delay-1 { transition-delay:.07s; }
+.reveal-delay-2 { transition-delay:.14s; }
+.reveal-delay-3 { transition-delay:.21s; }
+.reveal-delay-4 { transition-delay:.28s; }
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+@media(max-width:1200px) {
+  .impact-grid  { grid-template-columns:repeat(4,1fr); }
+  .comp-grid    { grid-template-columns:repeat(2,1fr); }
+}
+@media(max-width:1024px) {
+  .hero-stats   { grid-template-columns:repeat(3,1fr); }
+  .proj-grid    { grid-template-columns:repeat(2,1fr); }
+  .cert-grid    { grid-template-columns:repeat(2,1fr); }
+  .impact-grid  { grid-template-columns:repeat(2,1fr); }
+}
+@media(max-width:900px) {
+  .about-grid   { grid-template-columns:1fr; gap:2.5rem; }
+  .hero-layout  { grid-template-columns:1fr; }
+  .hero-right   { display:none; }
+}
+@media(max-width:768px) {
+  html { font-size:15px; }
+  .nav-links    { display:none; }
+  .mob-btn      { display:flex; }
+  .nav-links.open {
+    display:flex; flex-direction:column;
+    position:absolute; top:100%; left:0; right:0;
+    background:var(--white); border-top:1px solid var(--border-soft);
+    border-bottom:1px solid var(--border-soft);
+    padding:.9rem; box-shadow:var(--s3); gap:.15rem;
+  }
+  .nav-links.open a { display:block; padding:.65rem .85rem; border-radius:var(--r4); }
+  .nav-links.open a:hover { background:var(--off); }
+  .hero-stats   { grid-template-columns:repeat(2,1fr); }
+  .comp-grid    { grid-template-columns:1fr; }
+  .proj-grid    { grid-template-columns:1fr; }
+  .cert-grid    { grid-template-columns:1fr; }
+  .edu-grid     { grid-template-columns:1fr; }
+  .awards-grid  { grid-template-columns:1fr; }
+  .impact-grid  { grid-template-columns:repeat(2,1fr); }
+  .impact-bullets { grid-template-columns:1fr; }
+  .banner-inner { grid-template-columns:1fr; }
+  .banner-actions { flex-direction:row; flex-wrap:wrap; }
+  .contact-cards { grid-template-columns:1fr; }
+}
+@media(max-width:480px) {
+  html { font-size:14px; }
+  .hero-stats   { grid-template-columns:repeat(2,1fr); }
+  .hero-actions { flex-direction:column; }
+  .hero-actions .btn { width:100%; justify-content:center; }
+  .impact-grid  { grid-template-columns:1fr 1fr; }
+  .impact-num   { font-size:2rem; }
+}
+/* Large screens — max width utilization */
+@media(min-width:1400px) {
+  .wrap { max-width:1280px; }
+}
+@media(min-width:1800px) {
+  .wrap { max-width:1440px; }
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- ═══════════ NAV ═══════════ -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="#hero" class="nav-brand">Vijay Kumar<span>.</span></a>
-    <button class="mob-btn" id="mobBtn"><i class="fas fa-bars"></i></button>
+    <button class="mob-btn" id="mobBtn" aria-label="Menu"><i class="fas fa-bars"></i></button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
       <li><a href="#competencies">Skills</a></li>
@@ -354,28 +1322,36 @@ footer{background:var(--ink);padding:2rem 0;color:rgba(255,255,255,.55)}
       <li><a href="#projects">Projects</a></li>
       <li><a href="#certifications">Certs</a></li>
       <li><a href="#awards">Awards</a></li>
-      <li><a href="#contact" class="nav-cta">Contact</a></li>
+      <li><a href="#contact" class="nav-cta-pill">Contact</a></li>
     </ul>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- ═══════════ HERO ═══════════ -->
 <header class="hero" id="hero">
+  <div class="hero-bar"></div>
+  <div class="hero-glow-gold"></div>
   <div class="wrap">
     <div class="hero-inner">
-      <div class="hero-grid">
+      <div class="hero-layout">
         <div class="hero-left">
           <div class="hero-pill">Open to VP / Director Product Roles</div>
-          <div class="hero-name">Vijay<br>Kumar</div>
-          <div class="hero-title">Product Leader — Consumer Commerce, Marketplace Platforms & Enterprise Systems</div>
+          <div class="hero-name">
+            Vijay Kumar
+            <em>Product Leader</em>
+          </div>
+          <div class="hero-role">
+            <strong>Consumer Commerce · Marketplace Platforms · Enterprise Systems</strong><br>
+            Mumbai / Bengaluru, India &nbsp;|&nbsp; Global-Ready
+          </div>
           <p class="hero-desc">
-            Accomplished Product Leader with <strong>20+ years</strong> building and scaling digital platforms across enterprise tax technology, OTT media, retail commerce, and SaaS ecosystems. Currently leading Dell's global Indirect Tax product portfolio — <strong>10+ applications across 100+ countries</strong>, processing 300K+ annual transactions. Helped build India's first OTT platform (BigFlix) and contributed to the launch of India's first organized music retail chain (Planet M).
+            <strong>20+ years</strong> building and scaling digital platforms across enterprise tax technology, OTT media, retail commerce, and SaaS ecosystems. Currently leading Dell's global Indirect Tax product portfolio — <strong>10+ applications across 100+ countries</strong>, processing 300K+ annual transactions. Helped build India's first OTT platform and contributed to the launch of India's first organised music retail chain.
           </p>
           <div class="hero-actions">
-            <a href="#projects" class="btn btn-ink"><i class="fas fa-rocket"></i> Key Projects</a>
-            <a href="#experience" class="btn btn-teal"><i class="fas fa-briefcase"></i> Experience</a>
-            <a href="https://vijayshagunkumar.github.io/" target="_blank" class="btn btn-outline"><i class="fas fa-globe"></i> GitHub Portfolio</a>
-            <a href="https://www.linkedin.com/in/vshn" target="_blank" class="btn btn-ghost"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="#projects"    class="btn btn-teal"><i class="fas fa-rocket"></i> Key Projects</a>
+            <a href="#experience"  class="btn btn-navy"><i class="fas fa-briefcase"></i> Experience</a>
+            <a href="https://vijayshagunkumar.github.io/" target="_blank" class="btn btn-ghost"><i class="fas fa-globe"></i> GitHub Portfolio</a>
+            <a href="https://www.linkedin.com/in/vshn"   target="_blank" class="btn btn-ghost"><i class="fab fa-linkedin"></i> LinkedIn</a>
           </div>
           <div class="hero-stats">
             <div class="stat"><div class="stat-v">20+</div><div class="stat-l">Years</div></div>
@@ -383,23 +1359,25 @@ footer{background:var(--ink);padding:2rem 0;color:rgba(255,255,255,.55)}
             <div class="stat"><div class="stat-v">150</div><div class="stat-l">Tax Jurisdictions</div></div>
             <div class="stat"><div class="stat-v">300K+</div><div class="stat-l">Transactions/yr</div></div>
             <div class="stat"><div class="stat-v">10M+</div><div class="stat-l">Records Migrated</div></div>
-            <div class="stat"><div class="stat-v">99.6%</div><div class="stat-l">Performance Gain</div></div>
+            <div class="stat"><div class="stat-v">99.6%</div><div class="stat-l">Perf. Gain</div></div>
           </div>
         </div>
         <div class="hero-right">
-          <div style="position:relative">
-            <div class="deco-dots" style="top:-20px;right:-20px"></div>
+          <div class="photo-shell">
+            <div class="deco-grid tl"></div>
             <div class="photo-frame">
-              <img class="photo-img" src="Image/1-LinkedIN-Final.jpg" alt="Vijay Kumar, Product Leader">
-              <div class="photo-badge"><i class="fas fa-certificate" style="font-size:.65em;margin-right:.3rem"></i> Product Leader</div>
+              <img src="Image/1-LinkedIN-Final.jpg" alt="Vijay Kumar, Product Leader" loading="eager">
             </div>
-            <div class="hero-card top">
-              <div class="hc-num">$50K+</div>
-              <div class="hc-lbl">Annual Cost Savings</div>
+            <div class="photo-badge"><i class="fas fa-certificate" style="font-size:.65em;margin-right:.3rem"></i> Product Leader</div>
+          </div>
+          <div class="hero-stat-cards">
+            <div class="floating-card fc-card">
+              <div class="fc-num">$50K+</div>
+              <div class="fc-lbl">Annual Cost Savings</div>
             </div>
-            <div class="hero-card bot">
-              <div style="font-size:.65rem;opacity:.7;margin-bottom:.2rem;letter-spacing:.06em;text-transform:uppercase">Latest Recognition</div>
-              <div>Dell Learning Exchange Rockstar 2025</div>
+            <div class="floating-card fc-card">
+              <div style="font-size:.62rem;opacity:.6;margin-bottom:.18rem;letter-spacing:.07em;text-transform:uppercase">Latest Award</div>
+              <div style="font-size:.76rem;font-weight:600;line-height:1.4">Dell Learning Exchange<br>Rockstar 2025</div>
             </div>
           </div>
         </div>
@@ -408,15 +1386,38 @@ footer{background:var(--ink);padding:2rem 0;color:rgba(255,255,255,.55)}
   </div>
 </header>
 
-<!-- ABOUT -->
-<section id="about" class="about-section">
+<!-- ticker -->
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-track" id="ticker">
+    <div class="ticker-item"><i class="fas fa-check-circle"></i> 99.6% performance improvement &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-database"></i> 10M+ records migrated, zero downtime &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-globe"></i> 100+ countries, 150 tax jurisdictions &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-dollar-sign"></i> $50K+ annual cost savings &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-exchange-alt"></i> 300K+ transactions optimized annually &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-store"></i> 100+ retail stores enabled &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-award"></i> Dell Game Changers Award 2023 &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-star"></i> Dell Learning Exchange Rockstar 2025 &nbsp;<span class="ticker-sep">·</span></div>
+    <!-- duplicate for seamless loop -->
+    <div class="ticker-item"><i class="fas fa-check-circle"></i> 99.6% performance improvement &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-database"></i> 10M+ records migrated, zero downtime &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-globe"></i> 100+ countries, 150 tax jurisdictions &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-dollar-sign"></i> $50K+ annual cost savings &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-exchange-alt"></i> 300K+ transactions optimized annually &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-store"></i> 100+ retail stores enabled &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-award"></i> Dell Game Changers Award 2023 &nbsp;<span class="ticker-sep">·</span></div>
+    <div class="ticker-item"><i class="fas fa-star"></i> Dell Learning Exchange Rockstar 2025 &nbsp;<span class="ticker-sep">·</span></div>
+  </div>
+</div>
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<section id="about">
   <div class="wrap">
     <div class="reveal">
       <span class="eyebrow">Executive Summary</span>
-      <h2 class="title">Product Leader at Global Scale</h2>
+      <h2 class="section-title">Product Leader at Global Scale</h2>
     </div>
-    <div class="about-grid reveal" style="margin-top:2.5rem">
-      <div class="about-text">
+    <div class="about-grid">
+      <div class="about-text reveal">
         <p>Accomplished Product Leader with 20+ years of experience building and scaling digital platforms across enterprise tax technology, OTT media, retail commerce, and SaaS ecosystems. Currently leading Dell Technologies' global Indirect Tax product portfolio — 10+ internally built applications supporting tax compliance across 100+ countries and processing 300K+ transactions annually.</p>
         <p>Played a key role in Dell's enterprise finance modernization including Oracle Fusion ERP, TR OneSource Cloud, and CERTifyTax, executing a zero-downtime migration of 10M+ customer exemption records. Earlier helped build India's first subscription-based OTT platform (Reliance BigFlix) and contributed to the launch of India's first organized music retail chain, Planet M (Times Group).</p>
         <p>Deep expertise in enterprise platform architecture, tax compliance systems, ERP integrations, and large-scale digital product delivery. Recognized for driving innovation, operational excellence, and cross-functional execution across globally distributed teams.</p>
@@ -432,34 +1433,32 @@ footer{background:var(--ink);padding:2rem 0;color:rgba(255,255,255,.55)}
         </div>
       </div>
       <div class="about-cards">
-        <div class="about-card">
+        <div class="about-card reveal reveal-delay-1">
           <div class="ac-icon"><i class="fas fa-chart-line"></i></div>
           <div>
             <div class="ac-title">Selected Product Impact</div>
-            <div class="ac-body">
-              99.6% performance improvement · 10M+ records migrated (zero downtime, SOX compliant) · $50K+ annual savings · 300K+ transactions optimized · 100+ countries, 150 tax jurisdictions (CERTifyTax) · 100+ retail stores enabled (Times Group, YsecIT)
-            </div>
+            <div class="ac-body">99.6% performance gain · 10M+ records migrated (zero downtime, SOX compliant) · $50K+ annual savings · 100+ countries, 150 tax jurisdictions enabled</div>
           </div>
         </div>
-        <div class="about-card">
+        <div class="about-card reveal reveal-delay-2">
           <div class="ac-icon"><i class="fas fa-chess-queen"></i></div>
           <div>
             <div class="ac-title">Core Competencies</div>
-            <div class="ac-body">Product Strategy & Execution · Product Analytics & Data · Platforms & Domains (E-commerce, Retail POS, ERP/CRM, Financial/Compliance, API)</div>
+            <div class="ac-body">Product Strategy & Execution · Product Analytics & Data · E-commerce, Retail POS, ERP/CRM, Financial/Compliance Platforms, API Integration</div>
           </div>
         </div>
-        <div class="about-card">
+        <div class="about-card reveal reveal-delay-3">
           <div class="ac-icon"><i class="fas fa-tools"></i></div>
           <div>
             <div class="ac-title">Tools & Technologies</div>
-            <div class="ac-body">Jira, Confluence, SQL · Oracle Fusion ERP, TR OneSource, Vertex, CERTifyTax · Retail Pro POS, Focus RT · REST APIs, XML, EDI, Middleware · Generative AI, Prompt Engineering</div>
+            <div class="ac-body">Jira, Confluence, SQL · Oracle Fusion ERP, TR OneSource, Vertex, CERTifyTax · REST APIs, XML, EDI, Middleware · Generative AI &amp; Prompt Engineering</div>
           </div>
         </div>
-        <div class="about-card">
+        <div class="about-card reveal reveal-delay-4">
           <div class="ac-icon"><i class="fas fa-map-marker-alt"></i></div>
           <div>
-            <div class="ac-title">Location & Availability</div>
-            <div class="ac-body">Mumbai / Bengaluru, India · Open to global opportunities · +91 7738774442 · vijay.shagunkumar@gmail.com</div>
+            <div class="ac-title">Location &amp; Availability</div>
+            <div class="ac-body">Mumbai / Bengaluru, India · Open to global opportunities · vijay.shagunkumar@gmail.com · +91 7738774442</div>
           </div>
         </div>
       </div>
@@ -469,56 +1468,57 @@ footer{background:var(--ink);padding:2rem 0;color:rgba(255,255,255,.55)}
 
 <div class="divider"></div>
 
-<!-- IMPACT METRICS — dark section -->
-<section class="impact-section">
-  <div class="wrap">
-    <div class="impact-head reveal">
-      <span class="eyebrow">Quantified Results</span>
-      <h2 class="title" style="color:#fff">Selected Product Impact</h2>
+<!-- ═══════════ IMPACT SECTION — prominent ═══════════ -->
+<section class="impact-section" id="impact">
+  <div class="wrap impact-inner">
+    <div class="section-header reveal">
+      <span class="eyebrow center" style="color:var(--teal-light)">Quantified Results</span>
+      <h2 class="section-title" style="color:#fff">Selected Product Impact</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,.55);margin:0.6rem auto 0">Measurable outcomes delivered across Dell Technologies, Times Group, and YsecIT platforms</p>
     </div>
     <div class="impact-grid reveal">
-      <div class="impact-card">
+      <div class="impact-big">
         <div class="impact-num">99.6%</div>
-        <div class="impact-lbl">Processing efficiency improvement — global financial transaction platform (Dell)</div>
+        <div class="impact-label">Processing Efficiency<br>Improvement — Dell</div>
       </div>
-      <div class="impact-card">
+      <div class="impact-big">
         <div class="impact-num">10M+</div>
-        <div class="impact-lbl">Enterprise records migrated with zero downtime & full SOX compliance (Dell)</div>
+        <div class="impact-label">Records Migrated<br>Zero Downtime · SOX Compliant</div>
       </div>
-      <div class="impact-card">
+      <div class="impact-big">
         <div class="impact-num">$50K+</div>
-        <div class="impact-lbl">Annual cost savings through cloud-based platform optimization (Dell)</div>
+        <div class="impact-label">Annual Cost Savings<br>Cloud Optimization — Dell</div>
       </div>
-      <div class="impact-card">
+      <div class="impact-big">
         <div class="impact-num">300K+</div>
-        <div class="impact-lbl">Annual tax transactions optimized via simulation platform (Dell)</div>
+        <div class="impact-label">Annual Tax Transactions<br>Optimized — Dell</div>
       </div>
     </div>
-    <div class="impact-list reveal">
-      <div class="impact-item"><i class="fas fa-globe"></i>100+ countries and 150 tax jurisdictions enabled through global rollout of CERTifyTax tax exemption platform (Dell)</div>
-      <div class="impact-item"><i class="fas fa-store"></i>100+ retail stores enabled with new POS & Inventory systems (Times Group, YsecIT)</div>
-      <div class="impact-item"><i class="fas fa-city"></i>20+ cities covered in nationwide platform rollout (Times Group)</div>
-      <div class="impact-item"><i class="fas fa-layer-group"></i>10+ enterprise SaaS platforms delivered across multiple industries (YsecIT)</div>
+    <div class="impact-bullets reveal">
+      <div class="impact-bullet"><i class="fas fa-globe"></i>100+ countries and 150 tax jurisdictions enabled through global CERTifyTax rollout (Dell)</div>
+      <div class="impact-bullet"><i class="fas fa-store"></i>100+ retail stores enabled with new POS &amp; Inventory systems (Times Group, YsecIT)</div>
+      <div class="impact-bullet"><i class="fas fa-city"></i>20+ cities covered in nationwide platform rollout (Times Group)</div>
+      <div class="impact-bullet"><i class="fas fa-layer-group"></i>10+ enterprise SaaS platforms delivered across multiple industries (YsecIT)</div>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- EDUCATION -->
+<!-- ═══════════ EDUCATION ═══════════ -->
 <section id="education" class="edu-section">
   <div class="wrap">
-    <div class="section-header center-head reveal">
-      <span class="eyebrow">Academic Background</span>
-      <h2 class="title">Education</h2>
+    <div class="section-header reveal">
+      <span class="eyebrow center">Academic Background</span>
+      <h2 class="section-title">Education</h2>
     </div>
-    <div class="edu-grid reveal" style="margin-top:2rem">
+    <div class="edu-grid reveal">
       <div class="edu-card">
         <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
         <div>
           <div class="edu-degree">Master of Commerce (Finance)</div>
           <div class="edu-school">Manipal University Jaipur</div>
-          <div class="edu-meta">CGPA: 8.36 / 10 · 2023–2025</div>
+          <div class="edu-meta">CGPA: 8.36 / 10 &nbsp;·&nbsp; 2023–2025</div>
         </div>
       </div>
       <div class="edu-card">
@@ -535,56 +1535,56 @@ footer{background:var(--ink);padding:2rem 0;color:rgba(255,255,255,.55)}
 
 <div class="divider"></div>
 
-<!-- COMPETENCIES -->
+<!-- ═══════════ COMPETENCIES ═══════════ -->
 <section id="competencies" class="comp-section">
   <div class="wrap">
-    <div class="center-head reveal">
-      <span class="eyebrow">Core Expertise</span>
-      <h2 class="title">Competencies & Tools</h2>
+    <div class="section-header reveal">
+      <span class="eyebrow center">Core Expertise</span>
+      <h2 class="section-title">Competencies &amp; Tools</h2>
     </div>
-    <div class="comp-grid reveal" style="margin-top:2.5rem">
-      <div class="comp-card">
+    <div class="comp-grid">
+      <div class="comp-card reveal reveal-delay-1">
         <div class="comp-icon"><i class="fas fa-chess-queen"></i></div>
-        <h3>Product Strategy & Execution</h3>
+        <h3>Product Strategy &amp; Execution</h3>
         <ul class="comp-list">
-          <li>Product Vision & Roadmapping</li>
+          <li>Product Vision &amp; Roadmapping</li>
           <li>0→1 Product Launch</li>
-          <li>Agile & Scrum Methodologies</li>
+          <li>Agile &amp; Scrum Methodologies</li>
           <li>Cross-functional Leadership</li>
-          <li>User Research & Discovery</li>
-          <li>OKR Definition & Alignment</li>
+          <li>User Research &amp; Discovery</li>
+          <li>OKR Definition &amp; Alignment</li>
         </ul>
       </div>
-      <div class="comp-card">
+      <div class="comp-card reveal reveal-delay-2">
         <div class="comp-icon"><i class="fas fa-chart-pie"></i></div>
-        <h3>Product Analytics & Data</h3>
+        <h3>Product Analytics &amp; Data</h3>
         <ul class="comp-list">
-          <li>A/B Testing & Experimentation</li>
-          <li>Funnel & Conversion Optimization</li>
-          <li>Engagement & Retention Analytics</li>
+          <li>A/B Testing &amp; Experimentation</li>
+          <li>Funnel &amp; Conversion Optimization</li>
+          <li>Engagement &amp; Retention Analytics</li>
           <li>Metrics-Driven Development</li>
           <li>Data Analysis (SQL)</li>
           <li>Platform Observability</li>
         </ul>
       </div>
-      <div class="comp-card">
+      <div class="comp-card reveal reveal-delay-3">
         <div class="comp-icon"><i class="fas fa-layer-group"></i></div>
-        <h3>Platforms & Domains</h3>
+        <h3>Platforms &amp; Domains</h3>
         <ul class="comp-list">
-          <li>E-commerce & Marketplaces</li>
-          <li>Retail POS & Inventory Management</li>
+          <li>E-commerce &amp; Marketplaces</li>
+          <li>Retail POS &amp; Inventory Management</li>
           <li>Enterprise Systems (ERP/CRM)</li>
-          <li>Financial & Compliance Platforms</li>
-          <li>API & Integration Strategy</li>
-          <li>Tax Compliance & Middleware</li>
+          <li>Financial &amp; Compliance Platforms</li>
+          <li>API &amp; Integration Strategy</li>
+          <li>Tax Compliance &amp; Middleware</li>
         </ul>
       </div>
-      <div class="comp-card">
+      <div class="comp-card reveal reveal-delay-4">
         <div class="comp-icon"><i class="fas fa-tools"></i></div>
-        <h3>Tools & Technologies</h3>
+        <h3>Tools &amp; Technologies</h3>
         <ul class="comp-list">
           <li>Jira, Confluence, Miro, Figma, SQL</li>
-          <li>Oracle Fusion ERP, TR OneSource, Vertex, CERTifyTax</li>
+          <li>Oracle Fusion ERP, TR OneSource, CERTifyTax</li>
           <li>Retail Pro POS, Focus RT Inventory</li>
           <li>REST APIs, XML, EDI, Middleware</li>
           <li>Generative AI, Prompt Engineering</li>
@@ -596,14 +1596,14 @@ footer{background:var(--ink);padding:2rem 0;color:rgba(255,255,255,.55)}
 
 <div class="divider"></div>
 
-<!-- EXPERIENCE -->
+<!-- ═══════════ EXPERIENCE ═══════════ -->
 <section id="experience" class="exp-section">
   <div class="wrap">
-    <div class="center-head reveal">
-      <span class="eyebrow">Career History</span>
-      <h2 class="title">Professional Experience</h2>
+    <div class="section-header reveal">
+      <span class="eyebrow center">Career History</span>
+      <h2 class="section-title">Professional Experience</h2>
     </div>
-    <div class="timeline" style="margin-top:3rem">
+    <div class="timeline">
 
       <!-- Dell -->
       <div class="tl-item reveal">
@@ -617,20 +1617,20 @@ footer{background:var(--ink);padding:2rem 0;color:rgba(255,255,255,.55)}
             </div>
             <span class="tl-period"><i class="fas fa-calendar-alt"></i> Apr 2021 – Present</span>
           </div>
-          <div style="font-size:.71rem;font-weight:600;color:var(--text-light);margin-bottom:.9rem">Global Indirect Tax platform suite · 10+ apps · 100+ countries · 300K+ annual transactions</div>
+          <div style="font-size:.73rem;font-weight:600;color:var(--light);margin-bottom:.9rem;letter-spacing:.02em">Global Indirect Tax platform suite · 10+ apps · 100+ countries · 300K+ annual transactions</div>
           <p class="tl-body">Lead product vision, strategy, roadmap, and OKR frameworks for Dell's global Indirect Tax technology platform suite — 10+ internally developed applications processing 300K+ annual tax transactions across 100+ countries. Drive end-to-end product delivery from requirements through PRDs, engineering, QA, production deployment, and post-go-live support. Led two cross-functional engineering teams and drove zero-downtime migration of 10M+ exemption records as part of Dell's global ERP modernization.</p>
           <ul class="tl-bullets">
             <li><strong>Middleware Tax Enrichment Layer:</strong> Architected and delivered proprietary middleware between 100+ enterprise apps and the Sabrix tax engine — eliminating costly individual changes for every new global tax rule across 100+ countries and saving millions in vendor and engineering costs.</li>
             <li><strong>Tax Exemption Management Platform (0→1):</strong> Built internal product from scratch enabling upload, storage, search, and tax engine DB integration for customer exemptions globally.</li>
-            <li><strong>Tax Diagnostics, RCA & Observability:</strong> Delivered transaction-level diagnostic and observability platform, instrumented with generative AI tooling for data-driven decision making — significantly reducing resolution time for Finance and Operations teams.</li>
+            <li><strong>Tax Diagnostics, RCA &amp; Observability:</strong> Delivered transaction-level diagnostic and observability platform, instrumented with generative AI tooling for data-driven decision making — significantly reducing resolution time for Finance and Operations teams.</li>
             <li><strong>India TCS Compliance Portal:</strong> Designed and launched externally accessible vendor portal for India's Tax Collection at Source regulation, enabling vendors to upload invoices and claim tax rebates outside the Dell network.</li>
             <li><strong>CERTifyTax Global Rollout:</strong> Led global implementation and integration of CERTifyTax with TR OneSource Cloud — including 10M+ customer exemption data migration, vendor management, and training across global business teams.</li>
             <li><strong>Enterprise Modernization:</strong> Key contributor to Oracle Fusion ERP rollout and cloud migration from on-prem Sabrix to TR OneSource Cloud; led stakeholder alignment with Deloitte, Thomson Reuters, and CERTifyTax vendor with executive-level progress reporting.</li>
-            <li><strong>Performance & Cost Optimization:</strong> Designed cloud-based financial transaction simulation platform → 99.6% processing improvement, 300K+ transactions optimized, $50K+ annual cost savings.</li>
+            <li><strong>Performance &amp; Cost Optimization:</strong> Designed cloud-based financial transaction simulation platform → 99.6% processing improvement, 300K+ transactions optimized, $50K+ annual savings.</li>
           </ul>
           <div class="tl-recog">
-            <div class="tl-recog-label">Recognition</div>
-            Dell Game Changers Award (2023) · Dell Learning Exchange Rockstar (2025)
+            <div class="tl-recog-lbl">Recognition</div>
+            Dell Game Changers Award (2023) &nbsp;·&nbsp; Dell Learning Exchange Rockstar (2025)
           </div>
         </div>
       </div>
@@ -649,13 +1649,13 @@ footer{background:var(--ink);padding:2rem 0;color:rgba(255,255,255,.55)}
           </div>
           <p class="tl-body">Led end-to-end development and delivery of enterprise SaaS platforms across retail, international trade, logistics, and operational management domains, working closely with global clients to translate business requirements into scalable software products.</p>
           <ul class="tl-bullets">
-            <li><strong>Multi-Domain Platform Delivery:</strong> Designed and delivered SaaS platforms for retail (ProMax/DaVinci — POS & inventory for South American chains), forestry operations, restaurant management, and enterprise asset tracking, enabling centralized operations across industries.</li>
-            <li><strong>Cross-Border Trade Systems:</strong> Developed platforms supporting vehicle import/export operations and fish export-import supply chains, enabling regulatory documentation, shipment tracking, and cross-border transaction workflows.</li>
-            <li><strong>Customer Discovery & Product Definition:</strong> Conducted extensive stakeholder workshops to convert operational challenges into structured product requirements, feature roadmaps, and technical specifications.</li>
+            <li><strong>Multi-Domain Platform Delivery:</strong> Designed and delivered SaaS platforms for retail (ProMax/DaVinci — POS &amp; inventory for South American chains), forestry operations, restaurant management, and enterprise asset tracking.</li>
+            <li><strong>Cross-Border Trade Systems:</strong> Developed platforms supporting vehicle import/export and fish export-import supply chains, enabling regulatory documentation, shipment tracking, and cross-border workflows.</li>
+            <li><strong>Customer Discovery &amp; Product Definition:</strong> Conducted extensive stakeholder workshops to convert operational challenges into structured product requirements, feature roadmaps, and technical specifications.</li>
             <li><strong>Agile Product Delivery:</strong> Managed Agile development cycles, product backlogs, and cross-functional engineering teams to deliver 10+ enterprise SaaS platforms across multiple industries.</li>
           </ul>
           <div class="tl-recog">
-            <div class="tl-recog-label">Recognition</div>
+            <div class="tl-recog-lbl">Recognition</div>
             YsecIT Performance Award — 2017
           </div>
         </div>
@@ -687,7 +1687,10 @@ footer{background:var(--ink);padding:2rem 0;color:rgba(255,255,255,.55)}
         <div class="tl-card">
           <div class="tl-head">
             <div>
-              <div class="tl-role">Chief Manager — Technology <span style="background:var(--teal-pale);color:var(--teal);padding:.12rem .5rem;border-radius:30px;font-size:.68rem;margin-left:.4rem;font-family:var(--body);font-weight:700">0→1 Launch</span></div>
+              <div class="tl-role">
+                Chief Manager — Technology
+                <span style="background:var(--teal-pale);color:var(--teal);padding:.14rem .55rem;border-radius:30px;font-size:.68rem;margin-left:.5rem;font-family:var(--ui);font-weight:700;vertical-align:middle">0→1 Launch</span>
+              </div>
               <div class="tl-company">Reliance Entertainment — BigFlix</div>
               <div class="tl-loc">Mumbai, India</div>
             </div>
@@ -699,7 +1702,7 @@ footer{background:var(--ink);padding:2rem 0;color:rgba(255,255,255,.55)}
             <li><strong>National Systems Integration:</strong> Implemented and integrated Focus RT inventory management and POS systems across the national retail network, enabling centralized tracking of sales, inventory, and financial reporting.</li>
           </ul>
           <div class="tl-recog">
-            <div class="tl-recog-label">Recognition</div>
+            <div class="tl-recog-lbl">Recognition</div>
             Received 117% variable payout for successful national implementation
           </div>
         </div>
@@ -723,7 +1726,7 @@ footer{background:var(--ink);padding:2rem 0;color:rgba(255,255,255,.55)}
             <li><strong>Centralized Visibility:</strong> Established systems for real-time tracking of stock levels, purchase orders, and inter-store movement across the national network.</li>
           </ul>
           <div class="tl-recog">
-            <div class="tl-recog-label">Recognition</div>
+            <div class="tl-recog-lbl">Recognition</div>
             Times Group Double Promotion (2005)
           </div>
         </div>
@@ -734,26 +1737,26 @@ footer{background:var(--ink);padding:2rem 0;color:rgba(255,255,255,.55)}
 
 <div class="divider"></div>
 
-<!-- PROJECTS -->
+<!-- ═══════════ PROJECTS ═══════════ -->
 <section id="projects" class="projects-section">
   <div class="wrap">
-    <div class="center-head reveal">
-      <span class="eyebrow">Portfolio</span>
-      <h2 class="title">Key Projects & Impact</h2>
+    <div class="section-header reveal">
+      <span class="eyebrow center">Portfolio</span>
+      <h2 class="section-title">Key Projects &amp; Impact</h2>
     </div>
-    <div class="proj-grid reveal" style="margin-top:2.5rem">
-      <div class="proj-card">
+    <div class="proj-grid">
+      <div class="proj-card reveal reveal-delay-1">
         <div class="proj-stripe corp"></div>
         <div class="proj-body">
           <div class="proj-badge corp"><i class="fas fa-building"></i> Dell Technologies</div>
           <h3>Middleware Tax Enrichment Layer</h3>
           <p class="proj-desc">Architected proprietary middleware between 100+ enterprise applications and the Sabrix tax engine — eliminating costly individual changes for every new global tax rule across 100+ countries.</p>
-          <div class="proj-metric">⚡ Millions saved in vendor & engineering costs</div>
+          <div class="proj-metric">⚡ Millions saved in vendor &amp; engineering costs</div>
           <div class="proj-chips"><span class="chip">Middleware</span><span class="chip">Sabrix</span><span class="chip">100+ Countries</span><span class="chip">API Architecture</span></div>
         </div>
         <div class="proj-foot"><button class="proj-action" onclick="openModal('m1')">View Case Study <i class="fas fa-arrow-right"></i></button></div>
       </div>
-      <div class="proj-card">
+      <div class="proj-card reveal reveal-delay-2">
         <div class="proj-stripe corp"></div>
         <div class="proj-body">
           <div class="proj-badge corp"><i class="fas fa-building"></i> Dell Technologies</div>
@@ -764,46 +1767,46 @@ footer{background:var(--ink);padding:2rem 0;color:rgba(255,255,255,.55)}
         </div>
         <div class="proj-foot"><button class="proj-action" onclick="openModal('m2')">View Case Study <i class="fas fa-arrow-right"></i></button></div>
       </div>
-      <div class="proj-card">
+      <div class="proj-card reveal reveal-delay-3">
         <div class="proj-stripe corp"></div>
         <div class="proj-body">
           <div class="proj-badge corp"><i class="fas fa-building"></i> Dell Technologies</div>
-          <h3>Tax Diagnostics, RCA & Observability</h3>
-          <p class="proj-desc">Transaction-level diagnostic and observability platform instrumented with generative AI tooling, enabling data-driven decision making and significantly reducing resolution time.</p>
-          <div class="proj-metric">🤖 GenAI-powered · Real-time observability</div>
+          <h3>Tax Diagnostics, RCA &amp; Observability</h3>
+          <p class="proj-desc">Transaction-level diagnostic and observability platform instrumented with generative AI tooling for data-driven decision making, significantly reducing Finance and Operations resolution time.</p>
+          <div class="proj-metric">🤖 GenAI-powered · Transaction-level observability</div>
           <div class="proj-chips"><span class="chip">Generative AI</span><span class="chip">Observability</span><span class="chip">RCA</span></div>
         </div>
         <div class="proj-foot"><button class="proj-action" onclick="openModal('m3')">View Case Study <i class="fas fa-arrow-right"></i></button></div>
       </div>
-      <div class="proj-card">
+      <div class="proj-card reveal reveal-delay-1">
         <div class="proj-stripe corp"></div>
         <div class="proj-body">
           <div class="proj-badge corp"><i class="fas fa-building"></i> Dell Technologies</div>
-          <h3>Performance & Cost Optimization Platform</h3>
+          <h3>Performance &amp; Cost Optimization Platform</h3>
           <p class="proj-desc">Cloud-based financial transaction simulation platform delivering 99.6% processing improvement, optimizing 300K+ annual transactions and generating $50K+ in annual cost savings.</p>
           <div class="proj-metric">💰 99.6% improvement · $50K+ saved annually</div>
-          <div class="proj-chips"><span class="chip">Cloud</span><span class="chip">Simulation</span><span class="chip">Oracle</span><span class="chip">OKR</span></div>
+          <div class="proj-chips"><span class="chip">Cloud</span><span class="chip">Simulation</span><span class="chip">Oracle ERP</span><span class="chip">OKR</span></div>
         </div>
         <div class="proj-foot"><button class="proj-action" onclick="openModal('m4')">View Case Study <i class="fas fa-arrow-right"></i></button></div>
       </div>
-      <div class="proj-card">
+      <div class="proj-card reveal reveal-delay-2">
         <div class="proj-stripe indie"></div>
         <div class="proj-body">
           <div class="proj-badge indie"><i class="fas fa-lightbulb"></i> Personal Initiative</div>
           <h3>PromptCraft — AI Prompt Studio</h3>
-          <p class="proj-desc">Built AI prompt optimization studio demonstrating generative AI product and UX design expertise — helps users convert unstructured ideas into optimized, high-quality prompts.</p>
-          <div class="proj-metric gold">✨ Live product · prompt-crafter-pro.pages.dev</div>
+          <p class="proj-desc">Built AI prompt optimization studio demonstrating generative AI product and UX design expertise — converts unstructured ideas into optimized, high-quality prompts.</p>
+          <div class="proj-metric gold-m">✨ Live product · prompt-crafter-pro.pages.dev</div>
           <div class="proj-chips"><span class="chip">GenAI</span><span class="chip">UX Design</span><span class="chip">Prompt Engineering</span></div>
         </div>
         <div class="proj-foot"><a href="https://prompt-crafter-pro.pages.dev/" target="_blank" class="proj-action">Live Product <i class="fas fa-external-link-alt"></i></a></div>
       </div>
-      <div class="proj-card">
+      <div class="proj-card reveal reveal-delay-3">
         <div class="proj-stripe indie"></div>
         <div class="proj-body">
           <div class="proj-badge indie"><i class="fas fa-lightbulb"></i> Personal Initiative</div>
           <h3>Saarthi Yoga — Digital Wellness Platform</h3>
           <p class="proj-desc">Designed digital wellness platform showcasing scalable content architecture and accessible UX — structured discovery of yoga practices with guided learning journeys.</p>
-          <div class="proj-metric gold">🧘 sites.google.com/view/saarthiyoga/home</div>
+          <div class="proj-metric gold-m">🧘 sites.google.com/view/saarthiyoga/home</div>
           <div class="proj-chips"><span class="chip">Content IA</span><span class="chip">Accessibility</span><span class="chip">UX Design</span></div>
         </div>
         <div class="proj-foot"><a href="https://sites.google.com/view/saarthiyoga/home" target="_blank" class="proj-action">View Site <i class="fas fa-external-link-alt"></i></a></div>
@@ -814,64 +1817,113 @@ footer{background:var(--ink);padding:2rem 0;color:rgba(255,255,255,.55)}
 
 <div class="divider"></div>
 
-<!-- CERTIFICATIONS -->
+<!-- ═══════════ CERTIFICATIONS — brand colors ═══════════ -->
 <section id="certifications" class="cert-section">
   <div class="wrap">
-    <div class="center-head reveal">
-      <span class="eyebrow">Credentials</span>
-      <h2 class="title">Certifications & Continuing Education</h2>
+    <div class="section-header reveal">
+      <span class="eyebrow center">Credentials</span>
+      <h2 class="section-title">Certifications &amp; Continuing Education</h2>
     </div>
-    <div class="cert-grid reveal" style="margin-top:2.5rem">
-      <div class="cert-card"><span class="cert-year">2022</span><div class="cert-icon" style="background:linear-gradient(135deg,#5c6bc0,#7e57c2)"><i class="fas fa-brain"></i></div><h3>Product Management with AI/ML</h3><div class="cert-issuer">Duke Corporate Education</div><div class="cert-detail">10.5 months program</div><a href="https://www.credential.net/73930284-308b-4a19-b652-dfd4f4998466" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> Verify</a></div>
-      <div class="cert-card"><span class="cert-year">2024</span><div class="cert-icon" style="background:linear-gradient(135deg,#4285f4,#34a853)"><i class="fab fa-google"></i></div><h3>Google AI Professional Certificate</h3><div class="cert-issuer">Google / Credly</div><div class="cert-detail">Badge ID: 83e2da0d</div><a href="https://www.credly.com/badges/83e2da0d-0a21-4c32-ba2b-0434e3d6d37a" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> Verify</a></div>
-      <div class="cert-card"><span class="cert-year">2025</span><div class="cert-icon" style="background:linear-gradient(135deg,#1a237e,#3949ab)"><i class="fas fa-laptop-code"></i></div><h3>Digital Product Management</h3><div class="cert-issuer">University of Virginia (Darden)</div><div class="cert-detail">Modern product practices</div><a href="https://www.coursera.org/account/accomplishments/verify/FKL1FHB6GSNX" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> Verify</a></div>
-      <div class="cert-card"><span class="cert-year">2025</span><div class="cert-icon" style="background:linear-gradient(135deg,#bf360c,#e64a19)"><i class="fas fa-robot"></i></div><h3>AI in Financial Services</h3><div class="cert-issuer">Oxford Saïd Business School</div><div class="cert-detail">Strategic AI & ethics in finance</div><a href="https://www.coursera.org/account/accomplishments/specialization/Y4SJ9L1NFSHX" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> Verify</a></div>
-      <div class="cert-card"><span class="cert-year">2024</span><div class="cert-icon" style="background:linear-gradient(135deg,#b71c1c,#e53935)"><i class="fab fa-oracle"></i></div><h3>Oracle Cloud & AI Specialization</h3><div class="cert-issuer">Oracle University</div><div class="cert-detail">OCI + Generative AI</div><a href="https://www.coursera.org/account/accomplishments/specialization/NKUBGRITJET2" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> Verify</a></div>
-      <div class="cert-card"><span class="cert-year">2025</span><div class="cert-icon" style="background:linear-gradient(135deg,#006064,#00897b)"><i class="fab fa-ibm"></i></div><h3>IBM Product Manager Professional</h3><div class="cert-issuer">IBM</div><div class="cert-detail">Professional Certificate</div><a href="https://www.credly.com/badges/fde50ec5-7720-4f8b-863f-6dc81ea8ba38" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> Verify</a></div>
-      <div class="cert-card"><span class="cert-year">2024</span><div class="cert-icon" style="background:linear-gradient(135deg,var(--ink),var(--ink-soft))"><i class="fas fa-chart-line"></i></div><h3>Leadership Skills</h3><div class="cert-issuer">IIM Ahmedabad (Coursera)</div><div class="cert-detail">Credential ID: KEQAA7AN3TEC</div><a href="https://www.coursera.org/account/accomplishments/verify/KEQAA7AN3TEC" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> Verify</a></div>
+    <div class="cert-grid">
+      <div class="cert-card reveal reveal-delay-1" data-brand="duke">
+        <span class="cert-year">2022</span>
+        <div class="cert-icon" style="background:linear-gradient(135deg,#012169,#1a3a8a)"><i class="fas fa-brain"></i></div>
+        <h3>Product Management with AI/ML</h3>
+        <div class="cert-issuer">Duke Corporate Education</div>
+        <div class="cert-detail">10.5 months program</div>
+        <a href="https://www.credential.net/73930284-308b-4a19-b652-dfd4f4998466" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> Verify</a>
+      </div>
+      <div class="cert-card reveal reveal-delay-2" data-brand="google">
+        <span class="cert-year">2024</span>
+        <div class="cert-icon" style="background:linear-gradient(135deg,#4285F4,#34a853)"><i class="fab fa-google"></i></div>
+        <h3>Google AI Professional Certificate</h3>
+        <div class="cert-issuer">Google / Credly</div>
+        <div class="cert-detail">Badge ID: 83e2da0d</div>
+        <a href="https://www.credly.com/badges/83e2da0d-0a21-4c32-ba2b-0434e3d6d37a" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> Verify</a>
+      </div>
+      <div class="cert-card reveal reveal-delay-3" data-brand="uva">
+        <span class="cert-year">2025</span>
+        <div class="cert-icon" style="background:linear-gradient(135deg,#232D4B,#3d4f7c)"><i class="fas fa-laptop-code"></i></div>
+        <h3>Digital Product Management</h3>
+        <div class="cert-issuer">University of Virginia (Darden)</div>
+        <div class="cert-detail">Modern product practices</div>
+        <a href="https://www.coursera.org/account/accomplishments/verify/FKL1FHB6GSNX" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> Verify</a>
+      </div>
+      <div class="cert-card reveal reveal-delay-1" data-brand="oxford">
+        <span class="cert-year">2025</span>
+        <div class="cert-icon" style="background:linear-gradient(135deg,#002147,#0a3d6e)"><i class="fas fa-robot"></i></div>
+        <h3>AI in Financial Services</h3>
+        <div class="cert-issuer">Oxford Saïd Business School</div>
+        <div class="cert-detail">Strategic AI &amp; ethics in finance</div>
+        <a href="https://www.coursera.org/account/accomplishments/specialization/Y4SJ9L1NFSHX" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> Verify</a>
+      </div>
+      <div class="cert-card reveal reveal-delay-2" data-brand="oracle">
+        <span class="cert-year">2024</span>
+        <div class="cert-icon" style="background:linear-gradient(135deg,#C74634,#e05c4a)"><i class="fab fa-oracle"></i></div>
+        <h3>Oracle Cloud &amp; AI Specialization</h3>
+        <div class="cert-issuer">Oracle University</div>
+        <div class="cert-detail">OCI + Generative AI</div>
+        <a href="https://www.coursera.org/account/accomplishments/specialization/NKUBGRITJET2" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> Verify</a>
+      </div>
+      <div class="cert-card reveal reveal-delay-3" data-brand="ibm">
+        <span class="cert-year">2025</span>
+        <div class="cert-icon" style="background:linear-gradient(135deg,#054ADA,#1f6fe8)"><i class="fab fa-ibm"></i></div>
+        <h3>IBM Product Manager Professional</h3>
+        <div class="cert-issuer">IBM</div>
+        <div class="cert-detail">Professional Certificate</div>
+        <a href="https://www.credly.com/badges/fde50ec5-7720-4f8b-863f-6dc81ea8ba38" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> Verify</a>
+      </div>
+      <div class="cert-card reveal reveal-delay-1" data-brand="iim">
+        <span class="cert-year">2024</span>
+        <div class="cert-icon" style="background:linear-gradient(135deg,#8B0000,#b52020)"><i class="fas fa-chart-line"></i></div>
+        <h3>Leadership Skills</h3>
+        <div class="cert-issuer">IIM Ahmedabad (Coursera)</div>
+        <div class="cert-detail">Credential ID: KEQAA7AN3TEC</div>
+        <a href="https://www.coursera.org/account/accomplishments/verify/KEQAA7AN3TEC" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> Verify</a>
+      </div>
     </div>
     <div class="cert-wallets reveal">
-      <a href="https://www.coursera.org/user/2d4757e91232cf55d499168d60e76cf3" target="_blank" class="btn btn-outline">Coursera-2025</a>
-      <a href="https://www.coursera.org/user/8cdb779328289afbd3a5eb03c703bd5e" target="_blank" class="btn btn-outline">Coursera-2026</a>
-      <a href="https://www.credly.com/users/vijay-kumar.cfc26d7d" target="_blank" class="btn btn-outline">Credly Badges</a>
-      <a href="https://www.credential.net/profile/vijaykumar182362/wallet" target="_blank" class="btn btn-outline">Accredible Wallet</a>
-      <a href="https://skillsoft.digitalbadges.skillsoft.com/profile/vijaykumar259623/wallet" target="_blank" class="btn btn-outline">Skillsoft Wallet</a>
+      <a href="https://www.coursera.org/user/2d4757e91232cf55d499168d60e76cf3" target="_blank" class="btn btn-wallet" style="--wc:#0056D2;--wct:#fff"><i class="fas fa-graduation-cap"></i> Coursera 2025</a>
+      <a href="https://www.coursera.org/user/8cdb779328289afbd3a5eb03c703bd5e" target="_blank" class="btn btn-wallet" style="--wc:#0056D2;--wct:#fff"><i class="fas fa-graduation-cap"></i> Coursera 2026</a>
+      <a href="https://www.credly.com/users/vijay-kumar.cfc26d7d" target="_blank" class="btn btn-wallet" style="--wc:#F37F2A;--wct:#fff"><i class="fas fa-certificate"></i> Credly Badges</a>
+      <a href="https://www.credential.net/profile/vijaykumar182362/wallet" target="_blank" class="btn btn-wallet" style="--wc:#4CAF50;--wct:#fff"><i class="fas fa-wallet"></i> Accredible Wallet</a>
+      <a href="https://skillsoft.digitalbadges.skillsoft.com/profile/vijaykumar259623/wallet" target="_blank" class="btn btn-wallet" style="--wc:#7B1FA2;--wct:#fff"><i class="fas fa-star"></i> Skillsoft Wallet</a>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- AWARDS -->
+<!-- ═══════════ AWARDS ═══════════ -->
 <section id="awards" class="awards-section">
   <div class="wrap">
-    <div class="center-head reveal">
-      <span class="eyebrow">Recognition</span>
-      <h2 class="title">Awards & Achievements</h2>
+    <div class="section-header reveal">
+      <span class="eyebrow center">Recognition</span>
+      <h2 class="section-title">Awards &amp; Achievements</h2>
     </div>
-    <div class="awards-grid reveal" style="margin-top:2.5rem">
-      <div class="award-card">
+    <div class="awards-grid">
+      <div class="award-card reveal reveal-delay-1">
         <div class="award-icon"><i class="fas fa-trophy"></i></div>
         <div>
           <div class="award-name">Dell Game Changers Award — 2023</div>
           <p class="award-desc">For 99.6% runtime improvement and significant effort reduction in global tax exemption platform — recognized as a game-changing product achievement at Dell.</p>
         </div>
       </div>
-      <div class="award-card">
+      <div class="award-card reveal reveal-delay-2">
         <div class="award-icon"><i class="fas fa-medal"></i></div>
         <div>
           <div class="award-name">Dell Learning Exchange Rockstar — 2025</div>
           <p class="award-desc">Recognized for exceptional learning contributions and knowledge sharing across Dell's global employee community.</p>
         </div>
       </div>
-      <div class="award-card">
+      <div class="award-card reveal reveal-delay-3">
         <div class="award-icon"><i class="fas fa-star"></i></div>
         <div>
           <div class="award-name">YsecIT Performance Award — 2017</div>
           <p class="award-desc">For delivering 10+ enterprise systems with 100% on-time record across multiple international clients and geographies.</p>
         </div>
       </div>
-      <div class="award-card">
+      <div class="award-card reveal reveal-delay-4">
         <div class="award-icon"><i class="fas fa-rocket"></i></div>
         <div>
           <div class="award-name">Times Group Double Promotion — 2005</div>
@@ -884,7 +1936,7 @@ footer{background:var(--ink);padding:2rem 0;color:rgba(255,255,255,.55)}
 
 <div class="divider"></div>
 
-<!-- CONTACT -->
+<!-- ═══════════ CONTACT ═══════════ -->
 <section id="contact" class="contact-section">
   <div class="wrap">
     <div class="contact-banner reveal">
@@ -892,7 +1944,7 @@ footer{background:var(--ink);padding:2rem 0;color:rgba(255,255,255,.55)}
         <div>
           <div class="banner-avail">Open to VP / Director opportunities</div>
           <h3>Let's Build Something Exceptional</h3>
-          <p>Seeking product leadership roles in FinTech, Enterprise Platforms, Tax Technology, and AI Transformation. Based in Mumbai / Bengaluru, India — open to global opportunities.</p>
+          <p>Seeking product leadership roles in FinTech, Enterprise Platforms, Tax Technology, and AI Transformation. Based in Mumbai / Bengaluru — open to global opportunities.</p>
         </div>
         <div class="banner-actions">
           <a href="Resume/Vijay_Kumar_Resume.pdf" target="_blank" class="btn btn-white"><i class="fas fa-download"></i> Download Resume</a>
@@ -902,15 +1954,15 @@ footer{background:var(--ink);padding:2rem 0;color:rgba(255,255,255,.55)}
     </div>
     <div class="contact-cards reveal">
       <a href="mailto:vijay.shagunkumar@gmail.com" class="contact-card">
-        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+        <div class="c-icon"><i class="fas fa-envelope"></i></div>
         <div><div class="c-label">Email</div><div class="c-value">vijay.shagunkumar@gmail.com</div></div>
       </a>
       <a href="https://www.linkedin.com/in/vshn" target="_blank" class="contact-card">
-        <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+        <div class="c-icon"><i class="fab fa-linkedin"></i></div>
         <div><div class="c-label">LinkedIn</div><div class="c-value">linkedin.com/in/vshn</div></div>
       </a>
       <a href="tel:+917738774442" class="contact-card">
-        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+        <div class="c-icon"><i class="fas fa-phone"></i></div>
         <div><div class="c-label">Phone</div><div class="c-value">+91 77387 74442</div></div>
       </a>
     </div>
@@ -926,124 +1978,104 @@ footer{background:var(--ink);padding:2rem 0;color:rgba(255,255,255,.55)}
         <a href="mailto:vijay.shagunkumar@gmail.com">Email</a>
         <a href="https://vijayshagunkumar.github.io/" target="_blank">GitHub Portfolio</a>
         <a href="Resume/Vijay_Kumar_Resume.pdf" target="_blank">Resume</a>
-        <a href="#hero">Back to Top</a>
+        <a href="#hero">Top</a>
       </div>
       <span class="foot-copy">© 2025 Vijay Kumar — Product Leader</span>
     </div>
   </div>
 </footer>
 
-<button class="scroll-top" id="scrollTop"><i class="fas fa-chevron-up"></i></button>
+<button class="scroll-top" id="scrollTop" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
 
-<!-- MODALS -->
-<div id="m1" class="modal">
-  <div class="modal-box">
-    <div class="modal-head">
-      <div><div class="modal-sub">Dell Technologies</div><h3>Middleware Tax Enrichment Layer</h3></div>
-      <button class="modal-close" onclick="closeModal('m1')">×</button>
-    </div>
-    <div class="modal-body">
-      <h4>Overview</h4>
-      <p>Architected proprietary middleware enrichment layer between 100+ enterprise applications and the Sabrix tax engine. This platform decoupled all downstream applications from direct tax engine changes, eliminating costly individual application updates every time a new global tax rule was introduced.</p>
-      <h4>Impact</h4>
-      <ul>
-        <li><strong>Scale:</strong> Supports 100+ enterprise applications across 100+ countries</li>
-        <li><strong>Savings:</strong> Millions saved in vendor and engineering costs annually</li>
-        <li><strong>Architecture:</strong> Middleware pattern enabling single point of rule change across global tax ecosystem</li>
-      </ul>
-    </div>
-  </div>
-</div>
-<div id="m2" class="modal">
-  <div class="modal-box">
-    <div class="modal-head">
-      <div><div class="modal-sub">Dell Technologies</div><h3>Tax Exemption Management Platform</h3></div>
-      <button class="modal-close" onclick="closeModal('m2')">×</button>
-    </div>
-    <div class="modal-body">
-      <h4>Overview</h4>
-      <p>Built Dell's internal exemption certificate management product from scratch — a 0→1 build enabling upload, storage, search, and tax engine DB integration for customer exemptions globally. Later led the CERTifyTax global rollout and integration with TR OneSource Cloud.</p>
-      <h4>Impact</h4>
-      <ul>
-        <li><strong>Migration:</strong> 10M+ customer exemption records migrated with zero downtime</li>
-        <li><strong>Compliance:</strong> Full SOX compliance maintained throughout migration</li>
-        <li><strong>Scale:</strong> 100+ countries and 150 tax jurisdictions enabled</li>
-        <li><strong>Partners:</strong> Vendor management across Deloitte, Thomson Reuters, CERTifyTax</li>
-      </ul>
-    </div>
-  </div>
-</div>
-<div id="m3" class="modal">
-  <div class="modal-box">
-    <div class="modal-head">
-      <div><div class="modal-sub">Dell Technologies</div><h3>Tax Diagnostics, RCA & Observability</h3></div>
-      <button class="modal-close" onclick="closeModal('m3')">×</button>
-    </div>
-    <div class="modal-body">
-      <h4>Overview</h4>
-      <p>Delivered a transaction-level diagnostic and observability platform for root cause analysis of tax determination errors. Instrumented with generative AI tooling for data-driven decision making across global tax workflows.</p>
-      <h4>Impact</h4>
-      <ul>
-        <li><strong>Resolution Time:</strong> Significantly reduced Finance and Operations team resolution time</li>
-        <li><strong>AI Integration:</strong> Generative AI tooling for intelligent RCA and pattern detection</li>
-        <li><strong>Observability:</strong> Transaction-level visibility across 300K+ annual tax transactions</li>
-      </ul>
-    </div>
-  </div>
-</div>
-<div id="m4" class="modal">
-  <div class="modal-box">
-    <div class="modal-head">
-      <div><div class="modal-sub">Dell Technologies</div><h3>Performance & Cost Optimization Platform</h3></div>
-      <button class="modal-close" onclick="closeModal('m4')">×</button>
-    </div>
-    <div class="modal-body">
-      <h4>Overview</h4>
-      <p>Designed a cloud-based financial transaction simulation platform that dramatically improved processing efficiency for Dell's global tax transaction operations.</p>
-      <h4>Impact</h4>
-      <ul>
-        <li><strong>Performance:</strong> 99.6% improvement in processing efficiency</li>
-        <li><strong>Scale:</strong> 300K+ annual transactions optimized</li>
-        <li><strong>Cost Savings:</strong> $50K+ in annual cost savings generated</li>
-        <li><strong>Technology:</strong> Cloud-based simulation with Oracle ERP integration</li>
-      </ul>
-    </div>
-  </div>
-</div>
+<!-- ═══════════ MODALS ═══════════ -->
+<div id="m1" class="modal"><div class="modal-box"><div class="modal-head"><div><div class="modal-sub">Dell Technologies</div><h3>Middleware Tax Enrichment Layer</h3></div><button class="modal-close" onclick="closeModal('m1')">×</button></div><div class="modal-body"><h4>Overview</h4><p>Architected proprietary middleware enrichment layer between 100+ enterprise applications and the Sabrix tax engine. This platform decoupled all downstream applications from direct tax engine changes — eliminating costly individual application updates every time a new global tax rule was introduced across 100+ countries.</p><h4>Impact</h4><ul><li><strong>Scale:</strong> Supports 100+ enterprise applications across 100+ countries</li><li><strong>Savings:</strong> Millions saved in vendor and engineering costs annually</li><li><strong>Architecture:</strong> Single point of rule change across the global tax ecosystem</li></ul></div></div></div>
+<div id="m2" class="modal"><div class="modal-box"><div class="modal-head"><div><div class="modal-sub">Dell Technologies</div><h3>Tax Exemption Management Platform</h3></div><button class="modal-close" onclick="closeModal('m2')">×</button></div><div class="modal-body"><h4>Overview</h4><p>Built Dell's internal exemption certificate management product from scratch — a 0→1 build enabling upload, storage, search, and tax engine DB integration for customer exemptions globally. Later led the CERTifyTax global rollout and integration with TR OneSource Cloud.</p><h4>Impact</h4><ul><li><strong>Migration:</strong> 10M+ customer exemption records migrated with zero downtime</li><li><strong>Compliance:</strong> Full SOX compliance throughout migration</li><li><strong>Scale:</strong> 100+ countries and 150 tax jurisdictions enabled</li><li><strong>Partners:</strong> Vendor management across Deloitte, Thomson Reuters, CERTifyTax</li></ul></div></div></div>
+<div id="m3" class="modal"><div class="modal-box"><div class="modal-head"><div><div class="modal-sub">Dell Technologies</div><h3>Tax Diagnostics, RCA &amp; Observability</h3></div><button class="modal-close" onclick="closeModal('m3')">×</button></div><div class="modal-body"><h4>Overview</h4><p>Delivered a transaction-level diagnostic and observability platform for root cause analysis of tax determination errors. Instrumented with generative AI tooling for data-driven decision making across global tax workflows.</p><h4>Impact</h4><ul><li><strong>Resolution Time:</strong> Significantly reduced Finance and Operations team resolution time</li><li><strong>AI Integration:</strong> Generative AI tooling for intelligent RCA and pattern detection</li><li><strong>Observability:</strong> Transaction-level visibility across 300K+ annual tax transactions</li></ul></div></div></div>
+<div id="m4" class="modal"><div class="modal-box"><div class="modal-head"><div><div class="modal-sub">Dell Technologies</div><h3>Performance &amp; Cost Optimization</h3></div><button class="modal-close" onclick="closeModal('m4')">×</button></div><div class="modal-body"><h4>Overview</h4><p>Designed a cloud-based financial transaction simulation platform that dramatically improved processing efficiency for Dell's global tax transaction operations.</p><h4>Impact</h4><ul><li><strong>Performance:</strong> 99.6% improvement in processing efficiency</li><li><strong>Scale:</strong> 300K+ annual transactions optimized</li><li><strong>Cost Savings:</strong> $50K+ in annual cost savings generated</li><li><strong>Technology:</strong> Cloud-based simulation with Oracle ERP integration</li></ul></div></div></div>
 
 <script>
-// Mobile nav
-const mobBtn=document.getElementById('mobBtn'),navLinks=document.getElementById('navLinks');
-mobBtn.addEventListener('click',()=>{
-  const open=navLinks.classList.toggle('open');
-  mobBtn.innerHTML=open?'<i class="fas fa-times"></i>':'<i class="fas fa-bars"></i>';
+/* ─── NAV ─── */
+const nav = document.getElementById('nav');
+const mobBtn = document.getElementById('mobBtn');
+const navLinks = document.getElementById('navLinks');
+
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 20);
+  document.getElementById('scrollTop').style.display = window.scrollY > 600 ? 'flex' : 'none';
+}, { passive: true });
+
+mobBtn.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  mobBtn.innerHTML = open ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
 });
-navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');mobBtn.innerHTML='<i class="fas fa-bars"></i>'}));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  navLinks.classList.remove('open');
+  mobBtn.innerHTML = '<i class="fas fa-bars"></i>';
+}));
 
-// Active nav
-const secs=document.querySelectorAll('section[id],header[id]'),nas=document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll',()=>{
-  let cur='';
-  secs.forEach(s=>{if(window.scrollY>=s.offsetTop-80)cur=s.id});
-  nas.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+cur)});
-  document.getElementById('scrollTop').style.display=window.scrollY>500?'flex':'none';
-},{passive:true});
-document.getElementById('scrollTop').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+/* ─── ACTIVE NAV LINK ─── */
+const sections = document.querySelectorAll('section[id], header[id]');
+const navAs = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 90) cur = s.id; });
+  navAs.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
+}, { passive: true });
 
-// Reveal on scroll
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.07,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+/* ─── SCROLL TOP ─── */
+document.getElementById('scrollTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-// Stagger children
-document.querySelectorAll('.comp-grid,.proj-grid,.cert-grid,.awards-grid,.impact-grid,.impact-list').forEach(grid=>{
-  [...grid.children].forEach((child,i)=>{child.style.transitionDelay=`${i*0.07}s`});
+/* ─── REVEAL ON SCROLL ─── */
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.07, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+/* ─── STAGGER CHILDREN ─── */
+document.querySelectorAll('.comp-grid, .proj-grid, .cert-grid, .awards-grid, .impact-grid, .impact-bullets').forEach(grid => {
+  [...grid.children].forEach((child, i) => {
+    child.style.transitionDelay = (i * 0.08) + 's';
+  });
 });
 
-// Modals
-function openModal(id){document.getElementById(id).style.display='block';document.body.style.overflow='hidden'}
-function closeModal(id){document.getElementById(id).style.display='none';document.body.style.overflow=''}
-window.addEventListener('click',e=>{if(e.target.classList.contains('modal')){e.target.style.display='none';document.body.style.overflow=''}});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal').forEach(m=>m.style.display='none');document.body.style.overflow=''}});
+/* ─── MODALS ─── */
+function openModal(id)  { document.getElementById(id).style.display = 'block'; document.body.style.overflow = 'hidden'; }
+function closeModal(id) { document.getElementById(id).style.display = 'none';  document.body.style.overflow = ''; }
+window.addEventListener('click', e => {
+  if (e.target.classList.contains('modal')) { e.target.style.display = 'none'; document.body.style.overflow = ''; }
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { document.querySelectorAll('.modal').forEach(m => m.style.display = 'none'); document.body.style.overflow = ''; }
+});
+
+/* ─── COUNTER ANIMATION on impact numbers ─── */
+function animateCounter(el) {
+  const raw = el.textContent.trim();
+  const isPercent = raw.includes('%');
+  const isPlus = raw.includes('+');
+  const num = parseFloat(raw.replace(/[^0-9.]/g, ''));
+  if (isNaN(num)) return;
+  const duration = 1600;
+  const start = performance.now();
+  const frame = ts => {
+    const prog = Math.min((ts - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - prog, 3);
+    const cur = (num * eased).toFixed(num % 1 !== 0 ? 1 : 0);
+    el.textContent = cur + (isPlus ? '+' : '') + (isPercent ? '%' : '');
+    if (prog < 1) requestAnimationFrame(frame);
+  };
+  requestAnimationFrame(frame);
+}
+
+const numObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.impact-num, .stat-v').forEach(animateCounter);
+      numObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.impact-grid, .hero-stats').forEach(el => numObs.observe(el));
 </script>
 </body>
 </html>
