@@ -1,380 +1,466 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vijay Kumar — Senior Product Leader | Enterprise Platforms, Financial Systems & Global Ecosystem Strategy</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vijay Kumar — Product Leader | Enterprise Platforms & Digital Commerce</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 :root {
-    --navy:#0f2d5c;--navy-mid:#1a3f7a;--navy-light:#2a5298;
-    --teal:#0d7a6b;--teal-light:#12a08e;--teal-pale:#e6f5f3;
-    --white:#ffffff;--off-white:#f8f9fc;--surface:#f1f4f9;
-    --border:#dde3ef;--border-soft:#edf0f7;
-    --text-dark:#0f1f3d;--text-body:#374151;--text-muted:#6b7a99;--text-light:#9ca8bf;
-    --gold:#b8860b;--gold-light:#d4a827;--amber-bg:#fef9ec;
-    --shadow-sm:0 1px 4px rgba(15,45,92,0.06);
-    --shadow-md:0 4px 16px rgba(15,45,92,0.10);
-    --shadow-lg:0 12px 40px rgba(15,45,92,0.13);
-    --shadow-xl:0 24px 64px rgba(15,45,92,0.16);
-    --radius-sm:6px;--radius:12px;--radius-lg:18px;--radius-xl:24px;
-    --ease:cubic-bezier(0.4,0,0.2,1);--ease-spring:cubic-bezier(0.16,1,0.3,1);
-    --nav-h:68px;
-    --font-display:'Playfair Display',Georgia,serif;
-    --font-body:'Outfit',system-ui,sans-serif;
+  --ink:#0a1628;--ink-mid:#152340;--ink-soft:#1e3a5f;
+  --steel:#2d4a6e;--steel-light:#4a7090;
+  --teal:#0b6e62;--teal-mid:#0d8a7a;--teal-light:#11a898;--teal-pale:#e8f5f3;--teal-faint:#f2faf8;
+  --gold:#9a7b2e;--gold-light:#c9a84c;--gold-pale:#fdf6e3;
+  --white:#ffffff;--off:#f7f9fc;--surface:#f0f4f9;--surface2:#e8eef7;
+  --border:#d8e2ef;--border-soft:#e8eef7;
+  --text:#2d3748;--text-muted:#5a6a82;--text-light:#8899b0;
+  --shadow-xs:0 1px 3px rgba(10,22,40,.06);
+  --shadow-sm:0 2px 8px rgba(10,22,40,.08);
+  --shadow-md:0 6px 24px rgba(10,22,40,.10);
+  --shadow-lg:0 16px 48px rgba(10,22,40,.13);
+  --shadow-xl:0 32px 80px rgba(10,22,40,.16);
+  --r-sm:6px;--r:12px;--r-lg:18px;--r-xl:28px;
+  --ease:cubic-bezier(.4,0,.2,1);--spring:cubic-bezier(.16,1,.3,1);
+  --nav-h:64px;
+  --display:'Cormorant Garamond',Georgia,serif;
+  --body:'DM Sans',system-ui,sans-serif;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:var(--nav-h)}
-body{font-family:var(--font-body);background:var(--white);color:var(--text-body);font-size:15px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--surface)}::-webkit-scrollbar-thumb{background:var(--navy-light);border-radius:2px}
+html{scroll-behavior:smooth;scroll-padding-top:var(--nav-h);font-size:15px}
+body{font-family:var(--body);background:var(--white);color:var(--text);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--surface)}::-webkit-scrollbar-thumb{background:var(--steel);border-radius:2px}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
 
-/* UTILITIES */
-.container{max-width:1120px;margin:0 auto;padding:0 clamp(1.2rem,4vw,3rem)}
-section{padding:clamp(4rem,7vw,6rem) 0}
-.section-label{display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:.8rem}
-.section-label::before{content:'';display:block;width:20px;height:2px;background:var(--teal);border-radius:1px}
-h2.section-title{font-family:var(--font-display);font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;color:var(--navy);line-height:1.15;letter-spacing:-.02em;margin-bottom:.5rem}
-.section-sub{color:var(--text-muted);font-size:.95rem;max-width:560px;line-height:1.65}
-.section-header{text-align:center;margin-bottom:3rem}
-.section-header .section-label{justify-content:center}
-.section-header .section-sub{margin:.6rem auto 0}
-.divider{height:1px;background:linear-gradient(90deg,transparent 0%,var(--border) 20%,var(--border) 80%,transparent 100%)}
+/* LAYOUT */
+.wrap{max-width:1100px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem)}
+section{padding:clamp(4.5rem,8vw,7rem) 0}
+
+/* TYPOGRAPHY */
+.eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem}
+.eyebrow::before{content:'';width:24px;height:1.5px;background:var(--teal)}
+h2.title{font-family:var(--display);font-size:clamp(2.2rem,4vw,3.2rem);font-weight:700;color:var(--ink);line-height:1.1;letter-spacing:-.025em}
+.sub{color:var(--text-muted);font-size:.92rem;max-width:520px;line-height:1.7;margin-top:.6rem}
+.center-head{text-align:center}
+.center-head .eyebrow{justify-content:center}
+.center-head .sub{margin-left:auto;margin-right:auto}
 
 /* BUTTONS */
-.btn{display:inline-flex;align-items:center;gap:.45rem;padding:.72rem 1.5rem;font-family:var(--font-body);font-size:.82rem;font-weight:600;letter-spacing:.02em;text-decoration:none;border-radius:var(--radius-sm);border:none;cursor:pointer;transition:all .22s var(--ease);white-space:nowrap}
-.btn-navy{background:var(--navy);color:var(--white);box-shadow:0 4px 12px rgba(15,45,92,.25)}
-.btn-navy:hover{background:var(--navy-mid);box-shadow:0 6px 20px rgba(15,45,92,.35);transform:translateY(-2px)}
-.btn-teal{background:var(--teal);color:var(--white);box-shadow:0 4px 12px rgba(13,122,107,.25)}
-.btn-teal:hover{background:var(--teal-light);box-shadow:0 6px 20px rgba(13,122,107,.35);transform:translateY(-2px)}
-.btn-outline{background:transparent;color:var(--navy);border:1.5px solid var(--border)}
-.btn-outline:hover{border-color:var(--navy);background:var(--navy);color:var(--white);transform:translateY(-2px)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.5rem;font-family:var(--body);font-size:.8rem;font-weight:600;letter-spacing:.025em;border-radius:var(--r-sm);border:none;cursor:pointer;transition:all .22s var(--ease);white-space:nowrap;text-decoration:none}
+.btn-ink{background:var(--ink);color:#fff;box-shadow:0 4px 14px rgba(10,22,40,.25)}
+.btn-ink:hover{background:var(--ink-mid);box-shadow:0 6px 22px rgba(10,22,40,.35);transform:translateY(-2px)}
+.btn-teal{background:var(--teal);color:#fff;box-shadow:0 4px 14px rgba(11,110,98,.25)}
+.btn-teal:hover{background:var(--teal-mid);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--ink);border:1.5px solid var(--border)}
+.btn-outline:hover{border-color:var(--ink);background:var(--ink);color:#fff;transform:translateY(-2px)}
 .btn-ghost{background:transparent;color:var(--text-muted);border:1.5px solid var(--border-soft)}
-.btn-ghost:hover{color:var(--navy);border-color:var(--navy)}
-.btn-white{background:var(--white);color:var(--navy)}
-.btn-white:hover{background:var(--off-white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.15)}
-.btn-outline-white{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.35)}
-.btn-outline-white:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.6);transform:translateY(-2px)}
+.btn-ghost:hover{color:var(--ink);border-color:var(--ink)}
+.btn-outline-w{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35)}
+.btn-outline-w:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.65);transform:translateY(-2px)}
+.btn-white{background:#fff;color:var(--ink);box-shadow:var(--shadow-sm)}
+.btn-white:hover{background:var(--off);transform:translateY(-2px);box-shadow:var(--shadow-md)}
 
 /* NAV */
-.nav{position:sticky;top:0;z-index:100;height:var(--nav-h);background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-soft);box-shadow:var(--shadow-sm)}
-.nav-inner{height:100%;display:flex;align-items:center;justify-content:space-between;max-width:1120px;margin:0 auto;padding:0 clamp(1.2rem,4vw,3rem)}
-.nav-logo{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--navy);text-decoration:none}
-.nav-logo .logo-dot{color:var(--teal)}
-.nav-links{display:flex;align-items:center;gap:clamp(.8rem,1.8vw,1.8rem);list-style:none}
-.nav-links a{font-size:.8rem;font-weight:500;color:var(--text-muted);text-decoration:none;transition:color .2s;position:relative;padding:.25rem 0}
-.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--teal);border-radius:1px;transition:width .25s var(--ease)}
-.nav-links a:hover,.nav-links a.active{color:var(--navy)}
+.nav{position:sticky;top:0;z-index:200;height:var(--nav-h);background:rgba(255,255,255,.96);backdrop-filter:blur(24px);border-bottom:1px solid var(--border-soft);box-shadow:var(--shadow-xs)}
+.nav-inner{height:100%;display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem)}
+.nav-brand{font-family:var(--display);font-size:1.2rem;font-weight:700;color:var(--ink)}
+.nav-brand span{color:var(--teal)}
+.nav-links{display:flex;align-items:center;gap:clamp(.7rem,1.6vw,1.8rem);list-style:none}
+.nav-links a{font-size:.78rem;font-weight:500;color:var(--text-muted);position:relative;padding:.2rem 0;transition:color .2s}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1.5px;background:var(--teal);border-radius:1px;transition:width .25s var(--ease)}
+.nav-links a:hover,.nav-links a.active{color:var(--ink)}
 .nav-links a:hover::after,.nav-links a.active::after{width:100%}
-.nav-cta-btn{padding:.5rem 1.1rem;background:var(--navy);color:var(--white)!important;border-radius:var(--radius-sm);font-size:.78rem!important;font-weight:600!important;transition:background .2s,transform .2s!important}
-.nav-cta-btn:hover{background:var(--navy-mid)!important;transform:translateY(-1px)!important}
-.nav-cta-btn::after{display:none!important}
-.mobile-btn{display:none;background:none;border:1.5px solid var(--border);color:var(--navy);width:40px;height:40px;border-radius:var(--radius-sm);cursor:pointer;align-items:center;justify-content:center;font-size:1rem}
+.nav-cta{padding:.45rem 1.1rem!important;background:var(--ink)!important;color:#fff!important;border-radius:var(--r-sm)!important}
+.nav-cta::after{display:none!important}
+.nav-cta:hover{background:var(--teal)!important;color:#fff!important}
+.mob-btn{display:none;background:none;border:1.5px solid var(--border);color:var(--ink);width:38px;height:38px;border-radius:var(--r-sm);cursor:pointer;align-items:center;justify-content:center;font-size:.9rem}
 
 /* HERO */
-.hero{background:var(--white);position:relative;overflow:hidden;min-height:100svh;display:flex;flex-direction:column;justify-content:center}
-.hero::before{content:'';position:absolute;top:0;right:0;width:55%;height:100%;background:linear-gradient(135deg,var(--off-white) 0%,var(--surface) 60%,#e8eef8 100%);clip-path:polygon(8% 0%,100% 0%,100% 100%,0% 100%);z-index:0}
-.hero::after{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--navy) 0%,var(--teal) 50%,var(--navy-light) 100%)}
-.hero-inner{position:relative;z-index:2;padding:clamp(4rem,8vw,6rem) 0}
-.hero-layout{display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center}
-.hero-left{max-width:640px}
-.hero-eyebrow{display:flex;align-items:center;gap:.8rem;margin-bottom:1.6rem;animation:fadeUp .7s var(--ease-spring) both}
-.eyebrow-pill{background:var(--teal-pale);color:var(--teal);font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.35rem .9rem;border-radius:30px;border:1px solid rgba(13,122,107,.2)}
-.eyebrow-sep{width:30px;height:1px;background:var(--border)}
-.eyebrow-text{font-size:.72rem;font-weight:500;color:var(--text-muted);letter-spacing:.05em}
-.hero-name{font-family:var(--font-display);font-size:clamp(3rem,6.5vw,5.5rem);font-weight:700;color:var(--navy);line-height:1;letter-spacing:-.03em;margin-bottom:.3rem;animation:fadeUp .8s var(--ease-spring) .08s both}
-.hero-name-sub{font-family:var(--font-display);font-size:clamp(1.1rem,2.2vw,1.6rem);font-weight:400;font-style:italic;color:var(--teal);margin-bottom:1.6rem;animation:fadeUp .85s var(--ease-spring) .14s both}
-.hero-desc{font-size:clamp(.9rem,1.4vw,1rem);color:var(--text-body);line-height:1.7;margin-bottom:2.2rem;max-width:560px;animation:fadeUp .9s var(--ease-spring) .2s both}
-.hero-desc strong{color:var(--navy);font-weight:600}
-.hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;animation:fadeUp .95s var(--ease-spring) .26s both;margin-bottom:2.8rem}
-.hero-stats{display:flex;gap:0;flex-wrap:wrap;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--white);box-shadow:var(--shadow-md);animation:fadeUp 1s var(--ease-spring) .32s both}
-.stat-item{flex:1;min-width:120px;padding:1.1rem 1.3rem;border-right:1px solid var(--border-soft);text-align:center;transition:background .25s}
-.stat-item:last-child{border-right:none}
-.stat-item:hover{background:var(--teal-pale)}
-.stat-value{font-family:var(--font-display);font-size:1.65rem;font-weight:700;color:var(--navy);line-height:1;margin-bottom:.3rem}
-.stat-label{font-size:.67rem;font-weight:500;color:var(--text-muted);letter-spacing:.04em;line-height:1.3;text-transform:uppercase}
-.hero-photo-card{position:relative;animation:fadeIn 1s var(--ease-spring) .4s both;flex-shrink:0}
-.hero-photo-wrap{width:clamp(180px,18vw,260px);aspect-ratio:3/4;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-xl);border:4px solid var(--white);position:relative}
-.hero-photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
-.photo-badge{position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);background:var(--navy);color:var(--white);font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.45rem 1rem;border-radius:30px;white-space:nowrap;box-shadow:var(--shadow-md)}
-.hero-deco{position:absolute;top:15%;right:2%;width:120px;height:120px;background-image:radial-gradient(circle,var(--border) 1.5px,transparent 1.5px);background-size:14px 14px;opacity:.6;pointer-events:none;z-index:1}
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;background:var(--white)}
+/* diagonal split */
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(118deg,var(--white) 52%,var(--ink) 52%);z-index:0}
+/* top accent line */
+.hero::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal) 0%,var(--ink) 60%,var(--gold) 100%);z-index:3}
+.hero-inner{position:relative;z-index:2;padding:clamp(5rem,9vw,7rem) 0}
+.hero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:2rem;align-items:center}
+.hero-left{max-width:600px}
+.hero-pill{display:inline-flex;align-items:center;gap:.5rem;background:var(--teal-pale);border:1px solid rgba(11,110,98,.2);color:var(--teal);font-size:.67rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.35rem 1rem;border-radius:30px;margin-bottom:1.5rem;animation:fadeUp .7s var(--spring) both}
+.hero-pill::before{content:'';width:6px;height:6px;background:var(--teal-light);border-radius:50%;animation:pulse 2s ease-in-out infinite}
+.hero-name{font-family:var(--display);font-size:clamp(3.5rem,7vw,5.8rem);font-weight:700;color:var(--ink);line-height:.95;letter-spacing:-.03em;margin-bottom:.4rem;animation:fadeUp .8s var(--spring) .06s both}
+.hero-title{font-family:var(--display);font-size:clamp(1rem,1.8vw,1.4rem);font-weight:400;font-style:italic;color:var(--teal);margin-bottom:1.6rem;animation:fadeUp .85s var(--spring) .12s both}
+.hero-desc{font-size:clamp(.85rem,1.2vw,.95rem);color:var(--text);line-height:1.75;margin-bottom:2rem;max-width:520px;animation:fadeUp .9s var(--spring) .18s both}
+.hero-desc strong{color:var(--ink);font-weight:600}
+.hero-actions{display:flex;gap:.7rem;flex-wrap:wrap;margin-bottom:2.8rem;animation:fadeUp .95s var(--spring) .24s both}
+/* stats bar */
+.hero-stats{display:flex;background:var(--white);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-md);animation:fadeUp 1s var(--spring) .3s both}
+.stat{flex:1;min-width:90px;padding:1rem 1.2rem;border-right:1px solid var(--border-soft);text-align:center;transition:background .2s}
+.stat:last-child{border-right:none}
+.stat:hover{background:var(--teal-faint)}
+.stat-v{font-family:var(--display);font-size:1.7rem;font-weight:700;color:var(--ink);line-height:1}
+.stat-l{font-size:.6rem;font-weight:600;color:var(--text-muted);letter-spacing:.06em;text-transform:uppercase;margin-top:.3rem;line-height:1.3}
+/* photo side */
+.hero-right{display:flex;justify-content:center;align-items:center;animation:fadeIn 1s var(--spring) .35s both;position:relative}
+.photo-frame{position:relative;width:clamp(200px,20vw,280px)}
+.photo-img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top center;border-radius:var(--r-lg);border:5px solid var(--white);box-shadow:var(--shadow-xl)}
+.photo-badge{position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);background:var(--teal);color:#fff;font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.4rem 1rem;border-radius:30px;white-space:nowrap;box-shadow:var(--shadow-md)}
+/* floating cards on dark side */
+.hero-card{position:absolute;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:var(--r);backdrop-filter:blur(12px);padding:.8rem 1rem;color:#fff}
+.hero-card.top{top:10%;right:-5%;font-size:.72rem;font-weight:600}
+.hero-card.bot{bottom:15%;right:8%;font-size:.68rem;font-weight:500;line-height:1.5}
+.hero-card .hc-num{font-family:var(--display);font-size:1.6rem;font-weight:700;line-height:1;margin-bottom:.2rem}
+.hero-card .hc-lbl{opacity:.7;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase}
+/* dot grid deco */
+.deco-dots{position:absolute;width:140px;height:140px;background-image:radial-gradient(circle,var(--border) 1.5px,transparent 1.5px);background-size:14px 14px;opacity:.5;pointer-events:none}
 
-/* ABOUT */
-.about-section{background:var(--white)}
-.about-intro-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:center;margin-bottom:3rem}
-.about-intro-text p{color:var(--text-body);font-size:.95rem;line-height:1.75;margin-bottom:1rem}
-.about-intro-text p:last-child{margin-bottom:0}
-.about-intro-right{display:flex;flex-direction:column;gap:1.2rem}
-.about-highlight{display:flex;align-items:flex-start;gap:1rem;padding:1.2rem;background:var(--off-white);border:1px solid var(--border-soft);border-radius:var(--radius);transition:box-shadow .25s,transform .25s var(--ease)}
-.about-highlight:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
-.about-hl-icon{width:38px;height:38px;background:linear-gradient(135deg,var(--navy),var(--teal));border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;color:var(--white);font-size:.85rem;flex-shrink:0}
-.about-hl-title{font-size:.85rem;font-weight:700;color:var(--navy);margin-bottom:.25rem}
-.about-hl-desc{font-size:.78rem;color:var(--text-muted);line-height:1.5}
+/* DIVIDER */
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border) 20%,var(--border) 80%,transparent)}
 
-/* COMPETENCIES */
-.competencies-section{background:var(--off-white)}
-.comp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
-.comp-card{background:var(--white);border:1px solid var(--border-soft);border-radius:var(--radius);padding:1.8rem 1.5rem;transition:box-shadow .25s,transform .25s var(--ease),border-color .25s;position:relative;overflow:hidden}
-.comp-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--navy),var(--teal));border-radius:2px 2px 0 0;transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
-.comp-card:hover::before{transform:scaleX(1)}
+/* SECTION: ABOUT */
+.about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:4rem;align-items:start}
+.about-text p{font-size:.93rem;line-height:1.8;color:var(--text);margin-bottom:1.1rem}
+.about-text p:last-child{margin-bottom:0}
+.highlights-box{margin-top:1.8rem;background:var(--teal-faint);border:1px solid rgba(11,110,98,.15);border-left:3px solid var(--teal);border-radius:var(--r);padding:1.3rem 1.5rem}
+.highlights-box h4{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);margin-bottom:.9rem}
+.hl-list{list-style:none;display:grid;grid-template-columns:1fr;gap:.45rem}
+.hl-list li{font-size:.82rem;color:var(--text);padding-left:1.2rem;position:relative;line-height:1.5}
+.hl-list li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--teal)}
+/* cards on right */
+.about-cards{display:flex;flex-direction:column;gap:1.1rem}
+.about-card{background:var(--white);border:1px solid var(--border-soft);border-radius:var(--r);padding:1.3rem;display:flex;gap:1rem;align-items:flex-start;box-shadow:var(--shadow-xs);transition:box-shadow .25s,transform .25s var(--ease)}
+.about-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.ac-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--ink),var(--teal));border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;color:#fff;font-size:.85rem;flex-shrink:0}
+.ac-title{font-size:.83rem;font-weight:700;color:var(--ink);margin-bottom:.3rem}
+.ac-body{font-size:.75rem;color:var(--text-muted);line-height:1.55}
+
+/* SECTION: IMPACT METRICS */
+.impact-section{background:var(--ink);position:relative;overflow:hidden}
+.impact-section::before{content:'';position:absolute;top:-120px;right:-80px;width:380px;height:380px;background:radial-gradient(circle,rgba(11,110,98,.2) 0%,transparent 70%);pointer-events:none}
+.impact-section::after{content:'';position:absolute;bottom:-100px;left:5%;width:300px;height:300px;background:radial-gradient(circle,rgba(154,123,46,.12) 0%,transparent 70%);pointer-events:none}
+.impact-head{text-align:center;margin-bottom:3rem}
+.impact-head .eyebrow{color:var(--teal-light)}
+.impact-head h2{color:#fff}
+.impact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-bottom:2.5rem}
+.impact-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:1.8rem 1.5rem;text-align:center;transition:background .25s,transform .25s var(--ease),border-color .25s}
+.impact-card:hover{background:rgba(255,255,255,.09);transform:translateY(-4px);border-color:rgba(11,168,152,.3)}
+.impact-num{font-family:var(--display);font-size:2.8rem;font-weight:700;color:var(--teal-light);line-height:1;margin-bottom:.4rem}
+.impact-lbl{font-size:.72rem;font-weight:500;color:rgba(255,255,255,.6);letter-spacing:.04em;line-height:1.4}
+.impact-list{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem}
+.impact-item{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-sm);padding:.9rem 1.1rem;display:flex;align-items:center;gap:.8rem;font-size:.8rem;color:rgba(255,255,255,.75);line-height:1.5;transition:background .2s,border-color .2s}
+.impact-item:hover{background:rgba(11,110,98,.15);border-color:rgba(11,110,98,.3)}
+.impact-item i{color:var(--teal-light);font-size:.75rem;flex-shrink:0;width:16px;text-align:center}
+
+/* SECTION: COMPETENCIES */
+.comp-section{background:var(--off)}
+.comp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+.comp-card{background:var(--white);border:1px solid var(--border-soft);border-radius:var(--r);padding:1.7rem 1.4rem;position:relative;overflow:hidden;transition:box-shadow .25s,transform .25s var(--ease),border-color .25s}
+.comp-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;background:linear-gradient(90deg,var(--ink),var(--teal));border-radius:2px 2px 0 0;transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+.comp-card:hover::after{transform:scaleX(1)}
 .comp-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px);border-color:var(--border)}
-.comp-icon{width:44px;height:44px;background:linear-gradient(135deg,rgba(15,45,92,.08),rgba(13,122,107,.08));border:1px solid var(--border-soft);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;color:var(--navy);font-size:1rem;margin-bottom:1.1rem}
-.comp-card h3{font-family:var(--font-body);font-size:.87rem;font-weight:700;color:var(--navy);margin-bottom:.9rem;line-height:1.25}
+.comp-icon{width:42px;height:42px;background:linear-gradient(135deg,rgba(10,22,40,.07),rgba(11,110,98,.08));border:1px solid var(--border-soft);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;color:var(--ink);font-size:.95rem;margin-bottom:1rem}
+.comp-card h3{font-family:var(--body);font-size:.85rem;font-weight:700;color:var(--ink);margin-bottom:.85rem;line-height:1.25}
 .comp-list{list-style:none}
-.comp-list li{font-size:.78rem;color:var(--text-muted);padding:.3rem 0 .3rem 1rem;position:relative;border-bottom:1px solid var(--border-soft);line-height:1.4}
+.comp-list li{font-size:.76rem;color:var(--text-muted);padding:.28rem 0 .28rem .95rem;position:relative;border-bottom:1px solid var(--border-soft);line-height:1.45}
 .comp-list li:last-child{border-bottom:none}
 .comp-list li::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:4px;height:4px;background:var(--teal);border-radius:50%}
 
-/* EXPERIENCE */
-.experience-section{background:var(--white)}
-.exp-timeline{position:relative;max-width:860px;margin:0 auto}
-.exp-timeline::before{content:'';position:absolute;left:22px;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--navy) 0%,var(--teal) 60%,transparent 100%);border-radius:1px}
-.exp-item{position:relative;padding:0 0 2.8rem 60px}
-.exp-item:last-child{padding-bottom:0}
-.exp-dot{position:absolute;left:14px;top:8px;width:18px;height:18px;background:var(--white);border:3px solid var(--navy);border-radius:50%;z-index:2;transition:border-color .25s,box-shadow .25s}
-.exp-item:hover .exp-dot{border-color:var(--teal);box-shadow:0 0 0 4px rgba(13,122,107,.12)}
-.exp-card{background:var(--white);border:1px solid var(--border-soft);border-radius:var(--radius);padding:1.8rem;box-shadow:var(--shadow-sm);transition:box-shadow .25s,transform .25s var(--ease)}
-.exp-item:hover .exp-card{box-shadow:var(--shadow-lg);transform:translateX(4px)}
-.exp-header{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap;margin-bottom:1rem}
-.exp-role{font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:.25rem}
-.exp-company{font-size:.8rem;font-weight:700;color:var(--teal);letter-spacing:.03em;margin-bottom:.15rem}
-.exp-location{font-size:.75rem;color:var(--text-light)}
-.exp-period{display:inline-flex;align-items:center;gap:.35rem;background:var(--surface);color:var(--text-muted);font-size:.7rem;font-weight:600;padding:.3rem .8rem;border-radius:30px;border:1px solid var(--border-soft);white-space:nowrap;flex-shrink:0}
-.exp-bullets{list-style:none;margin:.8rem 0}
-.exp-bullets li{font-size:.84rem;color:var(--text-body);padding:.3rem 0 .3rem 1.4rem;position:relative;line-height:1.55;border-bottom:1px solid var(--border-soft)}
-.exp-bullets li:last-child{border-bottom:none}
-.exp-bullets li::before{content:'';position:absolute;left:0;top:12px;width:6px;height:6px;background:var(--teal-pale);border:1.5px solid var(--teal);border-radius:50%}
-.exp-impact{margin-top:1rem;background:linear-gradient(135deg,var(--teal-pale),#eef4ff);border:1px solid rgba(13,122,107,.15);border-left:3px solid var(--teal);border-radius:var(--radius-sm);padding:.9rem 1.1rem}
-.exp-impact-label{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:.35rem;display:flex;align-items:center;gap:.35rem}
-.exp-impact p{font-size:.82rem;color:var(--text-body);line-height:1.55;font-weight:500}
+/* SECTION: EXPERIENCE */
+.exp-section{background:var(--white)}
+.timeline{position:relative;max-width:840px;margin:0 auto}
+.timeline::before{content:'';position:absolute;left:20px;top:10px;bottom:10px;width:1.5px;background:linear-gradient(to bottom,var(--ink) 0%,var(--teal) 60%,transparent 100%)}
+.tl-item{position:relative;padding:0 0 3rem 56px}
+.tl-item:last-child{padding-bottom:0}
+.tl-dot{position:absolute;left:12px;top:10px;width:17px;height:17px;background:var(--white);border:2.5px solid var(--ink);border-radius:50%;z-index:2;transition:border-color .25s,box-shadow .25s}
+.tl-item:hover .tl-dot{border-color:var(--teal);box-shadow:0 0 0 4px rgba(11,110,98,.12)}
+.tl-card{background:var(--white);border:1px solid var(--border-soft);border-radius:var(--r);padding:1.8rem;box-shadow:var(--shadow-xs);transition:box-shadow .25s,transform .25s var(--ease)}
+.tl-item:hover .tl-card{box-shadow:var(--shadow-lg);transform:translateX(3px)}
+.tl-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap;margin-bottom:.9rem}
+.tl-role{font-family:var(--display);font-size:1.15rem;font-weight:700;color:var(--ink);line-height:1.2;margin-bottom:.2rem}
+.tl-company{font-size:.78rem;font-weight:700;color:var(--teal);letter-spacing:.03em}
+.tl-loc{font-size:.72rem;color:var(--text-light);margin-top:.1rem}
+.tl-period{display:inline-flex;align-items:center;gap:.3rem;background:var(--surface);color:var(--text-muted);font-size:.68rem;font-weight:700;padding:.28rem .8rem;border-radius:30px;border:1px solid var(--border-soft);white-space:nowrap;flex-shrink:0}
+.tl-body{font-size:.83rem;color:var(--text);line-height:1.7;margin-bottom:1rem}
+.tl-bullets{list-style:none;margin:.5rem 0}
+.tl-bullets li{font-size:.81rem;color:var(--text);padding:.28rem 0 .28rem 1.3rem;position:relative;line-height:1.55;border-bottom:1px solid var(--border-soft)}
+.tl-bullets li:last-child{border-bottom:none}
+.tl-bullets li::before{content:'';position:absolute;left:0;top:11px;width:5px;height:5px;background:var(--teal-pale);border:1.5px solid var(--teal);border-radius:50%}
+.tl-bullets li strong{color:var(--ink);font-weight:600}
+.tl-recog{margin-top:1rem;background:linear-gradient(135deg,var(--teal-faint),#eef3ff);border:1px solid rgba(11,110,98,.13);border-left:2.5px solid var(--teal);border-radius:var(--r-sm);padding:.8rem 1rem;font-size:.78rem;color:var(--text)}
+.tl-recog-label{font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:.25rem}
 
-/* PROJECTS */
-.projects-section{background:var(--off-white)}
-.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.project-card{background:var(--white);border:1px solid var(--border-soft);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .25s,transform .25s var(--ease),border-color .25s;box-shadow:var(--shadow-sm)}
-.project-card:hover{box-shadow:var(--shadow-xl);transform:translateY(-6px);border-color:var(--border)}
-.project-stripe{height:4px;background:linear-gradient(90deg,var(--navy),var(--teal))}
-.project-stripe.gold{background:linear-gradient(90deg,var(--gold),var(--gold-light))}
-.project-stripe.slate{background:linear-gradient(90deg,#475569,#94a3b8)}
-.project-body{padding:1.5rem;flex:1}
-.project-badge{display:inline-flex;align-items:center;gap:.35rem;font-size:.63rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .65rem;border-radius:30px;margin-bottom:.9rem}
-.project-badge.corp{background:rgba(15,45,92,.07);color:var(--navy-light);border:1px solid rgba(15,45,92,.14)}
-.project-badge.indep{background:var(--amber-bg);color:var(--gold);border:1px solid rgba(184,134,11,.2)}
-.project-badge.legacy{background:var(--surface);color:var(--text-muted);border:1px solid var(--border)}
-.project-card h3{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.3;margin-bottom:.55rem}
-.project-desc{font-size:.8rem;color:var(--text-muted);line-height:1.6;margin-bottom:.8rem}
-.project-metric{font-size:.75rem;font-weight:600;color:var(--teal);background:var(--teal-pale);border:1px solid rgba(13,122,107,.14);border-radius:var(--radius-sm);padding:.5rem .8rem;margin-bottom:1rem;line-height:1.4}
-.project-metric.gold-m{color:var(--gold);background:var(--amber-bg);border-color:rgba(184,134,11,.15)}
-.project-chips{display:flex;flex-wrap:wrap;gap:.35rem}
-.chip{font-size:.66rem;font-weight:500;padding:.22rem .6rem;background:var(--surface);border:1px solid var(--border-soft);border-radius:30px;color:var(--text-muted);transition:background .2s,color .2s}
-.project-card:hover .chip{background:var(--off-white);color:var(--navy)}
-.project-footer{padding:1rem 1.5rem;border-top:1px solid var(--border-soft);background:var(--off-white)}
-.project-action{display:inline-flex;align-items:center;gap:.4rem;font-size:.74rem;font-weight:700;color:var(--navy);text-decoration:none;background:none;border:none;cursor:pointer;transition:color .2s,gap .2s;padding:0;width:100%;justify-content:center;letter-spacing:.03em}
-.project-action:hover{color:var(--teal);gap:.7rem}
-.project-action:disabled{opacity:.45;cursor:default;pointer-events:none}
+/* SECTION: PROJECTS */
+.projects-section{background:var(--off)}
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.proj-card{background:var(--white);border:1px solid var(--border-soft);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow-xs);transition:box-shadow .25s,transform .25s var(--ease),border-color .25s}
+.proj-card:hover{box-shadow:var(--shadow-xl);transform:translateY(-6px);border-color:var(--border)}
+.proj-stripe{height:3.5px}
+.proj-stripe.corp{background:linear-gradient(90deg,var(--ink),var(--teal))}
+.proj-stripe.indie{background:linear-gradient(90deg,var(--gold),var(--gold-light))}
+.proj-body{padding:1.5rem;flex:1}
+.proj-badge{display:inline-flex;align-items:center;gap:.3rem;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .7rem;border-radius:30px;margin-bottom:.9rem}
+.proj-badge.corp{background:rgba(10,22,40,.07);color:var(--steel);border:1px solid rgba(10,22,40,.12)}
+.proj-badge.indie{background:var(--gold-pale);color:var(--gold);border:1px solid rgba(154,123,46,.18)}
+.proj-card h3{font-family:var(--display);font-size:1.05rem;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:.5rem}
+.proj-desc{font-size:.78rem;color:var(--text-muted);line-height:1.6;margin-bottom:.8rem}
+.proj-metric{font-size:.73rem;font-weight:600;color:var(--teal);background:var(--teal-pale);border:1px solid rgba(11,110,98,.13);border-radius:var(--r-sm);padding:.45rem .8rem;margin-bottom:1rem;line-height:1.4}
+.proj-metric.gold{color:var(--gold);background:var(--gold-pale);border-color:rgba(154,123,46,.14)}
+.proj-chips{display:flex;flex-wrap:wrap;gap:.3rem}
+.chip{font-size:.64rem;font-weight:500;padding:.2rem .58rem;background:var(--surface);border:1px solid var(--border-soft);border-radius:30px;color:var(--text-muted)}
+.proj-card:hover .chip{background:var(--off);color:var(--ink)}
+.proj-foot{padding:.9rem 1.5rem;border-top:1px solid var(--border-soft);background:var(--off)}
+.proj-action{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;font-size:.73rem;font-weight:700;color:var(--ink);width:100%;background:none;border:none;cursor:pointer;padding:0;letter-spacing:.03em;transition:color .2s,gap .2s}
+.proj-action:hover{color:var(--teal);gap:.7rem}
+.proj-action:disabled{opacity:.4;cursor:default;pointer-events:none}
 
-/* CERTIFICATIONS */
-.certifications-section{background:var(--white)}
-.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
-.cert-card{background:var(--white);border:1px solid var(--border-soft);border-radius:var(--radius);padding:1.4rem;position:relative;transition:box-shadow .25s,transform .25s var(--ease),border-color .25s;overflow:hidden}
-.cert-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px);border-color:var(--navy)}
-.cert-card::after{content:'';position:absolute;left:0;top:0;width:3px;height:100%;background:linear-gradient(to bottom,var(--navy),var(--teal));opacity:0;transition:opacity .25s}
-.cert-card:hover::after{opacity:1}
-.cert-year{position:absolute;top:.9rem;right:.9rem;font-size:.62rem;font-weight:700;letter-spacing:.08em;background:var(--surface);color:var(--text-muted);padding:.2rem .55rem;border-radius:30px;border:1px solid var(--border-soft)}
-.cert-icon{width:44px;height:44px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--white);margin-bottom:.85rem;box-shadow:var(--shadow-md)}
-.cert-card h3{font-size:.84rem;font-weight:700;color:var(--navy);margin-bottom:.25rem;padding-right:3rem;line-height:1.3}
-.cert-issuer{font-size:.72rem;font-weight:600;color:var(--teal);margin-bottom:.15rem}
-.cert-detail{font-size:.7rem;color:var(--text-light);margin-bottom:.8rem}
-.cert-link{display:inline-flex;align-items:center;gap:.3rem;font-size:.68rem;font-weight:700;color:var(--text-muted);text-decoration:none;letter-spacing:.05em;text-transform:uppercase;transition:color .2s}
-.cert-link:hover{color:var(--navy)}
-.cert-wallets{display:flex;gap:.75rem;flex-wrap:wrap;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border-soft)}
+/* SECTION: CERTIFICATIONS */
+.cert-section{background:var(--white)}
+.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
+.cert-card{background:var(--white);border:1px solid var(--border-soft);border-radius:var(--r);padding:1.4rem;position:relative;overflow:hidden;transition:box-shadow .25s,transform .25s var(--ease),border-color .25s}
+.cert-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px);border-color:var(--ink)}
+.cert-card::before{content:'';position:absolute;left:0;top:0;width:2.5px;height:100%;background:linear-gradient(to bottom,var(--ink),var(--teal));opacity:0;transition:opacity .25s}
+.cert-card:hover::before{opacity:1}
+.cert-year{position:absolute;top:.85rem;right:.85rem;font-size:.6rem;font-weight:700;letter-spacing:.07em;background:var(--surface);color:var(--text-light);padding:.18rem .55rem;border-radius:30px;border:1px solid var(--border-soft)}
+.cert-icon{width:42px;height:42px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:1rem;color:#fff;margin-bottom:.85rem;box-shadow:var(--shadow-sm)}
+.cert-card h3{font-size:.82rem;font-weight:700;color:var(--ink);margin-bottom:.22rem;padding-right:3.5rem;line-height:1.3}
+.cert-issuer{font-size:.7rem;font-weight:600;color:var(--teal);margin-bottom:.15rem}
+.cert-detail{font-size:.68rem;color:var(--text-light);margin-bottom:.75rem}
+.cert-link{display:inline-flex;align-items:center;gap:.3rem;font-size:.67rem;font-weight:700;color:var(--text-muted);letter-spacing:.05em;text-transform:uppercase;transition:color .2s}
+.cert-link:hover{color:var(--ink)}
+.cert-wallets{display:flex;gap:.7rem;flex-wrap:wrap;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border-soft)}
 
-/* EDUCATION */
-.education-section{background:var(--off-white)}
-.edu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;max-width:800px;margin:0 auto}
-.edu-card{background:var(--white);border:1px solid var(--border-soft);border-radius:var(--radius);padding:2rem;display:flex;gap:1.2rem;align-items:flex-start;box-shadow:var(--shadow-sm);transition:box-shadow .25s,transform .25s}
+/* SECTION: EDUCATION */
+.edu-section{background:var(--off)}
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:780px;margin:0 auto}
+.edu-card{background:var(--white);border:1px solid var(--border-soft);border-radius:var(--r);padding:2rem;display:flex;gap:1.2rem;align-items:flex-start;box-shadow:var(--shadow-xs);transition:box-shadow .25s,transform .25s}
 .edu-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px)}
-.edu-icon{width:48px;height:48px;background:linear-gradient(135deg,var(--navy),var(--navy-light));border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;color:var(--white);font-size:1.1rem;flex-shrink:0}
-.edu-degree{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--navy);line-height:1.25;margin-bottom:.3rem}
-.edu-school{font-size:.78rem;font-weight:700;color:var(--teal);margin-bottom:.2rem}
-.edu-meta{font-size:.75rem;color:var(--text-muted)}
+.edu-icon{width:46px;height:46px;background:linear-gradient(135deg,var(--ink),var(--ink-soft));border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.05rem;flex-shrink:0}
+.edu-degree{font-family:var(--display);font-size:1rem;font-weight:700;color:var(--ink);line-height:1.25;margin-bottom:.28rem}
+.edu-school{font-size:.76rem;font-weight:700;color:var(--teal);margin-bottom:.18rem}
+.edu-meta{font-size:.72rem;color:var(--text-muted)}
 
-/* AWARDS */
+/* SECTION: AWARDS */
 .awards-section{background:var(--white)}
-.awards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
-.award-card{background:var(--white);border:1px solid var(--border-soft);border-radius:var(--radius);padding:1.8rem;display:flex;align-items:flex-start;gap:1.2rem;box-shadow:var(--shadow-sm);transition:box-shadow .25s,transform .25s var(--ease),border-color .25s}
-.award-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px);border-color:rgba(184,134,11,.3)}
-.award-icon{width:44px;height:44px;background:linear-gradient(135deg,var(--amber-bg),#fdf0c8);border:1px solid rgba(184,134,11,.2);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.1rem;flex-shrink:0}
-.award-title{font-size:.88rem;font-weight:700;color:var(--navy);margin-bottom:.4rem}
-.award-desc{font-size:.78rem;color:var(--text-muted);line-height:1.55}
+.awards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}
+.award-card{background:var(--white);border:1px solid var(--border-soft);border-radius:var(--r);padding:1.7rem;display:flex;align-items:flex-start;gap:1.1rem;box-shadow:var(--shadow-xs);transition:box-shadow .25s,transform .25s var(--ease),border-color .25s}
+.award-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px);border-color:rgba(154,123,46,.3)}
+.award-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--gold-pale),#fce8a0);border:1px solid rgba(154,123,46,.2);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1rem;flex-shrink:0}
+.award-name{font-size:.86rem;font-weight:700;color:var(--ink);margin-bottom:.35rem}
+.award-desc{font-size:.76rem;color:var(--text-muted);line-height:1.55}
 
-/* CONTACT */
-.contact-section{background:var(--off-white)}
-.contact-banner{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 50%,#1e5a8a 100%);border-radius:var(--radius-xl);padding:clamp(2.5rem,5vw,4rem);position:relative;overflow:hidden;margin-bottom:2rem}
-.contact-banner::before{content:'';position:absolute;top:-60px;right:-60px;width:240px;height:240px;background:rgba(255,255,255,.04);border-radius:50%}
-.contact-banner::after{content:'';position:absolute;bottom:-80px;right:20%;width:320px;height:320px;background:rgba(13,122,107,.12);border-radius:50%}
-.contact-banner-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center}
-.contact-banner h3{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:var(--white);margin-bottom:.5rem;line-height:1.2}
-.contact-banner p{color:rgba(255,255,255,.7);font-size:.9rem;max-width:480px;line-height:1.6}
-.avail-dot{display:inline-flex;align-items:center;gap:.45rem;font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.8);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:.3rem .9rem;border-radius:30px;margin-bottom:1rem}
-.avail-dot::before{content:'';width:6px;height:6px;background:#4ade80;border-radius:50%;animation:pulse 2s ease-in-out infinite}
-.contact-banner-actions{display:flex;flex-direction:column;gap:.7rem;flex-shrink:0}
-.contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
-.contact-card{display:flex;align-items:center;gap:1rem;background:var(--white);border:1px solid var(--border-soft);border-radius:var(--radius);padding:1.3rem;text-decoration:none;color:inherit;box-shadow:var(--shadow-sm);transition:box-shadow .25s,transform .25s var(--ease),border-color .25s}
+/* SECTION: CONTACT */
+.contact-section{background:var(--off)}
+.contact-banner{background:linear-gradient(135deg,var(--ink) 0%,var(--ink-mid) 55%,#1a4060 100%);border-radius:var(--r-xl);padding:clamp(2.5rem,5vw,4rem);position:relative;overflow:hidden;margin-bottom:2rem}
+.contact-banner::before{content:'';position:absolute;top:-80px;right:-80px;width:280px;height:280px;background:rgba(11,110,98,.15);border-radius:50%}
+.contact-banner::after{content:'';position:absolute;bottom:-100px;left:20%;width:320px;height:320px;background:rgba(154,123,46,.08);border-radius:50%}
+.banner-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center}
+.banner-avail{display:inline-flex;align-items:center;gap:.45rem;font-size:.67rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.8);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:.28rem .9rem;border-radius:30px;margin-bottom:.9rem}
+.banner-avail::before{content:'';width:6px;height:6px;background:#4ade80;border-radius:50%;animation:pulse 2s ease-in-out infinite}
+.banner-inner h3{font-family:var(--display);font-size:clamp(1.7rem,3vw,2.4rem);font-weight:700;color:#fff;margin-bottom:.5rem;line-height:1.2}
+.banner-inner p{color:rgba(255,255,255,.68);font-size:.88rem;max-width:460px;line-height:1.65}
+.banner-actions{display:flex;flex-direction:column;gap:.65rem;flex-shrink:0}
+.contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+.contact-card{display:flex;align-items:center;gap:1rem;background:var(--white);border:1px solid var(--border-soft);border-radius:var(--r);padding:1.25rem;text-decoration:none;color:inherit;box-shadow:var(--shadow-xs);transition:box-shadow .25s,transform .25s var(--ease),border-color .25s}
 .contact-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px);border-color:var(--teal)}
-.contact-icon{width:44px;height:44px;background:linear-gradient(135deg,var(--navy),var(--teal));border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;color:var(--white);font-size:1rem;flex-shrink:0}
-.contact-label{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-light);margin-bottom:.2rem}
-.contact-value{font-size:.85rem;font-weight:600;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.contact-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--ink),var(--teal));border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;color:#fff;font-size:.95rem;flex-shrink:0}
+.c-label{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-light);margin-bottom:.2rem}
+.c-value{font-size:.83rem;font-weight:600;color:var(--ink)}
 
 /* FOOTER */
-footer{background:var(--navy);color:rgba(255,255,255,.7);padding:2rem 0}
-.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-.footer-logo{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--white)}
-.footer-links{display:flex;gap:1.5rem}
-.footer-links a{font-size:.75rem;font-weight:500;color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s}
-.footer-links a:hover{color:var(--white)}
-.footer-copy{font-size:.72rem;color:rgba(255,255,255,.4)}
+footer{background:var(--ink);padding:2rem 0;color:rgba(255,255,255,.55)}
+.foot-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.foot-brand{font-family:var(--display);font-size:1.05rem;font-weight:700;color:#fff}
+.foot-links{display:flex;gap:1.5rem}
+.foot-links a{font-size:.73rem;font-weight:500;color:rgba(255,255,255,.5);transition:color .2s}
+.foot-links a:hover{color:#fff}
+.foot-copy{font-size:.7rem;color:rgba(255,255,255,.35)}
 
 /* MODALS */
-.modal{display:none;position:fixed;inset:0;z-index:200;background:rgba(15,29,64,.7);backdrop-filter:blur(8px);padding:1rem;overflow-y:auto}
-.modal-box{background:var(--white);border-radius:var(--radius-lg);max-width:720px;margin:3rem auto;overflow:hidden;box-shadow:var(--shadow-xl);animation:modalIn .35s var(--ease-spring) both}
-@keyframes modalIn{from{opacity:0;transform:translateY(-20px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
-.modal-head{background:linear-gradient(135deg,var(--navy),var(--navy-mid));padding:1.8rem 2rem;display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
-.modal-head h3{font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--white)}
-.modal-head-sub{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:.4rem}
-.modal-close{width:34px;height:34px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:var(--radius-sm);color:rgba(255,255,255,.8);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:all .2s;flex-shrink:0}
-.modal-close:hover{background:rgba(255,255,255,.22);color:var(--white)}
+.modal{display:none;position:fixed;inset:0;z-index:300;background:rgba(10,22,40,.75);backdrop-filter:blur(10px);padding:1rem;overflow-y:auto}
+.modal-box{background:var(--white);border-radius:var(--r-lg);max-width:700px;margin:3rem auto;overflow:hidden;box-shadow:var(--shadow-xl);animation:modalIn .3s var(--spring) both}
+@keyframes modalIn{from{opacity:0;transform:translateY(-18px) scale(.97)}to{opacity:1;transform:none}}
+.modal-head{background:linear-gradient(135deg,var(--ink),var(--ink-mid));padding:1.8rem 2rem;display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+.modal-sub{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.35rem}
+.modal-head h3{font-family:var(--display);font-size:1.45rem;font-weight:700;color:#fff}
+.modal-close{width:32px;height:32px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:var(--r-sm);color:rgba(255,255,255,.75);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all .2s;flex-shrink:0}
+.modal-close:hover{background:rgba(255,255,255,.22);color:#fff}
 .modal-body{padding:2rem;max-height:60vh;overflow-y:auto}
-.modal-section{margin-bottom:1.6rem}
-.modal-section h4{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:.8rem;display:flex;align-items:center;gap:.4rem}
-.modal-section p{font-size:.88rem;color:var(--text-body);line-height:1.7}
-.modal-section ul{list-style:none}
-.modal-section li{font-size:.85rem;color:var(--text-body);padding:.4rem 0 .4rem 1.3rem;position:relative;border-bottom:1px solid var(--border-soft);line-height:1.5}
-.modal-section li:last-child{border-bottom:none}
-.modal-section li::before{content:'';position:absolute;left:0;top:13px;width:6px;height:6px;background:var(--teal-pale);border:1.5px solid var(--teal);border-radius:50%}
-.modal-section li strong{color:var(--navy);font-weight:700}
+.modal-body h4{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:.7rem;margin-top:1.2rem}
+.modal-body h4:first-child{margin-top:0}
+.modal-body p{font-size:.87rem;color:var(--text);line-height:1.7;margin-bottom:.8rem}
+.modal-body ul{list-style:none}
+.modal-body ul li{font-size:.84rem;color:var(--text);padding:.35rem 0 .35rem 1.2rem;position:relative;border-bottom:1px solid var(--border-soft);line-height:1.5}
+.modal-body ul li:last-child{border-bottom:none}
+.modal-body ul li::before{content:'';position:absolute;left:0;top:12px;width:5px;height:5px;background:var(--teal-pale);border:1.5px solid var(--teal);border-radius:50%}
+.modal-body ul li strong{color:var(--ink);font-weight:700}
 
 /* SCROLL TOP */
-.scroll-top{position:fixed;bottom:1.5rem;right:1.5rem;width:42px;height:42px;background:var(--navy);color:var(--white);border:none;border-radius:var(--radius-sm);display:none;align-items:center;justify-content:center;font-size:.9rem;cursor:pointer;z-index:50;box-shadow:var(--shadow-lg);transition:all .2s}
+.scroll-top{position:fixed;bottom:1.5rem;right:1.5rem;width:40px;height:40px;background:var(--ink);color:#fff;border:none;border-radius:var(--r-sm);display:none;align-items:center;justify-content:center;font-size:.85rem;cursor:pointer;z-index:50;box-shadow:var(--shadow-lg);transition:all .2s}
 .scroll-top:hover{background:var(--teal);transform:translateY(-3px)}
 
 /* ANIMATIONS */
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.75)}}
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
 /* RESPONSIVE */
-@media(max-width:1024px){.comp-grid{grid-template-columns:repeat(2,1fr)}.projects-grid{grid-template-columns:repeat(2,1fr)}.cert-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:768px){
-    .nav-links{display:none}.mobile-btn{display:flex}
-    .nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--white);border-top:1px solid var(--border-soft);border-bottom:1px solid var(--border-soft);padding:.8rem;box-shadow:var(--shadow-lg);gap:.2rem}
-    .nav-links.open a{padding:.65rem .8rem;border-radius:var(--radius-sm);display:block}
-    .nav-links.open a:hover{background:var(--off-white)}
-    .hero::before{width:100%;clip-path:none;opacity:.4}
-    .hero-layout{grid-template-columns:1fr}.hero-photo-card{display:none}
-    .hero-stats{flex-direction:column}.stat-item{border-right:none;border-bottom:1px solid var(--border-soft)}.stat-item:last-child{border-bottom:none}
-    .about-intro-grid{grid-template-columns:1fr;gap:2rem}
-    .comp-grid{grid-template-columns:1fr}.projects-grid{grid-template-columns:1fr}
-    .cert-grid{grid-template-columns:1fr}.edu-grid{grid-template-columns:1fr}
-    .awards-grid{grid-template-columns:1fr}
-    .contact-banner-inner{grid-template-columns:1fr}.contact-banner-actions{flex-direction:row}
-    .contact-cards{grid-template-columns:1fr}
+@media(max-width:1024px){
+  .comp-grid{grid-template-columns:repeat(2,1fr)}
+  .proj-grid{grid-template-columns:repeat(2,1fr)}
+  .cert-grid{grid-template-columns:repeat(2,1fr)}
+  .impact-grid{grid-template-columns:repeat(2,1fr)}
 }
-@media(max-width:480px){.hero-name{font-size:2.8rem}.hero-actions{flex-direction:column}.hero-actions .btn{width:100%;justify-content:center}}
+@media(max-width:768px){
+  .nav-links{display:none}.mob-btn{display:flex}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--white);border-top:1px solid var(--border-soft);border-bottom:1px solid var(--border-soft);padding:.8rem;box-shadow:var(--shadow-lg);gap:.15rem}
+  .nav-links.open a{padding:.6rem .8rem;border-radius:var(--r-sm);display:block}
+  .hero::before{clip-path:none;opacity:.3;width:100%}
+  .hero-grid{grid-template-columns:1fr}.hero-right{display:none}
+  .hero-stats{flex-direction:row;flex-wrap:wrap}
+  .stat{flex:1;min-width:100px;border-right:1px solid var(--border-soft)!important}
+  .about-grid{grid-template-columns:1fr;gap:2.5rem}
+  .comp-grid{grid-template-columns:1fr}
+  .proj-grid{grid-template-columns:1fr}
+  .cert-grid{grid-template-columns:1fr}
+  .edu-grid{grid-template-columns:1fr}
+  .awards-grid{grid-template-columns:1fr}
+  .impact-grid{grid-template-columns:repeat(2,1fr)}
+  .impact-list{grid-template-columns:1fr}
+  .banner-inner{grid-template-columns:1fr}.banner-actions{flex-direction:row}
+  .contact-cards{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .hero-name{font-size:3rem}
+  .hero-actions{flex-direction:column}.hero-actions .btn{width:100%;justify-content:center}
+  .hero-stats{flex-direction:column}.stat{border-right:none!important;border-bottom:1px solid var(--border-soft)}
+  .impact-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="#hero" class="nav-logo">Vijay Kumar<span class="logo-dot">.</span></a>
-    <button class="mobile-btn" id="mobileBtn"><i class="fas fa-bars"></i></button>
+    <a href="#hero" class="nav-brand">Vijay Kumar<span>.</span></a>
+    <button class="mob-btn" id="mobBtn"><i class="fas fa-bars"></i></button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#summary">About</a></li>
+      <li><a href="#about">About</a></li>
       <li><a href="#competencies">Skills</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#certifications">Certs</a></li>
       <li><a href="#awards">Awards</a></li>
-      <li><a href="#contact" class="nav-cta-btn">Contact</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
     </ul>
   </div>
 </nav>
 
 <!-- HERO -->
 <header class="hero" id="hero">
-  <div class="hero-deco" aria-hidden="true"></div>
-  <div class="container">
+  <div class="wrap">
     <div class="hero-inner">
-      <div class="hero-layout">
+      <div class="hero-grid">
         <div class="hero-left">
-          <div class="hero-eyebrow">
-            <span class="eyebrow-pill">Available for New Roles</span>
-            <span class="eyebrow-sep"></span>
-            <span class="eyebrow-text">Enterprise Platforms · Financial Systems · Global Ecosystem Strategy</span>
-          </div>
-          <div class="hero-name">Vijay Kumar</div>
-          <div class="hero-name-sub">Senior Product Leader — Enterprise Platforms, Financial Systems & Global Ecosystem Strategy</div>
-          <p class="hero-desc">Director-level Product Leader with <strong>20+ years</strong> building and scaling enterprise platforms across global regulatory ecosystems, financial operations, digital commerce, and <strong>AI-enabled workflow automation</strong>. Delivered a 99.6% platform performance improvement. Led India's first subscription OTT platform from 0→1. Currently driving cloud modernization and enterprise governance transformation at <strong>Dell Technologies</strong>.</p>
+          <div class="hero-pill">Open to VP / Director Product Roles</div>
+          <div class="hero-name">Vijay<br>Kumar</div>
+          <div class="hero-title">Product Leader — Consumer Commerce, Marketplace Platforms & Enterprise Systems</div>
+          <p class="hero-desc">
+            Accomplished Product Leader with <strong>20+ years</strong> building and scaling digital platforms across enterprise tax technology, OTT media, retail commerce, and SaaS ecosystems. Currently leading Dell's global Indirect Tax product portfolio — <strong>10+ applications across 100+ countries</strong>, processing 300K+ annual transactions. Helped build India's first OTT platform (BigFlix) and contributed to the launch of India's first organized music retail chain (Planet M).
+          </p>
           <div class="hero-actions">
-            <a href="#projects" class="btn btn-navy"><i class="fas fa-rocket"></i> View Projects</a>
+            <a href="#projects" class="btn btn-ink"><i class="fas fa-rocket"></i> Key Projects</a>
             <a href="#experience" class="btn btn-teal"><i class="fas fa-briefcase"></i> Experience</a>
-            <a href="https://vijayshagunkumar.github.io/" target="_blank" class="btn btn-outline"><i class="fas fa-globe"></i> Portfolio Site</a>
+            <a href="https://vijayshagunkumar.github.io/" target="_blank" class="btn btn-outline"><i class="fas fa-globe"></i> GitHub Portfolio</a>
             <a href="https://www.linkedin.com/in/vshn" target="_blank" class="btn btn-ghost"><i class="fab fa-linkedin"></i> LinkedIn</a>
           </div>
           <div class="hero-stats">
-            <div class="stat-item"><div class="stat-value">20+</div><div class="stat-label">Years Experience</div></div>
-            <div class="stat-item"><div class="stat-value">100+</div><div class="stat-label">Countries</div></div>
-            <div class="stat-item"><div class="stat-value">150+</div><div class="stat-label">Regulatory Jurisdictions</div></div>
-            <div class="stat-item"><div class="stat-value">10M+</div><div class="stat-label">Records Migrated</div></div>
-            <div class="stat-item"><div class="stat-value">99.6%</div><div class="stat-label">Platform Performance Gain</div></div>
-            <div class="stat-item"><div class="stat-value">$50K+</div><div class="stat-label">Annual Cost Savings</div></div>
+            <div class="stat"><div class="stat-v">20+</div><div class="stat-l">Years</div></div>
+            <div class="stat"><div class="stat-v">100+</div><div class="stat-l">Countries</div></div>
+            <div class="stat"><div class="stat-v">150</div><div class="stat-l">Tax Jurisdictions</div></div>
+            <div class="stat"><div class="stat-v">300K+</div><div class="stat-l">Transactions/yr</div></div>
+            <div class="stat"><div class="stat-v">10M+</div><div class="stat-l">Records Migrated</div></div>
+            <div class="stat"><div class="stat-v">99.6%</div><div class="stat-l">Performance Gain</div></div>
           </div>
         </div>
-        <div class="hero-photo-card">
-          <div class="hero-photo-wrap">
-            <img src="1-LinkedIN-Final.jpg" alt="Vijay Kumar, Senior Product Leader">
+        <div class="hero-right">
+          <div style="position:relative">
+            <div class="deco-dots" style="top:-20px;right:-20px"></div>
+            <div class="photo-frame">
+              <img class="photo-img" src="Image/1-LinkedIN-Final.jpg" alt="Vijay Kumar, Product Leader">
+              <div class="photo-badge"><i class="fas fa-certificate" style="font-size:.65em;margin-right:.3rem"></i> Product Leader</div>
+            </div>
+            <div class="hero-card top">
+              <div class="hc-num">$50K+</div>
+              <div class="hc-lbl">Annual Cost Savings</div>
+            </div>
+            <div class="hero-card bot">
+              <div style="font-size:.65rem;opacity:.7;margin-bottom:.2rem;letter-spacing:.06em;text-transform:uppercase">Latest Recognition</div>
+              <div>Dell Learning Exchange Rockstar 2025</div>
+            </div>
           </div>
-          <div class="photo-badge"><i class="fas fa-certificate" style="font-size:.7em;margin-right:.3rem"></i> Certified Product Leader</div>
         </div>
       </div>
     </div>
   </div>
 </header>
 
-<!-- SUMMARY -->
-<section id="summary" class="about-section">
-  <div class="container">
+<!-- ABOUT -->
+<section id="about" class="about-section">
+  <div class="wrap">
     <div class="reveal">
-      <span class="section-label">Executive Summary</span>
-      <h2 class="section-title">Director-Level Product Leader<br>at Global Scale</h2>
+      <span class="eyebrow">Executive Summary</span>
+      <h2 class="title">Product Leader at Global Scale</h2>
     </div>
-    <div class="about-intro-grid reveal" style="margin-top:2rem">
-      <div class="about-intro-text">
-        <p>Director-level Product Leader with 20+ years of experience building and scaling enterprise platforms across global regulatory ecosystems, financial operations platforms, digital commerce, and AI-enabled workflow automation. Proven success in defining multi-year product strategy, leading global modernization programs, and delivering scalable transaction platforms across 100+ countries and 150+ regulatory jurisdictions.</p>
-        <p>Experienced across the end-to-end product lifecycle, with strengths in defining roadmaps, prioritizing requirements, and driving cross-functional execution for complex enterprise platforms. Background in designing API-first ecosystems, regulatory systems, and financial workflow platforms supporting high-volume processing and compliance.</p>
-        <p>Led the 0→1 launch of India's first subscription OTT platform, architecting end-to-end lifecycle systems including onboarding, CRM, billing, analytics, and digital distribution. Recipient of the Dell Game Changers Award for delivering a 99.6% improvement in platform performance.</p>
+    <div class="about-grid reveal" style="margin-top:2.5rem">
+      <div class="about-text">
+        <p>Accomplished Product Leader with 20+ years of experience building and scaling digital platforms across enterprise tax technology, OTT media, retail commerce, and SaaS ecosystems. Currently leading Dell Technologies' global Indirect Tax product portfolio — 10+ internally built applications supporting tax compliance across 100+ countries and processing 300K+ transactions annually.</p>
+        <p>Played a key role in Dell's enterprise finance modernization including Oracle Fusion ERP, TR OneSource Cloud, and CERTifyTax, executing a zero-downtime migration of 10M+ customer exemption records. Earlier helped build India's first subscription-based OTT platform (Reliance BigFlix) and contributed to the launch of India's first organized music retail chain, Planet M (Times Group).</p>
+        <p>Deep expertise in enterprise platform architecture, tax compliance systems, ERP integrations, and large-scale digital product delivery. Recognized for driving innovation, operational excellence, and cross-functional execution across globally distributed teams.</p>
+        <div class="highlights-box">
+          <h4>Product Leadership Highlights</h4>
+          <ul class="hl-list">
+            <li>Global platform scale: 100+ countries, 300K+ transactions annually, 10M+ records migrated with zero downtime</li>
+            <li>0→1 product launches across OTT media, enterprise tax systems, and retail commerce platforms</li>
+            <li>End-to-end product ownership: strategy, OKR definition, PRD creation, engineering delivery, and operational support</li>
+            <li>Cross-functional leadership across engineering, finance, compliance, and global vendor ecosystems</li>
+            <li>Cloud migration, ERP modernization, and generative AI integration across enterprise-scale platforms</li>
+          </ul>
+        </div>
       </div>
-      <div class="about-intro-right">
-        <div class="about-highlight">
-          <div class="about-hl-icon"><i class="fas fa-chess-king"></i></div>
-          <div><div class="about-hl-title">Product Strategy & Vision</div><div class="about-hl-desc">North-star definition, multi-year roadmapping, product investment planning, AI-enabled workflows, platform modernization, and cloud-native ecosystem design.</div></div>
+      <div class="about-cards">
+        <div class="about-card">
+          <div class="ac-icon"><i class="fas fa-chart-line"></i></div>
+          <div>
+            <div class="ac-title">Selected Product Impact</div>
+            <div class="ac-body">
+              99.6% performance improvement · 10M+ records migrated (zero downtime, SOX compliant) · $50K+ annual savings · 300K+ transactions optimized · 100+ countries, 150 tax jurisdictions (CERTifyTax) · 100+ retail stores enabled (Times Group, YsecIT)
+            </div>
+          </div>
         </div>
-        <div class="about-highlight">
-          <div class="about-hl-icon"><i class="fas fa-cogs"></i></div>
-          <div><div class="about-hl-title">Execution & Delivery</div><div class="about-hl-desc">End-to-end lifecycle ownership from discovery → design → development → launch → adoption. Leadership across engineering, architecture, operations & global business teams.</div></div>
+        <div class="about-card">
+          <div class="ac-icon"><i class="fas fa-chess-queen"></i></div>
+          <div>
+            <div class="ac-title">Core Competencies</div>
+            <div class="ac-body">Product Strategy & Execution · Product Analytics & Data · Platforms & Domains (E-commerce, Retail POS, ERP/CRM, Financial/Compliance, API)</div>
+          </div>
         </div>
-        <div class="about-highlight">
-          <div class="about-hl-icon"><i class="fas fa-globe"></i></div>
-          <div><div class="about-hl-title">Customer & Stakeholder Leadership</div><div class="about-hl-desc">Workshops across US, EMEA, APJ. Executive representation in leadership forums, steering committees, and governance councils.</div></div>
+        <div class="about-card">
+          <div class="ac-icon"><i class="fas fa-tools"></i></div>
+          <div>
+            <div class="ac-title">Tools & Technologies</div>
+            <div class="ac-body">Jira, Confluence, SQL · Oracle Fusion ERP, TR OneSource, Vertex, CERTifyTax · Retail Pro POS, Focus RT · REST APIs, XML, EDI, Middleware · Generative AI, Prompt Engineering</div>
+          </div>
         </div>
-        <div class="about-highlight">
-          <div class="about-hl-icon"><i class="fas fa-shield-alt"></i></div>
-          <div><div class="about-hl-title">Technical & Governance Depth</div><div class="about-hl-desc">Enterprise data migrations (10M+ records), SOX compliance platforms, secure integrations with 100+ enterprise systems, and API-first architecture design.</div></div>
+        <div class="about-card">
+          <div class="ac-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <div class="ac-title">Location & Availability</div>
+            <div class="ac-body">Mumbai / Bengaluru, India · Open to global opportunities · +91 7738774442 · vijay.shagunkumar@gmail.com</div>
+          </div>
         </div>
       </div>
     </div>
@@ -383,22 +469,65 @@ footer{background:var(--navy);color:rgba(255,255,255,.7);padding:2rem 0}
 
 <div class="divider"></div>
 
-<!-- EDUCATION -->
-<section id="education" class="education-section">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-label">Academic Background</span>
-      <h2 class="section-title">Education</h2>
-      <p class="section-sub">Academic foundation in Finance and Commerce, deepened through professional certifications in product management, AI, and enterprise technology.</p>
+<!-- IMPACT METRICS — dark section -->
+<section class="impact-section">
+  <div class="wrap">
+    <div class="impact-head reveal">
+      <span class="eyebrow">Quantified Results</span>
+      <h2 class="title" style="color:#fff">Selected Product Impact</h2>
     </div>
-    <div class="edu-grid reveal">
+    <div class="impact-grid reveal">
+      <div class="impact-card">
+        <div class="impact-num">99.6%</div>
+        <div class="impact-lbl">Processing efficiency improvement — global financial transaction platform (Dell)</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-num">10M+</div>
+        <div class="impact-lbl">Enterprise records migrated with zero downtime & full SOX compliance (Dell)</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-num">$50K+</div>
+        <div class="impact-lbl">Annual cost savings through cloud-based platform optimization (Dell)</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-num">300K+</div>
+        <div class="impact-lbl">Annual tax transactions optimized via simulation platform (Dell)</div>
+      </div>
+    </div>
+    <div class="impact-list reveal">
+      <div class="impact-item"><i class="fas fa-globe"></i>100+ countries and 150 tax jurisdictions enabled through global rollout of CERTifyTax tax exemption platform (Dell)</div>
+      <div class="impact-item"><i class="fas fa-store"></i>100+ retail stores enabled with new POS & Inventory systems (Times Group, YsecIT)</div>
+      <div class="impact-item"><i class="fas fa-city"></i>20+ cities covered in nationwide platform rollout (Times Group)</div>
+      <div class="impact-item"><i class="fas fa-layer-group"></i>10+ enterprise SaaS platforms delivered across multiple industries (YsecIT)</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EDUCATION -->
+<section id="education" class="edu-section">
+  <div class="wrap">
+    <div class="section-header center-head reveal">
+      <span class="eyebrow">Academic Background</span>
+      <h2 class="title">Education</h2>
+    </div>
+    <div class="edu-grid reveal" style="margin-top:2rem">
       <div class="edu-card">
         <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
-        <div><div class="edu-degree">M.Com (Finance) — First Class with Distinction</div><div class="edu-school">Manipal University Jaipur</div><div class="edu-meta">2023–2025 &nbsp;·&nbsp; CGPA: 8.36 / 10</div></div>
+        <div>
+          <div class="edu-degree">Master of Commerce (Finance)</div>
+          <div class="edu-school">Manipal University Jaipur</div>
+          <div class="edu-meta">CGPA: 8.36 / 10 · 2023–2025</div>
+        </div>
       </div>
       <div class="edu-card">
         <div class="edu-icon"><i class="fas fa-university"></i></div>
-        <div><div class="edu-degree">Bachelor of Commerce (B.Com)</div><div class="edu-school">Delhi University</div><div class="edu-meta">2001</div></div>
+        <div>
+          <div class="edu-degree">Bachelor of Commerce</div>
+          <div class="edu-school">University of Delhi</div>
+          <div class="edu-meta">2001</div>
+        </div>
       </div>
     </div>
   </div>
@@ -407,48 +536,58 @@ footer{background:var(--navy);color:rgba(255,255,255,.7);padding:2rem 0}
 <div class="divider"></div>
 
 <!-- COMPETENCIES -->
-<section id="competencies" class="competencies-section">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-label">Core Expertise</span>
-      <h2 class="section-title">Competencies</h2>
-      <p class="section-sub">Comprehensive capability across product strategy, enterprise technology, AI & data, and modern tooling — built through two decades of global delivery across regulatory ecosystems and financial platforms.</p>
+<section id="competencies" class="comp-section">
+  <div class="wrap">
+    <div class="center-head reveal">
+      <span class="eyebrow">Core Expertise</span>
+      <h2 class="title">Competencies & Tools</h2>
     </div>
-    <div class="comp-grid reveal">
+    <div class="comp-grid reveal" style="margin-top:2.5rem">
       <div class="comp-card">
         <div class="comp-icon"><i class="fas fa-chess-queen"></i></div>
-        <h3>Product Strategy & Leadership</h3>
+        <h3>Product Strategy & Execution</h3>
         <ul class="comp-list">
-          <li>Product Vision & Multi-Year Roadmapping</li><li>Working Backwards (PR/FAQ) Methodology</li>
-          <li>End-to-End Product Lifecycle Ownership</li><li>Business Case Development & OKR Definition</li>
-          <li>Stakeholder Alignment & Transformation</li>
+          <li>Product Vision & Roadmapping</li>
+          <li>0→1 Product Launch</li>
+          <li>Agile & Scrum Methodologies</li>
+          <li>Cross-functional Leadership</li>
+          <li>User Research & Discovery</li>
+          <li>OKR Definition & Alignment</li>
         </ul>
       </div>
       <div class="comp-card">
-        <div class="comp-icon"><i class="fas fa-network-wired"></i></div>
-        <h3>Enterprise Technology</h3>
+        <div class="comp-icon"><i class="fas fa-chart-pie"></i></div>
+        <h3>Product Analytics & Data</h3>
         <ul class="comp-list">
-          <li>Oracle Fusion ERP & TR OneSource</li><li>CERTifyTax & Vertex Integrations</li>
-          <li>API-First & Middleware Architecture</li><li>Digital Transformation & ERP Modernization</li>
-          <li>Scalable Systems Design & Platform Thinking</li>
+          <li>A/B Testing & Experimentation</li>
+          <li>Funnel & Conversion Optimization</li>
+          <li>Engagement & Retention Analytics</li>
+          <li>Metrics-Driven Development</li>
+          <li>Data Analysis (SQL)</li>
+          <li>Platform Observability</li>
         </ul>
       </div>
       <div class="comp-card">
-        <div class="comp-icon"><i class="fas fa-brain"></i></div>
-        <h3>AI, Data & Automation</h3>
+        <div class="comp-icon"><i class="fas fa-layer-group"></i></div>
+        <h3>Platforms & Domains</h3>
         <ul class="comp-list">
-          <li>Generative AI & Prompt Engineering</li><li>LLM-Based Workflow Automation</li>
-          <li>Data Strategy & Decision Intelligence</li><li>Predictive & Descriptive Analytics</li>
-          <li>Operational Health Dashboards & BI</li>
+          <li>E-commerce & Marketplaces</li>
+          <li>Retail POS & Inventory Management</li>
+          <li>Enterprise Systems (ERP/CRM)</li>
+          <li>Financial & Compliance Platforms</li>
+          <li>API & Integration Strategy</li>
+          <li>Tax Compliance & Middleware</li>
         </ul>
       </div>
       <div class="comp-card">
         <div class="comp-icon"><i class="fas fa-tools"></i></div>
-        <h3>Tools & Platforms</h3>
+        <h3>Tools & Technologies</h3>
         <ul class="comp-list">
-          <li>Jira, Confluence & Azure DevOps</li><li>Figma, Miro & Prototyping Tools</li>
-          <li>SQL, Power BI & Tableau</li><li>Retail Pro, POS & CRM Systems</li>
-          <li>Oracle Cloud (OCI) & AWS</li>
+          <li>Jira, Confluence, Miro, Figma, SQL</li>
+          <li>Oracle Fusion ERP, TR OneSource, Vertex, CERTifyTax</li>
+          <li>Retail Pro POS, Focus RT Inventory</li>
+          <li>REST APIs, XML, EDI, Middleware</li>
+          <li>Generative AI, Prompt Engineering</li>
         </ul>
       </div>
     </div>
@@ -458,101 +597,134 @@ footer{background:var(--navy);color:rgba(255,255,255,.7);padding:2rem 0}
 <div class="divider"></div>
 
 <!-- EXPERIENCE -->
-<section id="experience" class="experience-section">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-label">Career History</span>
-      <h2 class="section-title">Professional Experience</h2>
-      <p class="section-sub">20+ years of progressive leadership across global enterprise platforms, digital transformation, and product delivery.</p>
+<section id="experience" class="exp-section">
+  <div class="wrap">
+    <div class="center-head reveal">
+      <span class="eyebrow">Career History</span>
+      <h2 class="title">Professional Experience</h2>
     </div>
-    <div class="exp-timeline">
-      <div class="exp-item reveal">
-        <div class="exp-dot"></div>
-        <div class="exp-card">
-          <div class="exp-header">
+    <div class="timeline" style="margin-top:3rem">
+
+      <!-- Dell -->
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
             <div>
-              <div class="exp-role">Senior Advisor — Product Management (IT)</div>
-              <div class="exp-company">Dell Technologies</div>
-              <div class="exp-location"><i class="fas fa-map-marker-alt" style="font-size:.65rem;margin-right:.25rem"></i>Bengaluru · Global (US, EMEA, APJ)</div>
+              <div class="tl-role">Senior Advisor — Product Management (IT)</div>
+              <div class="tl-company">Dell Technologies</div>
+              <div class="tl-loc">Bengaluru, India · Global</div>
             </div>
-            <span class="exp-period"><i class="far fa-calendar-alt" style="font-size:.7rem"></i> Apr 2021 – Present</span>
+            <span class="tl-period"><i class="fas fa-calendar-alt"></i> Apr 2021 – Present</span>
           </div>
-          <div style="font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-light);margin-bottom:.8rem;">Product Areas: Enterprise governance platforms · Global compliance systems · Financial workflow platforms · AI-based workflow automation</div>
-          <ul class="exp-bullets">
-            <li>Own product vision, strategy & roadmap for enterprise operational platforms supporting workflows across 100+ countries & 150+ regulatory jurisdictions</li>
-            <li>Drive multi-release roadmap execution with Engineering, Architecture, PMO & global compliance teams</li>
-            <li>Lead stakeholder discovery across US, EMEA, APJ to define platform direction for complex financial & regulatory workflows</li>
-            <li>Directed global rollout of CERTifyTax across 100+ countries, enabling standardized governance and transaction compliance processes</li>
-            <li>Led zero-downtime migration of 10M+ enterprise records with SOX-compliant integrity controls</li>
-            <li>Architected an API-first ecosystem enabling secure data exchange with 100+ enterprise systems</li>
-            <li>Designed a cloud-based financial transaction simulation platform, improving processing by 99.6%, optimizing 300K+ annual transactions, saving $50K+ annually</li>
-            <li>Represent product in global leadership forums, steering committees, and governance councils</li>
+          <div style="font-size:.71rem;font-weight:600;color:var(--text-light);margin-bottom:.9rem">Global Indirect Tax platform suite · 10+ apps · 100+ countries · 300K+ annual transactions</div>
+          <p class="tl-body">Lead product vision, strategy, roadmap, and OKR frameworks for Dell's global Indirect Tax technology platform suite — 10+ internally developed applications processing 300K+ annual tax transactions across 100+ countries. Drive end-to-end product delivery from requirements through PRDs, engineering, QA, production deployment, and post-go-live support. Led two cross-functional engineering teams and drove zero-downtime migration of 10M+ exemption records as part of Dell's global ERP modernization.</p>
+          <ul class="tl-bullets">
+            <li><strong>Middleware Tax Enrichment Layer:</strong> Architected and delivered proprietary middleware between 100+ enterprise apps and the Sabrix tax engine — eliminating costly individual changes for every new global tax rule across 100+ countries and saving millions in vendor and engineering costs.</li>
+            <li><strong>Tax Exemption Management Platform (0→1):</strong> Built internal product from scratch enabling upload, storage, search, and tax engine DB integration for customer exemptions globally.</li>
+            <li><strong>Tax Diagnostics, RCA & Observability:</strong> Delivered transaction-level diagnostic and observability platform, instrumented with generative AI tooling for data-driven decision making — significantly reducing resolution time for Finance and Operations teams.</li>
+            <li><strong>India TCS Compliance Portal:</strong> Designed and launched externally accessible vendor portal for India's Tax Collection at Source regulation, enabling vendors to upload invoices and claim tax rebates outside the Dell network.</li>
+            <li><strong>CERTifyTax Global Rollout:</strong> Led global implementation and integration of CERTifyTax with TR OneSource Cloud — including 10M+ customer exemption data migration, vendor management, and training across global business teams.</li>
+            <li><strong>Enterprise Modernization:</strong> Key contributor to Oracle Fusion ERP rollout and cloud migration from on-prem Sabrix to TR OneSource Cloud; led stakeholder alignment with Deloitte, Thomson Reuters, and CERTifyTax vendor with executive-level progress reporting.</li>
+            <li><strong>Performance & Cost Optimization:</strong> Designed cloud-based financial transaction simulation platform → 99.6% processing improvement, 300K+ transactions optimized, $50K+ annual cost savings.</li>
           </ul>
-          <div class="exp-impact">
-            <div class="exp-impact-label"><i class="fas fa-bolt"></i> Key Achievement</div>
-            <p>Dell Game Changers Award recipient — delivered 99.6% platform performance improvement, 10M+ record zero-downtime migration with SOX compliance, and $50K+ annual cost savings through cloud-based transaction platform redesign.</p>
+          <div class="tl-recog">
+            <div class="tl-recog-label">Recognition</div>
+            Dell Game Changers Award (2023) · Dell Learning Exchange Rockstar (2025)
           </div>
         </div>
       </div>
-      <div class="exp-item reveal">
-        <div class="exp-dot"></div>
-        <div class="exp-card">
-          <div class="exp-header">
+
+      <!-- YsecIT -->
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
             <div>
-              <div class="exp-role">IT Project Manager</div>
-              <div class="exp-company">YsecIT Softwares Pvt Ltd</div>
-              <div class="exp-location"><i class="fas fa-map-marker-alt" style="font-size:.65rem;margin-right:.25rem"></i>Bengaluru, India</div>
+              <div class="tl-role">IT Project Manager</div>
+              <div class="tl-company">YsecIT Softwares Pvt Ltd</div>
+              <div class="tl-loc">Bengaluru, India</div>
             </div>
-            <span class="exp-period"><i class="far fa-calendar-alt" style="font-size:.7rem"></i> Jan 2017 – Sep 2020</span>
+            <span class="tl-period"><i class="fas fa-calendar-alt"></i> Jan 2017 – Sep 2020</span>
           </div>
-          <ul class="exp-bullets">
-            <li>Delivered 10+ enterprise SaaS platforms across retail, eCommerce, and cross-border trade</li>
-            <li>Led product discovery and multi-country stakeholder workshops across diverse markets</li>
-            <li>Defined requirements, prioritized roadmaps, and executed releases via Agile/Scrum frameworks</li>
-            <li>Drove scalable distributed architecture across enterprise integrations</li>
-            <li>Collaborated with engineering teams on API-based platforms and workflow automation</li>
+          <p class="tl-body">Led end-to-end development and delivery of enterprise SaaS platforms across retail, international trade, logistics, and operational management domains, working closely with global clients to translate business requirements into scalable software products.</p>
+          <ul class="tl-bullets">
+            <li><strong>Multi-Domain Platform Delivery:</strong> Designed and delivered SaaS platforms for retail (ProMax/DaVinci — POS & inventory for South American chains), forestry operations, restaurant management, and enterprise asset tracking, enabling centralized operations across industries.</li>
+            <li><strong>Cross-Border Trade Systems:</strong> Developed platforms supporting vehicle import/export operations and fish export-import supply chains, enabling regulatory documentation, shipment tracking, and cross-border transaction workflows.</li>
+            <li><strong>Customer Discovery & Product Definition:</strong> Conducted extensive stakeholder workshops to convert operational challenges into structured product requirements, feature roadmaps, and technical specifications.</li>
+            <li><strong>Agile Product Delivery:</strong> Managed Agile development cycles, product backlogs, and cross-functional engineering teams to deliver 10+ enterprise SaaS platforms across multiple industries.</li>
+          </ul>
+          <div class="tl-recog">
+            <div class="tl-recog-label">Recognition</div>
+            YsecIT Performance Award — 2017
+          </div>
+        </div>
+      </div>
+
+      <!-- E-Creation -->
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <div>
+              <div class="tl-role">Founder / Partner — Digital Publishing</div>
+              <div class="tl-company">E-Creation Multimedia</div>
+              <div class="tl-loc">New Delhi, India</div>
+            </div>
+            <span class="tl-period"><i class="fas fa-calendar-alt"></i> Nov 2014 – Dec 2016</span>
+          </div>
+          <ul class="tl-bullets">
+            <li>Founded venture to transform educational books into interactive digital and multimedia learning formats.</li>
+            <li>Collaborated with publishers and educators to enhance accessibility and content reach.</li>
+            <li>Website: <a href="http://ecreationsmultimedia.com" target="_blank" style="color:var(--teal);font-weight:600">ecreationsmultimedia.com</a></li>
           </ul>
         </div>
       </div>
-      <div class="exp-item reveal">
-        <div class="exp-dot"></div>
-        <div class="exp-card">
-          <div class="exp-header">
+
+      <!-- BigFlix -->
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
             <div>
-              <div class="exp-role">Chief Manager — Technology <span style="font-family:var(--font-body);font-size:.75rem;font-weight:600;color:var(--teal);background:var(--teal-pale);padding:.15rem .5rem;border-radius:30px;margin-left:.4rem;">0 → 1 Product Launch</span></div>
-              <div class="exp-company">Reliance Entertainment — BigFlix</div>
-              <div class="exp-location"><i class="fas fa-map-marker-alt" style="font-size:.65rem;margin-right:.25rem"></i>Mumbai, India</div>
+              <div class="tl-role">Chief Manager — Technology <span style="background:var(--teal-pale);color:var(--teal);padding:.12rem .5rem;border-radius:30px;font-size:.68rem;margin-left:.4rem;font-family:var(--body);font-weight:700">0→1 Launch</span></div>
+              <div class="tl-company">Reliance Entertainment — BigFlix</div>
+              <div class="tl-loc">Mumbai, India</div>
             </div>
-            <span class="exp-period"><i class="far fa-calendar-alt" style="font-size:.7rem"></i> Dec 2007 – Oct 2014</span>
+            <span class="tl-period"><i class="fas fa-calendar-alt"></i> Dec 2007 – Oct 2014</span>
           </div>
-          <ul class="exp-bullets">
-            <li>Led complete <strong>0→1 launch of India's first subscription OTT platform</strong> (BigFlix)</li>
-            <li>Architected systems across onboarding, CRM, billing, analytics, and digital distribution</li>
-            <li>Built scalable backend platforms supporting nationwide subscribers</li>
-            <li>Partnered with business, marketing & growth teams to drive user acquisition and lifecycle value</li>
-            <li>Established scalable digital streaming technology foundations for nationwide expansion</li>
+          <p class="tl-body">Spearheaded the technology strategy and launch of India's first subscription-based OTT platform, BigFlix, building all foundational systems from the ground up.</p>
+          <ul class="tl-bullets">
+            <li><strong>0→1 Platform Build:</strong> Led complete end-to-end launch including architecture, development, and integration of customer onboarding, billing, CRM, and content distribution systems.</li>
+            <li><strong>National Systems Integration:</strong> Implemented and integrated Focus RT inventory management and POS systems across the national retail network, enabling centralized tracking of sales, inventory, and financial reporting.</li>
           </ul>
+          <div class="tl-recog">
+            <div class="tl-recog-label">Recognition</div>
+            Received 117% variable payout for successful national implementation
+          </div>
         </div>
       </div>
-      <div class="exp-item reveal">
-        <div class="exp-dot"></div>
-        <div class="exp-card">
-          <div class="exp-header">
+
+      <!-- Planet M -->
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
             <div>
-              <div class="exp-role">Assistant Manager — IT</div>
-              <div class="exp-company">The Times Group — Planet M</div>
-              <div class="exp-location"><i class="fas fa-map-marker-alt" style="font-size:.65rem;margin-right:.25rem"></i>New Delhi · Pan-India, 100+ stores, 20+ cities</div>
+              <div class="tl-role">Assistant Manager — IT</div>
+              <div class="tl-company">Times Group — Planet M</div>
+              <div class="tl-loc">New Delhi, India · Pan-India</div>
             </div>
-            <span class="exp-period"><i class="far fa-calendar-alt" style="font-size:.7rem"></i> Feb 2002 – Nov 2007</span>
+            <span class="tl-period"><i class="fas fa-calendar-alt"></i> Feb 2002 – Nov 2007</span>
           </div>
-          <ul class="exp-bullets">
-            <li>Designed and implemented <strong>national POS & inventory systems</strong> across 100+ stores in 20+ cities</li>
-            <li>Built technology foundations for <strong>India's first organised national music retail chain</strong></li>
-            <li>Delivered integrated ERP systems enabling centralised reporting and nationwide expansion</li>
+          <p class="tl-body">Played a pivotal role in building the technology infrastructure to support the nationwide expansion of India's first organized music retail chain, Planet M.</p>
+          <ul class="tl-bullets">
+            <li><strong>Nationwide System Rollout:</strong> Led national implementation of Retail Pro POS and inventory platform across 100+ retail stores and warehouses spanning 20+ cities.</li>
+            <li><strong>Centralized Visibility:</strong> Established systems for real-time tracking of stock levels, purchase orders, and inter-store movement across the national network.</li>
           </ul>
-          <div class="exp-impact">
-            <div class="exp-impact-label"><i class="fas fa-trophy"></i> Recognition</div>
-            <p>Times Group Double Promotion (2005) for exceptional contribution to the nationwide launch and scaling of Planet M.</p>
+          <div class="tl-recog">
+            <div class="tl-recog-label">Recognition</div>
+            Times Group Double Promotion (2005)
           </div>
         </div>
       </div>
@@ -564,89 +736,77 @@ footer{background:var(--navy);color:rgba(255,255,255,.7);padding:2rem 0}
 
 <!-- PROJECTS -->
 <section id="projects" class="projects-section">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-label">Portfolio</span>
-      <h2 class="section-title">Key Projects & Case Studies</h2>
-      <p class="section-sub">Enterprise-scale implementations, digital transformation initiatives, and independent product builds spanning FinTech, retail, media, and productivity.</p>
+  <div class="wrap">
+    <div class="center-head reveal">
+      <span class="eyebrow">Portfolio</span>
+      <h2 class="title">Key Projects & Impact</h2>
     </div>
-    <div class="projects-grid">
-      <div class="project-card reveal">
-        <div class="project-stripe"></div>
-        <div class="project-body">
-          <div class="project-badge corp"><i class="fas fa-building"></i> Dell Technologies · 2021–Present</div>
-          <h3>Enterprise Governance & Financial Platform Modernisation</h3>
-          <p class="project-desc">Designed a cloud-based financial transaction simulation platform and API-first ecosystem for 100+ enterprise systems, standardising governance and compliance across 100+ countries and 150+ regulatory jurisdictions.</p>
-          <div class="project-metric">⚡ 99.6% processing improvement · 300K+ annual transactions optimised · $50K+ annual savings</div>
-          <div class="project-chips"><span class="chip">Oracle Fusion ERP</span><span class="chip">TR OneSource</span><span class="chip">API Architecture</span><span class="chip">SOX Controls</span></div>
+    <div class="proj-grid reveal" style="margin-top:2.5rem">
+      <div class="proj-card">
+        <div class="proj-stripe corp"></div>
+        <div class="proj-body">
+          <div class="proj-badge corp"><i class="fas fa-building"></i> Dell Technologies</div>
+          <h3>Middleware Tax Enrichment Layer</h3>
+          <p class="proj-desc">Architected proprietary middleware between 100+ enterprise applications and the Sabrix tax engine — eliminating costly individual changes for every new global tax rule across 100+ countries.</p>
+          <div class="proj-metric">⚡ Millions saved in vendor & engineering costs</div>
+          <div class="proj-chips"><span class="chip">Middleware</span><span class="chip">Sabrix</span><span class="chip">100+ Countries</span><span class="chip">API Architecture</span></div>
         </div>
-        <div class="project-footer"><button class="project-action" onclick="openModal('modal1')"><i class="fas fa-search"></i> View Case Study <i class="fas fa-arrow-right"></i></button></div>
+        <div class="proj-foot"><button class="proj-action" onclick="openModal('m1')">View Case Study <i class="fas fa-arrow-right"></i></button></div>
       </div>
-      <div class="project-card reveal">
-        <div class="project-stripe"></div>
-        <div class="project-body">
-          <div class="project-badge corp"><i class="fas fa-building"></i> Dell Technologies · 2021–Present</div>
-          <h3>CERTifyTax Global Rollout & SOX-Compliant Data Migration</h3>
-          <p class="project-desc">Directed global rollout of CERTifyTax across 100+ countries, enabling standardised governance and transaction compliance. Led zero-downtime migration of 10M+ enterprise records with SOX-compliant integrity controls.</p>
-          <div class="project-metric">📋 10M+ records migrated · Zero downtime · SOX-compliant · 100+ countries</div>
-          <div class="project-chips"><span class="chip">CERTifyTax</span><span class="chip">Data Migration</span><span class="chip">Compliance</span><span class="chip">150+ Jurisdictions</span></div>
+      <div class="proj-card">
+        <div class="proj-stripe corp"></div>
+        <div class="proj-body">
+          <div class="proj-badge corp"><i class="fas fa-building"></i> Dell Technologies</div>
+          <h3>Tax Exemption Management Platform (0→1)</h3>
+          <p class="proj-desc">Built internal product from scratch for exemption certificate upload, storage, search, and tax engine DB integration globally. Includes zero-downtime migration of 10M+ records.</p>
+          <div class="proj-metric">📋 10M+ records · SOX compliant · 150 tax jurisdictions</div>
+          <div class="proj-chips"><span class="chip">CERTifyTax</span><span class="chip">TR OneSource</span><span class="chip">Cloud Migration</span><span class="chip">0→1</span></div>
         </div>
-        <div class="project-footer"><button class="project-action" onclick="openModal('modal2')"><i class="fas fa-search"></i> View Case Study <i class="fas fa-arrow-right"></i></button></div>
+        <div class="proj-foot"><button class="proj-action" onclick="openModal('m2')">View Case Study <i class="fas fa-arrow-right"></i></button></div>
       </div>
-      <div class="project-card reveal">
-        <div class="project-stripe"></div>
-        <div class="project-body">
-          <div class="project-badge corp"><i class="fas fa-building"></i> YsecIT Softwares · 2017–2020</div>
-          <h3>Enterprise SaaS Platforms — Retail, eCommerce & Cross-Border Trade</h3>
-          <p class="project-desc">Delivered 10+ enterprise SaaS platforms across retail, eCommerce, and cross-border trade. Led product discovery, multi-country stakeholder workshops, and Agile release execution across distributed architecture.</p>
-          <div class="project-metric">🏪 10+ platforms delivered · Multi-country discovery · API-based distributed architecture</div>
-          <div class="project-chips"><span class="chip">Retail Systems</span><span class="chip">POS Integration</span><span class="chip">Inventory</span></div>
+      <div class="proj-card">
+        <div class="proj-stripe corp"></div>
+        <div class="proj-body">
+          <div class="proj-badge corp"><i class="fas fa-building"></i> Dell Technologies</div>
+          <h3>Tax Diagnostics, RCA & Observability</h3>
+          <p class="proj-desc">Transaction-level diagnostic and observability platform instrumented with generative AI tooling, enabling data-driven decision making and significantly reducing resolution time.</p>
+          <div class="proj-metric">🤖 GenAI-powered · Real-time observability</div>
+          <div class="proj-chips"><span class="chip">Generative AI</span><span class="chip">Observability</span><span class="chip">RCA</span></div>
         </div>
-        <div class="project-footer"><button class="project-action" onclick="openModal('modal3')"><i class="fas fa-search"></i> View Case Study <i class="fas fa-arrow-right"></i></button></div>
+        <div class="proj-foot"><button class="proj-action" onclick="openModal('m3')">View Case Study <i class="fas fa-arrow-right"></i></button></div>
       </div>
-      <div class="project-card reveal">
-        <div class="project-stripe"></div>
-        <div class="project-body">
-          <div class="project-badge corp"><i class="fas fa-video"></i> Reliance Entertainment · 2007–2014</div>
-          <h3>0→1 Launch: India's First Subscription OTT Platform — BigFlix</h3>
-          <p class="project-desc">Led the complete 0→1 product launch of India's first subscription OTT platform. Architected end-to-end systems: onboarding, CRM, billing, analytics, and digital distribution. Built scalable backend platforms supporting nationwide subscribers.</p>
-          <div class="project-metric">🎬 India's first OTT · Full lifecycle architecture · CRM + Billing + Analytics + Distribution</div>
-          <div class="project-chips"><span class="chip">OTT Platform</span><span class="chip">ERP</span><span class="chip">CRM</span><span class="chip">Billing</span></div>
+      <div class="proj-card">
+        <div class="proj-stripe corp"></div>
+        <div class="proj-body">
+          <div class="proj-badge corp"><i class="fas fa-building"></i> Dell Technologies</div>
+          <h3>Performance & Cost Optimization Platform</h3>
+          <p class="proj-desc">Cloud-based financial transaction simulation platform delivering 99.6% processing improvement, optimizing 300K+ annual transactions and generating $50K+ in annual cost savings.</p>
+          <div class="proj-metric">💰 99.6% improvement · $50K+ saved annually</div>
+          <div class="proj-chips"><span class="chip">Cloud</span><span class="chip">Simulation</span><span class="chip">Oracle</span><span class="chip">OKR</span></div>
         </div>
-        <div class="project-footer"><button class="project-action" onclick="openModal('modal4')"><i class="fas fa-search"></i> View Case Study <i class="fas fa-arrow-right"></i></button></div>
+        <div class="proj-foot"><button class="proj-action" onclick="openModal('m4')">View Case Study <i class="fas fa-arrow-right"></i></button></div>
       </div>
-      <div class="project-card reveal">
-        <div class="project-stripe gold"></div>
-        <div class="project-body">
-          <div class="project-badge indep"><i class="fas fa-lightbulb"></i> Independent Product · 2024–Present</div>
+      <div class="proj-card">
+        <div class="proj-stripe indie"></div>
+        <div class="proj-body">
+          <div class="proj-badge indie"><i class="fas fa-lightbulb"></i> Personal Initiative</div>
           <h3>PromptCraft — AI Prompt Studio</h3>
-          <p class="project-desc">Self-initiated web productivity tool converting unstructured ideas into structured AI prompts. Guided UX patterns reduce cognitive load and improve clarity.</p>
-          <div class="project-metric gold-m">✨ Reduced drop-offs · Improved AI instruction quality · Live product</div>
-          <div class="project-chips"><span class="chip">Product Discovery</span><span class="chip">UX Design</span><span class="chip">AI Prompting</span></div>
+          <p class="proj-desc">Built AI prompt optimization studio demonstrating generative AI product and UX design expertise — helps users convert unstructured ideas into optimized, high-quality prompts.</p>
+          <div class="proj-metric gold">✨ Live product · prompt-crafter-pro.pages.dev</div>
+          <div class="proj-chips"><span class="chip">GenAI</span><span class="chip">UX Design</span><span class="chip">Prompt Engineering</span></div>
         </div>
-        <div class="project-footer"><a href="https://prompt-crafter-pro.pages.dev/" target="_blank" class="project-action"><i class="fas fa-external-link-alt"></i> View Live Product <i class="fas fa-arrow-right"></i></a></div>
+        <div class="proj-foot"><a href="https://prompt-crafter-pro.pages.dev/" target="_blank" class="proj-action">Live Product <i class="fas fa-external-link-alt"></i></a></div>
       </div>
-      <div class="project-card reveal">
-        <div class="project-stripe gold"></div>
-        <div class="project-body">
-          <div class="project-badge indep"><i class="fas fa-lightbulb"></i> Independent Product · 2024</div>
-          <h3>Saarthi Yoga — Content & Experience Platform</h3>
-          <p class="project-desc">Lightweight wellness platform focused on structured content architecture, discoverability, and accessibility for yoga practitioners at all levels.</p>
-          <div class="project-metric gold-m">🧘 Clean IA · Accessible design · Scalable content system</div>
-          <div class="project-chips"><span class="chip">Content Architecture</span><span class="chip">UX Design</span><span class="chip">CMS Strategy</span></div>
+      <div class="proj-card">
+        <div class="proj-stripe indie"></div>
+        <div class="proj-body">
+          <div class="proj-badge indie"><i class="fas fa-lightbulb"></i> Personal Initiative</div>
+          <h3>Saarthi Yoga — Digital Wellness Platform</h3>
+          <p class="proj-desc">Designed digital wellness platform showcasing scalable content architecture and accessible UX — structured discovery of yoga practices with guided learning journeys.</p>
+          <div class="proj-metric gold">🧘 sites.google.com/view/saarthiyoga/home</div>
+          <div class="proj-chips"><span class="chip">Content IA</span><span class="chip">Accessibility</span><span class="chip">UX Design</span></div>
         </div>
-        <div class="project-footer"><a href="https://saarthiyoga.com" target="_blank" class="project-action"><i class="fas fa-external-link-alt"></i> View Website <i class="fas fa-arrow-right"></i></a></div>
-      </div>
-      <div class="project-card reveal">
-        <div class="project-stripe slate"></div>
-        <div class="project-body">
-          <div class="project-badge legacy"><i class="fas fa-store"></i> Times Group · 2002–2007</div>
-          <h3>Planet M — India's First National Music Retail Chain</h3>
-          <p class="project-desc">Technology and retail platform enablement for India's first nationwide music chain, scaling to 100+ stores across 20+ cities under the Times Group.</p>
-          <div class="project-metric">🎵 100+ stores · 20+ cities · Standardized POS & inventory nationwide</div>
-          <div class="project-chips"><span class="chip">Retail POS</span><span class="chip">Inventory</span><span class="chip">National Rollout</span></div>
-        </div>
-        <div class="project-footer"><button class="project-action" disabled><i class="fas fa-history"></i> Legacy Platform</button></div>
+        <div class="proj-foot"><a href="https://sites.google.com/view/saarthiyoga/home" target="_blank" class="proj-action">View Site <i class="fas fa-external-link-alt"></i></a></div>
       </div>
     </div>
   </div>
@@ -655,32 +815,27 @@ footer{background:var(--navy);color:rgba(255,255,255,.7);padding:2rem 0}
 <div class="divider"></div>
 
 <!-- CERTIFICATIONS -->
-<section id="certifications" class="certifications-section">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-label">Credentials</span>
-      <h2 class="section-title">Certifications</h2>
-      <p class="section-sub">Verified credentials in Product Management, AI, Leadership, and Enterprise Platforms from globally recognised institutions.</p>
+<section id="certifications" class="cert-section">
+  <div class="wrap">
+    <div class="center-head reveal">
+      <span class="eyebrow">Credentials</span>
+      <h2 class="title">Certifications & Continuing Education</h2>
     </div>
-    <div class="cert-grid reveal">
-      <div class="cert-card"><span class="cert-year">2024</span><div class="cert-icon" style="background:linear-gradient(135deg,#0f2d5c,#1a3f7a)"><i class="fas fa-chart-line"></i></div><h3>Leadership Skills</h3><div class="cert-issuer">IIM Ahmedabad (Coursera)</div><div class="cert-detail">Credential ID: KEQAA7AN3TEC</div><a href="https://www.coursera.org/account/accomplishments/verify/KEQAA7AN3TEC" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i>&nbsp;Verify Credential</a></div>
-      <div class="cert-card"><span class="cert-year">2024</span><div class="cert-icon" style="background:linear-gradient(135deg,#4285f4,#34a853)"><i class="fab fa-google"></i></div><h3>Google AI Professional Certificate</h3><div class="cert-issuer">Google / Credly</div><div class="cert-detail">Badge verified on Credly</div><a href="https://www.credly.com/badges/83e2da0d-0a21-4c32-ba2b-0434e3d6d37a/linked_in?t=tar2rq" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i>&nbsp;Verify Badge</a></div>
-      <div class="cert-card"><span class="cert-year">2022</span><div class="cert-icon" style="background:linear-gradient(135deg,#667eea,#764ba2)"><i class="fas fa-brain"></i></div><h3>Product Management with AI/ML</h3><div class="cert-issuer">Duke Corporate Education (UK)</div><div class="cert-detail">11.5-month advanced program</div><a href="https://www.credential.net/73930284-308b-4a19-b652-dfd4f4998466#acc.ovMZs2Q3" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i>&nbsp;Verify Credential</a></div>
-      <div class="cert-card"><span class="cert-year">2025</span><div class="cert-icon" style="background:linear-gradient(135deg,#11998e,#38ef7d)"><i class="fab fa-ibm"></i></div><h3>IBM Product Manager</h3><div class="cert-issuer">IBM Professional Certificate</div><div class="cert-detail">Enterprise product strategy & execution</div><a href="https://www.credly.com/badges/fde50ec5-7720-4f8b-863f-6dc81ea8ba38" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i>&nbsp;Verify Credential</a></div>
-      <div class="cert-card"><span class="cert-year">2025</span><div class="cert-icon" style="background:linear-gradient(135deg,#f97316,#ef4444)"><i class="fas fa-robot"></i></div><h3>AI for Finance Specialization</h3><div class="cert-issuer">AI Business School</div><div class="cert-detail">Machine learning in financial services</div><a href="https://www.coursera.org/account/accomplishments/specialization/MOMKUHX3CTQT" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i>&nbsp;Verify Credential</a></div>
-      <div class="cert-card"><span class="cert-year">2025</span><div class="cert-icon" style="background:linear-gradient(135deg,#0084d6,#00b4e0)"><i class="fas fa-trophy"></i></div><h3>Dell Learning Rockstar 2025</h3><div class="cert-issuer">Dell Technologies</div><div class="cert-detail">Top global learner award</div><a href="https://dell.digitalbadges.skillsoft.com/46144cc9-3e04-4614-b374-86a830d8ef40#acc.OA57PWoj" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i>&nbsp;View Badge</a></div>
-      <div class="cert-card"><span class="cert-year">2025</span><div class="cert-icon" style="background:linear-gradient(135deg,#001f5b,#003b9e)"><i class="fas fa-university"></i></div><h3>AI in Financial Services</h3><div class="cert-issuer">Oxford Saïd Business School</div><div class="cert-detail">Strategic AI & ethics in finance</div><a href="https://www.coursera.org/account/accomplishments/specialization/Y4SJ9L1NFSHX" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i>&nbsp;Verify Credential</a></div>
-      <div class="cert-card"><span class="cert-year">2024</span><div class="cert-icon" style="background:linear-gradient(135deg,#c0392b,#e74c3c)"><i class="fab fa-oracle"></i></div><h3>Oracle Cloud & AI Specialization</h3><div class="cert-issuer">Oracle University</div><div class="cert-detail">OCI + Generative AI services</div><a href="https://www.coursera.org/account/accomplishments/specialization/NKUBGRITJET2" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i>&nbsp;Verify Credential</a></div>
-      <div class="cert-card"><span class="cert-year">2024</span><div class="cert-icon" style="background:linear-gradient(135deg,#4285f4,#fbbc05)"><i class="fab fa-google"></i></div><h3>Google Generative AI</h3><div class="cert-issuer">Google Cloud</div><div class="cert-detail">Prompt engineering & Gemini models</div><a href="https://www.coursera.org/account/accomplishments/specialization/I1TVMH7F126Q" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i>&nbsp;Verify Credential</a></div>
-      <div class="cert-card"><span class="cert-year">2025</span><div class="cert-icon" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)"><i class="fas fa-robot"></i></div><h3>AI Agents for Finance</h3><div class="cert-issuer">AI Business School</div><div class="cert-detail">Copilot & agentic workflows</div><a href="https://www.coursera.org/account/accomplishments/verify/AT484YAVGBL" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i>&nbsp;Verify Credential</a></div>
-      <div class="cert-card"><span class="cert-year">2025</span><div class="cert-icon" style="background:linear-gradient(135deg,#1e3a8a,#3b82f6)"><i class="fas fa-laptop-code"></i></div><h3>Digital Product Management</h3><div class="cert-issuer">University of Virginia Darden</div><div class="cert-detail">Modern product practices & growth</div><a href="https://www.coursera.org/account/accomplishments/verify/FKL1FHB6GSNX" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i>&nbsp;Verify Credential</a></div>
+    <div class="cert-grid reveal" style="margin-top:2.5rem">
+      <div class="cert-card"><span class="cert-year">2022</span><div class="cert-icon" style="background:linear-gradient(135deg,#5c6bc0,#7e57c2)"><i class="fas fa-brain"></i></div><h3>Product Management with AI/ML</h3><div class="cert-issuer">Duke Corporate Education</div><div class="cert-detail">10.5 months program</div><a href="https://www.credential.net/73930284-308b-4a19-b652-dfd4f4998466" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> Verify</a></div>
+      <div class="cert-card"><span class="cert-year">2024</span><div class="cert-icon" style="background:linear-gradient(135deg,#4285f4,#34a853)"><i class="fab fa-google"></i></div><h3>Google AI Professional Certificate</h3><div class="cert-issuer">Google / Credly</div><div class="cert-detail">Badge ID: 83e2da0d</div><a href="https://www.credly.com/badges/83e2da0d-0a21-4c32-ba2b-0434e3d6d37a" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> Verify</a></div>
+      <div class="cert-card"><span class="cert-year">2025</span><div class="cert-icon" style="background:linear-gradient(135deg,#1a237e,#3949ab)"><i class="fas fa-laptop-code"></i></div><h3>Digital Product Management</h3><div class="cert-issuer">University of Virginia (Darden)</div><div class="cert-detail">Modern product practices</div><a href="https://www.coursera.org/account/accomplishments/verify/FKL1FHB6GSNX" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> Verify</a></div>
+      <div class="cert-card"><span class="cert-year">2025</span><div class="cert-icon" style="background:linear-gradient(135deg,#bf360c,#e64a19)"><i class="fas fa-robot"></i></div><h3>AI in Financial Services</h3><div class="cert-issuer">Oxford Saïd Business School</div><div class="cert-detail">Strategic AI & ethics in finance</div><a href="https://www.coursera.org/account/accomplishments/specialization/Y4SJ9L1NFSHX" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> Verify</a></div>
+      <div class="cert-card"><span class="cert-year">2024</span><div class="cert-icon" style="background:linear-gradient(135deg,#b71c1c,#e53935)"><i class="fab fa-oracle"></i></div><h3>Oracle Cloud & AI Specialization</h3><div class="cert-issuer">Oracle University</div><div class="cert-detail">OCI + Generative AI</div><a href="https://www.coursera.org/account/accomplishments/specialization/NKUBGRITJET2" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> Verify</a></div>
+      <div class="cert-card"><span class="cert-year">2025</span><div class="cert-icon" style="background:linear-gradient(135deg,#006064,#00897b)"><i class="fab fa-ibm"></i></div><h3>IBM Product Manager Professional</h3><div class="cert-issuer">IBM</div><div class="cert-detail">Professional Certificate</div><a href="https://www.credly.com/badges/fde50ec5-7720-4f8b-863f-6dc81ea8ba38" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> Verify</a></div>
+      <div class="cert-card"><span class="cert-year">2024</span><div class="cert-icon" style="background:linear-gradient(135deg,var(--ink),var(--ink-soft))"><i class="fas fa-chart-line"></i></div><h3>Leadership Skills</h3><div class="cert-issuer">IIM Ahmedabad (Coursera)</div><div class="cert-detail">Credential ID: KEQAA7AN3TEC</div><a href="https://www.coursera.org/account/accomplishments/verify/KEQAA7AN3TEC" target="_blank" class="cert-link"><i class="fas fa-external-link-alt"></i> Verify</a></div>
     </div>
     <div class="cert-wallets reveal">
-      <a href="https://www.coursera.org/user/2d4757e91232cf55d499168d60e76cf3" target="_blank" class="btn btn-outline"><i class="fas fa-graduation-cap"></i> Coursera-2025</a>
-      <a href="https://www.coursera.org/user/8cdb779328289afbd3a5eb03c703bd5e" target="_blank" class="btn btn-outline"><i class="fas fa-graduation-cap"></i> Coursera-2026</a>
-      <a href="https://www.credly.com/users/vijay-kumar.cfc26d7d" target="_blank" class="btn btn-outline"><i class="fas fa-award"></i> Credly Badges</a>
-      <a href="https://www.credential.net/profile/vijaykumar182362/wallet" target="_blank" class="btn btn-outline"><i class="fas fa-certificate"></i> Accredible Wallet</a>
-      <a href="https://skillsoft.digitalbadges.skillsoft.com/profile/vijaykumar259623/wallet" target="_blank" class="btn btn-outline"><i class="fas fa-certificate"></i> Skillsoft Wallet</a>
+      <a href="https://www.coursera.org/user/2d4757e91232cf55d499168d60e76cf3" target="_blank" class="btn btn-outline">Coursera-2025</a>
+      <a href="https://www.coursera.org/user/8cdb779328289afbd3a5eb03c703bd5e" target="_blank" class="btn btn-outline">Coursera-2026</a>
+      <a href="https://www.credly.com/users/vijay-kumar.cfc26d7d" target="_blank" class="btn btn-outline">Credly Badges</a>
+      <a href="https://www.credential.net/profile/vijaykumar182362/wallet" target="_blank" class="btn btn-outline">Accredible Wallet</a>
+      <a href="https://skillsoft.digitalbadges.skillsoft.com/profile/vijaykumar259623/wallet" target="_blank" class="btn btn-outline">Skillsoft Wallet</a>
     </div>
   </div>
 </section>
@@ -689,17 +844,40 @@ footer{background:var(--navy);color:rgba(255,255,255,.7);padding:2rem 0}
 
 <!-- AWARDS -->
 <section id="awards" class="awards-section">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-label">Recognition</span>
-      <h2 class="section-title">Awards & Honours</h2>
-      <p class="section-sub">Industry and organizational recognition earned through measurable outcomes, transformative initiatives, and consistent excellence across career milestones.</p>
+  <div class="wrap">
+    <div class="center-head reveal">
+      <span class="eyebrow">Recognition</span>
+      <h2 class="title">Awards & Achievements</h2>
     </div>
-    <div class="awards-grid reveal">
-      <div class="award-card"><div class="award-icon"><i class="fas fa-trophy"></i></div><div><div class="award-title">Dell Game Changers Award — 2023</div><p class="award-desc">For engineering the 99.6% runtime improvement and 70% effort reduction in global tax exemption platform through automation and platform redesign.</p></div></div>
-      <div class="award-card"><div class="award-icon"><i class="fas fa-medal"></i></div><div><div class="award-title">Times Group Double Promotion — 2005</div><p class="award-desc">For exceptional contribution to the successful nationwide launch and scaling of India's first music retail chain, Planet M (100+ stores).</p></div></div>
-      <div class="award-card"><div class="award-icon"><i class="fas fa-star"></i></div><div><div class="award-title">YSEC Performance Award — 2017</div><p class="award-desc">For successful delivery and client adoption of 13+ enterprise systems with 100% on-time delivery across retail and logistics domains.</p></div></div>
-      <div class="award-card"><div class="award-icon"><i class="fas fa-rocket"></i></div><div><div class="award-title">Dell Learning Exchange Rockstar — 2025</div><p class="award-desc">Recognized for exceptional learning contributions and knowledge sharing within Dell Technologies globally.</p></div></div>
+    <div class="awards-grid reveal" style="margin-top:2.5rem">
+      <div class="award-card">
+        <div class="award-icon"><i class="fas fa-trophy"></i></div>
+        <div>
+          <div class="award-name">Dell Game Changers Award — 2023</div>
+          <p class="award-desc">For 99.6% runtime improvement and significant effort reduction in global tax exemption platform — recognized as a game-changing product achievement at Dell.</p>
+        </div>
+      </div>
+      <div class="award-card">
+        <div class="award-icon"><i class="fas fa-medal"></i></div>
+        <div>
+          <div class="award-name">Dell Learning Exchange Rockstar — 2025</div>
+          <p class="award-desc">Recognized for exceptional learning contributions and knowledge sharing across Dell's global employee community.</p>
+        </div>
+      </div>
+      <div class="award-card">
+        <div class="award-icon"><i class="fas fa-star"></i></div>
+        <div>
+          <div class="award-name">YsecIT Performance Award — 2017</div>
+          <p class="award-desc">For delivering 10+ enterprise systems with 100% on-time record across multiple international clients and geographies.</p>
+        </div>
+      </div>
+      <div class="award-card">
+        <div class="award-icon"><i class="fas fa-rocket"></i></div>
+        <div>
+          <div class="award-name">Times Group Double Promotion — 2005</div>
+          <p class="award-desc">For outstanding contribution to the nationwide launch and scaling of Planet M across 100+ stores and 20+ cities.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -708,65 +886,164 @@ footer{background:var(--navy);color:rgba(255,255,255,.7);padding:2rem 0}
 
 <!-- CONTACT -->
 <section id="contact" class="contact-section">
-  <div class="container">
+  <div class="wrap">
     <div class="contact-banner reveal">
-      <div class="contact-banner-inner">
+      <div class="banner-inner">
         <div>
-          <div class="avail-dot">Open to opportunities</div>
-          <h3>Let's Build Something Exceptional Together</h3>
-          <p>Seeking VP / Director-level Product roles in FinTech, Enterprise Platforms, and AI Transformation. Available globally, based in India.</p>
+          <div class="banner-avail">Open to VP / Director opportunities</div>
+          <h3>Let's Build Something Exceptional</h3>
+          <p>Seeking product leadership roles in FinTech, Enterprise Platforms, Tax Technology, and AI Transformation. Based in Mumbai / Bengaluru, India — open to global opportunities.</p>
         </div>
-        <div class="contact-banner-actions">
-          <a href="https://drive.google.com/file/d/1He8lQ8Ij0VLgKH1YLEFthD-Q-35YFzd5/view?usp=drive_link" target="_blank" class="btn btn-white"><i class="fas fa-download"></i> Download Resume</a>
-          <a href="mailto:vijay.shagunkumar@gmail.com" class="btn btn-outline-white"><i class="fas fa-paper-plane"></i> Schedule a Call</a>
+        <div class="banner-actions">
+          <a href="Resume/Vijay_Kumar_Resume.pdf" target="_blank" class="btn btn-white"><i class="fas fa-download"></i> Download Resume</a>
+          <a href="mailto:vijay.shagunkumar@gmail.com" class="btn btn-outline-w"><i class="fas fa-paper-plane"></i> Email Me</a>
         </div>
       </div>
     </div>
     <div class="contact-cards reveal">
-      <a href="mailto:vijay.shagunkumar@gmail.com" class="contact-card"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><div class="contact-label">Email</div><div class="contact-value">vijay.shagunkumar@gmail.com</div></div></a>
-      <a href="https://www.linkedin.com/in/vshn" target="_blank" class="contact-card"><div class="contact-icon"><i class="fab fa-linkedin"></i></div><div><div class="contact-label">LinkedIn</div><div class="contact-value">linkedin.com/in/vshn</div></div></a>
-      <a href="tel:+917738774442" class="contact-card"><div class="contact-icon"><i class="fas fa-phone"></i></div><div><div class="contact-label">Phone</div><div class="contact-value">+91 77387 74442</div></div></a>
+      <a href="mailto:vijay.shagunkumar@gmail.com" class="contact-card">
+        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+        <div><div class="c-label">Email</div><div class="c-value">vijay.shagunkumar@gmail.com</div></div>
+      </a>
+      <a href="https://www.linkedin.com/in/vshn" target="_blank" class="contact-card">
+        <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+        <div><div class="c-label">LinkedIn</div><div class="c-value">linkedin.com/in/vshn</div></div>
+      </a>
+      <a href="tel:+917738774442" class="contact-card">
+        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+        <div><div class="c-label">Phone</div><div class="c-value">+91 77387 74442</div></div>
+      </a>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="container">
-    <div class="footer-inner">
-      <span class="footer-logo">Vijay Kumar</span>
-      <div class="footer-links">
+  <div class="wrap">
+    <div class="foot-inner">
+      <span class="foot-brand">Vijay Kumar</span>
+      <div class="foot-links">
         <a href="https://www.linkedin.com/in/vshn" target="_blank">LinkedIn</a>
         <a href="mailto:vijay.shagunkumar@gmail.com">Email</a>
-        <a href="https://vijayshagunkumar.github.io/" target="_blank">Portfolio</a>
-        <a href="https://drive.google.com/file/d/1He8lQ8Ij0VLgKH1YLEFthD-Q-35YFzd5/view?usp=drive_link" target="_blank">Resume</a>
+        <a href="https://vijayshagunkumar.github.io/" target="_blank">GitHub Portfolio</a>
+        <a href="Resume/Vijay_Kumar_Resume.pdf" target="_blank">Resume</a>
         <a href="#hero">Back to Top</a>
       </div>
-      <span class="footer-copy">© 2025 Vijay Kumar — Senior Product Leader | Enterprise Platforms, Financial Systems & Global Ecosystem Strategy</span>
+      <span class="foot-copy">© 2025 Vijay Kumar — Product Leader</span>
     </div>
   </div>
 </footer>
 
-<button class="scroll-top" id="scrollTopBtn"><i class="fas fa-chevron-up"></i></button>
+<button class="scroll-top" id="scrollTop"><i class="fas fa-chevron-up"></i></button>
 
 <!-- MODALS -->
-<div id="modal1" class="modal"><div class="modal-box"><div class="modal-head"><div><div class="modal-head-sub">Dell Technologies · 2021–Present</div><h3>Enterprise Governance & Financial Platform Modernisation</h3></div><button class="modal-close" onclick="closeModal('modal1')">×</button></div><div class="modal-body"><div class="modal-section"><h4><i class="fas fa-info-circle"></i> Project Overview</h4><p>Designed a cloud-based financial transaction simulation platform and API-first ecosystem enabling secure data exchange with 100+ enterprise systems. Standardised governance and transaction compliance across 100+ countries and 150+ regulatory jurisdictions, optimising 300K+ annual transactions with measurable cost and performance improvements.</p></div><div class="modal-section"><h4><i class="fas fa-trophy"></i> Business Impact</h4><ul><li><strong>99.6% Processing Improvement:</strong> Cloud platform redesign delivered dramatic performance gains</li><li><strong>300K+ Annual Transactions:</strong> Optimised through platform modernisation</li><li><strong>$50K+ Annual Savings:</strong> Realised through cloud-based transaction platform</li><li><strong>100+ Enterprise Integrations:</strong> Secure API-first ecosystem across global systems</li><li><strong>SOX-Compliant Controls:</strong> Full audit trail and governance documentation</li><li><strong>Dell Game Changers Award:</strong> Recognised for this transformative achievement</li></ul></div></div></div></div>
-<div id="modal2" class="modal"><div class="modal-box"><div class="modal-head"><div><div class="modal-head-sub">Dell Technologies · 2021–Present</div><h3>CERTifyTax Global Rollout & SOX-Compliant Data Migration</h3></div><button class="modal-close" onclick="closeModal('modal2')">×</button></div><div class="modal-body"><div class="modal-section"><h4><i class="fas fa-info-circle"></i> Project Overview</h4><p>Directed global rollout of CERTifyTax across 100+ countries, enabling standardised governance and transaction compliance processes. Led zero-downtime migration of 10M+ enterprise records with SOX-compliant integrity controls, integrating seamlessly with existing enterprise systems.</p></div><div class="modal-section"><h4><i class="fas fa-trophy"></i> Business Impact</h4><ul><li><strong>100+ Countries:</strong> Standardised governance and compliance processes globally</li><li><strong>10M+ Records Migrated:</strong> With full SOX-compliant integrity controls</li><li><strong>Zero Downtime:</strong> Enterprise migration without business interruption</li><li><strong>Standardised Compliance:</strong> Consistent transaction compliance across all jurisdictions</li><li><strong>Enhanced Audit Readiness:</strong> Comprehensive traceability and governance reporting</li></ul></div></div></div></div>
-<div id="modal3" class="modal"><div class="modal-box"><div class="modal-head"><div><div class="modal-head-sub">YsecIT Softwares · 2017–2020</div><h3>Enterprise SaaS Platforms — Retail, eCommerce & Cross-Border Trade</h3></div><button class="modal-close" onclick="closeModal('modal3')">×</button></div><div class="modal-body"><div class="modal-section"><h4><i class="fas fa-info-circle"></i> Project Overview</h4><p>Delivered 10+ enterprise SaaS platforms across retail, eCommerce, and cross-border trade verticals. Led product discovery through multi-country stakeholder workshops, defined requirements, prioritised roadmaps, and executed releases via Agile/Scrum frameworks. Drove scalable distributed architecture across enterprise integrations.</p></div><div class="modal-section"><h4><i class="fas fa-trophy"></i> Business Impact</h4><ul><li><strong>10+ Enterprise Platforms:</strong> Delivered across retail, eCommerce, and cross-border trade</li><li><strong>Multi-Country Discovery:</strong> Stakeholder workshops across diverse markets</li><li><strong>API-Based Architecture:</strong> Scalable distributed integrations across enterprise systems</li><li><strong>Agile Delivery:</strong> Consistent roadmap execution through Scrum frameworks</li><li><strong>Workflow Automation:</strong> Manual processes transformed into automated enterprise workflows</li></ul></div></div></div></div>
-<div id="modal4" class="modal"><div class="modal-box"><div class="modal-head"><div><div class="modal-head-sub">Reliance Entertainment · 2007–2014</div><h3>0→1 Launch: India's First Subscription OTT Platform — BigFlix</h3></div><button class="modal-close" onclick="closeModal('modal4')">×</button></div><div class="modal-body"><div class="modal-section"><h4><i class="fas fa-info-circle"></i> Project Overview</h4><p>Led the complete 0→1 launch of India's first subscription OTT platform (BigFlix). Architected end-to-end lifecycle systems across onboarding, CRM, billing, analytics, and digital distribution. Built scalable backend platforms supporting nationwide subscribers and partnered with business, marketing & growth teams to drive user acquisition and lifecycle value.</p></div><div class="modal-section"><h4><i class="fas fa-trophy"></i> Business Impact</h4><ul><li><strong>India's First OTT:</strong> Pioneered the subscription streaming model in India from scratch</li><li><strong>End-to-End Architecture:</strong> Onboarding, CRM, billing, analytics, and digital distribution</li><li><strong>Scalable Backend:</strong> Platforms built to support nationwide subscriber growth</li><li><strong>Growth Partnership:</strong> Collaborated with business & marketing to drive user acquisition</li><li><strong>Digital Streaming Foundation:</strong> Established technology infrastructure for nationwide expansion</li></ul></div></div></div></div>
+<div id="m1" class="modal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div><div class="modal-sub">Dell Technologies</div><h3>Middleware Tax Enrichment Layer</h3></div>
+      <button class="modal-close" onclick="closeModal('m1')">×</button>
+    </div>
+    <div class="modal-body">
+      <h4>Overview</h4>
+      <p>Architected proprietary middleware enrichment layer between 100+ enterprise applications and the Sabrix tax engine. This platform decoupled all downstream applications from direct tax engine changes, eliminating costly individual application updates every time a new global tax rule was introduced.</p>
+      <h4>Impact</h4>
+      <ul>
+        <li><strong>Scale:</strong> Supports 100+ enterprise applications across 100+ countries</li>
+        <li><strong>Savings:</strong> Millions saved in vendor and engineering costs annually</li>
+        <li><strong>Architecture:</strong> Middleware pattern enabling single point of rule change across global tax ecosystem</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div id="m2" class="modal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div><div class="modal-sub">Dell Technologies</div><h3>Tax Exemption Management Platform</h3></div>
+      <button class="modal-close" onclick="closeModal('m2')">×</button>
+    </div>
+    <div class="modal-body">
+      <h4>Overview</h4>
+      <p>Built Dell's internal exemption certificate management product from scratch — a 0→1 build enabling upload, storage, search, and tax engine DB integration for customer exemptions globally. Later led the CERTifyTax global rollout and integration with TR OneSource Cloud.</p>
+      <h4>Impact</h4>
+      <ul>
+        <li><strong>Migration:</strong> 10M+ customer exemption records migrated with zero downtime</li>
+        <li><strong>Compliance:</strong> Full SOX compliance maintained throughout migration</li>
+        <li><strong>Scale:</strong> 100+ countries and 150 tax jurisdictions enabled</li>
+        <li><strong>Partners:</strong> Vendor management across Deloitte, Thomson Reuters, CERTifyTax</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div id="m3" class="modal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div><div class="modal-sub">Dell Technologies</div><h3>Tax Diagnostics, RCA & Observability</h3></div>
+      <button class="modal-close" onclick="closeModal('m3')">×</button>
+    </div>
+    <div class="modal-body">
+      <h4>Overview</h4>
+      <p>Delivered a transaction-level diagnostic and observability platform for root cause analysis of tax determination errors. Instrumented with generative AI tooling for data-driven decision making across global tax workflows.</p>
+      <h4>Impact</h4>
+      <ul>
+        <li><strong>Resolution Time:</strong> Significantly reduced Finance and Operations team resolution time</li>
+        <li><strong>AI Integration:</strong> Generative AI tooling for intelligent RCA and pattern detection</li>
+        <li><strong>Observability:</strong> Transaction-level visibility across 300K+ annual tax transactions</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div id="m4" class="modal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div><div class="modal-sub">Dell Technologies</div><h3>Performance & Cost Optimization Platform</h3></div>
+      <button class="modal-close" onclick="closeModal('m4')">×</button>
+    </div>
+    <div class="modal-body">
+      <h4>Overview</h4>
+      <p>Designed a cloud-based financial transaction simulation platform that dramatically improved processing efficiency for Dell's global tax transaction operations.</p>
+      <h4>Impact</h4>
+      <ul>
+        <li><strong>Performance:</strong> 99.6% improvement in processing efficiency</li>
+        <li><strong>Scale:</strong> 300K+ annual transactions optimized</li>
+        <li><strong>Cost Savings:</strong> $50K+ in annual cost savings generated</li>
+        <li><strong>Technology:</strong> Cloud-based simulation with Oracle ERP integration</li>
+      </ul>
+    </div>
+  </div>
+</div>
 
 <script>
-const mobileBtn=document.getElementById('mobileBtn'),navLinks=document.getElementById('navLinks');
-mobileBtn.addEventListener('click',()=>{navLinks.classList.toggle('open');mobileBtn.innerHTML=navLinks.classList.contains('open')?'<i class="fas fa-times"></i>':'<i class="fas fa-bars"></i>'});
-navLinks.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{navLinks.classList.remove('open');mobileBtn.innerHTML='<i class="fas fa-bars"></i>'})});
-const sections=document.querySelectorAll('section[id],header[id]'),navAs=document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll',()=>{let c='';sections.forEach(s=>{if(window.scrollY>=s.offsetTop-80)c=s.id});navAs.forEach(a=>{a.classList.remove('active');if(a.getAttribute('href')==='#'+c)a.classList.add('active')});document.getElementById('scrollTopBtn').style.display=window.scrollY>400?'flex':'none'},{passive:true});
-document.getElementById('scrollTopBtn').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.07,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+// Mobile nav
+const mobBtn=document.getElementById('mobBtn'),navLinks=document.getElementById('navLinks');
+mobBtn.addEventListener('click',()=>{
+  const open=navLinks.classList.toggle('open');
+  mobBtn.innerHTML=open?'<i class="fas fa-times"></i>':'<i class="fas fa-bars"></i>';
+});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');mobBtn.innerHTML='<i class="fas fa-bars"></i>'}));
+
+// Active nav
+const secs=document.querySelectorAll('section[id],header[id]'),nas=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  secs.forEach(s=>{if(window.scrollY>=s.offsetTop-80)cur=s.id});
+  nas.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+cur)});
+  document.getElementById('scrollTop').style.display=window.scrollY>500?'flex':'none';
+},{passive:true});
+document.getElementById('scrollTop').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+// Reveal on scroll
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.07,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Stagger children
+document.querySelectorAll('.comp-grid,.proj-grid,.cert-grid,.awards-grid,.impact-grid,.impact-list').forEach(grid=>{
+  [...grid.children].forEach((child,i)=>{child.style.transitionDelay=`${i*0.07}s`});
+});
+
+// Modals
 function openModal(id){document.getElementById(id).style.display='block';document.body.style.overflow='hidden'}
 function closeModal(id){document.getElementById(id).style.display='none';document.body.style.overflow=''}
 window.addEventListener('click',e=>{if(e.target.classList.contains('modal')){e.target.style.display='none';document.body.style.overflow=''}});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal').forEach(m=>{m.style.display='none'});document.body.style.overflow=''}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal').forEach(m=>m.style.display='none');document.body.style.overflow=''}});
 </script>
 </body>
 </html>
