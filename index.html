@@ -3,7 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vijay Kumar — Product Leader | Enterprise Platforms & Digital Commerce</title>
+<meta name="description" content="Vijay Kumar | VP/Director Product Leader | 20+ years enterprise platforms, OTT pioneer (BigFlix), Dell global tax tech | 100+ countries, 150 tax jurisdictions">
+<meta name="keywords" content="Product Leader, VP Product, Director Product, Enterprise Platforms, Tax Technology, OTT, Dell, Mumbai, Bengaluru, India">
+<meta property="og:title" content="Vijay Kumar — Product Leader | Enterprise Platforms & Digital Commerce">
+<meta property="og:description" content="20+ years building platforms across tax tech, OTT, retail POS, and cross-border SaaS. Currently leading Dell's global Indirect Tax portfolio across 100+ countries.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vijayshagunkumar.github.io">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vijay Kumar — Product Leader">
+<meta name="twitter:description" content="20+ years | Dell Global Tax Tech | OTT Pioneer | 100+ Countries">
+<link rel="canonical" href="https://vijayshagunkumar.github.io">
+<title>Vijay Kumar | VP Product Leader | Enterprise Platforms, OTT Pioneer & Global Tax Tech</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -1330,6 +1340,195 @@ footer {
 }
 .tl-item:hover .tl-chip { background: var(--teal-pale); color: var(--teal); border-color: rgba(10,122,108,.2); }
 
+
+/* ── CAREER JOURNEY ──────────────────────────────────── */
+.journey-section { background: var(--off); }
+.journey-track {
+  position: relative;
+  margin-top: 3rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+.journey-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  min-width: 900px;
+  position: relative;
+}
+.journey-line::before {
+  content:'';
+  position:absolute;
+  top: 52px; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--navy), var(--teal), var(--gold));
+  z-index: 0;
+  border-radius: 2px;
+}
+.journey-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  cursor: default;
+}
+.journey-dot {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; color: #fff;
+  box-shadow: var(--s2);
+  margin-bottom: .75rem;
+  border: 3px solid var(--white);
+  transition: transform .25s var(--ease), box-shadow .25s;
+  flex-shrink: 0;
+}
+.journey-step:hover .journey-dot { transform: scale(1.15); box-shadow: var(--s3); }
+.journey-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r8);
+  padding: .9rem 1rem;
+  text-align: center;
+  width: 100%;
+  max-width: 160px;
+  box-shadow: var(--s1);
+  transition: box-shadow .25s, transform .25s var(--ease);
+}
+.journey-step:hover .journey-card { box-shadow: var(--s3); transform: translateY(-3px); }
+.journey-years {
+  font-size: .62rem; font-weight: 700; color: var(--teal);
+  letter-spacing: .08em; text-transform: uppercase; margin-bottom: .3rem;
+}
+.journey-co {
+  font-family: var(--display);
+  font-size: .88rem; font-weight: 700; color: var(--navy);
+  line-height: 1.2; margin-bottom: .25rem;
+}
+.journey-role { font-size: .7rem; color: var(--muted); line-height: 1.35; }
+.journey-connector {
+  flex-shrink: 0; width: 32px;
+  display: flex; align-items: center; justify-content: center;
+  padding-top: 22px;
+  color: var(--light); font-size: .7rem;
+}
+
+/* ── METRICS DASHBOARD ───────────────────────────────── */
+.metrics-section { background: var(--white); }
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.metric-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r12);
+  padding: 1.8rem 1.5rem;
+  text-align: center;
+  box-shadow: var(--s1);
+  transition: box-shadow .28s, transform .28s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.metric-card:hover { box-shadow: var(--s3); transform: translateY(-4px); }
+.metric-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:3px;
+  background: linear-gradient(90deg, var(--navy), var(--teal));
+}
+.ring-wrap {
+  position: relative;
+  width: 110px; height: 110px;
+  margin: 0 auto 1.2rem;
+}
+.ring-svg { width: 110px; height: 110px; transform: rotate(-90deg); }
+.ring-track { fill: none; stroke: var(--surface); stroke-width: 10; }
+.ring-fill {
+  fill: none; stroke-width: 10;
+  stroke-linecap: round;
+  stroke-dasharray: 314;
+  stroke-dashoffset: 314;
+  transition: stroke-dashoffset 1.6s cubic-bezier(.4,0,.2,1);
+}
+.ring-label {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  font-family: var(--display);
+  font-size: 1.35rem; font-weight: 700; color: var(--navy);
+  line-height: 1;
+}
+.metric-title { font-size: .88rem; font-weight: 700; color: var(--navy); margin-bottom: .3rem; }
+.metric-sub { font-size: .75rem; color: var(--muted); line-height: 1.5; }
+.bar-metric {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r12);
+  padding: 1.8rem 1.5rem;
+  box-shadow: var(--s1);
+  transition: box-shadow .28s, transform .28s var(--ease);
+  position: relative; overflow: hidden;
+}
+.bar-metric:hover { box-shadow: var(--s3); transform: translateY(-4px); }
+.bar-metric::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:3px;
+  background: linear-gradient(90deg, var(--teal), var(--gold));
+}
+.bar-metric-title {
+  font-size: .82rem; font-weight: 700; color: var(--navy);
+  margin-bottom: 1.2rem; display: flex; align-items: center; gap: .5rem;
+}
+.bm-row { margin-bottom: 1rem; }
+.bm-row:last-child { margin-bottom: 0; }
+.bm-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: .4rem; }
+.bm-label { font-size: .75rem; font-weight: 600; color: var(--text); }
+.bm-val { font-size: .75rem; font-weight: 700; color: var(--navy); }
+.bm-track { height: 8px; background: var(--surface); border-radius: 4px; overflow: hidden; }
+.bm-fill {
+  height: 100%; border-radius: 4px;
+  background: linear-gradient(90deg, var(--navy), var(--teal));
+  width: 0; transition: width 1.4s cubic-bezier(.4,0,.2,1);
+}
+.bm-fill.gold { background: linear-gradient(90deg, var(--teal), var(--gold)); }
+
+/* ── INDUSTRY EXPERTISE ──────────────────────────────── */
+.expertise-section { background: var(--off); }
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  margin-top: 2.5rem;
+}
+.exp-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r12);
+  padding: 1.5rem 1.2rem;
+  text-align: center;
+  box-shadow: var(--s1);
+  transition: box-shadow .25s, transform .25s var(--ease), border-color .25s;
+  cursor: default;
+}
+.exp-card:hover { box-shadow: var(--s3); transform: translateY(-4px); border-color: var(--border); }
+.exp-icon {
+  width: 52px; height: 52px;
+  border-radius: var(--r8);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; color: #fff;
+  margin: 0 auto 1rem;
+  box-shadow: var(--s2);
+}
+.exp-name { font-size: .88rem; font-weight: 700; color: var(--navy); margin-bottom: .4rem; line-height: 1.25; }
+.exp-years { font-size: .68rem; font-weight: 700; color: var(--teal); letter-spacing: .08em; text-transform: uppercase; margin-bottom: .5rem; }
+.exp-tags { display: flex; flex-wrap: wrap; gap: .3rem; justify-content: center; }
+.exp-tag { font-size: .63rem; font-weight: 600; padding: .18rem .55rem; background: var(--surface); border: 1px solid var(--border); border-radius: 30px; color: var(--muted); }
+
+@media(max-width:1024px) { .metrics-grid { grid-template-columns: repeat(2, 1fr); } .expertise-grid { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width:768px) { .metrics-grid { grid-template-columns: 1fr; } .expertise-grid { grid-template-columns: repeat(2, 1fr); } .journey-track { overflow-x: scroll; } }
+@media(max-width:480px) { .expertise-grid { grid-template-columns: 1fr 1fr; } }
+
 /* ═══════════════════════════════════════════════
    SCROLL TO TOP
 ═══════════════════════════════════════════════ */
@@ -1373,7 +1572,11 @@ footer {
 @media(max-width:900px) {
   .about-grid   { grid-template-columns:1fr; gap:2.5rem; }
   .hero-layout  { grid-template-columns:1fr; }
-  .hero-right   { display:none; }
+  .hero-right   { display:flex; justify-content:center; margin-top:1.5rem; width:100% !important; }
+  .photo-frame  { width:120px !important; height:120px !important; aspect-ratio:1/1 !important; border-radius:50% !important; border:3px solid var(--teal) !important; margin:0 auto; }
+  .photo-badge  { display:none; }
+  .hero-stat-cards { display:none; }
+  .deco-grid    { display:none; }
 }
 @media(max-width:768px) {
   html { font-size:15px; }
@@ -1432,6 +1635,7 @@ footer {
     <button class="mob-btn" id="mobBtn" aria-label="Menu"><i class="fas fa-bars"></i></button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
+      <li><a href="#journey">Journey</a></li>
       <li><a href="#competencies">Skills</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
@@ -1467,6 +1671,7 @@ footer {
             <a href="#experience"  class="btn btn-navy"><i class="fas fa-briefcase"></i> Experience</a>
             <a href="https://vijayshagunkumar.github.io/" target="_blank" class="btn btn-ghost"><i class="fas fa-globe"></i> GitHub Portfolio</a>
             <a href="https://www.linkedin.com/in/vshn"   target="_blank" class="btn btn-ghost"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="mailto:vijay.shagunkumar@gmail.com?subject=Let's Connect — Product Leadership Role&body=Hi Vijay," class="btn btn-ghost" style="border-color:rgba(196,154,46,.4);color:var(--gold)"><i class="fas fa-calendar-check"></i> Schedule a Call</a>
           </div>
           <div class="hero-stats">
             <div class="stat"><div class="stat-v">20+</div><div class="stat-l">Years</div></div>
@@ -1588,6 +1793,78 @@ footer {
     </div>
   </div>
 </section>
+<div class="divider"></div>
+
+<!-- CAREER JOURNEY -->
+<section class="journey-section" id="journey">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <span class="eyebrow center">20+ Years</span>
+      <h2 class="section-title">Career Journey</h2>
+      <p class="section-sub">From India's first music retail chain to Dell's global tax technology platform</p>
+    </div>
+    <div class="journey-track reveal">
+      <div class="journey-line">
+
+        <div class="journey-step">
+          <div class="journey-dot" style="background:linear-gradient(135deg,#c0392b,#e74c3c)"><i class="fas fa-music"></i></div>
+          <div class="journey-card">
+            <div class="journey-years">2002 – 2007</div>
+            <div class="journey-co">Times Group — Planet M</div>
+            <div class="journey-role">Asst. Manager IT · 100+ stores nationwide</div>
+          </div>
+        </div>
+
+        <div class="journey-connector"><i class="fas fa-chevron-right"></i></div>
+
+        <div class="journey-step">
+          <div class="journey-dot" style="background:linear-gradient(135deg,#e67e22,#f39c12)"><i class="fas fa-film"></i></div>
+          <div class="journey-card">
+            <div class="journey-years">2007 – 2014</div>
+            <div class="journey-co">Reliance — BigFlix</div>
+            <div class="journey-role">Chief Manager Tech · India's first OTT</div>
+          </div>
+        </div>
+
+        <div class="journey-connector"><i class="fas fa-chevron-right"></i></div>
+
+        <div class="journey-step">
+          <div class="journey-dot" style="background:linear-gradient(135deg,#8e44ad,#9b59b6)"><i class="fas fa-book"></i></div>
+          <div class="journey-card">
+            <div class="journey-years">2014 – 2016</div>
+            <div class="journey-co">E-Creation Multimedia</div>
+            <div class="journey-role">Founder · Digital Publishing</div>
+          </div>
+        </div>
+
+        <div class="journey-connector"><i class="fas fa-chevron-right"></i></div>
+
+        <div class="journey-step">
+          <div class="journey-dot" style="background:linear-gradient(135deg,#0a7a6c,#12c0ac)"><i class="fas fa-globe"></i></div>
+          <div class="journey-card">
+            <div class="journey-years">2017 – 2020</div>
+            <div class="journey-co">YsecIT Softwares</div>
+            <div class="journey-role">IT Project Manager · 10+ SaaS platforms · South America & Japan</div>
+          </div>
+        </div>
+
+        <div class="journey-connector"><i class="fas fa-chevron-right"></i></div>
+
+        <div class="journey-step">
+          <div class="journey-dot" style="background:linear-gradient(135deg,#0c1f3f,#2d4a6e)"><i class="fas fa-microchip"></i></div>
+          <div class="journey-card" style="border-color:var(--teal);box-shadow:0 0 0 2px rgba(10,122,108,.15)">
+            <div class="journey-years" style="color:var(--navy)">2021 – Present</div>
+            <div class="journey-co">Dell Technologies</div>
+            <div class="journey-role">Sr. Advisor PM · 100+ countries · 300K+ txns/yr</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
 <div class="divider"></div>
 
@@ -1629,6 +1906,130 @@ footer {
     </div>
   </div>
 </section>
+<div class="divider"></div>
+
+<!-- METRICS DASHBOARD -->
+<section class="metrics-section" id="metrics">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <span class="eyebrow center">By The Numbers</span>
+      <h2 class="section-title">Platform Performance Metrics</h2>
+      <p class="section-sub">Key performance indicators from platform delivery across Dell, YsecIT, and Reliance</p>
+    </div>
+    <div class="metrics-grid">
+
+      <!-- Ring: Processing Efficiency -->
+      <div class="metric-card reveal reveal-delay-1">
+        <div class="ring-wrap">
+          <svg class="ring-svg" viewBox="0 0 110 110">
+            <circle class="ring-track" cx="55" cy="55" r="50"/>
+            <circle class="ring-fill" cx="55" cy="55" r="50" stroke="url(#g1)" data-pct="99.6" style="stroke:var(--teal-mid)"/>
+            <defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0c1f3f"/><stop offset="100%" stop-color="#12c0ac"/></linearGradient></defs>
+          </svg>
+          <div class="ring-label">99.6%</div>
+        </div>
+        <div class="metric-title">Processing Efficiency Gain</div>
+        <div class="metric-sub">Cloud-based transaction simulation platform — Dell Global Tax Operations</div>
+      </div>
+
+      <!-- Ring: Records Migration -->
+      <div class="metric-card reveal reveal-delay-2">
+        <div class="ring-wrap">
+          <svg class="ring-svg" viewBox="0 0 110 110">
+            <circle class="ring-track" cx="55" cy="55" r="50"/>
+            <circle class="ring-fill" cx="55" cy="55" r="50" data-pct="100" style="stroke:var(--navy)"/>
+          </svg>
+          <div class="ring-label" style="font-size:1.1rem">10M+</div>
+        </div>
+        <div class="metric-title">Records Migrated</div>
+        <div class="metric-sub">Zero downtime · Full SOX compliance · CERTifyTax global rollout</div>
+      </div>
+
+      <!-- Ring: Global Coverage -->
+      <div class="metric-card reveal reveal-delay-3">
+        <div class="ring-wrap">
+          <svg class="ring-svg" viewBox="0 0 110 110">
+            <circle class="ring-track" cx="55" cy="55" r="50"/>
+            <circle class="ring-fill" cx="55" cy="55" r="50" data-pct="92" style="stroke:var(--gold)"/>
+          </svg>
+          <div class="ring-label" style="font-size:1rem">150</div>
+        </div>
+        <div class="metric-title">Tax Jurisdictions</div>
+        <div class="metric-sub">100+ countries enabled via CERTifyTax & TR OneSource Cloud</div>
+      </div>
+
+      <!-- Bar chart: Platform Scale -->
+      <div class="bar-metric reveal reveal-delay-1">
+        <div class="bar-metric-title"><i class="fas fa-chart-bar" style="color:var(--teal)"></i> Platform Scale Comparison</div>
+        <div class="bm-row">
+          <div class="bm-head"><span class="bm-label">Dell: Annual Transactions</span><span class="bm-val">300K+</span></div>
+          <div class="bm-track"><div class="bm-fill" data-w="95"></div></div>
+        </div>
+        <div class="bm-row">
+          <div class="bm-head"><span class="bm-label">Planet M: Retail Stores</span><span class="bm-val">100+</span></div>
+          <div class="bm-track"><div class="bm-fill" data-w="75"></div></div>
+        </div>
+        <div class="bm-row">
+          <div class="bm-head"><span class="bm-label">YsecIT: SaaS Platforms</span><span class="bm-val">10+</span></div>
+          <div class="bm-track"><div class="bm-fill" data-w="55"></div></div>
+        </div>
+        <div class="bm-row">
+          <div class="bm-head"><span class="bm-label">BigFlix: OTT Systems Built</span><span class="bm-val">5+</span></div>
+          <div class="bm-track"><div class="bm-fill" data-w="40"></div></div>
+        </div>
+      </div>
+
+      <!-- Bar chart: Skills Proficiency -->
+      <div class="bar-metric reveal reveal-delay-2">
+        <div class="bar-metric-title"><i class="fas fa-star" style="color:var(--gold)"></i> Domain Expertise Depth</div>
+        <div class="bm-row">
+          <div class="bm-head"><span class="bm-label">Enterprise Tax Platforms</span><span class="bm-val">Expert</span></div>
+          <div class="bm-track"><div class="bm-fill gold" data-w="98"></div></div>
+        </div>
+        <div class="bm-row">
+          <div class="bm-head"><span class="bm-label">ERP / Cloud Modernization</span><span class="bm-val">Expert</span></div>
+          <div class="bm-track"><div class="bm-fill gold" data-w="95"></div></div>
+        </div>
+        <div class="bm-row">
+          <div class="bm-head"><span class="bm-label">Retail POS & Inventory</span><span class="bm-val">Expert</span></div>
+          <div class="bm-track"><div class="bm-fill gold" data-w="90"></div></div>
+        </div>
+        <div class="bm-row">
+          <div class="bm-head"><span class="bm-label">OTT / eCommerce</span><span class="bm-val">Advanced</span></div>
+          <div class="bm-track"><div class="bm-fill gold" data-w="82"></div></div>
+        </div>
+        <div class="bm-row">
+          <div class="bm-head"><span class="bm-label">Generative AI Integration</span><span class="bm-val">Advanced</span></div>
+          <div class="bm-track"><div class="bm-fill gold" data-w="78"></div></div>
+        </div>
+      </div>
+
+      <!-- Bar chart: Career progression -->
+      <div class="bar-metric reveal reveal-delay-3">
+        <div class="bar-metric-title"><i class="fas fa-globe" style="color:var(--navy)"></i> Geographic Reach</div>
+        <div class="bm-row">
+          <div class="bm-head"><span class="bm-label">Countries (Tax Ops)</span><span class="bm-val">100+</span></div>
+          <div class="bm-track"><div class="bm-fill" data-w="100"></div></div>
+        </div>
+        <div class="bm-row">
+          <div class="bm-head"><span class="bm-label">Tax Jurisdictions</span><span class="bm-val">150</span></div>
+          <div class="bm-track"><div class="bm-fill" data-w="90"></div></div>
+        </div>
+        <div class="bm-row">
+          <div class="bm-head"><span class="bm-label">Indian Cities (Retail)</span><span class="bm-val">20+</span></div>
+          <div class="bm-track"><div class="bm-fill" data-w="60"></div></div>
+        </div>
+        <div class="bm-row">
+          <div class="bm-head"><span class="bm-label">SaaS Client Countries</span><span class="bm-val">5+</span></div>
+          <div class="bm-track"><div class="bm-fill" data-w="45"></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
 
 <div class="divider"></div>
 
@@ -1720,6 +2121,79 @@ footer {
     </div>
   </div>
 </section>
+<div class="divider"></div>
+
+<!-- INDUSTRY EXPERTISE -->
+<section class="expertise-section" id="industries">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <span class="eyebrow center">Cross-Industry Experience</span>
+      <h2 class="section-title">Industries & Domains</h2>
+      <p class="section-sub">Platform expertise spanning 6+ industries across 3 continents and 20+ years</p>
+    </div>
+    <div class="expertise-grid">
+
+      <div class="exp-card reveal reveal-delay-1">
+        <div class="exp-icon" style="background:linear-gradient(135deg,#0c1f3f,#2d4a6e)"><i class="fas fa-calculator"></i></div>
+        <div class="exp-name">Enterprise Tax Technology</div>
+        <div class="exp-years">2021 – Present</div>
+        <div class="exp-tags"><span class="exp-tag">Sabrix</span><span class="exp-tag">TR OneSource</span><span class="exp-tag">CERTifyTax</span><span class="exp-tag">SOX</span></div>
+      </div>
+
+      <div class="exp-card reveal reveal-delay-2">
+        <div class="exp-icon" style="background:linear-gradient(135deg,#e67e22,#f39c12)"><i class="fas fa-film"></i></div>
+        <div class="exp-name">OTT & Digital Media</div>
+        <div class="exp-years">2007 – 2014</div>
+        <div class="exp-tags"><span class="exp-tag">BigFlix</span><span class="exp-tag">CMS</span><span class="exp-tag">Subscriptions</span><span class="exp-tag">eCommerce</span></div>
+      </div>
+
+      <div class="exp-card reveal reveal-delay-3">
+        <div class="exp-icon" style="background:linear-gradient(135deg,#c0392b,#e74c3c)"><i class="fas fa-store"></i></div>
+        <div class="exp-name">Retail POS & Commerce</div>
+        <div class="exp-years">2002 – 2007, 2017 – 2020</div>
+        <div class="exp-tags"><span class="exp-tag">Retail Pro</span><span class="exp-tag">Focus RT</span><span class="exp-tag">100+ Stores</span></div>
+      </div>
+
+      <div class="exp-card reveal reveal-delay-4">
+        <div class="exp-icon" style="background:linear-gradient(135deg,#0a7a6c,#12c0ac)"><i class="fas fa-car"></i></div>
+        <div class="exp-name">Cross-Border Trade & ERP</div>
+        <div class="exp-years">2017 – 2020</div>
+        <div class="exp-tags"><span class="exp-tag">Japan</span><span class="exp-tag">South America</span><span class="exp-tag">Import/Export</span></div>
+      </div>
+
+      <div class="exp-card reveal reveal-delay-1">
+        <div class="exp-icon" style="background:linear-gradient(135deg,#27ae60,#2ecc71)"><i class="fas fa-tree"></i></div>
+        <div class="exp-name">Forestry & Industry Systems</div>
+        <div class="exp-years">2017 – 2020</div>
+        <div class="exp-tags"><span class="exp-tag">Forest Mgmt</span><span class="exp-tag">Restaurant</span><span class="exp-tag">Asset Tracking</span></div>
+      </div>
+
+      <div class="exp-card reveal reveal-delay-2">
+        <div class="exp-icon" style="background:linear-gradient(135deg,#8e44ad,#9b59b6)"><i class="fas fa-robot"></i></div>
+        <div class="exp-name">AI & Emerging Tech</div>
+        <div class="exp-years">2023 – Present</div>
+        <div class="exp-tags"><span class="exp-tag">GenAI</span><span class="exp-tag">PromptCraft</span><span class="exp-tag">Observability</span></div>
+      </div>
+
+      <div class="exp-card reveal reveal-delay-3">
+        <div class="exp-icon" style="background:linear-gradient(135deg,#2980b9,#3498db)"><i class="fas fa-exchange-alt"></i></div>
+        <div class="exp-name">ERP & Cloud Migration</div>
+        <div class="exp-years">2021 – Present</div>
+        <div class="exp-tags"><span class="exp-tag">Oracle Fusion</span><span class="exp-tag">Cloud Migration</span><span class="exp-tag">OKRs</span></div>
+      </div>
+
+      <div class="exp-card reveal reveal-delay-4">
+        <div class="exp-icon" style="background:linear-gradient(135deg,#c49a2e,#e8b84b)"><i class="fas fa-book-open"></i></div>
+        <div class="exp-name">EdTech & Digital Publishing</div>
+        <div class="exp-years">2014 – 2016</div>
+        <div class="exp-tags"><span class="exp-tag">E-Creation</span><span class="exp-tag">Multimedia</span><span class="exp-tag">Accessibility</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
 
 <div class="divider"></div>
 
@@ -2643,6 +3117,27 @@ function toggleMoreProjects() {
     ? '<i class="fas fa-minus"></i> Show Less'
     : '<i class="fas fa-th"></i> Show All Projects (11 more)';
 }
+
+
+/* ─── RING CHART ANIMATIONS ─── */
+const ringObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.ring-fill').forEach(ring => {
+        const pct = parseFloat(ring.dataset.pct || 0);
+        const circumference = 314;
+        const offset = circumference - (pct / 100) * circumference;
+        setTimeout(() => { ring.style.strokeDashoffset = offset; }, 200);
+      });
+      e.target.querySelectorAll('.bm-fill').forEach(bar => {
+        const w = bar.dataset.w || 0;
+        setTimeout(() => { bar.style.width = w + '%'; }, 200);
+      });
+      ringObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.metric-card, .bar-metric').forEach(el => ringObs.observe(el));
 
 </script>
 </body>
