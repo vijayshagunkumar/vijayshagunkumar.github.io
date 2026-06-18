@@ -1,4 +1,5 @@
 import { getContent } from "../content/contentStore";
+import { normalizePlainText } from "../utils/textFormatting";
 
 export type ThemeName = "navy-teal" | "light-executive" | "dark-elegant" | "minimal-recruiter";
 
@@ -14,30 +15,26 @@ const aboutContent = getContent("about");
 const metricsContent = getContent("metrics");
 const contactContent = getContent("contact");
 
-function normalizeInlineText(value: string) {
-  return value.replace(/\s+/g, " ").trim();
-}
-
 function buildExecutiveSummary(profile: typeof heroContent.profile) {
   const preserveParagraphs = Boolean(profile.preserveSummaryParagraphs);
   const source = Array.isArray(profile.executiveSummary) && profile.executiveSummary.length
     ? profile.executiveSummary.join(preserveParagraphs ? "\n" : " ")
     : profile.summary ?? "";
 
-  if (!preserveParagraphs) return [normalizeInlineText(source)].filter(Boolean);
+  if (!preserveParagraphs) return [normalizePlainText(source)].filter(Boolean);
 
   return source
-    .split(/\n+/)
-    .map(normalizeInlineText)
+    .split(/\n{2,}/)
+    .map(normalizePlainText)
     .filter(Boolean);
 }
 
 export const profile = {
   ...heroContent.profile,
-  summary: normalizeInlineText(heroContent.profile.summary ?? ""),
+  summary: normalizePlainText(heroContent.profile.summary ?? ""),
   executiveSummary: buildExecutiveSummary(heroContent.profile),
-  narrative: aboutContent.narrative,
-  highlights: aboutContent.highlights,
+  narrative: aboutContent.narrative.map(normalizePlainText),
+  highlights: aboutContent.highlights.map(normalizePlainText),
   links: {
     ...contactContent.links,
     resume: contactContent.resumePath || contactContent.links.resume

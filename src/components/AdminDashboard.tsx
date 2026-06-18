@@ -45,6 +45,14 @@ import {
   saveContent
 } from "../content/contentStore";
 import "../styles/admin.css";
+import {
+  hasUnsafeLineBreaks,
+  normalizeBulletList,
+  normalizeParagraphText,
+  normalizePlainText,
+  normalizeTextForField,
+  TextFieldType
+} from "../utils/textFormatting";
 
 type JsonValue = string | number | boolean | null | JsonValue[] | { [key: string]: JsonValue };
 type DraftMap = Record<ContentKey, JsonValue>;
@@ -224,10 +232,6 @@ function joinCsv(items: unknown) {
   return Array.isArray(items) ? items.join(", ") : "";
 }
 
-function normalizeHeroText(value: string) {
-  return value.replace(/\s+/g, " ").trim();
-}
-
 function normalizeHeroEditorText(value: string, trim = true) {
   const normalized = value.replace(/[\r\n]+/g, " ").replace(/[ \t]+/g, " ");
   return trim ? normalized.trim() : normalized;
@@ -250,12 +254,56 @@ function normalizeHeroContent(value: JsonValue): JsonValue {
     : data.profile.summary ?? "";
 
   data.profile.executiveSummary = heroSummaryToParagraphs(source, preserveParagraphs);
-  data.profile.summary = normalizeHeroText(data.profile.summary ?? source);
+  data.profile.summary = normalizePlainText(data.profile.summary ?? source);
   return data as unknown as JsonValue;
 }
 
+const plainTextKeys = new Set([
+  "title",
+  "name",
+  "headline",
+  "shortHeadline",
+  "location",
+  "summary",
+  "description",
+  "metric",
+  "organization",
+  "company",
+  "role",
+  "period",
+  "valueProposition",
+  "problemSolved",
+  "targetUsers",
+  "solution",
+  "whyItMatters",
+  "status",
+  "issuer",
+  "brand",
+  "brandMark",
+  "label",
+  "problem"
+]);
+
+const excludedTextKeys = new Set(["id", "url", "liveUrl", "githubUrl", "thumbnail", "profilePhoto", "profilePhotoPath", "resumePath", "canonical", "accent"]);
+
+function normalizeJsonText(value: JsonValue, key = ""): JsonValue {
+  if (Array.isArray(value)) {
+    if (value.every((item) => typeof item === "string")) return normalizeBulletList(value as string[]);
+    return value.map((item) => normalizeJsonText(item, key)) as JsonValue;
+  }
+
+  if (value && typeof value === "object") {
+    return Object.fromEntries(Object.entries(value).map(([childKey, child]) => [childKey, normalizeJsonText(child as JsonValue, childKey)])) as JsonValue;
+  }
+
+  if (typeof value !== "string" || excludedTextKeys.has(key)) return value;
+  if (plainTextKeys.has(key) || value.includes("\n")) return normalizePlainText(value);
+  return normalizeTextForField(value, "plainText");
+}
+
 function normalizeDrafts(drafts: DraftMap): DraftMap {
-  return { ...drafts, hero: normalizeHeroContent(drafts.hero) };
+  const normalized = Object.fromEntries(contentSections.map((section) => [section.key, normalizeJsonText(drafts[section.key])])) as DraftMap;
+  return { ...normalized, hero: normalizeHeroContent(normalized.hero) };
 }
 
 function updateAtPath(value: JsonValue, path: Array<string | number>, next: JsonValue): JsonValue {
@@ -408,23 +456,53 @@ function Field({
   value,
   onChange,
   multiline = false,
-  type = "text"
+  type = "text",
+  fieldType = multiline ? "plainText" : "plainText",
+  preserveParagraphBreaks = false
 }: {
   label: string;
   value: string;
   onChange: (value: string) => void;
   multiline?: boolean;
   type?: string;
+  fieldType?: TextFieldType;
+  preserveParagraphBreaks?: boolean;
 }) {
+  const cleanValue = () => onChange(normalizeTextForField(value, fieldType, preserveParagraphBreaks));
+  const unsafeBreaks = fieldType === "plainText" && hasUnsafeLineBreaks(value);
+
   return (
-    <label className="studio-field">
-      <span>{label}</span>
+    <div className="studio-field">
+      <label>
+        <span>{label}</span>
+      </label>
       {multiline ? (
-        <textarea value={value} rows={4} onChange={(event) => onChange(event.target.value)} />
+        <>
+          <textarea
+            aria-label={label}
+            value={value}
+            rows={4}
+            onKeyDown={(event) => {
+              if (fieldType !== "plainText" || event.key !== "Enter" || event.shiftKey) return;
+              event.preventDefault();
+              const target = event.currentTarget;
+              target.setRangeText(" ", target.selectionStart, target.selectionEnd, "end");
+              onChange(normalizeTextForField(target.value, fieldType, preserveParagraphBreaks));
+            }}
+            onChange={(event) => onChange(event.target.value)}
+            onBlur={cleanValue}
+          />
+          <button className="clean-format-button" type="button" onClick={cleanValue}>
+            Clean Formatting
+          </button>
+          {unsafeBreaks ? (
+            <small className="format-warning">This field contains line breaks that may break the public layout. Clean formatting before publishing.</small>
+          ) : null}
+        </>
       ) : (
-        <input type={type} value={value} onChange={(event) => onChange(event.target.value)} />
+        <input aria-label={label} type={type} value={value} onChange={(event) => onChange(event.target.value)} />
       )}
-    </label>
+    </div>
   );
 }
 
@@ -479,6 +557,12 @@ function HeroSummaryField({
           onChange={(event) => updateSummary(event.target.value)}
         />
       </label>
+      <button className="clean-format-button" type="button" onClick={() => onChange(heroSummaryToParagraphs(text, preserveParagraphs))}>
+        Clean Formatting
+      </button>
+      {!preserveParagraphs && hasUnsafeLineBreaks(text) ? (
+        <small className="format-warning">This field contains line breaks that may break the public layout. Clean formatting before publishing.</small>
+      ) : null}
       <p className="studio-help">Press Shift+Enter to create a new paragraph. Regular Enter will be converted into spaces.</p>
       <SwitchField
         label="Preserve Paragraph Breaks"
@@ -708,7 +792,7 @@ function HeroEditor({ value, onChange }: { value: JsonValue; onChange: (value: J
       <Field label="Short Headline" value={profile.shortHeadline} onChange={(shortHeadline) => updateProfile({ shortHeadline })} />
       <Field label="Location" value={profile.location} onChange={(location) => updateProfile({ location })} />
       <CsvField label="Target Roles" value={profile.targetRoles} onChange={(targetRoles) => updateProfile({ targetRoles })} />
-      <Field label="Legacy Summary" value={profile.summary} onChange={(summary) => updateProfile({ summary: normalizeHeroText(summary) })} multiline />
+      <Field label="Legacy Summary" value={profile.summary} onChange={(summary) => updateProfile({ summary })} multiline />
       <HeroSummaryField
         value={profile.executiveSummary}
         preserveParagraphs={preserveParagraphs}
@@ -720,6 +804,66 @@ function HeroEditor({ value, onChange }: { value: JsonValue; onChange: (value: J
       <Field label="SEO Description" value={profile.seo.description} onChange={(description) => updateProfile({ seo: { ...profile.seo, description } })} multiline />
       <Field label="Canonical URL" value={profile.seo.canonical} onChange={(canonical) => updateProfile({ seo: { ...profile.seo, canonical } })} />
       <Field label="Profile Photo Path" value={data.profilePhoto} onChange={(profilePhoto) => onChange({ ...data, profilePhoto } as unknown as JsonValue)} />
+    </div>
+  );
+}
+
+function AboutEditor({ value, onChange }: { value: JsonValue; onChange: (value: JsonValue) => void }) {
+  const data = value as unknown as {
+    narrative: string[];
+    highlights: string[];
+    scopeOfInfluence: string[];
+    journey: Array<{ period: string; company: string; role: string }>;
+  };
+
+  const updateNarrative = (index: number, paragraph: string) => {
+    onChange({ ...data, narrative: data.narrative.map((item, itemIndex) => (itemIndex === index ? paragraph : item)) } as unknown as JsonValue);
+  };
+
+  return (
+    <div className="studio-list">
+      <div className="studio-list-head">
+        <p>{data.narrative.length} narrative paragraphs</p>
+        <button type="button" onClick={() => onChange({ ...data, narrative: [...data.narrative, ""] } as unknown as JsonValue)}>
+          <Plus size={15} /> Add Paragraph
+        </button>
+      </div>
+      {data.narrative.map((paragraph, index) => (
+        <article className="studio-card" key={`about-${index}`}>
+          <div className="studio-card-body">
+            <Field
+              label={`Narrative Paragraph ${index + 1}`}
+              value={paragraph}
+              onChange={(next) => updateNarrative(index, next)}
+              multiline
+              fieldType="plainText"
+            />
+            <div className="studio-card-actions">
+              <button type="button" disabled={index === 0} onClick={() => onChange({ ...data, narrative: arrayMove(data.narrative, index, index - 1) } as unknown as JsonValue)}>
+                Move Up
+              </button>
+              <button type="button" disabled={index === data.narrative.length - 1} onClick={() => onChange({ ...data, narrative: arrayMove(data.narrative, index, index + 1) } as unknown as JsonValue)}>
+                Move Down
+              </button>
+              <button type="button" className="danger" onClick={() => onChange({ ...data, narrative: data.narrative.filter((_, itemIndex) => itemIndex !== index) } as unknown as JsonValue)}>
+                <Trash2 size={14} /> Delete
+              </button>
+            </div>
+          </div>
+        </article>
+      ))}
+      <section className="studio-subsection">
+        <h3>Highlights</h3>
+        <CsvField label="Highlights" value={data.highlights} onChange={(highlights) => onChange({ ...data, highlights } as unknown as JsonValue)} />
+      </section>
+      <section className="studio-subsection">
+        <h3>Scope of Influence</h3>
+        <CsvField label="Scope Items" value={data.scopeOfInfluence} onChange={(scopeOfInfluence) => onChange({ ...data, scopeOfInfluence } as unknown as JsonValue)} />
+      </section>
+      <section className="studio-subsection">
+        <h3>Journey</h3>
+        <GenericEditor value={{ journey: data.journey } as JsonValue} onChange={(next) => onChange({ ...data, ...(next as object) } as JsonValue)} />
+      </section>
     </div>
   );
 }
@@ -1175,6 +1319,7 @@ export function AdminDashboard() {
     }
     if (!selectedKey) return null;
     if (selected === "hero") return <HeroEditor value={drafts.hero} onChange={(value) => updateSection("hero", normalizeHeroContent(value))} />;
+    if (selected === "about") return <AboutEditor value={drafts.about} onChange={(value) => updateSection("about", value)} />;
     if (selected === "experience") return <ExperienceEditor value={drafts.experience} onChange={(value) => updateSection("experience", value)} />;
     if (selected === "projects") return <ProjectsEditor value={drafts.projects} onChange={(value) => updateSection("projects", value)} />;
     if (selected === "personalProjects") return <ProductsEditor value={drafts.personalProjects} onChange={(value) => updateSection("personalProjects", value)} />;

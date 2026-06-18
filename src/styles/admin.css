@@ -559,6 +559,33 @@
   resize: vertical;
 }
 
+.clean-format-button {
+  justify-self: start;
+  border: 1px solid #cbdbe2;
+  border-radius: 8px;
+  padding: 7px 10px;
+  background: #f8fbfc;
+  color: #17313c;
+  font-size: 12px;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.clean-format-button:hover {
+  border-color: #0d9488;
+  color: #0d9488;
+}
+
+.format-warning {
+  display: block;
+  border-left: 3px solid #d99a16;
+  padding: 7px 9px;
+  background: #fff8e8;
+  color: #7a4b00;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
 .hero-editor-grid .hero-summary-editor {
   grid-column: 1 / -1;
 }

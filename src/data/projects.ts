@@ -1,4 +1,5 @@
 import { getContent } from "../content/contentStore";
+import { normalizeBulletList, normalizePlainText } from "../utils/textFormatting";
 
 const projectsContent = getContent("projects");
 
@@ -25,4 +26,22 @@ export type Project = {
 };
 
 export const projectCategories = projectsContent.projectCategories as Array<"All" | ProjectCategory>;
-export const projects = projectsContent.projects as Project[];
+export const projects = (projectsContent.projects as Project[]).map((project) => ({
+  ...project,
+  title: normalizePlainText(project.title),
+  organization: normalizePlainText(project.organization),
+  description: normalizePlainText(project.description),
+  metric: normalizePlainText(project.metric),
+  tags: normalizeBulletList(project.tags),
+  caseStudy: project.caseStudy
+    ? {
+        ...project.caseStudy,
+        problem: normalizePlainText(project.caseStudy.problem),
+        approach: normalizeBulletList(project.caseStudy.approach),
+        results: project.caseStudy.results.map((result) => ({
+          value: normalizePlainText(result.value),
+          label: normalizePlainText(result.label)
+        }))
+      }
+    : undefined
+}));
