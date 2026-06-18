@@ -68,7 +68,7 @@ Studio features:
 - Collapsible cards for list-heavy sections.
 - Duplicate, delete, move up, move down, and drag-and-drop reordering for major lists.
 - Desktop, tablet, and mobile preview modes.
-- Export Current Section, Export All Content, and Export Bundle.
+- One-click Publish flow for committing JSON to `source` and triggering production deployment.
 - Resume/profile photo local upload preview.
 
 How to edit:
@@ -81,12 +81,22 @@ How to edit:
 6. Click Save to store changes in browser `localStorage`.
 7. Click Preview to open the portfolio using the locally saved content.
 8. Use Desktop, Tablet, or Mobile Preview inside the Studio preview modal.
-9. Click Export Current Section to download the selected JSON file.
-10. Click Export All Content to download all JSON files individually.
-11. Click Export Bundle to download `portfolio-content.zip`.
-12. Replace the matching files in `src/content/` with the exported JSON.
+9. Click Publish.
+10. Enter a fine-grained GitHub token with repository access for `Contents: Read and write` and `Actions: Read and write`.
+11. Confirm Publish to commit JSON files to `source` and start the GitHub Actions production deployment.
 
-Important: browser saves are local only. They do not update repository files automatically.
+Important: browser saves are local until you publish. The GitHub token is kept in browser `sessionStorage`; do not paste it into chat or commit it to the repo.
+
+## Publish Workflow
+
+The Studio Publish button:
+
+1. Saves the current Studio drafts to browser localStorage.
+2. Commits all `src/content/*.json` files to the `source` branch through the GitHub API.
+3. Triggers `.github/workflows/publish-portfolio.yml`.
+4. The workflow checks out `source`, runs `npm ci`, runs `npm run build`, and publishes the compiled site to both `main` and `gh-pages`.
+
+This keeps the editable source and production branches aligned without manual JSON export.
 
 ## Content Files
 
@@ -153,7 +163,6 @@ Check:
 - Admin editor at `/admin`
 - Save to localStorage
 - Preview from localStorage
-- Export selected JSON
-- Export all JSON
+- Publish button opens the production publish dialog
 - No admin link in the public navbar
 - Resume and profile image paths still resolve from root

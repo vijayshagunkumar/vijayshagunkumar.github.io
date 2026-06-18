@@ -15,16 +15,16 @@ import {
   verticalListSortingStrategy
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import JSZip from "jszip";
 import {
   Copy,
-  Download,
   Eye,
   GripVertical,
   Image,
+  KeyRound,
   Laptop,
   Plus,
   RotateCcw,
+  Rocket,
   Save,
   Search,
   Smartphone,
@@ -119,6 +119,11 @@ type CertificationItem = {
 
 const authKey = "portfolio-admin-auth";
 const modifiedKey = "portfolio-admin-last-modified";
+const tokenKey = "portfolio-github-token";
+const publishWorkflow = "publish-portfolio.yml";
+const repoOwner = "vijayshagunkumar";
+const repoName = "vijayshagunkumar.github.io";
+const sourceBranch = "source";
 
 const studioSections: Array<{ id: StudioSection; label: string; contentKey?: ContentKey }> = [
   { id: "dashboard", label: "Dashboard" },
@@ -176,22 +181,33 @@ function updateAtPath(value: JsonValue, path: Array<string | number>, next: Json
   return value;
 }
 
-function downloadBlob(fileName: string, blob: Blob) {
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = fileName;
-  link.click();
-  URL.revokeObjectURL(url);
-}
-
-function downloadJson(fileName: string, value: unknown) {
-  downloadBlob(fileName, new Blob([JSON.stringify(value, null, 2)], { type: "application/json" }));
-}
-
 function saveDraftsToLocalStorage(drafts: DraftMap) {
   contentSections.forEach((section) => saveContent(section.key, drafts[section.key]));
   localStorage.setItem(modifiedKey, new Date().toISOString());
+}
+
+function encodeBase64(value: string) {
+  return btoa(unescape(encodeURIComponent(value)));
+}
+
+async function githubRequest<T>(token: string, path: string, init: RequestInit = {}): Promise<T> {
+  const response = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}${path}`, {
+    ...init,
+    headers: {
+      Accept: "application/vnd.github+json",
+      Authorization: `Bearer ${token}`,
+      "X-GitHub-Api-Version": "2022-11-28",
+      ...(init.headers ?? {})
+    }
+  });
+
+  if (!response.ok) {
+    const text = await response.text();
+    throw new Error(text || `GitHub API request failed with ${response.status}`);
+  }
+
+  if (response.status === 204) return undefined as T;
+  return (await response.json()) as T;
 }
 
 function blankFrom<T extends Record<string, unknown>>(sample: T, overrides: Partial<T> = {}): T {
@@ -685,6 +701,10 @@ export function AdminDashboard() {
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewSize, setPreviewSize] = useState<PreviewSize>("desktop");
   const [lastModified, setLastModified] = useState(() => localStorage.getItem(modifiedKey) ?? "Not saved yet");
+  const [publishOpen, setPublishOpen] = useState(false);
+  const [githubToken, setGithubToken] = useState(() => sessionStorage.getItem(tokenKey) ?? "");
+  const [publishStatus, setPublishStatus] = useState<"idle" | "publishing" | "success" | "error">("idle");
+  const [publishMessage, setPublishMessage] = useState("");
 
   const selectedMeta = studioSections.find((section) => section.id === selected) ?? studioSections[0];
   const selectedKey = selectedMeta.contentKey;
@@ -738,25 +758,6 @@ export function AdminDashboard() {
     setMessage("All sections saved locally.");
   };
 
-  const exportCurrent = () => {
-    if (!selectedKey) return;
-    downloadJson(fileForKey(selectedKey), drafts[selectedKey]);
-  };
-
-  const exportAll = () => {
-    contentSections.forEach((section, index) => {
-      window.setTimeout(() => downloadJson(section.file, drafts[section.key]), index * 140);
-    });
-    setMessage("Export started. Your browser may ask permission for multiple downloads.");
-  };
-
-  const exportBundle = async () => {
-    const zip = new JSZip();
-    contentSections.forEach((section) => zip.file(section.file, JSON.stringify(drafts[section.key], null, 2)));
-    const blob = await zip.generateAsync({ type: "blob" });
-    downloadBlob("portfolio-content.zip", blob);
-  };
-
   const resetChanges = () => {
     resetAllContent();
     const clean = Object.fromEntries(contentSections.map((section) => [section.key, toJson(contentDefaults[section.key])])) as DraftMap;
@@ -771,6 +772,88 @@ export function AdminDashboard() {
     saveDraftsToLocalStorage(drafts);
     setSavedDrafts(clone(drafts));
     setPreviewOpen(true);
+  };
+
+  const publishToProduction = async () => {
+    const token = githubToken.trim();
+    if (!token) {
+      setPublishStatus("error");
+      setPublishMessage("Enter a GitHub token with Contents read/write and Actions write access.");
+      return;
+    }
+
+    try {
+      setPublishStatus("publishing");
+      setPublishMessage("Saving JSON content to the source branch...");
+      sessionStorage.setItem(tokenKey, token);
+      saveDraftsToLocalStorage(drafts);
+
+      const ref = await githubRequest<{ object: { sha: string } }>(token, `/git/ref/heads/${sourceBranch}`);
+      const commit = await githubRequest<{ tree: { sha: string } }>(token, `/git/commits/${ref.object.sha}`);
+
+      const treeItems = await Promise.all(
+        contentSections.map(async (section) => {
+          const blob = await githubRequest<{ sha: string }>(token, "/git/blobs", {
+            method: "POST",
+            body: JSON.stringify({
+              content: encodeBase64(JSON.stringify(drafts[section.key], null, 2) + "\n"),
+              encoding: "base64"
+            })
+          });
+
+          return {
+            path: `src/content/${section.file}`,
+            mode: "100644",
+            type: "blob",
+            sha: blob.sha
+          };
+        })
+      );
+
+      const tree = await githubRequest<{ sha: string }>(token, "/git/trees", {
+        method: "POST",
+        body: JSON.stringify({
+          base_tree: commit.tree.sha,
+          tree: treeItems
+        })
+      });
+
+      const nextCommit = await githubRequest<{ sha: string; html_url: string }>(token, "/git/commits", {
+        method: "POST",
+        body: JSON.stringify({
+          message: "Publish portfolio content from Studio",
+          tree: tree.sha,
+          parents: [ref.object.sha]
+        })
+      });
+
+      await githubRequest(token, `/git/refs/heads/${sourceBranch}`, {
+        method: "PATCH",
+        body: JSON.stringify({
+          sha: nextCommit.sha,
+          force: false
+        })
+      });
+
+      setPublishMessage("Triggering production deployment workflow...");
+
+      await githubRequest(token, `/actions/workflows/${publishWorkflow}/dispatches`, {
+        method: "POST",
+        body: JSON.stringify({
+          ref: sourceBranch
+        })
+      });
+
+      setSavedDrafts(clone(drafts));
+      const timestamp = new Date().toLocaleString();
+      localStorage.setItem(modifiedKey, timestamp);
+      setLastModified(timestamp);
+      setPublishStatus("success");
+      setPublishMessage("Publish started. GitHub Actions is building and deploying production now.");
+    } catch (error) {
+      setPublishStatus("error");
+      setPublishMessage(error instanceof Error ? error.message : "Publish failed.");
+    }
   };
 
   const renderEditor = () => {
@@ -856,11 +939,9 @@ export function AdminDashboard() {
             <button type="button" onClick={openPreview}>
               <Eye size={16} /> Preview Portfolio
             </button>
-            <button type="button" disabled={!selectedKey} onClick={exportCurrent}>
-              <Download size={16} /> Export Current Section
+            <button type="button" className="publish-button" onClick={() => setPublishOpen(true)}>
+              <Rocket size={16} /> Publish
             </button>
-            <button type="button" onClick={exportAll}>Export All Content</button>
-            <button type="button" onClick={exportBundle}>Export Bundle</button>
             <button type="button" className="danger" onClick={resetChanges}>
               <RotateCcw size={16} /> Reset Changes
             </button>
@@ -880,6 +961,60 @@ export function AdminDashboard() {
               <button type="button" onClick={() => setPreviewOpen(false)}>Close</button>
             </div>
             <PreviewPanel size={previewSize} onSize={setPreviewSize} />
+          </div>
+        ) : null}
+
+        {publishOpen ? (
+          <div className="publish-modal" role="dialog" aria-modal="true" aria-label="Publish portfolio">
+            <section>
+              <div className="publish-head">
+                <div>
+                  <p>Production publish</p>
+                  <h3>Publish Portfolio</h3>
+                </div>
+                <button type="button" onClick={() => setPublishOpen(false)}>Close</button>
+              </div>
+              <p className="admin-notice">
+                Publish commits your edited JSON to the `source` branch, then starts GitHub Actions to build and deploy production.
+                Your token stays in this browser session. Do not paste it into chat.
+              </p>
+              <div className="publish-grid">
+                <article>
+                  <span>Repository</span>
+                  <strong>{repoOwner}/{repoName}</strong>
+                </article>
+                <article>
+                  <span>Content branch</span>
+                  <strong>{sourceBranch}</strong>
+                </article>
+                <article>
+                  <span>Workflow</span>
+                  <strong>{publishWorkflow}</strong>
+                </article>
+              </div>
+              <label className="studio-field">
+                <span>GitHub token</span>
+                <input
+                  type="password"
+                  value={githubToken}
+                  onChange={(event) => setGithubToken(event.target.value)}
+                  placeholder="Fine-grained token with Contents read/write and Actions write"
+                />
+              </label>
+              <p className="admin-help">
+                Use a fine-grained GitHub token for this repository with `Contents: Read and write` and `Actions: Read and write`.
+                The token is only stored in `sessionStorage` if you publish successfully.
+              </p>
+              {publishMessage ? <p className={`publish-message ${publishStatus}`}>{publishMessage}</p> : null}
+              <div className="publish-actions">
+                <button type="button" disabled={publishStatus === "publishing"} onClick={publishToProduction}>
+                  <Rocket size={16} /> {publishStatus === "publishing" ? "Publishing..." : "Publish to Production"}
+                </button>
+                <a href={`https://github.com/${repoOwner}/${repoName}/actions`} target="_blank" rel="noreferrer">
+                  View Actions
+                </a>
+              </div>
+            </section>
           </div>
         ) : null}
       </section>
