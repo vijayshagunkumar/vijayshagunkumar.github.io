@@ -4,11 +4,11 @@ import { SectionHeader } from "./SectionHeader";
 
 export function PersonalInitiatives() {
   return (
-    <section id="personal-initiatives" className="section muted compact-section">
+    <section id="products-built" className="section muted compact-section">
       <div className="wrap">
         <SectionHeader
           eyebrow="Independent Product Builds"
-          title="Personal Initiative Projects"
+          title="Products I've Built"
           subtitle="Self-built product initiatives that demonstrate AI product thinking, practical workflow design, and fast experimentation."
         />
         <div className="personal-grid">
@@ -48,11 +48,7 @@ export function PersonalInitiatives() {
                   <a className="btn light" href={project.githubUrl} target="_blank" rel="noreferrer">
                     <Github size={16} /> GitHub
                   </a>
-                ) : (
-                  <button className="btn light disabled-btn" type="button" disabled>
-                    <Github size={16} /> GitHub Soon
-                  </button>
-                )}
+                ) : null}
               </div>
             </article>
           ))}

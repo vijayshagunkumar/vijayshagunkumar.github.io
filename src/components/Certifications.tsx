@@ -1,5 +1,5 @@
-import { BadgeCheck } from "lucide-react";
 import { ExternalLink } from "lucide-react";
+import type { CSSProperties } from "react";
 import { certifications, credentialProfiles } from "../data/certifications";
 import { SectionHeader } from "./SectionHeader";
 
@@ -10,8 +10,15 @@ export function Certifications() {
         <SectionHeader eyebrow="Certifications" title="Executive Learning & Certifications" />
         <div className="compact-grid three">
           {certifications.map((item) => (
-            <a className="compact-card linked-card" key={item.title} href={item.url} target="_blank" rel="noreferrer">
-              <BadgeCheck size={23} />
+            <a
+              className="compact-card linked-card cert-card"
+              key={item.title}
+              href={item.url}
+              target="_blank"
+              rel="noreferrer"
+              style={{ "--cert-accent": item.accent } as CSSProperties}
+            >
+              <div className="cert-mark">{item.brandMark}</div>
               <h3>{item.title}</h3>
               <p>{item.issuer}</p>
               <span>

@@ -144,13 +144,6 @@
   letter-spacing: 0;
 }
 
-.hero-target {
-  margin: 8px 0 0;
-  color: var(--accent-2);
-  font-size: clamp(0.98rem, 1.55vw, 1.18rem);
-  font-weight: 900;
-}
-
 .hero-role {
   margin: 8px 0 0;
   color: var(--accent);
@@ -287,11 +280,12 @@
 }
 
 .stat {
-  min-height: 68px;
-  padding: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.11);
+  min-height: 90px;
+  padding: 14px;
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, rgba(255, 255, 255, 0.18));
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.06);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.07));
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
 }
 
 :root[data-theme="minimal-recruiter"] .stat,
@@ -302,9 +296,9 @@
 
 .stat strong {
   display: block;
-  color: var(--accent);
+  color: #34dcc7;
   font-family: var(--font-display);
-  font-size: 1.12rem;
+  font-size: clamp(1.35rem, 2.1vw, 1.85rem);
   line-height: 1;
 }
 
@@ -312,9 +306,18 @@
   display: block;
   margin-top: 6px;
   color: var(--hero-muted);
-  font-size: 0.58rem;
+  font-size: 0.66rem;
   font-weight: 800;
   text-transform: uppercase;
+}
+
+.stat small {
+  display: block;
+  margin-top: 4px;
+  color: color-mix(in srgb, var(--hero-muted) 84%, transparent);
+  font-size: 0.6rem;
+  font-weight: 700;
+  line-height: 1.25;
 }
 
 .hero-photo {
@@ -325,9 +328,10 @@
 
 .hero-photo img {
   width: 100%;
-  aspect-ratio: 3 / 4;
+  height: auto;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
-  object-position: top center;
+  object-position: center top;
   border-radius: 10px;
   box-shadow: var(--shadow);
 }
@@ -456,6 +460,17 @@
   color: var(--muted);
 }
 
+.scope-card ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.scope-card li {
+  margin-bottom: 5px;
+}
+
 .journey-row {
   padding: 10px 0;
   border-top: 1px solid var(--border-soft);
@@ -513,6 +528,20 @@
   margin-top: 8px;
   color: var(--hero-muted);
   font-weight: 800;
+}
+
+.metric-card small {
+  display: block;
+  margin-top: 5px;
+  color: var(--hero-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.results-grid {
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  max-width: 620px;
+  margin: 0 auto;
 }
 
 .impact-bullets {
@@ -728,12 +757,6 @@
   margin-top: auto;
 }
 
-.disabled-btn {
-  opacity: 0.62;
-  cursor: not-allowed;
-  pointer-events: none;
-}
-
 .text-button {
   border: 0;
   background: transparent;
@@ -793,6 +816,33 @@
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
 }
 
+.capability-card {
+  position: relative;
+  overflow: hidden;
+  border-top: 3px solid var(--accent);
+}
+
+.capability-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.capability-head svg {
+  flex: 0 0 auto;
+  color: var(--accent-2);
+}
+
+.capability-head h3 {
+  margin: 0;
+}
+
+.more-tag {
+  border-color: color-mix(in srgb, var(--accent-2) 45%, var(--border)) !important;
+  color: var(--accent-2) !important;
+}
+
 .domain-grid {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   margin-top: 18px;
@@ -803,7 +853,25 @@
 }
 
 .compact-grid.three {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  align-items: stretch;
+}
+
+.cert-card {
+  border-left: 4px solid var(--cert-accent, var(--accent));
+}
+
+.cert-mark {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 5px 9px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--cert-accent, var(--accent)) 12%, var(--surface));
+  color: var(--cert-accent, var(--accent));
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
 }
 
 .compact-card span {
@@ -846,12 +914,15 @@
 }
 
 .contact-grid {
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  justify-content: center;
+  max-width: 860px;
+  margin: 0 auto;
 }
 
 .contact-card {
-  min-height: 124px;
-  padding: 18px;
+  min-height: 150px;
+  padding: 22px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.06);
@@ -876,6 +947,7 @@
   display: block;
   margin-top: 4px;
   overflow-wrap: anywhere;
+  white-space: nowrap;
 }
 
 .footer {
@@ -1087,6 +1159,10 @@
   .compact-grid.three,
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+
+  .contact-card strong {
+    white-space: normal;
   }
 
   .personal-grid {

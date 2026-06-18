@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://vijayshagunkumar.github.io/MyPortfolio/",
+  "homepage": "https://vijayshagunkumar.github.io/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

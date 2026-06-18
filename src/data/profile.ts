@@ -9,24 +9,20 @@ export const themes: Array<{ id: ThemeName; label: string }> = [
 
 export const profile = {
   name: "Vijay Kumar",
-  headline: "VP/Director Product Leader | Enterprise Platforms, OTT Pioneer & Global Tax Tech",
-  targetDesignation: "Aspiring VP / Director - Product Management",
-  shortHeadline: "Product & Platform Leader",
+  headline: "Senior Product & Enterprise Platform Leader",
+  shortHeadline: "Senior Product & Enterprise Platform Leader",
   location: "India",
   targetRoles: [
-    "Director Product",
-    "VP Product",
-    "Finance Transformation",
     "Enterprise Platforms",
-    "AI-enabled Transformation",
-    "Global Product Leadership"
+    "Finance Transformation",
+    "AI-enabled Products"
   ],
   summary:
     "20+ years building digital platforms across tax technology, OTT, retail POS, ERP, SaaS, and cross-border commerce. Currently leading Dell's global Indirect Tax technology portfolio across 100+ countries and 150 tax jurisdictions.",
   executiveSummary: [
-    "Senior product and platform leader across finance transformation, enterprise systems, OTT, retail, and AI-enabled operations.",
-    "Built and modernized platforms from 0 to 1 launches through global enterprise scale.",
-    "Targeting VP/Director Product roles where product strategy, execution rigor, and transformation leadership matter."
+    "Senior Product & Enterprise Platform Leader with 20+ years of experience delivering enterprise transformation across OTT, retail, finance, and global tax technology.",
+    "Led platform modernization and product initiatives spanning 100+ countries and 150 tax jurisdictions, including large-scale migrations, 0 to 1 product launches, and mission-critical enterprise systems.",
+    "From launching India's first subscription OTT platform to building AI-powered products independently, I combine strategic thinking, execution discipline, and a builder's mindset to create products that drive meaningful business outcomes."
   ],
   narrative: [
     "Accomplished Product Leader with 20+ years of experience building digital platforms that span industries, geographies, and product stages. The journey began in retail technology, leading the nationwide rollout of POS and inventory systems across 100+ Planet M music stores, then scaled to building India's first subscription OTT platform, Reliance BigFlix, from scratch.",
@@ -46,25 +42,36 @@ export const profile = {
     linkedinLabel: "linkedin.com/in/vshn",
     github: "https://github.com/vijayshagunkumar",
     githubLabel: "github.com/vijayshagunkumar",
-    resume: `${import.meta.env.BASE_URL}resume.pdf`,
+    resume: "/resume.pdf",
     phone: "tel:+917738774442",
     phoneLabel: "+91 77387 74442"
   },
   seo: {
-    title: "Vijay Kumar | VP Product Leader | Enterprise Platforms, OTT Pioneer & Global Tax Tech",
+    title: "Vijay Kumar | Senior Product & Enterprise Platform Leader",
     description:
-      "Vijay Kumar portfolio for VP/Director Product leadership across enterprise platforms, finance transformation, AI-enabled transformation, OTT, Dell global tax tech, 100+ countries and 150 tax jurisdictions.",
+      "Portfolio of Vijay Kumar, a Senior Product & Enterprise Platform Leader with 20+ years across finance transformation, global tax platforms, ERP modernization, OTT, retail systems, and applied AI initiatives.",
     canonical: "https://vijayshagunkumar.github.io"
   }
 };
 
 export const impactMetrics = [
-  { value: "20+", label: "Years Product Leadership" },
-  { value: "100+", label: "Countries Enabled" },
-  { value: "150", label: "Tax Jurisdictions" },
-  { value: "10M+", label: "Records Migrated" },
-  { value: "300K+", label: "Annual Tax Transactions" },
-  { value: "99.6%", label: "Processing Improvement" }
+  { value: "20+", label: "Years", source: "Career Experience" },
+  { value: "100+", label: "Countries", source: "Dell Tax Platform" },
+  { value: "150", label: "Tax Jurisdictions", source: "Dell Indirect Tax" },
+  { value: "10M+", label: "Records Migrated", source: "Dell Platform Migration" }
+];
+
+export const resultMetrics = [
+  { value: "300K+", label: "Annual Tax Transactions", source: "Dell Tax Operations" },
+  { value: "99.6%", label: "Processing Improvement", source: "Dell Cost Optimization" }
+];
+
+export const scopeOfInfluence = [
+  "Global vendor coordination across Deloitte, Thomson Reuters, and CERTifyTax.",
+  "Enterprise platforms spanning 100+ countries and 150 tax jurisdictions.",
+  "Cross-functional delivery through two engineering teams at Dell.",
+  "Finance/tax transformation across Oracle Fusion ERP and TR OneSource Cloud migration.",
+  "AI-enabled initiatives across GenAI observability and PromptCraft."
 ];
 
 export const impactBullets = [

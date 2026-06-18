@@ -3,6 +3,8 @@ export const certifications = [
     title: "Product Management with AI/ML",
     issuer: "Duke Corporate Education",
     brand: "Duke",
+    brandMark: "DUKE CE",
+    accent: "#012169",
     year: "2022",
     url: "https://www.credential.net/73930284-308b-4a19-b652-dfd4f4998466"
   },
@@ -10,6 +12,8 @@ export const certifications = [
     title: "Google AI Professional Certificate",
     issuer: "Google / Credly",
     brand: "Google",
+    brandMark: "Google AI",
+    accent: "#4285F4",
     year: "2024",
     url: "https://www.credly.com/badges/83e2da0d-0a21-4c32-ba2b-0434e3d6d37a"
   },
@@ -17,13 +21,17 @@ export const certifications = [
     title: "Digital Product Management",
     issuer: "University of Virginia - Darden",
     brand: "Virginia",
+    brandMark: "UVA Darden",
+    accent: "#232D4B",
     year: "2025",
     url: "https://www.coursera.org/my-learning?myLearningTab=CERTIFICATES"
   },
   {
     title: "AI in Financial Services",
-    issuer: "Oxford Said Business School",
+    issuer: "Oxford Saïd Business School",
     brand: "Oxford",
+    brandMark: "Oxford Saïd",
+    accent: "#002147",
     year: "2025",
     url: "https://www.coursera.org/my-learning?myLearningTab=CERTIFICATES"
   },
@@ -31,6 +39,8 @@ export const certifications = [
     title: "Oracle Cloud & AI Specialization",
     issuer: "Oracle University",
     brand: "Oracle",
+    brandMark: "Oracle",
+    accent: "#C74634",
     year: "2024",
     url: "https://www.coursera.org/my-learning?myLearningTab=CERTIFICATES"
   },
@@ -38,6 +48,8 @@ export const certifications = [
     title: "IBM Product Manager Professional",
     issuer: "IBM",
     brand: "IBM",
+    brandMark: "IBM",
+    accent: "#054ADA",
     year: "2025",
     url: "https://www.credly.com/badges/fde50ec5-7720-4f8b-863f-6dc81ea8ba38"
   },
@@ -45,6 +57,8 @@ export const certifications = [
     title: "Leadership Skills",
     issuer: "IIM Ahmedabad / Coursera",
     brand: "IIM",
+    brandMark: "IIM-A",
+    accent: "#8B0000",
     year: "2024",
     url: "https://www.coursera.org/my-learning?myLearningTab=CERTIFICATES"
   }

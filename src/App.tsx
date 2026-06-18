@@ -8,6 +8,7 @@ import { Education } from "./components/Education";
 import { Experience } from "./components/Experience";
 import { Footer } from "./components/Footer";
 import { Hero } from "./components/Hero";
+import { ImpactMetrics } from "./components/ImpactMetrics";
 import { Navbar } from "./components/Navbar";
 import { PersonalInitiatives } from "./components/PersonalInitiatives";
 import { Projects } from "./components/Projects";
@@ -34,7 +35,7 @@ export default function App() {
   }, []);
 
   const sections = useMemo(
-    () => ["experience", "projects", "personal-initiatives", "certifications", "contact"],
+    () => ["experience", "projects", "products-built", "certifications", "contact"],
     []
   );
 
@@ -44,6 +45,7 @@ export default function App() {
       <main>
         <Hero />
         <About />
+        <ImpactMetrics />
         <Experience />
         <Projects />
         <PersonalInitiatives />

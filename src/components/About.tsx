@@ -1,5 +1,5 @@
 import { CheckCircle2, Globe2, Layers3, Sparkles } from "lucide-react";
-import { journey, profile } from "../data/profile";
+import { journey, profile, scopeOfInfluence } from "../data/profile";
 import { SectionHeader } from "./SectionHeader";
 
 const cards = [
@@ -35,6 +35,15 @@ export function About() {
               <p>{card.body}</p>
             </article>
           ))}
+          <article className="mini-card scope-card">
+            <CheckCircle2 size={22} />
+            <h3>Scope of Influence</h3>
+            <ul>
+              {scopeOfInfluence.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </article>
           <div className="timeline-card">
             <h3>Career Journey</h3>
             {journey.map((item) => (

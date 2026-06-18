@@ -187,7 +187,21 @@ export const projects: Project[] = [
       "CMS powering India's first subscription OTT platform, enabling movie upload, artwork, metadata, pricing, trailers, release scheduling, campaigns, and reporting.",
     metric: "Bulk content ingestion, metadata, SQL-based reporting",
     tags: ["CMS", "OTT", "Content Ops", "BigFlix"],
-    categories: ["Enterprise", "Product Management"]
+    categories: ["Enterprise", "Product Management"],
+    caseStudy: {
+      problem:
+        "Reliance Entertainment was building BigFlix as India's first subscription OTT platform, requiring foundational systems for content operations, subscription commerce, customer support, and physical retail integration.",
+      approach: [
+        "Owned the 0 to 1 technology architecture and launch execution as Chief Manager Technology.",
+        "Built CMS capabilities for movie upload, artwork, metadata, pricing, trailers, modules, release scheduling, campaigns, and reporting.",
+        "Supported the broader platform through eCommerce/subscription flows, Talisma CRM workflows, and Focus RT/POS integration for BigFlix retail tie-ins."
+      ],
+      results: [
+        { value: "0 to 1", label: "OTT Platform Launch" },
+        { value: "CMS", label: "Content Operations" },
+        { value: "CRM/POS", label: "Integrated Support Systems" }
+      ]
+    }
   },
   {
     id: "bigflix-ecommerce",
@@ -214,8 +228,8 @@ export const projects: Project[] = [
     title: "Focus RT ERP",
     organization: "Reliance Capital - BigFlix",
     description:
-      "Focus RT ERP modules across nationwide operations including store setup, hardware integration, operations training, retail fulfillment integration, price consistency, and cross-system alignment.",
-    metric: "Nationwide rollout, retail fulfillment, cross-system sync",
+      "Focus RT ERP support for BigFlix's physical retail and fulfillment tie-ins, covering store setup, inventory alignment, hardware integration, operations training, and cross-system coordination with the OTT commerce ecosystem.",
+    metric: "ERP support for BigFlix retail integration and fulfillment operations",
     tags: ["Focus RT", "ERP", "Retail", "BigFlix"],
     categories: ["Enterprise", "Product Management"]
   },
@@ -224,8 +238,8 @@ export const projects: Project[] = [
     title: "Point of Sales (POS)",
     organization: "Reliance Entertainment - BigFlix",
     description:
-      "Implemented POS, CRM, and ERP modules across nationwide operations including store setup, hardware integration, operations training, retail fulfillment, price consistency, and store operations.",
-    metric: "Nationwide POS, hardware integration, store operations",
+      "POS implementation supporting BigFlix's retail touchpoints, including store operations, hardware setup, transaction capture, CRM handoffs, and operational training for rental and customer-service workflows.",
+    metric: "Retail touchpoint enablement for BigFlix rental and support workflows",
     tags: ["POS", "CRM", "ERP", "Retail Ops"],
     categories: ["Enterprise", "Product Management"]
   },
@@ -234,7 +248,7 @@ export const projects: Project[] = [
     title: "Retail Pro Inventory & Sales Management",
     organization: "Times Group - Planet M",
     description:
-      "Migrated legacy FoxPro systems to Retail Pro Inventory and Sales. Set up catalog, pricing, barcode workflows, and nationwide POS rollout across 100+ stores.",
+      "Migrated legacy FoxPro systems to Retail Pro Inventory and Sales for Planet M's 2002-2007 nationwide retail build-out. Set up catalog, pricing, barcode workflows, SKU lifecycle management, and POS operations across 100+ stores.",
     metric: "100+ stores, FoxPro migration, SKU lifecycle",
     tags: ["Retail Pro", "POS", "Inventory", "100+ Stores"],
     categories: ["Enterprise", "Product Management"]

@@ -1,8 +1,8 @@
-import { Award, CircleDollarSign, Gauge, Globe2, ShieldCheck, Sparkles } from "lucide-react";
-import { impactBullets, impactMetrics } from "../data/profile";
+import { Award, CircleDollarSign } from "lucide-react";
+import { impactBullets, resultMetrics } from "../data/profile";
 import { SectionHeader } from "./SectionHeader";
 
-const icons = [Gauge, Globe2, ShieldCheck, Award, CircleDollarSign, Sparkles];
+const icons = [Award, CircleDollarSign];
 
 export function ImpactMetrics() {
   return (
@@ -14,14 +14,15 @@ export function ImpactMetrics() {
           subtitle="Measurable outcomes across Dell Technologies, Reliance BigFlix, YsecIT, and Times Group platforms."
           inverse
         />
-        <div className="metrics-grid">
-          {impactMetrics.map((metric, index) => {
+        <div className="metrics-grid results-grid">
+          {resultMetrics.map((metric, index) => {
             const Icon = icons[index % icons.length];
             return (
               <article className="metric-card" key={metric.label}>
                 <Icon size={22} />
                 <strong>{metric.value}</strong>
                 <span>{metric.label}</span>
+                <small>{metric.source}</small>
               </article>
             );
           })}
