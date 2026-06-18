@@ -1,0 +1,44 @@
+{
+  "impactMetrics": [
+    {
+      "value": "20+",
+      "label": "Years",
+      "source": "Career Experience"
+    },
+    {
+      "value": "100+",
+      "label": "Countries",
+      "source": "Dell Tax Platform"
+    },
+    {
+      "value": "150",
+      "label": "Tax Jurisdictions",
+      "source": "Dell Indirect Tax"
+    },
+    {
+      "value": "10M+",
+      "label": "Records Migrated",
+      "source": "Dell Platform Migration"
+    }
+  ],
+  "resultMetrics": [
+    {
+      "value": "300K+",
+      "label": "Annual Tax Transactions",
+      "source": "Dell Tax Operations"
+    },
+    {
+      "value": "99.6%",
+      "label": "Processing Improvement",
+      "source": "Dell Cost Optimization"
+    }
+  ],
+  "impactBullets": [
+    "99.6% processing efficiency improvement for Dell global tax operations",
+    "$50K+ annual savings through cloud-based transaction simulation and optimization",
+    "Zero-downtime 10M+ customer exemption record migration with SOX compliance",
+    "100+ enterprise applications decoupled from direct tax engine complexity",
+    "Built India's first subscription OTT platform systems at BigFlix",
+    "Dell Game Changers Award 2023 and Dell Learning Exchange Rockstar 2025"
+  ]
+}

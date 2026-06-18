@@ -1,6 +1,14 @@
 # Vijay Kumar Portfolio
 
-Professional portfolio website built with Vite, React, and TypeScript for GitHub Pages deployment.
+Professional portfolio website built with Vite, React, and TypeScript for GitHub Pages root deployment.
+
+## Branch Model
+
+- `source` contains the editable React/Vite project.
+- `main` contains the compiled static website served by GitHub Pages.
+- Public URL: `https://vijayshagunkumar.github.io/`
+
+Do content edits on `source`, then deploy the compiled output to `main`.
 
 ## Local Setup
 
@@ -9,107 +17,143 @@ npm install
 npm run dev
 ```
 
-Build locally:
+Open the portfolio locally:
+
+```text
+http://localhost:5173/
+```
+
+Open the local admin editor:
+
+```text
+http://localhost:5173/admin
+```
+
+## Admin Password
+
+Create a local `.env` file if you want the static password gate:
+
+```env
+VITE_ADMIN_PASSWORD=choose-a-local-password
+```
+
+This is not real security because the site is static. It only hides accidental access.
+
+## Portfolio Studio Workflow
+
+The `/admin` Portfolio Studio edits structured JSON content from `src/content/`.
+
+Editable sections:
+
+- Dashboard
+- Hero
+- Metrics
+- About
+- Skills
+- Experience
+- Corporate Projects
+- Products I've Built
+- Certifications
+- Education
+- Awards
+- Contact
+- Resume & Profile
+
+Studio features:
+
+- Portfolio overview counts for projects, products, certifications, and experience.
+- Last modified timestamp.
+- Draft indicators for unsaved and saved local changes.
+- Global admin search across projects, products, certifications, skills, and experience.
+- Collapsible cards for list-heavy sections.
+- Duplicate, delete, move up, move down, and drag-and-drop reordering for major lists.
+- Desktop, tablet, and mobile preview modes.
+- Export Current Section, Export All Content, and Export Bundle.
+- Resume/profile photo local upload preview.
+
+How to edit:
+
+1. Open `/admin` locally.
+2. Select a section from the left sidebar.
+3. Use search to jump directly to a project, product, certification, skill, or experience entry.
+4. Edit text fields, links, arrays, tags, project demo URLs, GitHub URLs, or credential URLs.
+5. Use Add, Duplicate, Delete, Move Up, Move Down, or drag handles where available.
+6. Click Save to store changes in browser `localStorage`.
+7. Click Preview to open the portfolio using the locally saved content.
+8. Use Desktop, Tablet, or Mobile Preview inside the Studio preview modal.
+9. Click Export Current Section to download the selected JSON file.
+10. Click Export All Content to download all JSON files individually.
+11. Click Export Bundle to download `portfolio-content.zip`.
+12. Replace the matching files in `src/content/` with the exported JSON.
+
+Important: browser saves are local only. They do not update repository files automatically.
+
+## Content Files
+
+```text
+src/content/
+  hero.json
+  metrics.json
+  about.json
+  skills.json
+  experience.json
+  projects.json
+  personalProjects.json
+  certifications.json
+  education.json
+  awards.json
+  contact.json
+```
+
+Public components read from these JSON files through the data modules in `src/data/`.
+When previewing from `/admin`, the portfolio uses matching `localStorage` content if available.
+
+## Resume And Profile Photo
+
+The Studio lets you edit the path text and upload local preview files.
+
+To replace files, manually update:
+
+```text
+public/resume.pdf
+public/profile-photo.jpg
+```
+
+Keep root paths unless intentionally changing deployment structure:
+
+```text
+/resume.pdf
+/profile-photo.jpg
+```
+
+Uploaded preview files are stored in browser localStorage only. Before deployment, replace the actual files in `public/`.
+
+## Build And Deploy
+
+From the `source` branch:
 
 ```bash
 npm run build
-npm run preview
-```
-
-## Project Structure
-
-```text
-src/
-  components/        Reusable React sections and cards
-  data/              Profile, projects, experience, skills, certifications, education, awards
-  styles/            Global styles, themes, component CSS
-public/
-  profile-photo.jpg  Profile image used by the hero
-  resume.pdf         Replace with the latest resume PDF
-```
-
-## Add A New Project
-
-For corporate/work projects, edit `src/data/projects.ts` and add one object to the `projects` array:
-
-```ts
-{
-  id: "new-project",
-  title: "New Project",
-  organization: "Company or Personal Initiative",
-  description: "Recruiter-friendly summary of the work.",
-  metric: "Measurable impact",
-  tags: ["AI", "Platform", "Product"],
-  categories: ["AI", "Enterprise"],
-  featured: true,
-  liveUrl: "https://example.com",
-  githubUrl: "https://github.com/username/repo"
-}
-```
-
-Add a `caseStudy` property when you want an expandable problem, approach, and results view.
-
-## Add A Personal Initiative Project
-
-Edit `src/data/personalProjects.ts` and add one object to the `personalProjects` array:
-
-```ts
-{
-  id: "new-product",
-  name: "New Product",
-  valueProposition: "One-line value proposition.",
-  problemSolved: "Problem this product solves.",
-  targetUsers: "Primary users.",
-  highlights: ["Benefit one", "Benefit two", "Benefit three"],
-  techHighlights: ["AI workflow", "UX design", "Data handling"],
-  status: "Live beta",
-  liveUrl: "https://example.com",
-  githubUrl: "https://github.com/username/repo"
-}
-```
-
-## Change Theme
-
-Themes are defined in `src/styles/themes.css` and listed in `src/data/profile.ts`.
-The selected theme is saved in `localStorage` under `portfolio-theme`.
-
-Available themes:
-
-- Professional Navy/Teal
-- Light Executive
-- Dark Elegant
-- Minimal Recruiter View
-
-## Update Resume
-
-Replace `public/resume.pdf` with the latest resume file. Keep the same filename so links continue to work.
-
-## Deploy To GitHub Pages
-
-### Option 1: npm deploy
-
-Update these values first:
-
-- `package.json` `homepage`
-- `vite.config.ts` `base`
-
-Then run:
-
-```bash
 npm run deploy
 ```
 
-### Option 2: GitHub Actions
+`npm run deploy` builds the site and publishes `dist` to the `main` branch for root GitHub Pages.
 
-This repo includes `.github/workflows/deploy.yml`.
+## QA Checklist
 
-In GitHub:
+Before deploying:
 
-1. Go to repository `Settings`.
-2. Open `Pages`.
-3. Set source to `GitHub Actions`.
-4. Push to `main`.
+```bash
+npm run build
+```
 
-## Notes From Migration
+Check:
 
-The original single-file portfolio has been converted into a maintainable React architecture. The supplied source HTML did not include the external resume PDF, so `public/resume.pdf` is a placeholder until replaced with the real resume.
+- Public portfolio at `/`
+- Admin editor at `/admin`
+- Save to localStorage
+- Preview from localStorage
+- Export selected JSON
+- Export all JSON
+- No admin link in the public navbar
+- Resume and profile image paths still resolve from root

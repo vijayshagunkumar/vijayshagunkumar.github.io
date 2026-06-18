@@ -1,0 +1,15 @@
+{
+  "links": {
+    "email": "mailto:vijay.shagunkumar@gmail.com",
+    "emailLabel": "vijay.shagunkumar@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/vshn",
+    "linkedinLabel": "linkedin.com/in/vshn",
+    "github": "https://github.com/vijayshagunkumar",
+    "githubLabel": "github.com/vijayshagunkumar",
+    "resume": "/resume.pdf",
+    "phone": "tel:+917738774442",
+    "phoneLabel": "+91 77387 74442"
+  },
+  "resumePath": "/resume.pdf",
+  "profilePhotoPath": "/profile-photo.jpg"
+}

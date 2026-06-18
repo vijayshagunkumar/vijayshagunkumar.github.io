@@ -1,5 +1,5 @@
 import { Download, Github, Linkedin, Rocket } from "lucide-react";
-import { impactMetrics, profile } from "../data/profile";
+import { impactMetrics, profile, profilePhoto } from "../data/profile";
 
 export function Hero() {
   return (
@@ -49,7 +49,7 @@ export function Hero() {
         </div>
         <aside className="hero-photo" aria-label="Profile photo and recognition">
           <img
-            src="/profile-photo.jpg"
+            src={profilePhoto}
             width="300"
             height="400"
             alt="Vijay Kumar, senior product and enterprise platform leader"

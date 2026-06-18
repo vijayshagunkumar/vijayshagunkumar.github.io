@@ -1,0 +1,36 @@
+{
+  "profile": {
+    "name": "Vijay Kumar",
+    "headline": "Senior Product & Enterprise Platform Leader",
+    "shortHeadline": "Senior Product & Enterprise Platform Leader",
+    "location": "India",
+    "targetRoles": [
+      "Enterprise Platforms",
+      "Finance Transformation",
+      "AI-enabled Products"
+    ],
+    "summary": "20+ years building digital platforms across tax technology, OTT, retail POS, ERP, SaaS, and cross-border commerce. Currently leading Dell's global Indirect Tax technology portfolio across 100+ countries and 150 tax jurisdictions.",
+    "executiveSummary": [
+      "Senior Product & Enterprise Platform Leader with 20+ years of experience delivering enterprise transformation across OTT, retail, finance, and global tax technology.",
+      "Led platform modernization and product initiatives spanning 100+ countries and 150 tax jurisdictions, including large-scale migrations, 0 to 1 product launches, and mission-critical enterprise systems.",
+      "From launching India's first subscription OTT platform to building AI-powered products independently, I combine strategic thinking, execution discipline, and a builder's mindset to create products that drive meaningful business outcomes."
+    ],
+    "narrative": [
+      "Accomplished Product Leader with 20+ years of experience building digital platforms that span industries, geographies, and product stages. The journey began in retail technology, leading the nationwide rollout of POS and inventory systems across 100+ Planet M music stores, then scaled to building India's first subscription OTT platform, Reliance BigFlix, from scratch.",
+      "At Dell, played a key role in enterprise finance modernization by integrating Oracle Fusion ERP, migrating from on-prem Sabrix to TR OneSource Cloud, and executing a zero-downtime migration of 10M+ customer exemption records with full SOX compliance.",
+      "Architected a middleware tax enrichment layer serving 100+ enterprise applications, built the 0 to 1 tax exemption management platform, and led global CERTifyTax rollout across Deloitte, Thomson Reuters, and CERTifyTax vendor ecosystems."
+    ],
+    "highlights": [
+      "0 to 1 pioneer across BigFlix, Planet M retail tech rollout, and multiple enterprise platforms",
+      "Cloud and AI modernization experience across Oracle Fusion ERP, TR OneSource Cloud, CERTifyTax, and generative AI observability",
+      "Global delivery across 6+ industries, 3 continents, 100+ countries, and 150 tax jurisdictions",
+      "Executive-level stakeholder alignment across Finance, Tax Operations, Legal, Engineering, vendors, and business teams"
+    ],
+    "seo": {
+      "title": "Vijay Kumar | Senior Product & Enterprise Platform Leader",
+      "description": "Portfolio of Vijay Kumar, a Senior Product & Enterprise Platform Leader with 20+ years across finance transformation, global tax platforms, ERP modernization, OTT, retail systems, and applied AI initiatives.",
+      "canonical": "https://vijayshagunkumar.github.io"
+    }
+  },
+  "profilePhoto": "/profile-photo.jpg"
+}

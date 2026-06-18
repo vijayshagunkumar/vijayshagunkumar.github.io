@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowUp } from "lucide-react";
+import { AdminDashboard } from "./components/AdminDashboard";
 import { About } from "./components/About";
 import { Awards } from "./components/Awards";
 import { Certifications } from "./components/Certifications";
@@ -20,6 +21,7 @@ const storedTheme = () => (localStorage.getItem("portfolio-theme") as ThemeName 
 export default function App() {
   const [theme, setTheme] = useState<ThemeName>(storedTheme);
   const [showTop, setShowTop] = useState(false);
+  const isAdmin = window.location.pathname.replace(/\/$/, "") === "/admin";
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
@@ -38,6 +40,8 @@ export default function App() {
     () => ["experience", "projects", "products-built", "certifications", "contact"],
     []
   );
+
+  if (isAdmin) return <AdminDashboard />;
 
   return (
     <>

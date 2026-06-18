@@ -1,12 +1,3 @@
-export const education = [
-  {
-    degree: "Master of Commerce (Finance)",
-    school: "Manipal University Jaipur",
-    meta: "CGPA: 8.36 / 10 | 2023-2025"
-  },
-  {
-    degree: "Bachelor of Commerce",
-    school: "University of Delhi",
-    meta: "2001"
-  }
-];
+import { getContent } from "../content/contentStore";
+
+export const education = getContent("education").education;
