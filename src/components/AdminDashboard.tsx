@@ -247,6 +247,38 @@ function encodeBase64(value: string) {
   return btoa(unescape(encodeURIComponent(value)));
 }
 
+function decodeBase64(value: string) {
+  return decodeURIComponent(escape(atob(value.replace(/\s/g, ""))));
+}
+
+function githubErrorMessage(status: number, body: string) {
+  let message = body;
+  try {
+    const parsed = JSON.parse(body) as { message?: string; documentation_url?: string };
+    message = parsed.message ?? body;
+  } catch {
+    // Keep the raw body when GitHub returns plain text.
+  }
+
+  if (status === 401) {
+    return "GitHub rejected the token. Sign in again or create a fine-grained token for this repository with Contents: Read and Write and Actions: Read and Write.";
+  }
+
+  if (status === 403) {
+    return `GitHub denied this publish request: ${message}. Check that the fine-grained token has repository access plus Contents: Read and Write and Actions: Read and Write.`;
+  }
+
+  if (status === 404) {
+    return `GitHub could not find the repository, branch, workflow, or content file: ${message}. Confirm the token has access to ${repoOwner}/${repoName} and the source branch.`;
+  }
+
+  if (status === 409) {
+    return "GitHub reported a branch conflict while publishing. Refresh the Studio, reload latest content, and try again.";
+  }
+
+  return message || `GitHub API request failed with ${status}`;
+}
+
 async function githubRequest<T>(token: string, path: string, init: RequestInit = {}): Promise<T> {
   const response = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}${path}`, {
     ...init,
@@ -260,11 +292,51 @@ async function githubRequest<T>(token: string, path: string, init: RequestInit =
 
   if (!response.ok) {
     const text = await response.text();
-    throw new Error(text || `GitHub API request failed with ${response.status}`);
+    throw new Error(githubErrorMessage(response.status, text));
   }
 
   if (response.status === 204) return undefined as T;
   return (await response.json()) as T;
+}
+
+type GitHubContentFile = {
+  type: "file";
+  name: string;
+  path: string;
+  sha: string;
+  content: string;
+  encoding: string;
+};
+
+async function getGitHubContentFile(token: string, path: string) {
+  const encodedPath = path.split("/").map(encodeURIComponent).join("/");
+  const file = await githubRequest<GitHubContentFile | GitHubContentFile[]>(
+    token,
+    `/contents/${encodedPath}?ref=${encodeURIComponent(sourceBranch)}`
+  );
+
+  if (Array.isArray(file) || file.type !== "file") {
+    throw new Error(`GitHub content path is not a file: ${path}`);
+  }
+
+  return file;
+}
+
+async function putGitHubContentFile(token: string, path: string, content: string, sha: string) {
+  const encodedPath = path.split("/").map(encodeURIComponent).join("/");
+  return githubRequest<{ content: { path: string; sha: string }; commit: { sha: string; html_url: string } }>(
+    token,
+    `/contents/${encodedPath}`,
+    {
+      method: "PUT",
+      body: JSON.stringify({
+        message: `Publish ${path} from Portfolio Studio`,
+        content: encodeBase64(content),
+        sha,
+        branch: sourceBranch
+      })
+    }
+  );
 }
 
 function blankFrom<T extends Record<string, unknown>>(sample: T, overrides: Partial<T> = {}): T {
@@ -946,52 +1018,21 @@ export function AdminDashboard() {
       setDrafts(normalized);
       saveDraftsToLocalStorage(normalized);
 
-      const ref = await githubRequest<{ object: { sha: string } }>(token, `/git/ref/heads/${sourceBranch}`);
-      const commit = await githubRequest<{ tree: { sha: string } }>(token, `/git/commits/${ref.object.sha}`);
+      let updatedFiles = 0;
 
-      const treeItems = await Promise.all(
-        contentSections.map(async (section) => {
-          const blob = await githubRequest<{ sha: string }>(token, "/git/blobs", {
-            method: "POST",
-            body: JSON.stringify({
-              content: encodeBase64(JSON.stringify(normalized[section.key], null, 2) + "\n"),
-              encoding: "base64"
-            })
-          });
+      for (const section of contentSections) {
+        const path = `src/content/${section.file}`;
+        setPublishMessage(`Checking ${section.file} on the source branch...`);
+        const remoteFile = await getGitHubContentFile(token, path);
+        const nextContent = JSON.stringify(normalized[section.key], null, 2) + "\n";
+        const currentContent = remoteFile.encoding === "base64" ? decodeBase64(remoteFile.content) : remoteFile.content;
 
-          return {
-            path: `src/content/${section.file}`,
-            mode: "100644",
-            type: "blob",
-            sha: blob.sha
-          };
-        })
-      );
+        if (currentContent === nextContent) continue;
 
-      const tree = await githubRequest<{ sha: string }>(token, "/git/trees", {
-        method: "POST",
-        body: JSON.stringify({
-          base_tree: commit.tree.sha,
-          tree: treeItems
-        })
-      });
-
-      const nextCommit = await githubRequest<{ sha: string; html_url: string }>(token, "/git/commits", {
-        method: "POST",
-        body: JSON.stringify({
-          message: "Publish portfolio content from Studio",
-          tree: tree.sha,
-          parents: [ref.object.sha]
-        })
-      });
-
-      await githubRequest(token, `/git/refs/heads/${sourceBranch}`, {
-        method: "PATCH",
-        body: JSON.stringify({
-          sha: nextCommit.sha,
-          force: false
-        })
-      });
+        setPublishMessage(`Publishing ${section.file} to the source branch...`);
+        await putGitHubContentFile(token, path, nextContent, remoteFile.sha);
+        updatedFiles += 1;
+      }
 
       setPublishMessage("Triggering production deployment workflow...");
 
@@ -1007,7 +1048,11 @@ export function AdminDashboard() {
       localStorage.setItem(modifiedKey, timestamp);
       setLastModified(timestamp);
       setPublishStatus("success");
-      setPublishMessage("Publish started. GitHub Actions is building and deploying production now.");
+      setPublishMessage(
+        updatedFiles
+          ? `Publish started after updating ${updatedFiles} JSON file${updatedFiles === 1 ? "" : "s"}. GitHub Actions is building and deploying production now.`
+          : "No JSON file changes were needed. Production deployment workflow has been triggered."
+      );
     } catch (error) {
       setPublishStatus("error");
       setPublishMessage(error instanceof Error ? error.message : "Publish failed.");
@@ -1107,7 +1152,7 @@ export function AdminDashboard() {
           </div>
         </header>
 
-        <p className="admin-notice">Changes are saved locally in your browser. Export JSON and replace content files before deployment.</p>
+        <p className="admin-notice">Changes are saved locally in your browser. Use Publish when you are ready to commit JSON changes and deploy production.</p>
         {selected === "media" ? <p className="admin-help">Upload previews are stored locally only. Replace files in `public` before deployment.</p> : null}
         {message ? <p className="admin-message">{message}</p> : null}
 
@@ -1134,7 +1179,7 @@ export function AdminDashboard() {
                 <button type="button" onClick={() => setPublishOpen(false)}>Close</button>
               </div>
               <p className="admin-notice">
-                Publish commits your edited JSON to the `source` branch, then starts GitHub Actions to build and deploy production.
+                Publish updates changed JSON files on the `source` branch with the GitHub Contents API, then starts GitHub Actions to build and deploy production.
                 Your token stays in this browser session. Do not paste it into chat.
               </p>
               <div className="publish-grid">

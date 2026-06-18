@@ -68,7 +68,7 @@ Studio features:
 - Collapsible cards for list-heavy sections.
 - Duplicate, delete, move up, move down, and drag-and-drop reordering for major lists.
 - Desktop, tablet, and mobile preview modes.
-- One-click Publish flow for committing JSON to `source` and triggering production deployment.
+- One-click Publish flow for committing changed JSON files to `source` and triggering production deployment.
 - Resume/profile photo local upload preview.
 
 How to edit:
@@ -92,11 +92,13 @@ Important: browser saves are local until you publish. The GitHub token is kept i
 The Studio Publish button:
 
 1. Saves the current Studio drafts to browser localStorage.
-2. Commits all `src/content/*.json` files to the `source` branch through the GitHub API.
-3. Triggers `.github/workflows/publish-portfolio.yml`.
-4. The workflow checks out `source`, runs `npm ci`, runs `npm run build`, and publishes the compiled site to both `main` and `gh-pages`.
+2. Reads each existing `src/content/*.json` file SHA from the `source` branch with the GitHub Contents API.
+3. Updates only changed JSON files with `PUT /repos/{owner}/{repo}/contents/{path}`.
+4. Triggers `.github/workflows/publish-portfolio.yml`.
+5. The workflow checks out `source`, runs `npm ci`, runs `npm run build`, and publishes the compiled site to both `main` and `gh-pages`.
 
 This keeps the editable source and production branches aligned without manual JSON export.
+Fine-grained GitHub tokens only need `Contents: Read and write` and `Actions: Read and write`.
 
 ## Content Files
 
