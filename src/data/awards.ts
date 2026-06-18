@@ -1,0 +1,26 @@
+export const awards = [
+  {
+    title: "Dell Game Changers Award",
+    year: "2023",
+    description:
+      "Recognized for 99.6% runtime improvement and significant effort reduction in the global tax exemption platform."
+  },
+  {
+    title: "Times Group Double Promotion",
+    year: "2005",
+    description:
+      "Recognized for exceptional contribution to the nationwide launch and scaling of India's first national music retail chain, Planet M."
+  },
+  {
+    title: "YSEC Performance Award",
+    year: "2017",
+    description:
+      "Recognized for successful delivery and client adoption of 13+ enterprise systems with strong on-time execution across retail and logistics domains."
+  },
+  {
+    title: "Dell Learning Exchange Rockstar",
+    year: "2025",
+    description:
+      "Recognized for exceptional learning contributions and knowledge sharing across Dell's global employee community."
+  }
+];

@@ -1,0 +1,27 @@
+export const skillGroups = [
+  {
+    title: "Product Strategy & Execution",
+    skills: ["Product Vision", "Roadmaps", "OKRs", "PRDs", "Stakeholder Alignment", "0 to 1 Products", "Enterprise Modernization"]
+  },
+  {
+    title: "Product Analytics & Data",
+    skills: ["SQL", "MIS Dashboards", "RCA", "Observability", "Operational Metrics", "Migration Validation", "Data Quality"]
+  },
+  {
+    title: "Platforms & Domains",
+    skills: ["Tax Technology", "ERP", "OTT", "Retail POS", "SaaS", "Cross-border Trade", "Finance Transformation"]
+  },
+  {
+    title: "Tools & Technologies",
+    skills: ["Jira", "Confluence", "Oracle Fusion ERP", "TR OneSource", "Sabrix", "CERTifyTax", "REST APIs", "XML", "EDI", "Generative AI"]
+  }
+];
+
+export const domains = [
+  { name: "Enterprise Tax Technology", years: "2021 - Present", tags: ["Sabrix", "TR OneSource", "CERTifyTax", "SOX"] },
+  { name: "OTT & Digital Media", years: "2007 - 2014", tags: ["BigFlix", "CMS", "Subscriptions", "eCommerce"] },
+  { name: "Retail POS & Commerce", years: "2002 - 2007, 2017 - 2020", tags: ["Retail Pro", "Focus RT", "100+ Stores"] },
+  { name: "Cross-Border Trade & ERP", years: "2017 - 2020", tags: ["Japan", "South America", "Import/Export"] },
+  { name: "AI & Emerging Tech", years: "2023 - Present", tags: ["GenAI", "PromptCraft", "Observability"] },
+  { name: "ERP & Cloud Migration", years: "2021 - Present", tags: ["Oracle Fusion", "Cloud Migration", "OKRs"] }
+];
