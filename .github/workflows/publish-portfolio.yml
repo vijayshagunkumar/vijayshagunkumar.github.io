@@ -2,6 +2,9 @@ name: Publish Portfolio
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - source
 
 permissions:
   contents: write

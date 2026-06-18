@@ -63,6 +63,14 @@ type StudioSection =
   | "contact"
   | "media";
 type PreviewSize = "desktop" | "tablet" | "mobile";
+type PublishStepStatus = "pending" | "running" | "success" | "warning" | "error";
+
+type PublishStep = {
+  id: "content" | "trigger" | "status";
+  label: string;
+  status: PublishStepStatus;
+  detail: string;
+};
 
 type ExperienceItem = {
   company: string;
@@ -146,6 +154,27 @@ const publishWorkflow = "publish-portfolio.yml";
 const repoOwner = "vijayshagunkumar";
 const repoName = "vijayshagunkumar.github.io";
 const sourceBranch = "source";
+
+const initialPublishSteps: PublishStep[] = [
+  {
+    id: "content",
+    label: "Step 1: Update content files on source branch",
+    status: "pending",
+    detail: "Waiting to publish JSON content."
+  },
+  {
+    id: "trigger",
+    label: "Step 2: Trigger GitHub Actions workflow",
+    status: "pending",
+    detail: "The workflow is triggered automatically by the push to source."
+  },
+  {
+    id: "status",
+    label: "Step 3: Check deployment status",
+    status: "pending",
+    detail: "Check the GitHub Actions run after content is published."
+  }
+];
 
 const studioSections: Array<{ id: StudioSection; label: string; contentKey?: ContentKey }> = [
   { id: "dashboard", label: "Dashboard" },
@@ -265,7 +294,7 @@ function githubErrorMessage(status: number, body: string) {
   }
 
   if (status === 403) {
-    return `GitHub denied this publish request: ${message}. Check that the fine-grained token has repository access plus Contents: Read and Write and Actions: Read and Write.`;
+    return `GitHub denied this API request: ${message}. Check that the fine-grained token has repository access plus Contents: Read and Write, Actions: Read and Write, and Metadata: Read-only.`;
   }
 
   if (status === 404) {
@@ -277,6 +306,18 @@ function githubErrorMessage(status: number, body: string) {
   }
 
   return message || `GitHub API request failed with ${status}`;
+}
+
+class GitHubApiError extends Error {
+  status: number;
+  endpoint: string;
+
+  constructor(status: number, endpoint: string, message: string) {
+    super(message);
+    this.name = "GitHubApiError";
+    this.status = status;
+    this.endpoint = endpoint;
+  }
 }
 
 async function githubRequest<T>(token: string, path: string, init: RequestInit = {}): Promise<T> {
@@ -292,7 +333,7 @@ async function githubRequest<T>(token: string, path: string, init: RequestInit =
 
   if (!response.ok) {
     const text = await response.text();
-    throw new Error(githubErrorMessage(response.status, text));
+    throw new GitHubApiError(response.status, path, githubErrorMessage(response.status, text));
   }
 
   if (response.status === 204) return undefined as T;
@@ -927,6 +968,7 @@ export function AdminDashboard() {
   const [githubToken, setGithubToken] = useState(() => sessionStorage.getItem(tokenKey) ?? "");
   const [publishStatus, setPublishStatus] = useState<"idle" | "publishing" | "success" | "error">("idle");
   const [publishMessage, setPublishMessage] = useState("");
+  const [publishSteps, setPublishSteps] = useState<PublishStep[]>(() => clone(initialPublishSteps));
 
   const selectedMeta = studioSections.find((section) => section.id === selected) ?? studioSections[0];
   const selectedKey = selectedMeta.contentKey;
@@ -1002,17 +1044,36 @@ export function AdminDashboard() {
     setPreviewOpen(true);
   };
 
+  const updatePublishStep = (id: PublishStep["id"], status: PublishStepStatus, detail: string) => {
+    setPublishSteps((current) => current.map((step) => (step.id === id ? { ...step, status, detail } : step)));
+  };
+
+  const formatApiFailure = (scope: string, error: unknown) => {
+    if (error instanceof GitHubApiError) {
+      const actionHelp = error.status === 403 && error.endpoint.includes("/actions/")
+        ? "\nYour token can update content, but cannot trigger Actions. Update token Actions permission to Read and Write, or rely on push-triggered workflow."
+        : "";
+      return `${scope} failed.\nEndpoint: ${error.endpoint}\nStatus: ${error.status}\n${error.message}${actionHelp}`;
+    }
+    return `${scope} failed.\n${error instanceof Error ? error.message : "Unknown error."}`;
+  };
+
   const publishToProduction = async () => {
     const token = githubToken.trim();
     if (!token) {
       setPublishStatus("error");
-      setPublishMessage("Enter a GitHub token with Contents read/write and Actions write access.");
+      setPublishMessage("Enter a GitHub token with Contents read/write, Actions read/write, and Metadata read-only access.");
+      setPublishSteps(clone(initialPublishSteps));
       return;
     }
 
+    let contentUpdated = false;
+
     try {
       setPublishStatus("publishing");
-      setPublishMessage("Saving JSON content to the source branch...");
+      setPublishMessage("Publishing content changes to GitHub...");
+      setPublishSteps(clone(initialPublishSteps));
+      updatePublishStep("content", "running", "Checking JSON files on the source branch.");
       sessionStorage.setItem(tokenKey, token);
       const normalized = normalizeDrafts(drafts);
       setDrafts(normalized);
@@ -1032,16 +1093,28 @@ export function AdminDashboard() {
         setPublishMessage(`Publishing ${section.file} to the source branch...`);
         await putGitHubContentFile(token, path, nextContent, remoteFile.sha);
         updatedFiles += 1;
+        contentUpdated = true;
       }
 
-      setPublishMessage("Triggering production deployment workflow...");
-
-      await githubRequest(token, `/actions/workflows/${publishWorkflow}/dispatches`, {
-        method: "POST",
-        body: JSON.stringify({
-          ref: sourceBranch
-        })
-      });
+      updatePublishStep(
+        "content",
+        "success",
+        updatedFiles
+          ? `Updated ${updatedFiles} JSON file${updatedFiles === 1 ? "" : "s"} on source.`
+          : "No JSON file changes were needed; source already matches this Studio draft."
+      );
+      updatePublishStep(
+        "trigger",
+        updatedFiles ? "success" : "warning",
+        updatedFiles
+          ? "Deployment should start automatically because the workflow now runs on pushes to source."
+          : "No push was created because content was unchanged, so no new deployment run was triggered."
+      );
+      updatePublishStep(
+        "status",
+        "warning",
+        "Deployment status is not checked from the browser. Open GitHub Actions to confirm the latest run."
+      );
 
       setSavedDrafts(clone(normalized));
       const timestamp = new Date().toLocaleString();
@@ -1050,12 +1123,24 @@ export function AdminDashboard() {
       setPublishStatus("success");
       setPublishMessage(
         updatedFiles
-          ? `Publish started after updating ${updatedFiles} JSON file${updatedFiles === 1 ? "" : "s"}. GitHub Actions is building and deploying production now.`
-          : "No JSON file changes were needed. Production deployment workflow has been triggered."
+          ? "Content published to source. Deployment should start automatically."
+          : "No JSON file changes were needed. Existing production content is already up to date."
       );
     } catch (error) {
+      if (contentUpdated) {
+        setPublishStatus("success");
+        updatePublishStep("content", "success", "Some content files were saved to GitHub before a later step failed.");
+        updatePublishStep("trigger", "warning", "At least one source commit was created, so GitHub Actions may still start automatically.");
+        updatePublishStep("status", "warning", formatApiFailure("Contents update", error));
+        setPublishMessage("Some content was saved to GitHub, but another content file could not be updated. Check the step details before publishing again.");
+        return;
+      }
+
       setPublishStatus("error");
-      setPublishMessage(error instanceof Error ? error.message : "Publish failed.");
+      updatePublishStep("content", "error", formatApiFailure("Contents update", error));
+      updatePublishStep("trigger", "pending", "Not started because content update did not complete.");
+      updatePublishStep("status", "pending", "Not checked because content update did not complete.");
+      setPublishMessage(formatApiFailure("Contents update", error));
     }
   };
 
@@ -1202,13 +1287,24 @@ export function AdminDashboard() {
                   type="password"
                   value={githubToken}
                   onChange={(event) => setGithubToken(event.target.value)}
-                  placeholder="Fine-grained token with Contents read/write and Actions write"
+                  placeholder="Fine-grained token with Contents read/write"
                 />
               </label>
               <p className="admin-help">
-                Use a fine-grained GitHub token for this repository with `Contents: Read and write` and `Actions: Read and write`.
+                Use a fine-grained GitHub token for this repository with `Contents: Read and write`, `Actions: Read and write`, and `Metadata: Read-only`.
                 The token is only stored in `sessionStorage` if you publish successfully.
               </p>
+              <div className="publish-steps" aria-label="Publish progress">
+                {publishSteps.map((step) => (
+                  <article className={`publish-step ${step.status}`} key={step.id}>
+                    <div>
+                      <strong>{step.label}</strong>
+                      <span>{step.status}</span>
+                    </div>
+                    <p>{step.detail}</p>
+                  </article>
+                ))}
+              </div>
               {publishMessage ? <p className={`publish-message ${publishStatus}`}>{publishMessage}</p> : null}
               <div className="publish-actions">
                 <button type="button" disabled={publishStatus === "publishing"} onClick={publishToProduction}>

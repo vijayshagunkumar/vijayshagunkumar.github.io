@@ -82,8 +82,8 @@ How to edit:
 7. Click Preview to open the portfolio using the locally saved content.
 8. Use Desktop, Tablet, or Mobile Preview inside the Studio preview modal.
 9. Click Publish.
-10. Enter a fine-grained GitHub token with repository access for `Contents: Read and write` and `Actions: Read and write`.
-11. Confirm Publish to commit JSON files to `source` and start the GitHub Actions production deployment.
+10. Enter a fine-grained GitHub token with repository access for `Contents: Read and write`, `Actions: Read and write`, and `Metadata: Read-only`.
+11. Confirm Publish to commit JSON files to `source`. The production workflow starts automatically from the source push.
 
 Important: browser saves are local until you publish. The GitHub token is kept in browser `sessionStorage`; do not paste it into chat or commit it to the repo.
 
@@ -94,11 +94,11 @@ The Studio Publish button:
 1. Saves the current Studio drafts to browser localStorage.
 2. Reads each existing `src/content/*.json` file SHA from the `source` branch with the GitHub Contents API.
 3. Updates only changed JSON files with `PUT /repos/{owner}/{repo}/contents/{path}`.
-4. Triggers `.github/workflows/publish-portfolio.yml`.
+4. Lets `.github/workflows/publish-portfolio.yml` start automatically on pushes to `source`.
 5. The workflow checks out `source`, runs `npm ci`, runs `npm run build`, and publishes the compiled site to both `main` and `gh-pages`.
 
 This keeps the editable source and production branches aligned without manual JSON export.
-Fine-grained GitHub tokens only need `Contents: Read and write` and `Actions: Read and write`.
+Fine-grained GitHub tokens should have `Contents: Read and write`, `Actions: Read and write`, and `Metadata: Read-only`.
 
 ## Content Files
 
