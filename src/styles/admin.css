@@ -559,6 +559,37 @@
   resize: vertical;
 }
 
+.hero-editor-grid .hero-summary-editor {
+  grid-column: 1 / -1;
+}
+
+.hero-summary-editor {
+  display: grid;
+  gap: 10px;
+}
+
+.studio-help {
+  margin: 0;
+  color: #61727d;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.hero-summary-preview {
+  display: grid;
+  gap: 8px;
+  border: 1px solid #dbe6eb;
+  border-radius: 10px;
+  padding: 12px;
+  background: #f8fbfc;
+}
+
+.hero-summary-preview p {
+  margin: 0;
+  color: #243743;
+  line-height: 1.55;
+}
+
 .studio-switch {
   display: flex;
   align-items: center;

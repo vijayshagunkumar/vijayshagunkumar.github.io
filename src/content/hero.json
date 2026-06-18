@@ -4,6 +4,7 @@
     "headline": "Senior Product & Enterprise Platform Leader",
     "shortHeadline": "Senior Product & Enterprise Platform Leader",
     "location": "India",
+    "preserveSummaryParagraphs": false,
     "targetRoles": [
       "Enterprise Platforms",
       "Finance Transformation",

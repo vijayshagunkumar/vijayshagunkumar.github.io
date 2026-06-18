@@ -32,7 +32,8 @@ import {
   Trash2,
   Upload
 } from "lucide-react";
-import { ChangeEvent, ReactNode, useMemo, useState } from "react";
+import { ChangeEvent, KeyboardEvent, ReactNode, useMemo, useRef, useState } from "react";
+import { flushSync } from "react-dom";
 import {
   ContentKey,
   contentDefaults,
@@ -117,6 +118,27 @@ type CertificationItem = {
   url: string;
 };
 
+type HeroContent = {
+  profile: {
+    name: string;
+    headline: string;
+    shortHeadline: string;
+    location: string;
+    preserveSummaryParagraphs?: boolean;
+    targetRoles: string[];
+    summary: string;
+    executiveSummary: string[];
+    narrative: string[];
+    highlights: string[];
+    seo: {
+      title: string;
+      description: string;
+      canonical: string;
+    };
+  };
+  profilePhoto: string;
+};
+
 const authKey = "portfolio-admin-auth";
 const modifiedKey = "portfolio-admin-last-modified";
 const tokenKey = "portfolio-github-token";
@@ -173,6 +195,40 @@ function joinCsv(items: unknown) {
   return Array.isArray(items) ? items.join(", ") : "";
 }
 
+function normalizeHeroText(value: string) {
+  return value.replace(/\s+/g, " ").trim();
+}
+
+function normalizeHeroEditorText(value: string, trim = true) {
+  const normalized = value.replace(/[\r\n]+/g, " ").replace(/[ \t]+/g, " ");
+  return trim ? normalized.trim() : normalized;
+}
+
+function heroSummaryToParagraphs(value: string, preserveParagraphs: boolean, trim = true) {
+  if (!preserveParagraphs) return [normalizeHeroEditorText(value, trim)].filter((item) => item.trim());
+  return value
+    .split(/\n+/)
+    .map((item) => normalizeHeroEditorText(item, trim))
+    .filter(Boolean);
+}
+
+function normalizeHeroContent(value: JsonValue): JsonValue {
+  const data = clone(value) as unknown as HeroContent;
+  if (!data.profile) return value;
+  const preserveParagraphs = Boolean(data.profile.preserveSummaryParagraphs);
+  const source = Array.isArray(data.profile.executiveSummary) && data.profile.executiveSummary.length
+    ? data.profile.executiveSummary.join(preserveParagraphs ? "\n" : " ")
+    : data.profile.summary ?? "";
+
+  data.profile.executiveSummary = heroSummaryToParagraphs(source, preserveParagraphs);
+  data.profile.summary = normalizeHeroText(data.profile.summary ?? source);
+  return data as unknown as JsonValue;
+}
+
+function normalizeDrafts(drafts: DraftMap): DraftMap {
+  return { ...drafts, hero: normalizeHeroContent(drafts.hero) };
+}
+
 function updateAtPath(value: JsonValue, path: Array<string | number>, next: JsonValue): JsonValue {
   if (path.length === 0) return next;
   const [head, ...rest] = path;
@@ -182,7 +238,8 @@ function updateAtPath(value: JsonValue, path: Array<string | number>, next: Json
 }
 
 function saveDraftsToLocalStorage(drafts: DraftMap) {
-  contentSections.forEach((section) => saveContent(section.key, drafts[section.key]));
+  const normalized = normalizeDrafts(drafts);
+  contentSections.forEach((section) => saveContent(section.key, normalized[section.key]));
   localStorage.setItem(modifiedKey, new Date().toISOString());
 }
 
@@ -260,6 +317,70 @@ function Field({
 
 function CsvField({ label, value, onChange }: { label: string; value: string[]; onChange: (value: string[]) => void }) {
   return <Field label={label} value={joinCsv(value)} onChange={(next) => onChange(splitCsv(next))} />;
+}
+
+function HeroSummaryField({
+  value,
+  preserveParagraphs,
+  onChange,
+  onModeChange
+}: {
+  value: string[];
+  preserveParagraphs: boolean;
+  onChange: (value: string[]) => void;
+  onModeChange: (checked: boolean, value: string[]) => void;
+}) {
+  const text = value.join(preserveParagraphs ? "\n" : " ");
+  const handledEnterRef = useRef(false);
+
+  const updateSummary = (next: string, preserve = preserveParagraphs) => {
+    onChange(heroSummaryToParagraphs(next, preserve, false));
+  };
+
+  const insertSpaceForEnter = (event: KeyboardEvent<HTMLTextAreaElement>) => {
+    if (event.key !== "Enter" || event.shiftKey) return false;
+    event.preventDefault();
+    const target = event.currentTarget;
+    const start = target.selectionStart;
+    const end = target.selectionEnd;
+    target.setRangeText(" ", start, end, "end");
+    flushSync(() => updateSummary(target.value));
+    return true;
+  };
+
+  return (
+    <section className="hero-summary-editor">
+      <label className="studio-field">
+        <span>Hero Summary</span>
+        <textarea
+          value={text}
+          rows={6}
+          onKeyDown={(event) => {
+            handledEnterRef.current = insertSpaceForEnter(event);
+          }}
+          onKeyUp={(event) => {
+            if (event.key !== "Enter") return;
+            if (!handledEnterRef.current) insertSpaceForEnter(event);
+            handledEnterRef.current = false;
+          }}
+          onChange={(event) => updateSummary(event.target.value)}
+        />
+      </label>
+      <p className="studio-help">Press Shift+Enter to create a new paragraph. Regular Enter will be converted into spaces.</p>
+      <SwitchField
+        label="Preserve Paragraph Breaks"
+        checked={preserveParagraphs}
+        onChange={(checked) => {
+          onModeChange(checked, heroSummaryToParagraphs(text, checked));
+        }}
+      />
+      <div className="hero-summary-preview" aria-label="Rendered hero summary preview">
+        {heroSummaryToParagraphs(text, preserveParagraphs).map((paragraph) => (
+          <p key={paragraph}>{paragraph}</p>
+        ))}
+      </div>
+    </section>
+  );
 }
 
 function SwitchField({ label, checked, onChange }: { label: string; checked: boolean; onChange: (checked: boolean) => void }) {
@@ -458,6 +579,35 @@ function ExperienceEditor({ value, onChange }: { value: JsonValue; onChange: (va
         </div>
       )}
     />
+  );
+}
+
+function HeroEditor({ value, onChange }: { value: JsonValue; onChange: (value: JsonValue) => void }) {
+  const data = value as unknown as HeroContent;
+  const profile = data.profile;
+  const updateProfile = (next: Partial<HeroContent["profile"]>) => onChange({ ...data, profile: { ...profile, ...next } } as unknown as JsonValue);
+  const preserveParagraphs = Boolean(profile.preserveSummaryParagraphs);
+
+  return (
+    <div className="studio-grid hero-editor-grid">
+      <Field label="Name" value={profile.name} onChange={(name) => updateProfile({ name })} />
+      <Field label="Headline" value={profile.headline} onChange={(headline) => updateProfile({ headline })} />
+      <Field label="Short Headline" value={profile.shortHeadline} onChange={(shortHeadline) => updateProfile({ shortHeadline })} />
+      <Field label="Location" value={profile.location} onChange={(location) => updateProfile({ location })} />
+      <CsvField label="Target Roles" value={profile.targetRoles} onChange={(targetRoles) => updateProfile({ targetRoles })} />
+      <Field label="Legacy Summary" value={profile.summary} onChange={(summary) => updateProfile({ summary: normalizeHeroText(summary) })} multiline />
+      <HeroSummaryField
+        value={profile.executiveSummary}
+        preserveParagraphs={preserveParagraphs}
+        onChange={(executiveSummary) => updateProfile({ executiveSummary })}
+        onModeChange={(preserveSummaryParagraphs, executiveSummary) => updateProfile({ preserveSummaryParagraphs, executiveSummary })}
+      />
+      <CsvField label="Highlights" value={profile.highlights} onChange={(highlights) => updateProfile({ highlights })} />
+      <Field label="SEO Title" value={profile.seo.title} onChange={(title) => updateProfile({ seo: { ...profile.seo, title } })} />
+      <Field label="SEO Description" value={profile.seo.description} onChange={(description) => updateProfile({ seo: { ...profile.seo, description } })} multiline />
+      <Field label="Canonical URL" value={profile.seo.canonical} onChange={(canonical) => updateProfile({ seo: { ...profile.seo, canonical } })} />
+      <Field label="Profile Photo Path" value={data.profilePhoto} onChange={(profilePhoto) => onChange({ ...data, profilePhoto } as unknown as JsonValue)} />
+    </div>
   );
 }
 
@@ -742,8 +892,10 @@ export function AdminDashboard() {
 
   const saveSelected = () => {
     if (!selectedKey) return;
-    saveContent(selectedKey, drafts[selectedKey]);
-    setSavedDrafts((current) => ({ ...current, [selectedKey]: clone(drafts[selectedKey]) }));
+    const normalized = normalizeDrafts(drafts);
+    saveContent(selectedKey, normalized[selectedKey]);
+    setDrafts(normalized);
+    setSavedDrafts((current) => ({ ...current, [selectedKey]: clone(normalized[selectedKey]) }));
     const timestamp = new Date().toLocaleString();
     localStorage.setItem(modifiedKey, timestamp);
     setLastModified(timestamp);
@@ -751,8 +903,10 @@ export function AdminDashboard() {
   };
 
   const saveAll = () => {
-    saveDraftsToLocalStorage(drafts);
-    setSavedDrafts(clone(drafts));
+    const normalized = normalizeDrafts(drafts);
+    saveDraftsToLocalStorage(normalized);
+    setDrafts(normalized);
+    setSavedDrafts(clone(normalized));
     const timestamp = new Date().toLocaleString();
     setLastModified(timestamp);
     setMessage("All sections saved locally.");
@@ -769,8 +923,10 @@ export function AdminDashboard() {
   };
 
   const openPreview = () => {
-    saveDraftsToLocalStorage(drafts);
-    setSavedDrafts(clone(drafts));
+    const normalized = normalizeDrafts(drafts);
+    saveDraftsToLocalStorage(normalized);
+    setDrafts(normalized);
+    setSavedDrafts(clone(normalized));
     setPreviewOpen(true);
   };
 
@@ -786,7 +942,9 @@ export function AdminDashboard() {
       setPublishStatus("publishing");
       setPublishMessage("Saving JSON content to the source branch...");
       sessionStorage.setItem(tokenKey, token);
-      saveDraftsToLocalStorage(drafts);
+      const normalized = normalizeDrafts(drafts);
+      setDrafts(normalized);
+      saveDraftsToLocalStorage(normalized);
 
       const ref = await githubRequest<{ object: { sha: string } }>(token, `/git/ref/heads/${sourceBranch}`);
       const commit = await githubRequest<{ tree: { sha: string } }>(token, `/git/commits/${ref.object.sha}`);
@@ -796,7 +954,7 @@ export function AdminDashboard() {
           const blob = await githubRequest<{ sha: string }>(token, "/git/blobs", {
             method: "POST",
             body: JSON.stringify({
-              content: encodeBase64(JSON.stringify(drafts[section.key], null, 2) + "\n"),
+              content: encodeBase64(JSON.stringify(normalized[section.key], null, 2) + "\n"),
               encoding: "base64"
             })
           });
@@ -844,7 +1002,7 @@ export function AdminDashboard() {
         })
       });
 
-      setSavedDrafts(clone(drafts));
+      setSavedDrafts(clone(normalized));
       const timestamp = new Date().toLocaleString();
       localStorage.setItem(modifiedKey, timestamp);
       setLastModified(timestamp);
@@ -886,6 +1044,7 @@ export function AdminDashboard() {
       );
     }
     if (!selectedKey) return null;
+    if (selected === "hero") return <HeroEditor value={drafts.hero} onChange={(value) => updateSection("hero", normalizeHeroContent(value))} />;
     if (selected === "experience") return <ExperienceEditor value={drafts.experience} onChange={(value) => updateSection("experience", value)} />;
     if (selected === "projects") return <ProjectsEditor value={drafts.projects} onChange={(value) => updateSection("projects", value)} />;
     if (selected === "personalProjects") return <ProductsEditor value={drafts.personalProjects} onChange={(value) => updateSection("personalProjects", value)} />;
