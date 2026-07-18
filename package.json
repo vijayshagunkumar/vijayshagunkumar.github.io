@@ -7,9 +7,11 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:staging": "tsc -b && vite build --base=/staging/ && node scripts/prepare-pages.mjs",
     "postbuild": "node scripts/prepare-pages.mjs",
     "preview": "vite preview",
-    "deploy": "npm run build && gh-pages -d dist -b main --dotfiles"
+    "deploy": "npm run build && gh-pages -d dist -b main --dotfiles",
+    "deploy:staging": "npm run build:staging && gh-pages -d dist -b main --dest staging --dotfiles"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

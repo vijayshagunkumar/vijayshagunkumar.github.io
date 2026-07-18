@@ -21,7 +21,7 @@ const storedTheme = () => (localStorage.getItem("portfolio-theme") as ThemeName 
 export default function App() {
   const [theme, setTheme] = useState<ThemeName>(storedTheme);
   const [showTop, setShowTop] = useState(false);
-  const isAdmin = window.location.pathname.replace(/\/$/, "") === "/admin";
+  const isAdmin = window.location.pathname.replace(/\/$/, "").endsWith("/admin");
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;

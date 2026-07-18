@@ -1,5 +1,6 @@
 import { Download, Github, Linkedin, Rocket } from "lucide-react";
 import { impactMetrics, profile, profilePhoto } from "../data/profile";
+import { sectionHref } from "../utils/routes";
 
 export function Hero() {
   return (
@@ -24,10 +25,10 @@ export function Hero() {
             <a className="btn light" href={profile.links.resume} target="_blank" rel="noreferrer">
               <Download size={17} /> Download Resume
             </a>
-            <a className="btn primary" href="/#experience">
+            <a className="btn primary" href={sectionHref("experience")}>
               View Experience
             </a>
-            <a className="btn ghost" href="/#products-built">
+            <a className="btn ghost" href={sectionHref("products-built")}>
               <Rocket size={17} /> Products I've Built
             </a>
             <a className="icon-link" href={profile.links.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">

@@ -53,6 +53,7 @@ import {
   normalizeTextForField,
   TextFieldType
 } from "../utils/textFormatting";
+import { appPath } from "../utils/routes";
 
 type JsonValue = string | number | boolean | null | JsonValue[] | { [key: string]: JsonValue };
 type DraftMap = Record<ContentKey, JsonValue>;
@@ -169,19 +170,19 @@ const initialPublishSteps: PublishStep[] = [
     id: "content",
     label: "Step 1: Update content files on source branch",
     status: "pending",
-    detail: "Waiting to publish JSON content."
+    detail: "Waiting to publish JSON content for staging."
   },
   {
     id: "trigger",
-    label: "Step 2: Trigger GitHub Actions workflow",
+    label: "Step 2: Trigger staging workflow",
     status: "pending",
     detail: "The workflow is triggered automatically by the push to source."
   },
   {
     id: "status",
-    label: "Step 3: Check deployment status",
+    label: "Step 3: Review staging URL",
     status: "pending",
-    detail: "Check the GitHub Actions run after content is published."
+    detail: "Review https://vijayshagunkumar.github.io/staging/ before production."
   }
 ];
 
@@ -1051,7 +1052,7 @@ function PreviewPanel({ size, onSize }: { size: PreviewSize; onSize: (size: Prev
         })}
       </div>
       <div className="preview-frame-wrap">
-        <iframe title={`${size} portfolio preview`} src="/" style={{ width: dimensions[size].width, height: dimensions[size].height }} />
+        <iframe title={`${size} portfolio preview`} src={appPath("/?studioPreview=1")} style={{ width: dimensions[size].width, height: dimensions[size].height }} />
       </div>
     </section>
   );
@@ -1204,7 +1205,7 @@ export function AdminDashboard() {
     return `${scope} failed.\n${error instanceof Error ? error.message : "Unknown error."}`;
   };
 
-  const publishToProduction = async () => {
+  const publishToStaging = async () => {
     const token = githubToken.trim();
     if (!token) {
       setPublishStatus("error");
@@ -1217,7 +1218,7 @@ export function AdminDashboard() {
 
     try {
       setPublishStatus("publishing");
-      setPublishMessage("Publishing content changes to GitHub...");
+      setPublishMessage("Publishing content changes to staging...");
       setPublishSteps(clone(initialPublishSteps));
       updatePublishStep("content", "running", "Checking JSON files on the source branch.");
       sessionStorage.setItem(tokenKey, token);
@@ -1253,13 +1254,13 @@ export function AdminDashboard() {
         "trigger",
         updatedFiles ? "success" : "warning",
         updatedFiles
-          ? "Deployment should start automatically because the workflow now runs on pushes to source."
-          : "No push was created because content was unchanged, so no new deployment run was triggered."
+          ? "Staging deployment should start automatically because the workflow runs on pushes to source."
+          : "No push was created because content was unchanged, so no new staging run was triggered."
       );
       updatePublishStep(
         "status",
         "warning",
-        "Deployment status is not checked from the browser. Open GitHub Actions to confirm the latest run."
+        "Open GitHub Actions to confirm the latest staging run, then review https://vijayshagunkumar.github.io/staging/."
       );
 
       setSavedDrafts(clone(normalized));
@@ -1269,14 +1270,14 @@ export function AdminDashboard() {
       setPublishStatus("success");
       setPublishMessage(
         updatedFiles
-          ? "Content published to source. Deployment should start automatically."
-          : "No JSON file changes were needed. Existing production content is already up to date."
+          ? "Content published to source. Staging deployment should start automatically."
+          : "No JSON file changes were needed. Existing staging content is already up to date."
       );
     } catch (error) {
       if (contentUpdated) {
         setPublishStatus("success");
         updatePublishStep("content", "success", "Some content files were saved to GitHub before a later step failed.");
-        updatePublishStep("trigger", "warning", "At least one source commit was created, so GitHub Actions may still start automatically.");
+        updatePublishStep("trigger", "warning", "At least one source commit was created, so GitHub Actions may still publish staging automatically.");
         updatePublishStep("status", "warning", formatApiFailure("Contents update", error));
         setPublishMessage("Some content was saved to GitHub, but another content file could not be updated. Check the step details before publishing again.");
         return;
@@ -1376,7 +1377,7 @@ export function AdminDashboard() {
               <Eye size={16} /> Preview Portfolio
             </button>
             <button type="button" className="publish-button" onClick={() => setPublishOpen(true)}>
-              <Rocket size={16} /> Publish
+              <Rocket size={16} /> Publish Staging
             </button>
             <button type="button" className="danger" onClick={resetChanges}>
               <RotateCcw size={16} /> Reset Changes
@@ -1384,7 +1385,7 @@ export function AdminDashboard() {
           </div>
         </header>
 
-        <p className="admin-notice">Changes are saved locally in your browser. Use Publish when you are ready to commit JSON changes and deploy production.</p>
+        <p className="admin-notice">Changes are saved locally in your browser. Publish to staging first, review, then deploy production only after approval.</p>
         {selected === "media" ? <p className="admin-help">Upload previews are stored locally only. Replace files in `public` before deployment.</p> : null}
         {message ? <p className="admin-message">{message}</p> : null}
 
@@ -1401,17 +1402,18 @@ export function AdminDashboard() {
         ) : null}
 
         {publishOpen ? (
-          <div className="publish-modal" role="dialog" aria-modal="true" aria-label="Publish portfolio">
+          <div className="publish-modal" role="dialog" aria-modal="true" aria-label="Publish staging portfolio">
             <section>
               <div className="publish-head">
                 <div>
-                  <p>Production publish</p>
-                  <h3>Publish Portfolio</h3>
+                  <p>Staging publish</p>
+                  <h3>Publish Portfolio to Staging</h3>
                 </div>
                 <button type="button" onClick={() => setPublishOpen(false)}>Close</button>
               </div>
               <p className="admin-notice">
-                Publish updates changed JSON files on the `source` branch with the GitHub Contents API, then starts GitHub Actions to build and deploy production.
+                Publish updates changed JSON files on the `source` branch with the GitHub Contents API, then GitHub Actions builds the staging preview.
+                Production is not changed until the staging URL is approved.
                 Your token stays in this browser session. Do not paste it into chat.
               </p>
               <div className="publish-grid">
@@ -1454,9 +1456,12 @@ export function AdminDashboard() {
               </div>
               {publishMessage ? <p className={`publish-message ${publishStatus}`}>{publishMessage}</p> : null}
               <div className="publish-actions">
-                <button type="button" disabled={publishStatus === "publishing"} onClick={publishToProduction}>
-                  <Rocket size={16} /> {publishStatus === "publishing" ? "Publishing..." : "Publish to Production"}
+                <button type="button" disabled={publishStatus === "publishing"} onClick={publishToStaging}>
+                  <Rocket size={16} /> {publishStatus === "publishing" ? "Publishing..." : "Publish to Staging"}
                 </button>
+                <a href="https://vijayshagunkumar.github.io/staging/" target="_blank" rel="noreferrer">
+                  Open Staging
+                </a>
                 <a href={`https://github.com/${repoOwner}/${repoName}/actions`} target="_blank" rel="noreferrer">
                   View Actions
                 </a>

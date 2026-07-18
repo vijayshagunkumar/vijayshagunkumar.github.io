@@ -1,6 +1,7 @@
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { ThemeName, profile } from "../data/profile";
+import { sectionHref } from "../utils/routes";
 import { ThemeToggle } from "./ThemeToggle";
 
 type Props = {
@@ -22,7 +23,7 @@ export function Navbar({ sections, theme, onThemeChange }: Props) {
 
   return (
     <header className={`nav ${scrolled ? "scrolled" : ""}`}>
-      <a className="nav-brand" href="/#hero" aria-label="Go to top">
+      <a className="nav-brand" href={sectionHref("hero")} aria-label="Go to top">
         Vijay Kumar<span>.</span>
       </a>
       <button className="mobile-menu" onClick={() => setOpen((current) => !current)} aria-label="Toggle navigation">
@@ -30,7 +31,7 @@ export function Navbar({ sections, theme, onThemeChange }: Props) {
       </button>
       <nav className={open ? "open" : ""} aria-label="Main navigation">
         {sections.map((section) => (
-          <a key={section} href={`/#${section}`} onClick={() => setOpen(false)}>
+          <a key={section} href={sectionHref(section)} onClick={() => setOpen(false)}>
             {section === "products-built"
               ? "Products I've Built"
               : section[0].toUpperCase() + section.slice(1)}

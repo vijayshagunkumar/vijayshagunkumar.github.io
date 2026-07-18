@@ -44,8 +44,16 @@ const storagePrefix = "portfolio-content:";
 
 export const contentStorageKey = (key: ContentKey) => `${storagePrefix}${key}`;
 
+function shouldUseLocalContent() {
+  if (typeof window === "undefined") return false;
+  const path = window.location.pathname.replace(/\/$/, "");
+  const params = new URLSearchParams(window.location.search);
+  return path.endsWith("/admin") || params.get("studioPreview") === "1";
+}
+
 export function getContent<K extends ContentKey>(key: K): (typeof contentDefaults)[K] {
   if (typeof window === "undefined") return contentDefaults[key];
+  if (!shouldUseLocalContent()) return contentDefaults[key];
 
   const stored = window.localStorage.getItem(contentStorageKey(key));
   if (!stored) return contentDefaults[key];
