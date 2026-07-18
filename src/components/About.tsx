@@ -81,7 +81,7 @@ export function About() {
             <BriefcaseBusiness size={22} />
             <div>
               <span>Career Journey</span>
-              <h3>Enterprise Product Evolution</h3>
+              <h3>20+ Years of Product & Platform Leadership</h3>
             </div>
           </div>
           <div className="journey-lane" aria-label="Career journey timeline">
