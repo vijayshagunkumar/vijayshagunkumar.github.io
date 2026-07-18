@@ -119,6 +119,7 @@ type PersonalProjectItem = {
   whyItMatters?: string;
   highlights: string[];
   techHighlights: string[];
+  techStack?: string[];
   status: string;
   liveUrl?: string;
   githubUrl?: string;
@@ -953,6 +954,7 @@ function ProductsEditor({ value, onChange }: { value: JsonValue; onChange: (valu
             <Field label="Thumbnail URL" value={item.thumbnail ?? ""} onChange={(thumbnail) => update({ ...item, thumbnail })} />
             <CsvField label="Highlights" value={item.highlights} onChange={(highlights) => update({ ...item, highlights })} />
             <CsvField label="Tech Highlights" value={item.techHighlights} onChange={(techHighlights) => update({ ...item, techHighlights })} />
+            <CsvField label="Tech Stack" value={item.techStack ?? []} onChange={(techStack) => update({ ...item, techStack })} />
           </div>
         </div>
       )}

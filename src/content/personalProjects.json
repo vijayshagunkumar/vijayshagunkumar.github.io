@@ -6,6 +6,8 @@
       "valueProposition": "Internal AI knowledge assistant for enterprise tax operations and support teams.",
       "problemSolved": "Reduced time spent searching documentation, support contacts, migration procedures, IDT integration guidance, and exemption knowledge across CERTifyTax operations.",
       "targetUsers": "Dell tax operations, support, migration, integration, and internal product users.",
+      "solution": "AI-powered internal copilot using RAG, structured knowledge, intent classification, routing, and support ownership discovery.",
+      "whyItMatters": "Enabled conversational access to tax, support, integration, migration, and operational knowledge for enterprise users.",
       "highlights": [
         "Led product vision, requirements, roadmap, validation governance, UAT, and beta rollout",
         "Improved automated validation accuracy from 47% to 88%",
@@ -26,6 +28,8 @@
       "valueProposition": "AI-assisted learning companion for structured, conversational tutoring.",
       "problemSolved": "Helps learners move from scattered questions to guided explanations and practice-oriented learning.",
       "targetUsers": "Students, self-learners, and professionals building conceptual clarity.",
+      "solution": "Conversational tutoring workflow with guided explanations and practice-oriented AI assistance.",
+      "whyItMatters": "Helps learners move from isolated questions to clearer, structured understanding.",
       "highlights": [
         "Conversational tutoring flow",
         "Guided explanations",
@@ -45,6 +49,8 @@
       "valueProposition": "Fast comparison utility for identifying differences across Excel files.",
       "problemSolved": "Reduces manual review effort when users need to compare spreadsheets and spot row or value changes.",
       "targetUsers": "Analysts, finance teams, operations users, and QA reviewers.",
+      "solution": "File comparison workflow that highlights differences and makes spreadsheet review faster.",
+      "whyItMatters": "Reduces manual reconciliation effort and improves review confidence for business users.",
       "highlights": [
         "Spreadsheet comparison workflow",
         "Difference-focused output",
@@ -64,6 +70,8 @@
       "valueProposition": "AI-powered career analysis tool for resume and role-fit insights.",
       "problemSolved": "Helps candidates translate career history into clearer positioning for target opportunities.",
       "targetUsers": "Job seekers, career switchers, and professionals preparing for senior roles.",
+      "solution": "AI-guided career analysis flow that converts resume inputs into positioning and role-fit insights.",
+      "whyItMatters": "Helps professionals frame experience more clearly for target roles and recruiter review.",
       "highlights": [
         "Career analysis workflow",
         "Role-fit guidance",
@@ -79,10 +87,12 @@
     },
     {
       "id": "promptcraft",
-      "name": "PromptCraft - AI Prompt Studio",
+      "name": "PromptCraft Studio",
       "valueProposition": "Prompt optimization studio that turns rough ideas into high-quality AI prompts.",
       "problemSolved": "Reduces cognitive load and improves instruction clarity for users working with generative AI.",
       "targetUsers": "Professionals, creators, analysts, and AI productivity users.",
+      "solution": "Multi-layer prompt-generation platform with a web UI, Cloudflare Worker gateway, and Java Spring Boot scoring engine.",
+      "whyItMatters": "Bridges human intent and effective AI communication through structured prompts, scoring, and tool guidance.",
       "highlights": [
         "Prompt refinement workflow",
         "Guided UX patterns",
@@ -94,7 +104,24 @@
         "Workflow design"
       ],
       "status": "Live product",
-      "liveUrl": "https://prompt-crafter-pro.pages.dev/"
+      "liveUrl": "https://prompt-crafter-pro.pages.dev/",
+      "githubUrl": "https://github.com/vijayshagunkumar/Prompt-Craft-Studio",
+      "techStack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Cloudflare Pages",
+        "Cloudflare Worker",
+        "Wrangler CLI",
+        "Java Spring Boot",
+        "JDK 17+",
+        "Maven Wrapper",
+        "Railway",
+        "REST APIs",
+        "PostgreSQL",
+        "H2",
+        "Swagger/OpenAPI"
+      ]
     },
     {
       "id": "saarthi-yoga",
@@ -102,6 +129,8 @@
       "valueProposition": "Content-led wellness experience with structured discovery of yoga practices.",
       "problemSolved": "Makes yoga content easier to navigate, understand, and maintain through clean information architecture.",
       "targetUsers": "Wellness learners, yoga practitioners, and content-led community users.",
+      "solution": "Structured content and navigation experience for discovering yoga practices and wellness material.",
+      "whyItMatters": "Makes wellness content easier to maintain, scan, and explore for learners.",
       "highlights": [
         "Scalable content structure",
         "Accessible navigation",
