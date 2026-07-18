@@ -180,6 +180,26 @@
   margin: 0;
 }
 
+.executive-summary p,
+.section-header > p:not(.eyebrow),
+.prose p,
+.mini-card p,
+.domain-card p,
+.compact-card p,
+.journey-row p,
+.experience-card p,
+.project-card p,
+.case-study p,
+.modal-body p,
+.personal-value,
+.personal-meta dd,
+.demo-note {
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
 .target-roles,
 .tag-row {
   display: flex;
@@ -1377,6 +1397,24 @@
 
   .hero-copy {
     text-align: left;
+  }
+
+  .executive-summary p,
+  .section-header > p:not(.eyebrow),
+  .prose p,
+  .mini-card p,
+  .domain-card p,
+  .compact-card p,
+  .journey-row p,
+  .experience-card p,
+  .project-card p,
+  .case-study p,
+  .modal-body p,
+  .personal-value,
+  .personal-meta dd,
+  .demo-note {
+    text-align: left;
+    hyphens: manual;
   }
 
   .hero-stats,
