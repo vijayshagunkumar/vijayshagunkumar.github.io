@@ -119,9 +119,10 @@ type PersonalProjectItem = {
   highlights: string[];
   techHighlights: string[];
   status: string;
-  liveUrl: string;
+  liveUrl?: string;
   githubUrl?: string;
   thumbnail?: string;
+  availability?: string;
 };
 
 type CertificationItem = {
@@ -945,8 +946,9 @@ function ProductsEditor({ value, onChange }: { value: JsonValue; onChange: (valu
             <Field label="Solution" value={item.solution ?? ""} onChange={(solution) => update({ ...item, solution })} multiline />
             <Field label="Why It Matters" value={item.whyItMatters ?? ""} onChange={(whyItMatters) => update({ ...item, whyItMatters })} multiline />
             <Field label="Target Users" value={item.targetUsers} onChange={(targetUsers) => update({ ...item, targetUsers })} />
-            <Field label="Live Demo" value={item.liveUrl} onChange={(liveUrl) => update({ ...item, liveUrl })} />
+            <Field label="Live Demo" value={item.liveUrl ?? ""} onChange={(liveUrl) => update({ ...item, liveUrl })} />
             <Field label="GitHub" value={item.githubUrl ?? ""} onChange={(githubUrl) => update({ ...item, githubUrl })} />
+            <Field label="Availability" value={item.availability ?? ""} onChange={(availability) => update({ ...item, availability })} />
             <Field label="Thumbnail URL" value={item.thumbnail ?? ""} onChange={(thumbnail) => update({ ...item, thumbnail })} />
             <CsvField label="Highlights" value={item.highlights} onChange={(highlights) => update({ ...item, highlights })} />
             <CsvField label="Tech Highlights" value={item.techHighlights} onChange={(techHighlights) => update({ ...item, techHighlights })} />

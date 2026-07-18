@@ -10,8 +10,9 @@ export type PersonalProject = {
   highlights: string[];
   techHighlights: string[];
   status: string;
-  liveUrl: string;
+  liveUrl?: string;
   githubUrl?: string;
+  availability?: string;
 };
 
 export const personalProjects = (getContent("personalProjects").personalProjects as PersonalProject[]).map((project) => ({
@@ -22,5 +23,6 @@ export const personalProjects = (getContent("personalProjects").personalProjects
   targetUsers: normalizePlainText(project.targetUsers),
   highlights: normalizeBulletList(project.highlights),
   techHighlights: normalizeBulletList(project.techHighlights),
-  status: normalizePlainText(project.status)
+  status: normalizePlainText(project.status),
+  availability: project.availability ? normalizePlainText(project.availability) : undefined
 }));

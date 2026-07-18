@@ -9,14 +9,14 @@ export function PersonalInitiatives() {
         <SectionHeader
           eyebrow="Independent Product Builds"
           title="Products I've Built"
-          subtitle="Self-built product initiatives that demonstrate AI product thinking, practical workflow design, and fast experimentation."
+          subtitle="AI products, internal enterprise tools, and independent builds that demonstrate product thinking, workflow design, and measurable adoption."
         />
         <div className="personal-grid">
           {personalProjects.map((project) => (
             <article className="personal-card" key={project.id}>
               <div className="project-topline">
                 <span>{project.status}</span>
-                <strong>Self-built</strong>
+                <strong>{project.availability ?? "Self-built"}</strong>
               </div>
               <h3>{project.name}</h3>
               <p className="personal-value">{project.valueProposition}</p>
@@ -41,9 +41,13 @@ export function PersonalInitiatives() {
                 ))}
               </div>
               <div className="project-actions">
-                <a className="btn primary" href={project.liveUrl} target="_blank" rel="noreferrer">
-                  <ExternalLink size={16} /> Live Demo
-                </a>
+                {project.liveUrl ? (
+                  <a className="btn primary" href={project.liveUrl} target="_blank" rel="noreferrer">
+                    <ExternalLink size={16} /> Live Demo
+                  </a>
+                ) : (
+                  <span className="btn light disabled-link">Internal Tool</span>
+                )}
                 {project.githubUrl ? (
                   <a className="btn light" href={project.githubUrl} target="_blank" rel="noreferrer">
                     <Github size={16} /> GitHub

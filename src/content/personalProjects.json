@@ -1,6 +1,26 @@
 {
   "personalProjects": [
     {
+      "id": "certifytax-copilot",
+      "name": "CERTifyTax Copilot",
+      "valueProposition": "Internal AI knowledge assistant for enterprise tax operations and support teams.",
+      "problemSolved": "Reduced time spent searching documentation, support contacts, migration procedures, IDT integration guidance, and exemption knowledge across CERTifyTax operations.",
+      "targetUsers": "Dell tax operations, support, migration, integration, and internal product users.",
+      "highlights": [
+        "Led product vision, requirements, roadmap, validation governance, UAT, and beta rollout",
+        "Improved automated validation accuracy from 47% to 88%",
+        "Expanded RAG knowledge coverage across hundreds of enterprise support and process topics"
+      ],
+      "techHighlights": [
+        "RAG knowledge assistant",
+        "Intent classification",
+        "Intelligent routing",
+        "Support ownership discovery"
+      ],
+      "status": "Internal POC/Beta",
+      "availability": "Dell internal tool"
+    },
+    {
       "id": "shagun-ai-tutor",
       "name": "Shagun AI Tutor",
       "valueProposition": "AI-assisted learning companion for structured, conversational tutoring.",
