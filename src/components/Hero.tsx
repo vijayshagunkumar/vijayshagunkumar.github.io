@@ -31,10 +31,24 @@ export function Hero() {
             <a className="btn ghost" href={sectionHref("products-built")}>
               <Rocket size={17} /> Products I've Built
             </a>
-            <a className="icon-link" href={profile.links.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <a
+              className="icon-link linkedin-link"
+              href={profile.links.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+            >
               <Linkedin size={19} />
             </a>
-            <a className="icon-link" href={profile.links.github} target="_blank" rel="noreferrer" aria-label="GitHub">
+            <a
+              className="icon-link github-link"
+              href={profile.links.github}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+              title="GitHub"
+            >
               <Github size={19} />
             </a>
           </div>
