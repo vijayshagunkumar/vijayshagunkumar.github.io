@@ -1,4 +1,4 @@
-import { CheckCircle2, Globe2, Layers3, Sparkles } from "lucide-react";
+import { ArrowDown, BriefcaseBusiness, CheckCircle2, Globe2, Layers3, Sparkles } from "lucide-react";
 import { journey, profile, scopeOfInfluence } from "../data/profile";
 import { SectionHeader } from "./SectionHeader";
 
@@ -9,6 +9,8 @@ const cards = [
 ];
 
 export function About() {
+  const descendingJourney = [...journey].reverse();
+
   return (
     <section id="about" className="section">
       <div className="wrap two-column">
@@ -28,6 +30,30 @@ export function About() {
           </ul>
         </div>
         <div className="stack">
+          <div className="timeline-card journey-card">
+            <div className="journey-card-head">
+              <BriefcaseBusiness size={22} />
+              <div>
+                <span>Career Journey</span>
+                <h3>Enterprise Product Evolution</h3>
+              </div>
+            </div>
+            <div className="journey-flow">
+              {descendingJourney.map((item, index) => (
+                <div className="journey-step" key={item.period}>
+                  <div className="journey-marker">
+                    <span>{descendingJourney.length - index}</span>
+                    {index < descendingJourney.length - 1 ? <ArrowDown size={14} /> : null}
+                  </div>
+                  <div>
+                    <span>{item.period}</span>
+                    <strong>{item.company}</strong>
+                    <p>{item.role}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
           {cards.map((card) => (
             <article className="mini-card" key={card.title}>
               <card.icon size={22} />
@@ -44,16 +70,6 @@ export function About() {
               ))}
             </ul>
           </article>
-          <div className="timeline-card">
-            <h3>Career Journey</h3>
-            {journey.map((item) => (
-              <div className="journey-row" key={item.period}>
-                <span>{item.period}</span>
-                <strong>{item.company}</strong>
-                <p>{item.role}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>

@@ -598,6 +598,8 @@
 }
 
 .journey-row span,
+.journey-card-head span,
+.journey-step span,
 .experience-meta,
 .project-topline,
 .compact-card span {
@@ -617,6 +619,101 @@
   margin: 3px 0 0;
   color: var(--muted);
   font-size: 1rem;
+}
+
+.journey-card {
+  position: relative;
+  overflow: hidden;
+  padding: 18px;
+  border-top: 3px solid var(--accent);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent) 7%, var(--surface)) 0%, var(--surface) 46%),
+    var(--surface);
+}
+
+.journey-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2), transparent);
+}
+
+.journey-card-head {
+  display: flex;
+  gap: 11px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.journey-card-head svg {
+  flex: 0 0 auto;
+  color: var(--accent-2);
+}
+
+.journey-card-head h3 {
+  margin: 3px 0 0;
+  color: var(--heading);
+  font-size: 1.02rem;
+  line-height: 1.16;
+  font-weight: 600;
+}
+
+.journey-flow {
+  display: grid;
+  gap: 0;
+}
+
+.journey-step {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 11px;
+  padding: 0 0 12px;
+}
+
+.journey-step:last-child {
+  padding-bottom: 0;
+}
+
+.journey-marker {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 5px;
+}
+
+.journey-marker span {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--border));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 9%, var(--surface));
+  color: var(--accent);
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.journey-marker svg {
+  color: color-mix(in srgb, var(--accent) 62%, var(--border));
+}
+
+.journey-step strong {
+  display: block;
+  margin-top: 2px;
+  color: var(--heading);
+  font-size: 0.94rem;
+  line-height: 1.22;
+  font-weight: 600;
+}
+
+.journey-step p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.42;
+  text-align: left;
 }
 
 .impact-section,
