@@ -180,7 +180,8 @@
 }
 
 .target-roles span,
-.tag-row span {
+.tag-row span,
+.tag-row button {
   padding: 5px 9px;
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -188,6 +189,11 @@
   color: var(--muted);
   font-size: 0.74rem;
   font-weight: 700;
+}
+
+.tag-row button {
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .hero .target-roles span {
@@ -846,6 +852,11 @@
 .more-tag {
   border-color: color-mix(in srgb, var(--accent-2) 45%, var(--border)) !important;
   color: var(--accent-2) !important;
+}
+
+.more-tag:hover {
+  border-color: var(--accent-2) !important;
+  background: color-mix(in srgb, var(--accent-2) 10%, var(--surface-strong)) !important;
 }
 
 .domain-grid {

@@ -1,4 +1,5 @@
 import { BarChart3, Boxes, BrainCircuit, BriefcaseBusiness, CloudCog, Film, Globe2, Landmark, LineChart, LucideIcon, ShoppingBag, Sparkles, Wrench } from "lucide-react";
+import { useState } from "react";
 import { domains, skillGroups } from "../data/skills";
 import { SectionHeader } from "./SectionHeader";
 
@@ -19,14 +20,19 @@ const domainIcons: Record<string, LucideIcon> = {
 };
 
 function VisibleTags({ items }: { items: string[] }) {
-  const visible = items.slice(0, 4);
+  const [expanded, setExpanded] = useState(false);
+  const visible = expanded ? items : items.slice(0, 4);
   const more = items.length - visible.length;
   return (
     <div className="tag-row">
       {visible.map((item) => (
         <span key={item}>{item}</span>
       ))}
-      {more > 0 ? <span className="more-tag">+{more} more</span> : null}
+      {items.length > 4 ? (
+        <button className="more-tag" type="button" onClick={() => setExpanded((current) => !current)} aria-expanded={expanded}>
+          {expanded ? "Show less" : `+${more} more`}
+        </button>
+      ) : null}
     </div>
   );
 }
