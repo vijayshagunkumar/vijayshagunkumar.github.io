@@ -611,12 +611,32 @@
   hyphens: manual;
 }
 
+.mini-card p,
+.domain-card > p,
+.compact-card p,
+.personal-value,
+.personal-meta div {
+  padding: 10px 11px;
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  background: var(--surface-strong);
+}
+
 .scope-card ul {
   margin: 8px 0 0;
   padding-left: 18px;
   color: var(--muted);
   font-size: 0.92rem;
   line-height: 1.45;
+}
+
+.scope-card ul {
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  background: var(--surface-strong);
 }
 
 .scope-card li {
@@ -1005,6 +1025,13 @@
   hyphens: manual;
 }
 
+.experience-card > div > p:not(.experience-card-highlight) {
+  padding: 10px 11px;
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  background: var(--surface-strong);
+}
+
 .experience-card-highlight {
   position: relative;
   margin: 12px 0 9px;
@@ -1252,8 +1279,8 @@
 
 .personal-meta {
   display: grid;
-  gap: 6px;
-  margin: 0 0 10px;
+  gap: 10px;
+  margin: 0 0 12px;
 }
 
 .personal-meta dt {
