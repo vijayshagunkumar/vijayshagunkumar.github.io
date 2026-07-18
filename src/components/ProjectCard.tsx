@@ -1,4 +1,4 @@
-import { ExternalLink, Github, Layers3 } from "lucide-react";
+import { ExternalLink, Github, Layers3, Maximize2 } from "lucide-react";
 import type { KeyboardEvent } from "react";
 import { Project } from "../data/projects";
 
@@ -25,6 +25,9 @@ export function ProjectCard({ project, onViewDetails }: Props) {
       onClick={onViewDetails}
       onKeyDown={handleCardKeyDown}
     >
+      <span className="card-open-hint" aria-hidden="true">
+        <Maximize2 size={15} />
+      </span>
       <div className="project-topline">
         <span>{project.organization}</span>
         {project.featured ? <strong>Featured</strong> : null}

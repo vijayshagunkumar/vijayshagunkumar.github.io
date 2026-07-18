@@ -1,9 +1,19 @@
-import { ExternalLink, Github, X } from "lucide-react";
-import { useState } from "react";
+import { ExternalLink, Github, Maximize2, X } from "lucide-react";
+import { useEffect, useState } from "react";
 import { PersonalProject, personalProjects } from "../data/personalProjects";
 import { SectionHeader } from "./SectionHeader";
 
 function ProductModal({ project, onClose }: { project: PersonalProject | null; onClose: () => void }) {
+  useEffect(() => {
+    if (!project) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [project, onClose]);
+
   if (!project) return null;
   const techStack = project.techStack ?? [];
 
@@ -21,7 +31,7 @@ function ProductModal({ project, onClose }: { project: PersonalProject | null; o
             <p>{project.status} · {project.availability ?? "Self-built"}</p>
             <h3 id="product-modal-title">{project.name}</h3>
           </div>
-          <button className="modal-close" onClick={onClose} type="button" aria-label="Close product details">
+          <button className="modal-close" onClick={onClose} type="button" aria-label="Close product details" title="Close details (Esc)">
             <X size={20} />
           </button>
         </div>
@@ -121,6 +131,9 @@ export function PersonalInitiatives() {
                 }
               }}
             >
+              <span className="card-open-hint" aria-hidden="true">
+                <Maximize2 size={15} />
+              </span>
               <div className="project-topline">
                 <span>{project.status}</span>
                 <strong>{project.availability ?? "Self-built"}</strong>

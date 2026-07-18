@@ -1,19 +1,29 @@
-import { BriefcaseBusiness, X } from "lucide-react";
-import { KeyboardEvent, useState } from "react";
+import { BriefcaseBusiness, Maximize2, X } from "lucide-react";
+import { KeyboardEvent, useEffect, useState } from "react";
 import { experience } from "../data/experience";
 import { SectionHeader } from "./SectionHeader";
 
 type ExperienceItem = (typeof experience)[number];
 
 function ExperienceModal({ item, onClose }: { item: ExperienceItem | null; onClose: () => void }) {
+  useEffect(() => {
+    if (!item) return;
+    const handleKeyDown = (event: globalThis.KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [item, onClose]);
+
   if (!item) return null;
   const details = item.details;
   const detailCategories = details
     ? [
-        { label: "Leadership", items: details.scope.slice(0, 1) },
-        { label: "Product Management", items: details.responsibilities.slice(0, 2) },
-        { label: "Strategic Execution", items: details.responsibilities.slice(2, 4) },
-        { label: "Stakeholder & Operating Model", items: details.scope.slice(1) }
+        { label: "Product Leadership", items: [details.scope[0], details.responsibilities[0]].filter(Boolean) },
+        { label: "Customer Discovery & Problem Framing", items: [details.scope[1], details.responsibilities[1]].filter(Boolean) },
+        { label: "Strategy, Roadmap & Governance", items: details.responsibilities.slice(2, 4) },
+        { label: "Delivery & Stakeholder Operating Model", items: details.scope.slice(2) }
       ].filter((category) => category.items.length)
     : [];
 
@@ -31,7 +41,7 @@ function ExperienceModal({ item, onClose }: { item: ExperienceItem | null; onClo
             <p>{item.period} · {item.company}</p>
             <h3 id="experience-modal-title">{item.role}</h3>
           </div>
-          <button className="modal-close" onClick={onClose} type="button" aria-label="Close experience details">
+          <button className="modal-close" onClick={onClose} type="button" aria-label="Close experience details" title="Close details (Esc)">
             <X size={20} />
           </button>
         </div>
@@ -119,6 +129,9 @@ export function Experience() {
               onClick={() => setSelectedCompany(item.company)}
               onKeyDown={(event) => handleCardKeyDown(event, item.company)}
             >
+              <span className="card-open-hint" aria-hidden="true">
+                <Maximize2 size={15} />
+              </span>
               <div className="experience-icon">
                 <BriefcaseBusiness size={22} />
               </div>

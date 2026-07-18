@@ -1,4 +1,5 @@
 import { ExternalLink, Github, X } from "lucide-react";
+import { useEffect } from "react";
 import { Project } from "../data/projects";
 
 type Props = {
@@ -7,6 +8,16 @@ type Props = {
 };
 
 export function ProjectModal({ project, onClose }: Props) {
+  useEffect(() => {
+    if (!project) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [project, onClose]);
+
   if (!project) return null;
 
   return (
@@ -23,7 +34,7 @@ export function ProjectModal({ project, onClose }: Props) {
             <p>{project.organization}</p>
             <h3 id="project-modal-title">{project.title}</h3>
           </div>
-          <button className="modal-close" onClick={onClose} type="button" aria-label="Close project details">
+          <button className="modal-close" onClick={onClose} type="button" aria-label="Close project details" title="Close details (Esc)">
             <X size={20} />
           </button>
         </div>
