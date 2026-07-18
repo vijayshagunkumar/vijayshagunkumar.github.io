@@ -55,18 +55,18 @@ export function About() {
               <h3>Enterprise Product Evolution</h3>
             </div>
           </div>
-          <div className="journey-road" aria-label="Career journey timeline">
+          <div className="journey-lane" aria-label="Career journey timeline">
             {journey.map((item, index) => (
-              <div className="journey-milestone" key={item.period}>
-                <div className="journey-pin">
-                  <span>{item.period.split("-")[0]}</span>
+              <article className="journey-node" key={item.period}>
+                <div className="journey-year">{item.period}</div>
+                <div className="journey-dot" aria-hidden="true">
+                  <span>{index + 1}</span>
                 </div>
-                <div className="journey-milestone-card">
+                <div className="journey-node-card">
                   <strong>{item.company}</strong>
                   <p>{item.role}</p>
                 </div>
-                {index < journey.length - 1 ? <div className="journey-connector" aria-hidden="true" /> : null}
-              </div>
+              </article>
             ))}
           </div>
         </div>

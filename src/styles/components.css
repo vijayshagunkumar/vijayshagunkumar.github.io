@@ -718,113 +718,106 @@
 
 .journey-card-horizontal {
   margin-top: 20px;
-  padding: 20px 22px 22px;
+  padding: 22px 24px 24px;
 }
 
-.journey-road {
+.journey-lane {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(5, minmax(148px, 1fr));
-  gap: 0;
-  align-items: start;
-  padding-top: 14px;
-  overflow-x: visible;
+  grid-template-columns: repeat(5, minmax(150px, 1fr));
+  gap: 14px;
+  align-items: stretch;
+  padding-top: 18px;
 }
 
-.journey-road::before {
+.journey-lane::before {
   content: "";
   position: absolute;
-  top: 49px;
-  left: 7%;
-  right: 7%;
-  height: 3px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent-2) 78%, var(--accent)), var(--heading));
-  opacity: 0.86;
+  top: 53px;
+  left: 8%;
+  right: 8%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--heading), var(--accent), var(--accent-2));
+  opacity: 0.55;
 }
 
-.journey-milestone {
-  position: relative;
-  min-width: 0;
-  display: grid;
-  justify-items: center;
-  gap: 12px;
-  padding: 0 8px;
-}
-
-.journey-pin {
+.journey-node {
   position: relative;
   z-index: 1;
-  width: 70px;
-  height: 70px;
   display: grid;
-  place-items: center;
-  border: 2px solid color-mix(in srgb, var(--accent) 60%, var(--surface));
-  border-radius: 999px 999px 999px 12px;
-  background: var(--surface);
-  color: var(--heading);
-  box-shadow: 0 10px 24px rgba(16, 29, 46, 0.11);
-  transform: rotate(-45deg);
+  grid-template-rows: auto auto 1fr;
+  justify-items: center;
+  gap: 10px;
+  min-width: 0;
 }
 
-.journey-pin span {
+.journey-year {
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 9px;
+  border: 1px solid color-mix(in srgb, var(--accent) 20%, var(--border));
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--heading);
+  font-size: 0.72rem;
+  font-weight: 650;
+  white-space: nowrap;
+  box-shadow: 0 6px 14px rgba(16, 29, 46, 0.055);
+}
+
+.journey-dot {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--surface);
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 38%, var(--border)), 0 8px 18px rgba(16, 29, 46, 0.12);
+}
+
+.journey-dot span {
+  color: var(--accent-contrast);
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.journey-node:nth-child(2n) .journey-dot {
+  background: var(--accent-2);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent-2) 42%, var(--border)), 0 8px 18px rgba(16, 29, 46, 0.12);
+}
+
+.journey-node-card {
+  width: 100%;
+  min-height: 128px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-top: 3px solid color-mix(in srgb, var(--accent) 65%, var(--border));
+  border-radius: 8px;
+  background: linear-gradient(180deg, var(--surface), var(--surface-strong));
+  box-shadow: var(--shadow-soft);
+}
+
+.journey-node:nth-child(2n) .journey-node-card {
+  border-top-color: color-mix(in srgb, var(--accent-2) 72%, var(--border));
+}
+
+.journey-node-card strong {
   display: block;
   color: var(--heading);
   font-size: 0.92rem;
-  font-weight: 700;
-  line-height: 1;
-  transform: rotate(45deg);
-}
-
-.journey-milestone:nth-child(2n) .journey-pin {
-  border-color: color-mix(in srgb, var(--accent-2) 62%, var(--surface));
-}
-
-.journey-milestone-card {
-  width: 100%;
-  min-height: 118px;
-  padding: 13px 12px;
-  border: 1px solid var(--border-soft);
-  border-radius: 8px;
-  background: color-mix(in srgb, var(--surface) 92%, var(--surface-strong));
-  box-shadow: 0 1px 0 rgba(16, 29, 46, 0.025);
-}
-
-.journey-milestone-card strong {
-  display: block;
-  color: var(--heading);
-  font-size: 0.9rem;
-  line-height: 1.2;
+  line-height: 1.18;
   font-weight: 600;
 }
 
-.journey-milestone-card p {
-  margin: 6px 0 0;
+.journey-node-card p {
+  margin: 7px 0 0;
   color: var(--muted);
   font-size: 0.88rem;
-  line-height: 1.38;
+  line-height: 1.4;
   text-align: left;
-}
-
-.journey-connector {
-  position: absolute;
-  top: 43px;
-  left: calc(50% + 38px);
-  width: calc(100% - 76px);
-  height: 15px;
-  pointer-events: none;
-}
-
-.journey-connector::after {
-  content: "";
-  position: absolute;
-  right: -3px;
-  top: 2px;
-  width: 9px;
-  height: 9px;
-  border-top: 2px solid color-mix(in srgb, var(--heading) 72%, var(--accent));
-  border-right: 2px solid color-mix(in srgb, var(--heading) 72%, var(--accent));
-  transform: rotate(45deg);
 }
 
 .impact-section,
@@ -1551,14 +1544,14 @@
     overflow: hidden;
   }
 
-  .journey-road {
-    grid-template-columns: repeat(5, 172px);
+  .journey-lane {
+    grid-template-columns: repeat(5, 180px);
     overflow-x: auto;
-    padding-bottom: 8px;
+    padding-bottom: 10px;
     scrollbar-width: thin;
   }
 
-  .journey-road::before {
+  .journey-lane::before {
     left: 35px;
     right: 35px;
   }
@@ -1631,23 +1624,49 @@
     align-items: flex-start;
   }
 
-  .journey-road {
-    grid-template-columns: repeat(5, 158px);
+  .journey-lane {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    overflow: visible;
+    padding-top: 12px;
   }
 
-  .journey-pin {
-    width: 60px;
-    height: 60px;
+  .journey-lane::before {
+    top: 12px;
+    bottom: 12px;
+    left: 13px;
+    right: auto;
+    width: 2px;
+    height: auto;
+    background: linear-gradient(180deg, var(--heading), var(--accent), var(--accent-2));
   }
 
-  .journey-road::before {
-    top: 44px;
+  .journey-node {
+    grid-template-columns: 28px 1fr;
+    grid-template-rows: auto auto;
+    justify-items: stretch;
+    align-items: start;
+    column-gap: 12px;
   }
 
-  .journey-connector {
-    top: 38px;
-    left: calc(50% + 32px);
-    width: calc(100% - 64px);
+  .journey-dot {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    width: 28px;
+    height: 28px;
+  }
+
+  .journey-year {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: start;
+  }
+
+  .journey-node-card {
+    grid-column: 2;
+    grid-row: 2;
+    min-height: auto;
   }
 
   .executive-summary p,
