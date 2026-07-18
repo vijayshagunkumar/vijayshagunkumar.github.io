@@ -45,7 +45,7 @@ export default function App() {
 
   return (
     <>
-      <Navbar sections={sections} theme={theme} onThemeChange={setTheme} />
+      <Navbar sections={sections} />
       <main>
         <Hero />
         <About />

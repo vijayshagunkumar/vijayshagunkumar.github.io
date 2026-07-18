@@ -1,16 +1,13 @@
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { ThemeName, profile } from "../data/profile";
+import { profile } from "../data/profile";
 import { sectionHref } from "../utils/routes";
-import { ThemeToggle } from "./ThemeToggle";
 
 type Props = {
   sections: string[];
-  theme: ThemeName;
-  onThemeChange: (theme: ThemeName) => void;
 };
 
-export function Navbar({ sections, theme, onThemeChange }: Props) {
+export function Navbar({ sections }: Props) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -40,7 +37,6 @@ export function Navbar({ sections, theme, onThemeChange }: Props) {
         <a className="nav-pill" href={profile.links.resume} target="_blank" rel="noreferrer">
           Resume
         </a>
-        <ThemeToggle value={theme} onChange={onThemeChange} />
       </nav>
     </header>
   );
