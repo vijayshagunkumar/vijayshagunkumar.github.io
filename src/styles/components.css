@@ -1004,21 +1004,29 @@
 }
 
 .experience-card-highlight {
-  margin: 11px 0 8px;
-  padding: 11px 12px;
-  border: 1px solid color-mix(in srgb, var(--accent-2) 30%, var(--border));
-  border-left: 3px solid var(--accent-2);
+  position: relative;
+  margin: 12px 0 9px;
+  padding: 12px 14px 12px 16px;
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--border));
   border-radius: 8px;
-  background: color-mix(in srgb, var(--accent-2) 8%, var(--surface-strong));
-  color: var(--text) !important;
-  font-size: 0.93rem !important;
-  line-height: 1.42 !important;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--accent) 8%, var(--surface-strong)), var(--surface)),
+    var(--surface);
+  color: var(--heading) !important;
+  font-size: 0.94rem !important;
+  font-weight: 520;
+  line-height: 1.43 !important;
   text-align: left !important;
+  box-shadow: 0 8px 18px rgba(16, 29, 46, 0.045);
 }
 
-.experience-card-highlight strong {
-  color: var(--heading);
-  font-weight: 650;
+.experience-card-highlight::before {
+  content: "";
+  position: absolute;
+  inset: 12px auto 12px 0;
+  width: 3px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
 }
 
 .project-card > p {

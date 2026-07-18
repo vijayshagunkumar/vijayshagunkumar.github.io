@@ -147,7 +147,7 @@ export function Experience() {
                 <p>{item.summary}</p>
                 {item.achievements[0] ? (
                   <p className="experience-card-highlight">
-                    <strong>Highlighted impact:</strong> {item.achievements[0]}
+                    {item.achievements[0]}
                   </p>
                 ) : null}
                 <ul>
