@@ -32,6 +32,11 @@ export function ProjectModal({ project, onClose }: Props) {
             <>
               <h4>Project Overview</h4>
               <p>{project.caseStudy.problem}</p>
+              {project.caseStudy.plainEnglish ? (
+                <p className="plain-english-callout">
+                  <strong>In practice:</strong> {project.caseStudy.plainEnglish}
+                </p>
+              ) : null}
               <h4>Approach</h4>
               <ul>
                 {project.caseStudy.approach.map((item) => (

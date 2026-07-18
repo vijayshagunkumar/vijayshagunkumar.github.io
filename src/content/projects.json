@@ -27,6 +27,7 @@
       "featured": true,
       "caseStudy": {
         "problem": "Every new global tax rule required individual updates across Dell's 100+ enterprise applications, creating engineering bottlenecks, vendor dependency, and operational risk.",
+        "plainEnglish": "Stopped every new country or tax-law change from requiring separate engineering fixes across 100+ business applications.",
         "approach": [
           "Led discovery with Finance, Engineering, and Tax Operations to map application-to-engine touchpoints.",
           "Defined requirements for a centralized enrichment layer to intercept, normalize, and route tax transactions.",
@@ -68,6 +69,7 @@
       "featured": true,
       "caseStudy": {
         "problem": "Dell had no internal global system for customer tax exemption certificates, creating compliance risk and heavy manual overhead across countries and jurisdictions.",
+        "plainEnglish": "Created one global place for teams to store, validate, search, and govern customer exemption certificates instead of relying on fragmented manual processes.",
         "approach": [
           "Conducted discovery with Finance, Tax Operations, and Legal to define MVP scope.",
           "Designed the certificate lifecycle from upload and validation through search, expiry alerts, and tax engine sync.",
@@ -109,6 +111,7 @@
       "featured": true,
       "caseStudy": {
         "problem": "Finance and Operations teams had no structured way to diagnose tax determination errors across 300K+ annual transactions.",
+        "plainEnglish": "Gave Finance and Operations a faster way to understand why a tax result looked wrong and what team or rule needed attention.",
         "approach": [
           "Mapped the full error investigation lifecycle across Finance, Tax Ops, and Engineering.",
           "Designed diagnostic drill-down from transaction to rule to tax engine output.",
@@ -150,6 +153,7 @@
       "featured": true,
       "caseStudy": {
         "problem": "Dell's global financial transaction processing for tax operations had high processing time, high cost per transaction, and limited pre-production simulation.",
+        "plainEnglish": "Helped teams test and optimize financial transaction processing before production, reducing cost and performance risk.",
         "approach": [
           "Mapped bottlenecks across the Oracle ERP to tax engine pipeline.",
           "Defined cloud simulation requirements with Engineering and Finance stakeholders.",
@@ -274,6 +278,7 @@
       ],
       "caseStudy": {
         "problem": "Reliance Entertainment was building BigFlix as India's first subscription OTT platform, requiring foundational systems for content operations, subscription commerce, customer support, and physical retail integration.",
+        "plainEnglish": "Built the operational backbone needed to launch and manage a subscription video platform before OTT was mainstream in India.",
         "approach": [
           "Owned the 0 to 1 technology architecture and launch execution as Chief Manager Technology.",
           "Built CMS capabilities for movie upload, artwork, metadata, pricing, trailers, modules, release scheduling, campaigns, and reporting.",

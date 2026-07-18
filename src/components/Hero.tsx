@@ -9,8 +9,8 @@ export function Hero() {
       <div className="wrap hero-layout">
         <div className="hero-copy">
           <div className="hero-pill">Open to VP / Director Product Roles</div>
-          <p className="hero-name">{profile.name}</p>
-          <h1 id="hero-title">{profile.headline}</h1>
+          <h1 id="hero-title">{profile.name}</h1>
+          <p className="hero-role">{profile.headline}</p>
           <div className="executive-summary" aria-label="Executive summary">
             {profile.executiveSummary.map((item) => (
               <p key={item}>{item}</p>

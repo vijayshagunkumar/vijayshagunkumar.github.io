@@ -7,6 +7,7 @@ export type ProjectCategory = "Enterprise" | "AI" | "Product Management" | "Fina
 
 export type CaseStudy = {
   problem: string;
+  plainEnglish?: string;
   approach: string[];
   results: Array<{ value: string; label: string }>;
 };
@@ -37,6 +38,7 @@ export const projects = (projectsContent.projects as Project[]).map((project) =>
     ? {
         ...project.caseStudy,
         problem: normalizePlainText(project.caseStudy.problem),
+        plainEnglish: project.caseStudy.plainEnglish ? normalizePlainText(project.caseStudy.plainEnglish) : undefined,
         approach: normalizeBulletList(project.caseStudy.approach),
         results: project.caseStudy.results.map((result) => ({
           value: normalizePlainText(result.value),
