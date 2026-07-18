@@ -72,6 +72,7 @@ function ProductModal({ project, onClose }: { project: PersonalProject | null; o
           ) : (
             <p className="modal-note">Tech stack details are not documented yet.</p>
           )}
+          {project.demoNote ? <p className="demo-note">{project.demoNote}</p> : null}
           <div className="project-actions modal-actions">
             {project.liveUrl ? (
               <a className="btn primary" href={project.liveUrl} target="_blank" rel="noreferrer">
@@ -160,6 +161,7 @@ export function PersonalInitiatives() {
                   </a>
                 ) : null}
               </div>
+              {project.demoNote ? <p className="demo-note card-demo-note">{project.demoNote}</p> : null}
             </article>
           ))}
         </div>

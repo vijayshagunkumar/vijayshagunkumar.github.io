@@ -17,6 +17,7 @@ export type Project = {
   title: string;
   organization: string;
   description: string;
+  plainEnglish?: string;
   metric: string;
   tags: string[];
   categories: ProjectCategory[];
@@ -32,6 +33,7 @@ export const projects = (projectsContent.projects as Project[]).map((project) =>
   title: normalizePlainText(project.title),
   organization: normalizePlainText(project.organization),
   description: normalizePlainText(project.description),
+  plainEnglish: project.plainEnglish ? normalizePlainText(project.plainEnglish) : undefined,
   metric: normalizePlainText(project.metric),
   tags: normalizeBulletList(project.tags),
   caseStudy: project.caseStudy

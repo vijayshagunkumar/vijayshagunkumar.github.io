@@ -57,6 +57,11 @@ export function ProjectModal({ project, onClose }: Props) {
             <>
               <h4>Project Overview</h4>
               <p>{project.description}</p>
+              {project.plainEnglish ? (
+                <p className="plain-english-callout">
+                  <strong>In practice:</strong> {project.plainEnglish}
+                </p>
+              ) : null}
               <h4>Product Impact</h4>
               <p>{project.metric}</p>
             </>

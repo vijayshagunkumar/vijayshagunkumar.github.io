@@ -180,6 +180,7 @@
       "title": "Forest Management Platform (Wood Export)",
       "organization": "YsecIT - Greenwood World",
       "description": "Operational workflows for forestry product catalog, classification, export documentation, and stakeholder coordination for Greenwood World, Bangalore.",
+      "plainEnglish": "Helped turn a manual export operation into structured workflows for cataloging, documentation, compliance, and stakeholder coordination.",
       "metric": "Product classification, regulatory flows, data management",
       "tags": [
         "Forest Management",
@@ -197,6 +198,7 @@
       "title": "Yoko ERP - Car Import & Export",
       "organization": "YsecIT - Yokohama Trading",
       "description": "Converted business needs into technical specs for automotive import/export ERP, coordinating development, SQL scripting, review, testing, and stakeholder meetings.",
+      "plainEnglish": "Translated import/export business operations into buildable ERP requirements and coordinated delivery across business, development, and testing teams.",
       "metric": "Business requirements to technical specifications",
       "tags": [
         "ERP",
@@ -214,6 +216,7 @@
       "title": "Inventory Management & Point of Sales Application",
       "organization": "YsecIT - Promax Trading",
       "description": "Multi-retailer product catalog ingestion and pricing system with POS, promotions, barcode generation, label printing, SKU mapping, and multi-store sync.",
+      "plainEnglish": "Enabled retailers to manage products, prices, barcodes, promotions, and store-level sales operations from a more reliable shared system.",
       "metric": "Multi-store POS, SKU mapping, barcode generation",
       "tags": [
         "POS",
@@ -231,6 +234,7 @@
       "title": "HOS & POS Inventory Management",
       "organization": "YsecIT - Da Vinci Group",
       "description": "Business process analysis, data analysis, UI design, logic building, data integration, end-user training, hardware integration, barcode design, labelling, and fiscal printer integration for a South American retail chain.",
+      "plainEnglish": "Connected retail store operations, barcode workflows, fiscal printing, training, and data integration into a practical operating system for store teams.",
       "metric": "Fiscal printer, barcode design, UI design logic",
       "tags": [
         "HOS/POS",
@@ -248,6 +252,7 @@
       "title": "Vehicle Import/Export ERP & Dealer Portal",
       "organization": "YsecIT - Global Trading Japan",
       "description": "ERP for automotive import/export covering dealer onboarding, inventory intake, document processing, shipment tracking, compliance checks, listing workflows, and multi-region document clearance.",
+      "plainEnglish": "Created ERP workflows that helped dealers and operations teams track vehicles, documents, compliance steps, and shipment progress across regions.",
       "metric": "7 functional specs, shipment and fulfillment workflows",
       "tags": [
         "ERP",
@@ -305,6 +310,7 @@
       "title": "eCommerce Website - Movie Rental & Subscription",
       "organization": "Reliance Entertainment - BigFlix",
       "description": "Rental subscription workflows, catalog display, offer engines, user journeys, fulfillment triggers, storefront optimization, MIS dashboards, and recommendation flows.",
+      "plainEnglish": "Built the subscription and rental-commerce flows that helped users discover, rent, and subscribe to movie content online.",
       "metric": "Rental logic, recommendations, subscription commerce",
       "tags": [
         "eCommerce",
@@ -322,6 +328,7 @@
       "title": "Talisma CRM",
       "organization": "Reliance Entertainment - BigFlix",
       "description": "CRM workflows for customer onboarding, support cases, ticket routing, campaign management, user segmentation, issue resolution pipelines, and customer feedback loops.",
+      "plainEnglish": "Gave support and marketing teams a structured way to onboard customers, route issues, segment users, and close feedback loops.",
       "metric": "Customer onboarding, ticket routing, segmentation",
       "tags": [
         "CRM",
@@ -339,6 +346,7 @@
       "title": "Focus RT ERP",
       "organization": "Reliance Capital - BigFlix",
       "description": "Focus RT ERP support for BigFlix's physical retail and fulfillment tie-ins, covering store setup, inventory alignment, hardware integration, operations training, and cross-system coordination with the OTT commerce ecosystem.",
+      "plainEnglish": "Connected BigFlix digital commerce with physical retail and fulfillment operations so online and store workflows could run together.",
       "metric": "ERP support for BigFlix retail integration and fulfillment operations",
       "tags": [
         "Focus RT",
@@ -356,6 +364,7 @@
       "title": "Point of Sales (POS)",
       "organization": "Reliance Entertainment - BigFlix",
       "description": "POS implementation supporting BigFlix's retail touchpoints, including store operations, hardware setup, transaction capture, CRM handoffs, and operational training for rental and customer-service workflows.",
+      "plainEnglish": "Enabled retail staff to capture transactions, support customers, and connect store activity back into CRM and fulfillment workflows.",
       "metric": "Retail touchpoint enablement for BigFlix rental and support workflows",
       "tags": [
         "POS",
@@ -373,6 +382,7 @@
       "title": "Retail Pro Inventory & Sales Management",
       "organization": "Times Group - Planet M",
       "description": "Migrated legacy FoxPro systems to Retail Pro Inventory and Sales for Planet M's 2002-2007 nationwide retail build-out. Set up catalog, pricing, barcode workflows, SKU lifecycle management, and POS operations across 100+ stores.",
+      "plainEnglish": "Modernized store operations for a national retail chain by moving legacy systems into scalable inventory, barcode, catalog, and POS workflows.",
       "metric": "100+ stores, FoxPro migration, SKU lifecycle",
       "tags": [
         "Retail Pro",

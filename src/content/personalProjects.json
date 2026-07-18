@@ -41,7 +41,8 @@
         "Responsive web app"
       ],
       "status": "Live beta",
-      "liveUrl": "https://shagun-ai-tutor.onrender.com/"
+      "liveUrl": "https://shagun-ai-tutor.onrender.com/",
+      "demoNote": "Hosted on Render free tier; first load may take 30 to 60 seconds after inactivity."
     },
     {
       "id": "excel-differential-tool",
@@ -62,7 +63,8 @@
         "Operational tooling"
       ],
       "status": "Live beta",
-      "liveUrl": "https://excel-differential-tool.onrender.com/"
+      "liveUrl": "https://excel-differential-tool.onrender.com/",
+      "demoNote": "Hosted on Render free tier; first load may take 30 to 60 seconds after inactivity."
     },
     {
       "id": "ai-career-copilot",
@@ -83,7 +85,8 @@
         "Career product thinking"
       ],
       "status": "Live beta",
-      "liveUrl": "https://ai-career-copilot-web.onrender.com/analyze"
+      "liveUrl": "https://ai-career-copilot-web.onrender.com/analyze",
+      "demoNote": "Hosted on Render free tier; first load may take 30 to 60 seconds after inactivity."
     },
     {
       "id": "promptcraft",

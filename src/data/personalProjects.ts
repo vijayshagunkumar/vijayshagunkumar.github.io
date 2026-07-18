@@ -16,6 +16,7 @@ export type PersonalProject = {
   liveUrl?: string;
   githubUrl?: string;
   availability?: string;
+  demoNote?: string;
 };
 
 export const personalProjects = (getContent("personalProjects").personalProjects as PersonalProject[]).map((project) => ({
@@ -30,5 +31,6 @@ export const personalProjects = (getContent("personalProjects").personalProjects
   techHighlights: normalizeBulletList(project.techHighlights),
   techStack: project.techStack ? normalizeBulletList(project.techStack) : undefined,
   status: normalizePlainText(project.status),
-  availability: project.availability ? normalizePlainText(project.availability) : undefined
+  availability: project.availability ? normalizePlainText(project.availability) : undefined,
+  demoNote: project.demoNote ? normalizePlainText(project.demoNote) : undefined
 }));
