@@ -8,5 +8,14 @@ export const experience = getContent("experience").experience.map((item) => ({
   period: normalizePlainText(item.period),
   summary: normalizePlainText(item.summary),
   achievements: normalizeBulletList(item.achievements),
-  tags: normalizeBulletList(item.tags)
+  tags: normalizeBulletList(item.tags),
+  details: item.details
+    ? {
+        overview: normalizePlainText(item.details.overview),
+        scope: normalizeBulletList(item.details.scope),
+        responsibilities: normalizeBulletList(item.details.responsibilities),
+        impact: normalizeBulletList(item.details.impact),
+        tools: normalizeBulletList(item.details.tools)
+      }
+    : undefined
 }));

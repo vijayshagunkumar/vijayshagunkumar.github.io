@@ -279,6 +279,7 @@
 .text-button,
 .nav nav a,
 .project-card,
+.experience-card,
 .personal-card,
 .contact-card,
 .linked-card {
@@ -1088,6 +1089,7 @@
   padding: 18px;
 }
 
+.experience-card:hover,
 .project-card:hover,
 .personal-card:hover {
   transform: translateY(-2px);
@@ -1592,6 +1594,35 @@
   width: min(840px, 100%);
 }
 
+.experience-modal {
+  width: min(920px, 100%);
+}
+
+.experience-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 14px 0 4px;
+}
+
+.experience-detail-grid article {
+  padding: 15px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-strong);
+}
+
+.experience-detail-grid h4 {
+  margin-top: 0;
+}
+
+.modal-highlight-list {
+  padding: 14px 16px 14px 32px;
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--accent) 7%, var(--surface-strong));
+}
+
 .product-detail-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1840,6 +1871,10 @@
   }
 
   .product-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-detail-grid {
     grid-template-columns: 1fr;
   }
 

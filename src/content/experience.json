@@ -19,15 +19,49 @@
         "CERTifyTax",
         "SOX",
         "Global Tax"
-      ]
+      ],
+      "details": {
+        "overview": "Lead product vision, strategy, roadmap, discovery, delivery, validation, and optimization for Dell's global Indirect Tax platform suite supporting 10+ applications and 300K+ annual tax transactions across 100+ countries.",
+        "scope": [
+          "Own end-to-end product lifecycle from discovery, PRDs, prioritization, and backlog management through delivery, adoption metrics, validation, and optimization.",
+          "Represent customer needs to Agile engineering teams by translating complex tax, finance, audit, and operations workflows into clear problem statements and measurable outcomes.",
+          "Partner with Finance, Tax Operations, Audit, Legal, Engineering, Architecture, Deloitte, Thomson Reuters, and platform vendors across US, EMEA, LATAM, and APJ."
+        ],
+        "responsibilities": [
+          "Defined product vision, roadmap priorities, success metrics, OKRs, and outcome-driven delivery plans for the global tax platform ecosystem.",
+          "Led customer-centric discovery using user interviews, transaction data, operational insights, workflow analysis, and hypothesis validation before development investment.",
+          "Managed distributed Agile delivery, sprint planning, acceptance criteria, architecture trade-offs, UAT, release coordination, and production readiness.",
+          "Influenced senior stakeholders with structured communication, business cases, product narratives, risk framing, and data-backed decision making."
+        ],
+        "impact": [
+          "Processed 300K+ annual tax transactions across 100+ countries and 150 tax jurisdictions.",
+          "Migrated 10M+ exemption records to cloud with zero downtime and full compliance governance.",
+          "Improved processing efficiency by 99.6% and delivered $50K+ annual cost savings through simulation-based optimization.",
+          "Launched CERTifyTax, tax middleware, transaction diagnostics, GenAI-assisted RCA, and India TCS compliance workflows."
+        ],
+        "tools": [
+          "Oracle Fusion",
+          "TR OneSource Cloud",
+          "CERTifyTax",
+          "Sabrix",
+          "Azure DevOps",
+          "Jira",
+          "Confluence",
+          "SQL",
+          "Power BI",
+          "REST APIs",
+          "Swagger",
+          "ServiceNow"
+        ]
+      }
     },
     {
       "company": "YsecIT",
       "role": "Product / Business Analyst - Enterprise SaaS Platforms",
       "period": "2017 - 2020",
-      "summary": "Delivered enterprise systems across automotive import/export, forestry, retail POS, inventory management, restaurant operations, and cross-border trade clients in South America and Japan.",
+      "summary": "Delivered enterprise systems across automotive import/export, forestry, retail POS, inventory management, Hospitality operations, and cross-border trade clients in South America and Japan.",
       "achievements": [
-        "Delivered 10+ enterprise SaaS platforms across retail, logistics, cross-border trade, forestry, restaurant operations, and asset management.",
+        "Delivered 10+ enterprise SaaS platforms across retail, logistics, cross-border trade, forestry, Hospitality operations, and asset management.",
         "Conducted stakeholder discovery workshops and translated business needs into roadmaps, PRDs, SQL scripts, logic flows, UI designs, and validation workflows.",
         "Led store onboarding, data migration, end-user training, and stakeholder coordination.",
         "Built workflows for catalog, pricing, barcode, fiscal printer, compliance, shipment tracking, dealer portals, and document processing."
@@ -38,7 +72,37 @@
         "Import/Export",
         "Forestry",
         "Retail"
-      ]
+      ],
+      "details": {
+        "overview": "Delivered 13+ enterprise web-based workflow platforms for clients across India, South America, and Japan, spanning retail, finance, automotive, forestry, cross-border trade, Hospitality, and asset-management operations.",
+        "scope": [
+          "Owned product discovery, stakeholder workshops, workflow analysis, requirements definition, wireframes, prototypes, and validation before engineering delivery.",
+          "Converted business needs into PRDs, functional specifications, SQL scripts, UI flows, data logic, acceptance criteria, and release plans.",
+          "Coordinated with sales, operations, customer success, development, testing, and client teams across multicultural distributed environments."
+        ],
+        "responsibilities": [
+          "Managed Agile delivery lifecycle including sprint planning, backlog prioritization, acceptance criteria, UAT, release coordination, and quality governance.",
+          "Built business cases and financial justification for client product investments and operational workflow modernization.",
+          "Led store onboarding, data migration, end-user training, hardware integration, barcode workflows, fiscal printer integration, and stakeholder coordination."
+        ],
+        "impact": [
+          "Delivered 13+ workflow platforms across India, South America, and Japan.",
+          "Supported ERP, POS, inventory, catalog, pricing, dealer portal, export documentation, compliance, shipment tracking, and document processing workflows.",
+          "Earned YsecIT Performance Award for 100% on-time delivery."
+        ],
+        "tools": [
+          "SQL",
+          "Balsamiq",
+          "Figma",
+          "Miro",
+          "MS Visio",
+          "Jira",
+          "Agile Delivery",
+          "REST APIs",
+          "Postman",
+          "Low-Code/No-Code"
+        ]
+      }
     },
     {
       "company": "E-Creation Multimedia",
@@ -55,7 +119,31 @@
         "EdTech",
         "Digital Publishing",
         "Multimedia"
-      ]
+      ],
+      "details": {
+        "overview": "Founded and operated a digital publishing venture focused on converting print-first educational content into interactive multimedia learning experiences.",
+        "scope": [
+          "Worked with publishers and educators to identify content transformation opportunities and learner experience needs.",
+          "Defined product concepts, content workflows, delivery plans, and client-facing digital learning formats.",
+          "Balanced product ownership, client discovery, delivery management, and commercial decision making."
+        ],
+        "responsibilities": [
+          "Converted educational books into structured multimedia content experiences.",
+          "Managed client requirements, scope, delivery coordination, and quality review for learning assets.",
+          "Built entrepreneurial capability across product concepting, customer discovery, workflow design, and delivery ownership."
+        ],
+        "impact": [
+          "Created reusable digital learning workflows for print-to-digital transformation.",
+          "Developed founder-level experience across product strategy, client engagement, and delivery accountability."
+        ],
+        "tools": [
+          "Digital Publishing",
+          "Content Workflows",
+          "Multimedia Learning",
+          "Client Discovery",
+          "Product Concepting"
+        ]
+      }
     },
     {
       "company": "Reliance Entertainment - BigFlix",
@@ -73,7 +161,35 @@
         "eCommerce",
         "CRM",
         "POS"
-      ]
+      ],
+      "details": {
+        "overview": "Built and launched BigFlix, India's first subscription OTT platform, from 0 to 1 across subscription management, billing, content operations, analytics, CRM, ERP, and retail integration.",
+        "scope": [
+          "Owned technology and product delivery across customer onboarding, subscription commerce, content workflows, digital distribution, analytics, CRM, and support operations.",
+          "Defined product roadmap using customer behavior, market insights, adoption data, engagement signals, and revenue metrics.",
+          "Aligned technology, marketing, content, support, retail, and operations stakeholders to deliver platform capabilities at scale."
+        ],
+        "responsibilities": [
+          "Built CMS workflows for content ingestion, metadata, artwork, pricing, promotions, trailers, release scheduling, BI dashboards, campaigns, and SQL reporting.",
+          "Implemented ecommerce and subscription workflows including catalog display, rental logic, offer engines, storefront optimization, and recommendation flows.",
+          "Enabled CRM, ERP, and POS integration for customer support, ticket routing, segmentation, retail touchpoints, and fulfillment operations."
+        ],
+        "impact": [
+          "Launched India's first subscription streaming platform from scratch.",
+          "Built foundational OTT operating systems before streaming became mainstream in India.",
+          "Delivered integrated CMS, ecommerce, CRM, ERP, POS, analytics, and support workflows."
+        ],
+        "tools": [
+          "CMS",
+          "eCommerce",
+          "Talisma CRM",
+          "Focus RT ERP",
+          "POS",
+          "SQL Reporting",
+          "BI Dashboards",
+          "Subscription Workflows"
+        ]
+      }
     },
     {
       "company": "Times Group - Planet M",
@@ -91,7 +207,34 @@
         "POS",
         "100+ Stores",
         "20+ Cities"
-      ]
+      ],
+      "details": {
+        "overview": "Delivered technology rollout for Planet M, India's first organized music retail chain, supporting POS, inventory, store setup, hardware integration, reporting, and operations enablement across 100+ stores in 20+ cities.",
+        "scope": [
+          "Supported nationwide rollout of Retail Pro POS and inventory systems across multi-location retail operations.",
+          "Translated store operations, catalog, pricing, stock movement, and reporting needs into scalable system requirements.",
+          "Coordinated store setup, hardware integration, user enablement, and operational support across a national retail footprint."
+        ],
+        "responsibilities": [
+          "Migrated legacy FoxPro systems to Retail Pro Inventory and Sales workflows.",
+          "Built centralized inventory, pricing, SKU lifecycle, barcode, stock movement, and reporting capabilities.",
+          "Enabled real-time stock tracking, inter-store movement visibility, and financial reconciliation across stores."
+        ],
+        "impact": [
+          "Rolled out POS and inventory systems across 100+ stores in 20+ cities.",
+          "Supported India's first organized music retail chain during national scale-up.",
+          "Earned Times Group promotion for national rollout contribution."
+        ],
+        "tools": [
+          "Retail Pro",
+          "FoxPro Migration",
+          "POS",
+          "Inventory Management",
+          "Barcode Workflows",
+          "SKU Lifecycle",
+          "Retail Operations"
+        ]
+      }
     }
   ]
 }
