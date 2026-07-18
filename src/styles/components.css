@@ -391,7 +391,6 @@
 .contact-grid {
   display: grid;
   gap: 16px;
-  align-items: stretch;
 }
 
 .hero-stats {
@@ -581,26 +580,6 @@
   padding: 15px;
 }
 
-.mini-card,
-.skill-card,
-.domain-card,
-.compact-card {
-  position: relative;
-  overflow: hidden;
-}
-
-.mini-card::before,
-.skill-card::before,
-.domain-card::before,
-.compact-card::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  opacity: 0.88;
-}
-
 .mini-card svg,
 .compact-card svg,
 .metric-card svg {
@@ -632,15 +611,6 @@
   hyphens: manual;
 }
 
-.mini-card p,
-.domain-card > p,
-.compact-card p {
-  padding: 10px 11px;
-  border: 1px solid var(--border-soft);
-  border-radius: 8px;
-  background: var(--surface-strong);
-}
-
 .scope-card ul {
   margin: 8px 0 0;
   padding-left: 18px;
@@ -651,17 +621,6 @@
 
 .scope-card li {
   margin-bottom: 5px;
-}
-
-.scope-card ul,
-.personal-card ul,
-.experience-card ul {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-right: 10px;
-  border: 1px solid var(--border-soft);
-  border-radius: 8px;
-  background: var(--surface-strong);
 }
 
 .journey-row {
@@ -1016,16 +975,6 @@
   grid-template-columns: 54px 1fr;
   gap: 15px;
   padding: 18px 46px 18px 18px;
-  overflow: hidden;
-}
-
-.experience-card::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  opacity: 0.88;
 }
 
 .experience-icon {
@@ -1191,7 +1140,6 @@
   justify-content: space-between;
   gap: 10px;
   align-items: center;
-  padding-right: 2px;
 }
 
 .project-topline strong {
@@ -1235,21 +1183,13 @@
   flex-direction: column;
   height: 100%;
   border: 1px solid var(--border);
+  border-top: 3px solid var(--accent-2);
   border-radius: 8px;
   background:
     linear-gradient(180deg, var(--surface), color-mix(in srgb, var(--surface-strong) 74%, var(--surface))),
     var(--surface);
   box-shadow: var(--shadow-soft);
   padding: 17px 46px 17px 17px;
-  overflow: hidden;
-}
-
-.personal-card::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent-2), var(--accent));
 }
 
 .clickable-card {
@@ -1312,15 +1252,8 @@
 
 .personal-meta {
   display: grid;
-  gap: 10px;
-  margin: 0 0 12px;
-}
-
-.personal-meta div {
-  padding: 10px 11px;
-  border: 1px solid var(--border-soft);
-  border-radius: 8px;
-  background: var(--surface-strong);
+  gap: 6px;
+  margin: 0 0 10px;
 }
 
 .personal-meta dt {
@@ -1436,17 +1369,15 @@
 .capability-card {
   position: relative;
   overflow: hidden;
+  border-top: 3px solid var(--accent);
   min-height: 160px;
-  height: 100%;
 }
 
 .capability-head {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 12px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--border-soft);
+  margin-bottom: 10px;
 }
 
 .capability-head svg {
@@ -1488,9 +1419,6 @@
 .cert-card {
   border-left: 4px solid var(--cert-accent, var(--accent));
   min-height: 178px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
 }
 
 .cert-mark {
@@ -1511,10 +1439,6 @@
   align-items: center;
   gap: 6px;
   margin-top: 8px;
-}
-
-.cert-card span {
-  margin-top: auto;
 }
 
 .linked-card {
