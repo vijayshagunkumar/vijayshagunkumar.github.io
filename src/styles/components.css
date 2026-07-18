@@ -211,6 +211,26 @@
   margin: 17px 0 0;
 }
 
+.hero-signals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 11px 0 0;
+}
+
+.hero-signals span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 5px 10px;
+  border-left: 2px solid var(--accent-2);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--accent-2) 8%, var(--surface));
+  color: var(--heading);
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+
 .target-roles span,
 .tag-row span,
 .tag-row button {
@@ -630,6 +650,50 @@
   line-height: 1.42;
 }
 
+.leadership-themes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 24px 0 0;
+}
+
+.leadership-theme {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 11px;
+  padding: 15px;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent);
+  border-radius: 8px;
+  background: linear-gradient(180deg, var(--surface), var(--surface-strong));
+  box-shadow: var(--shadow-soft);
+}
+
+.leadership-theme:nth-child(2) {
+  border-top-color: var(--accent-2);
+}
+
+.leadership-theme svg {
+  color: var(--accent);
+  margin-top: 1px;
+}
+
+.leadership-theme h3 {
+  margin: 0 0 6px;
+  color: var(--heading);
+  font-size: 1.02rem;
+  line-height: 1.16;
+  font-weight: 600;
+}
+
+.leadership-theme p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.42;
+  text-align: left;
+}
+
 .journey-card {
   position: relative;
   overflow: hidden;
@@ -942,6 +1006,42 @@
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
+}
+
+.project-card-brief {
+  display: grid;
+  gap: 10px;
+  margin: 10px 0 12px;
+}
+
+.project-card-brief div {
+  padding: 10px 11px;
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  background: var(--surface-strong);
+}
+
+.project-card-brief span {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 650;
+  text-transform: uppercase;
+}
+
+.project-card-brief p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.4;
+  text-align: left;
+  hyphens: manual;
+}
+
+.project-card-brief div:last-child p {
+  color: var(--heading);
+  font-weight: 550;
 }
 
 .experience-card ul {
@@ -1549,6 +1649,10 @@
   .metrics-grid,
   .contact-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .leadership-themes {
+    grid-template-columns: 1fr;
   }
 
   .personal-grid {

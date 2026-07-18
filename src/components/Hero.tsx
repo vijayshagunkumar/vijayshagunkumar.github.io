@@ -21,6 +21,13 @@ export function Hero() {
               <span key={role}>{role}</span>
             ))}
           </div>
+          {"signalBadges" in profile && Array.isArray(profile.signalBadges) ? (
+            <div className="hero-signals" aria-label="Executive signal areas">
+              {profile.signalBadges.map((badge) => (
+                <span key={badge}>{badge}</span>
+              ))}
+            </div>
+          ) : null}
           <div className="hero-actions">
             <a className="btn light" href={profile.links.resume} target="_blank" rel="noreferrer">
               <Download size={17} /> Download Resume

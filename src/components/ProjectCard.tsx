@@ -30,8 +30,16 @@ export function ProjectCard({ project, onViewDetails }: Props) {
         {project.featured ? <strong>Featured</strong> : null}
       </div>
       <h3>{project.title}</h3>
-      <p>{project.description}</p>
-      <div className="project-metric">{project.metric}</div>
+      <div className="project-card-brief">
+        <div>
+          <span>Context</span>
+          <p>{project.description}</p>
+        </div>
+        <div>
+          <span>Outcome</span>
+          <p>{project.metric}</p>
+        </div>
+      </div>
       <div className="tag-row">
         {project.tags.map((tag) => (
           <span key={tag}>{tag}</span>
