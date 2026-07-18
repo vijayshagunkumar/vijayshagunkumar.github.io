@@ -6,11 +6,12 @@
       "period": "2021 - Present",
       "summary": "Lead product vision, strategy, roadmap, and OKR frameworks for Dell's global Indirect Tax technology platform suite: 10+ internally developed applications processing 300K+ annual tax transactions across 100+ countries.",
       "achievements": [
-        "Led two cross-functional engineering teams through requirements, PRDs, QA, deployment, and post-go-live support.",
+        "Owned product strategy, roadmap prioritization, OKR frameworks, and platform evolution for Dell's global tax and compliance ecosystem.",
+        "Architected middleware tax enrichment capabilities integrating 100+ enterprise applications with Sabrix and TR OneSource Cloud tax platforms.",
+        "Delivered transaction-level diagnostics, observability, and GenAI-assisted root-cause analysis for faster Finance and Operations resolution.",
         "Executed zero-downtime migration of 10M+ customer exemption records as part of Dell's global ERP modernization.",
-        "Key contributor to Oracle Fusion ERP rollout and migration from on-prem Sabrix to TR OneSource Cloud.",
         "Led global CERTifyTax rollout integrated with TR OneSource Cloud across the US, EMEA, LATAM, and APJ in partnership with Deloitte and Thomson Reuters.",
-        "Designed India TCS Compliance Portal for external vendor invoice upload and tax rebate workflows."
+        "Built cloud transaction simulation capabilities delivering 99.6% processing improvement and $50K+ annual savings."
       ],
       "tags": [
         "Oracle Fusion",
@@ -26,9 +27,10 @@
       "period": "2017 - 2020",
       "summary": "Delivered enterprise systems across automotive import/export, forestry, retail POS, inventory management, restaurant operations, and cross-border trade clients in South America and Japan.",
       "achievements": [
-        "Converted business requirements into functional specs, SQL scripts, logic flows, UI designs, and validation workflows.",
+        "Delivered 10+ enterprise SaaS platforms across retail, logistics, cross-border trade, forestry, restaurant operations, and asset management.",
+        "Conducted stakeholder discovery workshops and translated business needs into roadmaps, PRDs, SQL scripts, logic flows, UI designs, and validation workflows.",
         "Led store onboarding, data migration, end-user training, and stakeholder coordination.",
-        "Built workflows for catalog, pricing, barcode, fiscal printer, compliance, shipment, and dealer portal operations."
+        "Built workflows for catalog, pricing, barcode, fiscal printer, compliance, shipment tracking, dealer portals, and document processing."
       ],
       "tags": [
         "ERP",
@@ -39,13 +41,30 @@
       ]
     },
     {
+      "company": "E-Creation Multimedia",
+      "role": "Founder / Partner - Digital Publishing & Learning Products",
+      "period": "2014 - 2016",
+      "summary": "Founded a venture focused on transforming educational books into interactive digital and multimedia learning formats for publishers and educators.",
+      "achievements": [
+        "Collaborated with publishers and educators to design accessible digital content experiences.",
+        "Converted print-first learning material into structured multimedia formats for improved reach and engagement.",
+        "Built entrepreneurial experience across product concepting, client discovery, content workflows, and delivery ownership."
+      ],
+      "tags": [
+        "Founder",
+        "EdTech",
+        "Digital Publishing",
+        "Multimedia"
+      ]
+    },
+    {
       "company": "Reliance Entertainment - BigFlix",
       "role": "Technology / Product Lead",
       "period": "2007 - 2014",
       "summary": "Spearheaded the technology strategy and launch of India's first subscription-based OTT platform, BigFlix, building foundational CMS, ecommerce, CRM, ERP, and POS systems.",
       "achievements": [
-        "Built CMS workflows for content upload, metadata, pricing, trailers, modules, release scheduling, campaign management, and SQL reporting.",
-        "Designed rental subscription, catalog discovery, offer engine, fulfillment, dashboard, and recommendation flows.",
+        "Built the complete OTT ecosystem from scratch: subscriber onboarding, billing, content discovery, recommendations, CRM, and digital distribution infrastructure.",
+        "Developed CMS workflows for content ingestion, metadata management, pricing, promotions, release scheduling, BI dashboards, and SQL reporting.",
         "Implemented CRM and retail operations workflows across support, ticket routing, segmentation, ERP, and POS."
       ],
       "tags": [
@@ -60,17 +79,18 @@
       "company": "Times Group - Planet M",
       "role": "Retail Technology Operations",
       "period": "2002 - 2007",
-      "summary": "Supported technology rollout for India's first organized music retail chain, including POS, inventory, store setup, hardware integration, and operations enablement across 100+ stores.",
+      "summary": "Supported technology rollout for India's first organized music retail chain, including POS, inventory, store setup, hardware integration, and operations enablement across 100+ stores in 20+ cities.",
       "achievements": [
-        "Implemented Retail Pro inventory and sales management workflows.",
-        "Supported store operations, product catalog integrity, and user enablement.",
+        "Led Retail Pro POS and inventory rollout across 100+ stores, migrating legacy FoxPro systems and establishing SKU lifecycle workflows.",
+        "Built real-time stock, pricing, and inter-store movement tracking for centralized inventory visibility and financial reconciliation.",
         "Built early-career foundation in retail platforms, POS operations, and multi-location execution."
       ],
       "tags": [
         "Retail Pro",
         "Inventory",
         "POS",
-        "100+ Stores"
+        "100+ Stores",
+        "20+ Cities"
       ]
     }
   ]

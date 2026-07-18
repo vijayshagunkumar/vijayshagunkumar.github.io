@@ -7,7 +7,9 @@
         "Roadmaps",
         "OKRs",
         "PRDs",
+        "Journey Mapping",
         "Stakeholder Alignment",
+        "Vendor Management",
         "0 to 1 Products",
         "Enterprise Modernization"
       ]
@@ -20,6 +22,8 @@
         "RCA",
         "Observability",
         "Operational Metrics",
+        "Power BI",
+        "Tableau",
         "Migration Validation",
         "Data Quality"
       ]
@@ -43,8 +47,13 @@
         "Confluence",
         "Oracle Fusion ERP",
         "TR OneSource",
+        "Vertex",
         "Sabrix",
         "CERTifyTax",
+        "OpenAI API",
+        "Claude API",
+        "Postman",
+        "Python",
         "REST APIs",
         "XML",
         "EDI",

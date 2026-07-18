@@ -179,9 +179,9 @@
       "id": "forest-management",
       "title": "Forest Management Platform (Wood Export)",
       "organization": "YsecIT - Greenwood World",
-      "description": "Operational workflows for forestry product catalog, classification, export documentation, and stakeholder coordination for Greenwood World, Bangalore.",
+      "description": "Operational workflows for forestry product catalog, classification, export documentation, regulatory flows, data management, and stakeholder coordination for Greenwood World, Bangalore.",
       "plainEnglish": "Helped turn a manual export operation into structured workflows for cataloging, documentation, compliance, and stakeholder coordination.",
-      "metric": "Product classification, regulatory flows, data management",
+      "metric": "Product classification, regulatory flows, export documentation",
       "tags": [
         "Forest Management",
         "Export Documentation",
@@ -197,9 +197,9 @@
       "id": "yoko-erp",
       "title": "Yoko ERP - Car Import & Export",
       "organization": "YsecIT - Yokohama Trading",
-      "description": "Converted business needs into technical specs for automotive import/export ERP, coordinating development, SQL scripting, review, testing, and stakeholder meetings.",
+      "description": "Converted business needs into functional specs for automotive import/export ERP, covering dealer onboarding, compliance workflows, shipment tracking, and document processing lifecycle.",
       "plainEnglish": "Translated import/export business operations into buildable ERP requirements and coordinated delivery across business, development, and testing teams.",
-      "metric": "Business requirements to technical specifications",
+      "metric": "Dealer onboarding, compliance, shipment and document workflows",
       "tags": [
         "ERP",
         "Import/Export",
@@ -269,8 +269,8 @@
       "id": "bigflix-cms",
       "title": "Content Management System (CMS)",
       "organization": "Reliance Entertainment - BigFlix",
-      "description": "CMS powering India's first subscription OTT platform, enabling movie upload, artwork, metadata, pricing, trailers, release scheduling, campaigns, and reporting.",
-      "metric": "Bulk content ingestion, metadata, SQL-based reporting",
+      "description": "CMS powering India's first subscription OTT platform, enabling content ingestion, artwork, metadata, pricing, promotions, release scheduling, BI dashboards, campaigns, and reporting.",
+      "metric": "Bulk content ingestion, metadata, BI dashboards, SQL reporting",
       "tags": [
         "CMS",
         "OTT",
@@ -286,7 +286,7 @@
         "plainEnglish": "Built the operational backbone needed to launch and manage a subscription video platform before OTT was mainstream in India.",
         "approach": [
           "Owned the 0 to 1 technology architecture and launch execution as Chief Manager Technology.",
-          "Built CMS capabilities for movie upload, artwork, metadata, pricing, trailers, modules, release scheduling, campaigns, and reporting.",
+          "Built CMS capabilities for content ingestion, artwork, metadata, pricing, promotions, trailers, release scheduling, BI dashboards, campaigns, and reporting.",
           "Supported the broader platform through eCommerce/subscription flows, Talisma CRM workflows, and Focus RT/POS integration for BigFlix retail tie-ins."
         ],
         "results": [
@@ -381,9 +381,9 @@
       "id": "planetm-retailpro",
       "title": "Retail Pro Inventory & Sales Management",
       "organization": "Times Group - Planet M",
-      "description": "Migrated legacy FoxPro systems to Retail Pro Inventory and Sales for Planet M's 2002-2007 nationwide retail build-out. Set up catalog, pricing, barcode workflows, SKU lifecycle management, and POS operations across 100+ stores.",
-      "plainEnglish": "Modernized store operations for a national retail chain by moving legacy systems into scalable inventory, barcode, catalog, and POS workflows.",
-      "metric": "100+ stores, FoxPro migration, SKU lifecycle",
+      "description": "Migrated legacy FoxPro systems to Retail Pro Inventory and Sales for Planet M's 2002-2007 nationwide retail build-out. Set up catalog, pricing, barcode workflows, SKU lifecycle management, real-time stock tracking, and POS operations across 100+ stores in 20+ cities.",
+      "plainEnglish": "Modernized store operations for a national retail chain by moving legacy systems into scalable inventory, barcode, catalog, stock movement, and POS workflows.",
+      "metric": "100+ stores, 20+ cities, FoxPro migration, SKU lifecycle",
       "tags": [
         "Retail Pro",
         "POS",
