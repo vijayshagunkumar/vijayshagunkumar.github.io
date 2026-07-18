@@ -716,6 +716,117 @@
   text-align: left;
 }
 
+.journey-card-horizontal {
+  margin-top: 20px;
+  padding: 20px 22px 22px;
+}
+
+.journey-road {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(148px, 1fr));
+  gap: 0;
+  align-items: start;
+  padding-top: 14px;
+  overflow-x: visible;
+}
+
+.journey-road::before {
+  content: "";
+  position: absolute;
+  top: 49px;
+  left: 7%;
+  right: 7%;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent-2) 78%, var(--accent)), var(--heading));
+  opacity: 0.86;
+}
+
+.journey-milestone {
+  position: relative;
+  min-width: 0;
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  padding: 0 8px;
+}
+
+.journey-pin {
+  position: relative;
+  z-index: 1;
+  width: 70px;
+  height: 70px;
+  display: grid;
+  place-items: center;
+  border: 2px solid color-mix(in srgb, var(--accent) 60%, var(--surface));
+  border-radius: 999px 999px 999px 12px;
+  background: var(--surface);
+  color: var(--heading);
+  box-shadow: 0 10px 24px rgba(16, 29, 46, 0.11);
+  transform: rotate(-45deg);
+}
+
+.journey-pin span {
+  display: block;
+  color: var(--heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1;
+  transform: rotate(45deg);
+}
+
+.journey-milestone:nth-child(2n) .journey-pin {
+  border-color: color-mix(in srgb, var(--accent-2) 62%, var(--surface));
+}
+
+.journey-milestone-card {
+  width: 100%;
+  min-height: 118px;
+  padding: 13px 12px;
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--surface) 92%, var(--surface-strong));
+  box-shadow: 0 1px 0 rgba(16, 29, 46, 0.025);
+}
+
+.journey-milestone-card strong {
+  display: block;
+  color: var(--heading);
+  font-size: 0.9rem;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.journey-milestone-card p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.38;
+  text-align: left;
+}
+
+.journey-connector {
+  position: absolute;
+  top: 43px;
+  left: calc(50% + 38px);
+  width: calc(100% - 76px);
+  height: 15px;
+  pointer-events: none;
+}
+
+.journey-connector::after {
+  content: "";
+  position: absolute;
+  right: -3px;
+  top: 2px;
+  width: 9px;
+  height: 9px;
+  border-top: 2px solid color-mix(in srgb, var(--heading) 72%, var(--accent));
+  border-right: 2px solid color-mix(in srgb, var(--heading) 72%, var(--accent));
+  transform: rotate(45deg);
+}
+
 .impact-section,
 .contact-section {
   padding: clamp(46px, 5vw, 76px) 0;
@@ -1435,6 +1546,22 @@
   .compact-grid.three {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .journey-card-horizontal {
+    overflow: hidden;
+  }
+
+  .journey-road {
+    grid-template-columns: repeat(5, 172px);
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scrollbar-width: thin;
+  }
+
+  .journey-road::before {
+    left: 35px;
+    right: 35px;
+  }
 }
 
 @media (max-width: 760px) {
@@ -1494,6 +1621,33 @@
 
   .hero-copy {
     text-align: left;
+  }
+
+  .journey-card-horizontal {
+    padding: 18px 16px;
+  }
+
+  .journey-card-head {
+    align-items: flex-start;
+  }
+
+  .journey-road {
+    grid-template-columns: repeat(5, 158px);
+  }
+
+  .journey-pin {
+    width: 60px;
+    height: 60px;
+  }
+
+  .journey-road::before {
+    top: 44px;
+  }
+
+  .journey-connector {
+    top: 38px;
+    left: calc(50% + 32px);
+    width: calc(100% - 64px);
   }
 
   .executive-summary p,

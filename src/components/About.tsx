@@ -1,4 +1,4 @@
-import { ArrowDown, BriefcaseBusiness, CheckCircle2, Globe2, Layers3, Sparkles } from "lucide-react";
+import { BriefcaseBusiness, CheckCircle2, Globe2, Layers3, Sparkles } from "lucide-react";
 import { journey, profile, scopeOfInfluence } from "../data/profile";
 import { SectionHeader } from "./SectionHeader";
 
@@ -9,8 +9,6 @@ const cards = [
 ];
 
 export function About() {
-  const descendingJourney = [...journey].reverse();
-
   return (
     <section id="about" className="section">
       <div className="wrap two-column">
@@ -37,30 +35,6 @@ export function About() {
               <p>{card.body}</p>
             </article>
           ))}
-          <div className="timeline-card journey-card">
-            <div className="journey-card-head">
-              <BriefcaseBusiness size={22} />
-              <div>
-                <span>Career Journey</span>
-                <h3>Enterprise Product Evolution</h3>
-              </div>
-            </div>
-            <div className="journey-flow">
-              {descendingJourney.map((item, index) => (
-                <div className="journey-step" key={item.period}>
-                  <div className="journey-marker">
-                    <span>{descendingJourney.length - index}</span>
-                    {index < descendingJourney.length - 1 ? <ArrowDown size={14} /> : null}
-                  </div>
-                  <div>
-                    <span>{item.period}</span>
-                    <strong>{item.company}</strong>
-                    <p>{item.role}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
           <article className="mini-card scope-card">
             <CheckCircle2 size={22} />
             <h3>Scope of Influence</h3>
@@ -70,6 +44,31 @@ export function About() {
               ))}
             </ul>
           </article>
+        </div>
+      </div>
+      <div className="wrap">
+        <div className="timeline-card journey-card journey-card-horizontal">
+          <div className="journey-card-head">
+            <BriefcaseBusiness size={22} />
+            <div>
+              <span>Career Journey</span>
+              <h3>Enterprise Product Evolution</h3>
+            </div>
+          </div>
+          <div className="journey-road" aria-label="Career journey timeline">
+            {journey.map((item, index) => (
+              <div className="journey-milestone" key={item.period}>
+                <div className="journey-pin">
+                  <span>{item.period.split("-")[0]}</span>
+                </div>
+                <div className="journey-milestone-card">
+                  <strong>{item.company}</strong>
+                  <p>{item.role}</p>
+                </div>
+                {index < journey.length - 1 ? <div className="journey-connector" aria-hidden="true" /> : null}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
