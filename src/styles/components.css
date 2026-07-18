@@ -1080,13 +1080,14 @@
 
 .project-grid {
   grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
-  align-items: start;
+  align-items: stretch;
 }
 
 .project-card {
   position: relative;
   overflow: hidden;
   padding: 18px;
+  height: 100%;
 }
 
 .experience-card:hover,
@@ -1598,22 +1599,34 @@
   width: min(920px, 100%);
 }
 
-.experience-detail-grid {
+.experience-category-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
   margin: 14px 0 4px;
 }
 
-.experience-detail-grid article {
+.experience-category {
   padding: 15px;
   border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
   border-radius: 8px;
   background: var(--surface-strong);
 }
 
-.experience-detail-grid h4 {
-  margin-top: 0;
+.experience-category:nth-child(2n) {
+  border-left-color: var(--accent-2);
+}
+
+.experience-category h4 {
+  margin: 0 0 8px;
+  color: var(--heading);
+  font-size: 0.98rem;
+  font-weight: 650;
+}
+
+.experience-category ul {
+  margin: 0;
+  padding-left: 18px;
 }
 
 .modal-highlight-list {
@@ -1871,10 +1884,6 @@
   }
 
   .product-detail-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .experience-detail-grid {
     grid-template-columns: 1fr;
   }
 

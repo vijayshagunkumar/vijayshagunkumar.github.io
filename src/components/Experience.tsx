@@ -8,6 +8,14 @@ type ExperienceItem = (typeof experience)[number];
 function ExperienceModal({ item, onClose }: { item: ExperienceItem | null; onClose: () => void }) {
   if (!item) return null;
   const details = item.details;
+  const detailCategories = details
+    ? [
+        { label: "Leadership", items: details.scope.slice(0, 1) },
+        { label: "Product Management", items: details.responsibilities.slice(0, 2) },
+        { label: "Strategic Execution", items: details.responsibilities.slice(2, 4) },
+        { label: "Stakeholder & Operating Model", items: details.scope.slice(1) }
+      ].filter((category) => category.items.length)
+    : [];
 
   return (
     <div className="modal-backdrop" role="presentation" onMouseDown={onClose}>
@@ -33,23 +41,17 @@ function ExperienceModal({ item, onClose }: { item: ExperienceItem | null; onClo
 
           {details ? (
             <>
-              <div className="experience-detail-grid">
-                <article>
-                  <h4>Scope</h4>
-                  <ul>
-                    {details.scope.map((scope) => (
-                      <li key={scope}>{scope}</li>
-                    ))}
-                  </ul>
-                </article>
-                <article>
-                  <h4>Responsibilities</h4>
-                  <ul>
-                    {details.responsibilities.map((responsibility) => (
-                      <li key={responsibility}>{responsibility}</li>
-                    ))}
-                  </ul>
-                </article>
+              <div className="experience-category-list">
+                {detailCategories.map((category) => (
+                  <section className="experience-category" key={category.label}>
+                    <h4>{category.label}</h4>
+                    <ul>
+                      {category.items.map((detail) => (
+                        <li key={detail}>{detail}</li>
+                      ))}
+                    </ul>
+                  </section>
+                ))}
               </div>
               <h4>Measured Impact</h4>
               <ul className="modal-highlight-list">
