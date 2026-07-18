@@ -611,15 +611,20 @@
   hyphens: manual;
 }
 
-.mini-card p,
-.domain-card > p,
-.compact-card p,
-.personal-value,
-.personal-meta div {
+.card-text-panel {
   padding: 10px 11px;
   border: 1px solid var(--border-soft);
   border-radius: 8px;
   background: var(--surface-strong);
+}
+
+.card-text-panel h3:first-child,
+.card-text-panel .capability-head:first-child {
+  margin-top: 0;
+}
+
+.card-text-panel > *:last-child {
+  margin-bottom: 0;
 }
 
 .scope-card ul {
@@ -628,15 +633,6 @@
   color: var(--muted);
   font-size: 0.92rem;
   line-height: 1.45;
-}
-
-.scope-card ul {
-  padding-top: 10px;
-  padding-right: 10px;
-  padding-bottom: 10px;
-  border: 1px solid var(--border-soft);
-  border-radius: 8px;
-  background: var(--surface-strong);
 }
 
 .scope-card li {
@@ -1023,13 +1019,6 @@
   line-height: 1.45;
   text-align: left;
   hyphens: manual;
-}
-
-.experience-card > div > p:not(.experience-card-highlight) {
-  padding: 10px 11px;
-  border: 1px solid var(--border-soft);
-  border-radius: 8px;
-  background: var(--surface-strong);
 }
 
 .experience-card-highlight {

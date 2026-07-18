@@ -49,29 +49,33 @@ export function Skills() {
         <div className="skills-grid">
           {skillGroups.map((group) => (
             <article className="skill-card capability-card" key={group.title}>
-              <div className="capability-head">
-                {(() => {
-                  const Icon = skillIcons[group.title] ?? Sparkles;
-                  return <Icon size={21} />;
-                })()}
-                <h3>{group.title}</h3>
+              <div className="card-text-panel">
+                <div className="capability-head">
+                  {(() => {
+                    const Icon = skillIcons[group.title] ?? Sparkles;
+                    return <Icon size={21} />;
+                  })()}
+                  <h3>{group.title}</h3>
+                </div>
+                <VisibleTags items={group.skills} />
               </div>
-              <VisibleTags items={group.skills} />
             </article>
           ))}
         </div>
         <div className="domain-grid">
           {domains.map((domain) => (
             <article className="domain-card capability-card" key={domain.name}>
-              <div className="capability-head">
-                {(() => {
-                  const Icon = domainIcons[domain.name] ?? LineChart;
-                  return <Icon size={21} />;
-                })()}
-                <h3>{domain.name}</h3>
+              <div className="card-text-panel">
+                <div className="capability-head">
+                  {(() => {
+                    const Icon = domainIcons[domain.name] ?? LineChart;
+                    return <Icon size={21} />;
+                  })()}
+                  <h3>{domain.name}</h3>
+                </div>
+                <p>{domain.years}</p>
+                <VisibleTags items={domain.tags} />
               </div>
-              <p>{domain.years}</p>
-              <VisibleTags items={domain.tags} />
             </article>
           ))}
         </div>

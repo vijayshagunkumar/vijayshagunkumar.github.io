@@ -134,31 +134,33 @@ export function PersonalInitiatives() {
               <span className="card-open-hint" aria-hidden="true">
                 <Maximize2 size={15} />
               </span>
-              <div className="project-topline">
-                <span>{project.status}</span>
-                <strong>{project.availability ?? "Self-built"}</strong>
-              </div>
-              <h3>{project.name}</h3>
-              <p className="personal-value">{project.valueProposition}</p>
-              <dl className="personal-meta">
-                <div>
-                  <dt>Problem</dt>
-                  <dd>{project.problemSolved}</dd>
+              <div className="card-text-panel personal-card-panel">
+                <div className="project-topline">
+                  <span>{project.status}</span>
+                  <strong>{project.availability ?? "Self-built"}</strong>
                 </div>
-                <div>
-                  <dt>Users</dt>
-                  <dd>{project.targetUsers}</dd>
+                <h3>{project.name}</h3>
+                <p className="personal-value">{project.valueProposition}</p>
+                <dl className="personal-meta">
+                  <div>
+                    <dt>Problem</dt>
+                    <dd>{project.problemSolved}</dd>
+                  </div>
+                  <div>
+                    <dt>Users</dt>
+                    <dd>{project.targetUsers}</dd>
+                  </div>
+                </dl>
+                <ul>
+                  {project.highlights.slice(0, 2).map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <div className="tag-row">
+                  {project.techHighlights.slice(0, 2).map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
                 </div>
-              </dl>
-              <ul>
-                {project.highlights.slice(0, 2).map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-              <div className="tag-row">
-                {project.techHighlights.slice(0, 2).map((tag) => (
-                  <span key={tag}>{tag}</span>
-                ))}
               </div>
               <div className="project-actions" onClick={(event) => event.stopPropagation()}>
                 {project.liveUrl ? (

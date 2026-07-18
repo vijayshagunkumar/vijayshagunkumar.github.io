@@ -19,11 +19,13 @@ export function Certifications() {
               style={{ "--cert-accent": item.accent } as CSSProperties}
             >
               <div className="cert-mark">{item.brandMark}</div>
-              <h3>{item.title}</h3>
-              <p>{item.issuer}</p>
-              <span>
-                {item.year} · View Credential <ExternalLink size={13} />
-              </span>
+              <div className="card-text-panel">
+                <h3>{item.title}</h3>
+                <p>{item.issuer}</p>
+                <span>
+                  {item.year} · View Credential <ExternalLink size={13} />
+                </span>
+              </div>
             </a>
           ))}
         </div>

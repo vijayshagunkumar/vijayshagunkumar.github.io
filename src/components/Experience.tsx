@@ -140,7 +140,7 @@ export function Experience() {
               <div className="experience-icon">
                 <BriefcaseBusiness size={22} />
               </div>
-              <div>
+              <div className="card-text-panel">
                 <div className="experience-meta">{item.period}</div>
                 <h3>{item.role}</h3>
                 <h4>{item.company}</h4>

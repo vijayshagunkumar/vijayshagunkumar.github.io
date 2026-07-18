@@ -49,18 +49,22 @@ export function About() {
           {cards.map((card) => (
             <article className="mini-card" key={card.title}>
               <card.icon size={22} />
-              <h3>{card.title}</h3>
-              <p>{card.body}</p>
+              <div className="card-text-panel">
+                <h3>{card.title}</h3>
+                <p>{card.body}</p>
+              </div>
             </article>
           ))}
           <article className="mini-card scope-card">
             <CheckCircle2 size={22} />
-            <h3>Scope of Influence</h3>
-            <ul>
-              {scopeOfInfluence.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
+            <div className="card-text-panel">
+              <h3>Scope of Influence</h3>
+              <ul>
+                {scopeOfInfluence.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
           </article>
         </div>
       </div>
@@ -69,7 +73,7 @@ export function About() {
           {leadershipThemes.map((theme) => (
             <article className="leadership-theme" key={theme.title}>
               <theme.icon size={20} />
-              <div>
+              <div className="card-text-panel">
                 <h3>{theme.title}</h3>
                 <p>{theme.detail}</p>
               </div>
