@@ -12,6 +12,7 @@ export const experience = getContent("experience").experience.map((item) => ({
   details: item.details
     ? {
         overview: normalizePlainText(item.details.overview),
+        flagshipAchievement: item.details.flagshipAchievement ? normalizePlainText(item.details.flagshipAchievement) : undefined,
         scope: normalizeBulletList(item.details.scope),
         responsibilities: normalizeBulletList(item.details.responsibilities),
         impact: normalizeBulletList(item.details.impact),

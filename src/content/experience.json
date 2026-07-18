@@ -4,13 +4,13 @@
       "company": "Dell Technologies",
       "role": "Product Leader - Global Indirect Tax Technology",
       "period": "2021 - Present",
-      "summary": "Lead product vision, strategy, roadmap, and OKR frameworks for Dell's global Indirect Tax technology platform suite: 10+ internally developed applications processing 300K+ annual tax transactions across 100+ countries.",
+      "summary": "Lead product vision, strategy, roadmap, and OKR frameworks for Dell's global Indirect Tax technology platform suite, with flagship ownership of the global CERTifyTax rollout under Dell's IT modernization program.",
       "achievements": [
+        "Led the global CERTifyTax rollout as a flagship Dell IT modernization initiative, integrated with TR OneSource Cloud across the US, EMEA, LATAM, and APJ in partnership with Deloitte and Thomson Reuters.",
         "Owned product strategy, roadmap prioritization, OKR frameworks, and platform evolution for Dell's global tax and compliance ecosystem.",
         "Architected middleware tax enrichment capabilities integrating 100+ enterprise applications with Sabrix and TR OneSource Cloud tax platforms.",
         "Delivered transaction-level diagnostics, observability, and GenAI-assisted root-cause analysis for faster Finance and Operations resolution.",
         "Executed zero-downtime migration of 10M+ customer exemption records as part of Dell's global ERP modernization.",
-        "Led global CERTifyTax rollout integrated with TR OneSource Cloud across the US, EMEA, LATAM, and APJ in partnership with Deloitte and Thomson Reuters.",
         "Built cloud transaction simulation capabilities delivering 99.6% processing improvement and $50K+ annual savings."
       ],
       "tags": [
@@ -22,6 +22,7 @@
       ],
       "details": {
         "overview": "Lead product vision, strategy, roadmap, discovery, delivery, validation, and optimization for Dell's global Indirect Tax platform suite supporting 10+ applications and 300K+ annual tax transactions across 100+ countries.",
+        "flagshipAchievement": "Flagship achievement: Led the global CERTifyTax rollout as part of Dell's IT modernization program, integrating CERTifyTax with TR OneSource Cloud across the US, EMEA, LATAM, and APJ in partnership with Deloitte and Thomson Reuters.",
         "scope": [
           "Own end-to-end product lifecycle from discovery, PRDs, prioritization, and backlog management through delivery, adoption metrics, validation, and optimization.",
           "Represent customer needs to Agile engineering teams by translating complex tax, finance, audit, and operations workflows into clear problem statements and measurable outcomes.",
@@ -34,6 +35,7 @@
           "Influenced senior stakeholders with structured communication, business cases, product narratives, risk framing, and data-backed decision making."
         ],
         "impact": [
+          "Led global CERTifyTax rollout as a flagship Dell IT modernization initiative across US, EMEA, LATAM, and APJ.",
           "Processed 300K+ annual tax transactions across 100+ countries and 150 tax jurisdictions.",
           "Migrated 10M+ exemption records to cloud with zero downtime and full compliance governance.",
           "Improved processing efficiency by 99.6% and delivered $50K+ annual cost savings through simulation-based optimization.",

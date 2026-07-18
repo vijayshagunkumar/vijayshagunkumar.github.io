@@ -1634,6 +1634,23 @@
   margin: 14px 0 4px;
 }
 
+.flagship-achievement {
+  margin: 14px 0 4px;
+  padding: 13px 15px;
+  border: 1px solid color-mix(in srgb, var(--accent-2) 36%, var(--border));
+  border-left: 4px solid var(--accent-2);
+  border-radius: 8px;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--accent-2) 10%, var(--surface-strong)), var(--surface-strong));
+  color: var(--text) !important;
+  font-weight: 400;
+  text-align: left !important;
+}
+
+.flagship-achievement strong {
+  color: var(--heading);
+  font-weight: 650;
+}
+
 .experience-category {
   padding: 15px;
   border: 1px solid var(--border);

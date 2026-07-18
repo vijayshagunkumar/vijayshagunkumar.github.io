@@ -48,6 +48,11 @@ function ExperienceModal({ item, onClose }: { item: ExperienceItem | null; onClo
         <div className="modal-body">
           <h4>Executive Scope</h4>
           <p>{details?.overview ?? item.summary}</p>
+          {details?.flagshipAchievement ? (
+            <p className="flagship-achievement">
+              <strong>Modernization highlight:</strong> {details.flagshipAchievement.replace(/^Flagship achievement:\s*/i, "")}
+            </p>
+          ) : null}
 
           {details ? (
             <>
