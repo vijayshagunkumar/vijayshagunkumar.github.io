@@ -1003,6 +1003,24 @@
   hyphens: manual;
 }
 
+.experience-card-highlight {
+  margin: 11px 0 8px;
+  padding: 11px 12px;
+  border: 1px solid color-mix(in srgb, var(--accent-2) 30%, var(--border));
+  border-left: 3px solid var(--accent-2);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--accent-2) 8%, var(--surface-strong));
+  color: var(--text) !important;
+  font-size: 0.93rem !important;
+  line-height: 1.42 !important;
+  text-align: left !important;
+}
+
+.experience-card-highlight strong {
+  color: var(--heading);
+  font-weight: 650;
+}
+
 .project-card > p {
   display: -webkit-box;
   overflow: hidden;

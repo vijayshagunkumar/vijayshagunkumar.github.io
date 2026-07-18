@@ -145,8 +145,13 @@ export function Experience() {
                 <h3>{item.role}</h3>
                 <h4>{item.company}</h4>
                 <p>{item.summary}</p>
+                {item.achievements[0] ? (
+                  <p className="experience-card-highlight">
+                    <strong>Highlighted impact:</strong> {item.achievements[0]}
+                  </p>
+                ) : null}
                 <ul>
-                  {item.achievements.map((achievement) => (
+                  {item.achievements.slice(1).map((achievement) => (
                     <li key={achievement}>{achievement}</li>
                   ))}
                 </ul>
