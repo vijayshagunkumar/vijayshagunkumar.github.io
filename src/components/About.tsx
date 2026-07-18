@@ -30,6 +30,13 @@ export function About() {
           </ul>
         </div>
         <div className="stack">
+          {cards.map((card) => (
+            <article className="mini-card" key={card.title}>
+              <card.icon size={22} />
+              <h3>{card.title}</h3>
+              <p>{card.body}</p>
+            </article>
+          ))}
           <div className="timeline-card journey-card">
             <div className="journey-card-head">
               <BriefcaseBusiness size={22} />
@@ -54,13 +61,6 @@ export function About() {
               ))}
             </div>
           </div>
-          {cards.map((card) => (
-            <article className="mini-card" key={card.title}>
-              <card.icon size={22} />
-              <h3>{card.title}</h3>
-              <p>{card.body}</p>
-            </article>
-          ))}
           <article className="mini-card scope-card">
             <CheckCircle2 size={22} />
             <h3>Scope of Influence</h3>
