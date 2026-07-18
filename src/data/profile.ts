@@ -17,6 +17,10 @@ const contactContent = getContent("contact");
 
 function buildExecutiveSummary(profile: typeof heroContent.profile) {
   const preserveParagraphs = Boolean(profile.preserveSummaryParagraphs);
+  if (preserveParagraphs && Array.isArray(profile.executiveSummary) && profile.executiveSummary.length) {
+    return profile.executiveSummary.map(normalizePlainText).filter(Boolean);
+  }
+
   const source = Array.isArray(profile.executiveSummary) && profile.executiveSummary.length
     ? profile.executiveSummary.join(preserveParagraphs ? "\n" : " ")
     : profile.summary ?? "";
