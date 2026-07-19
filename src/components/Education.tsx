@@ -11,9 +11,11 @@ export function Education() {
           {education.map((item) => (
             <article className="compact-card" key={item.degree}>
               <GraduationCap size={24} />
-              <h3>{item.degree}</h3>
-              <p>{item.school}</p>
-              <span>{item.meta}</span>
+              <div className="card-text-panel">
+                <h3>{item.degree}</h3>
+                <p>{item.school}</p>
+                <span>{item.meta}</span>
+              </div>
             </article>
           ))}
         </div>

@@ -11,9 +11,11 @@ export function Awards() {
           {awards.map((award) => (
             <article className="compact-card" key={award.title}>
               <Trophy size={24} />
-              <h3>{award.title}</h3>
-              <span>{award.year}</span>
-              <p>{award.description}</p>
+              <div className="card-text-panel">
+                <h3>{award.title}</h3>
+                <span>{award.year}</span>
+                <p>{award.description}</p>
+              </div>
             </article>
           ))}
         </div>
