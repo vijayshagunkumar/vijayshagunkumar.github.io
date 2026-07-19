@@ -627,6 +627,11 @@
   margin-bottom: 0;
 }
 
+.stat .card-text-panel,
+.journey-node-card .card-text-panel {
+  height: 100%;
+}
+
 .scope-card ul {
   margin: 8px 0 0;
   padding-left: 18px;

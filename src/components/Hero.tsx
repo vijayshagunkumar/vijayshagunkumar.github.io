@@ -62,9 +62,11 @@ export function Hero() {
           <div className="hero-stats">
             {impactMetrics.map((metric) => (
               <div className="stat" key={metric.label}>
-                <strong>{metric.value}</strong>
-                <span>{metric.label}</span>
-                <small>{metric.source}</small>
+                <div className="card-text-panel">
+                  <strong>{metric.value}</strong>
+                  <span>{metric.label}</span>
+                  <small>{metric.source}</small>
+                </div>
               </div>
             ))}
           </div>

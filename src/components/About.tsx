@@ -96,8 +96,10 @@ export function About() {
                   <span>{index + 1}</span>
                 </div>
                 <div className="journey-node-card">
-                  <strong>{item.company}</strong>
-                  <p>{item.role}</p>
+                  <div className="card-text-panel">
+                    <strong>{item.company}</strong>
+                    <p>{item.role}</p>
+                  </div>
                 </div>
               </article>
             ))}
