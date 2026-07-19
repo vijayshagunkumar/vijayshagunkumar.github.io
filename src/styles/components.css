@@ -75,25 +75,42 @@
 .nav nav {
   display: flex;
   align-items: center;
-  gap: clamp(9px, 1vw, 15px);
+  gap: 8px;
 }
 
 .nav nav a {
-  color: var(--muted);
-  font-size: 0.78rem;
-  font-weight: 600;
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 10px;
+  border: 1px solid color-mix(in srgb, var(--heading) 12%, var(--border));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  color: color-mix(in srgb, var(--heading) 78%, var(--muted));
+  font-size: 0.76rem;
+  font-weight: 650;
+  box-shadow: 0 5px 14px rgba(16, 29, 46, 0.035);
 }
 
 .nav nav a:hover {
+  border-color: color-mix(in srgb, var(--accent) 36%, var(--border));
+  background: color-mix(in srgb, var(--accent) 7%, var(--surface));
   color: var(--heading);
+  box-shadow: 0 8px 18px rgba(16, 29, 46, 0.065);
 }
 
 .nav-pill {
-  padding: 8px 15px;
+  padding: 8px 16px !important;
+  border-color: var(--accent) !important;
   border-radius: 999px;
   background: var(--accent);
   color: var(--accent-contrast) !important;
   box-shadow: 0 8px 18px rgba(4, 118, 109, 0.18);
+}
+
+.nav-pill:hover {
+  background: color-mix(in srgb, var(--accent) 88%, var(--heading)) !important;
+  color: var(--accent-contrast) !important;
 }
 
 .theme-control {
@@ -1915,6 +1932,11 @@
     background: var(--surface);
     border-bottom: 1px solid var(--border);
     box-shadow: var(--shadow);
+  }
+
+  .nav nav a {
+    justify-content: center;
+    min-height: 40px;
   }
 
   .nav nav.open {
