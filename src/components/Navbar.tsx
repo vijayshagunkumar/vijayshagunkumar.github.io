@@ -1,4 +1,4 @@
-import { Menu, X } from "lucide-react";
+import { BriefcaseBusiness, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { profile } from "../data/profile";
 import { sectionHref } from "../utils/routes";
@@ -21,7 +21,15 @@ export function Navbar({ sections }: Props) {
   return (
     <header className={`nav ${scrolled ? "scrolled" : ""}`}>
       <a className="nav-brand" href={sectionHref("hero")} aria-label="Go to top">
-        Vijay Kumar<span>.</span>
+        <span className="nav-brand-mark" aria-hidden="true">
+          <BriefcaseBusiness size={18} />
+        </span>
+        <span className="nav-brand-copy">
+          <strong>
+            Vijay Kumar<span>.</span>
+          </strong>
+          <small>20+ Years Product & Enterprise Platform Leadership</small>
+        </span>
       </a>
       <button className="mobile-menu" onClick={() => setOpen((current) => !current)} aria-label="Toggle navigation">
         {open ? <X size={20} /> : <Menu size={20} />}
