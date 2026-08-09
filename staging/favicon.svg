@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Vijay Kumar monogram</title>
+  <defs>
+    <linearGradient id="background" x1="8" y1="4" x2="56" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#18334A"/>
+      <stop offset="1" stop-color="#081827"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#background)"/>
+  <path d="M10 12h44a4 4 0 0 1 4 4v1H6v-1a4 4 0 0 1 4-4Z" fill="#12C0AC"/>
+  <path d="m13 22 9.6 25h6.7L39 22h-7.2l-5.7 17.3L20.3 22H13Z" fill="#FFFFFF"/>
+  <path d="M37 22h6.5v9.2L51.7 22h8.1L49.1 33.5 60 47h-8.2l-7.2-9.1-1.1 1.2V47H37V22Z" fill="#D8B65A"/>
+</svg>
