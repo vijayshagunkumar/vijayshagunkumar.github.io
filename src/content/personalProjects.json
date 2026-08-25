@@ -23,6 +23,66 @@
       "availability": "Dell internal tool"
     },
     {
+      "id": "customer-readiness-platform",
+      "name": "Customer Readiness Platform",
+      "valueProposition": "Enterprise readiness and compliance intelligence product for tax-exempt transaction onboarding.",
+      "problemSolved": "Identifies gaps that prevent customers from becoming transaction-ready for tax-exempt processing across exemption data, customer master data, jurisdiction requirements, certificate status, and integration dependencies.",
+      "targetUsers": "Dell tax operations, onboarding, support, compliance, and IT teams responsible for customer readiness and exemption processing.",
+      "solution": "Readiness intelligence platform with automated assessments, certificate validity analysis, jurisdiction compliance checks, onboarding-readiness scoring, missing-data identification, dashboards, and remediation recommendations.",
+      "whyItMatters": "Accelerates onboarding, reduces manual readiness reviews, improves compliance posture, lowers support escalations, and increases operational transparency.",
+      "highlights": [
+        "Defined product vision, roadmap, requirements, workflows, and rollout strategy",
+        "Aligned Tax, Operations, and IT stakeholders around readiness scoring and remediation priorities",
+        "Introduced readiness intelligence across certificate, customer, jurisdiction, and integration dependencies"
+      ],
+      "techHighlights": [
+        "Readiness scoring",
+        "Compliance checks",
+        "Certificate diagnostics",
+        "Operational dashboards"
+      ],
+      "techStack": [
+        "Dell internal platform",
+        "Tax exemption data",
+        "Customer master data",
+        "Jurisdiction rules",
+        "Certificate status logic",
+        "Dashboard reporting"
+      ],
+      "status": "Dell internal product",
+      "availability": "Dell internal tool"
+    },
+    {
+      "id": "exemption-analyzer",
+      "name": "Exemption Analyzer",
+      "valueProposition": "AI-powered tax exemption diagnostic and decision intelligence product for faster issue resolution.",
+      "problemSolved": "Simplifies tax-exemption troubleshooting by identifying certificate, mapping, jurisdiction, customer, and integration problems affecting tax determination.",
+      "targetUsers": "Dell tax operations, support analysts, compliance teams, integration teams, and business users handling exemption-related issues.",
+      "solution": "AI-assisted diagnostic workflow covering root-cause analysis, certificate diagnostics, TaxCalc and IDT validation, mapping analysis, legal-entity and jurisdiction validation, recommendations, and guided troubleshooting.",
+      "whyItMatters": "Reduces investigation effort, speeds up issue resolution, improves support efficiency, reduces processing delays, and strengthens audit and compliance visibility.",
+      "highlights": [
+        "Led product strategy, business case, problem discovery, and user research",
+        "Designed AI-assisted diagnostic workflows for exemption issue triage and decision support",
+        "Owned prioritization, feature definition, cross-functional delivery, and adoption planning"
+      ],
+      "techHighlights": [
+        "AI diagnostics",
+        "Root-cause analysis",
+        "TaxCalc / IDT validation",
+        "Guided troubleshooting"
+      ],
+      "techStack": [
+        "Dell internal platform",
+        "AI-assisted workflow",
+        "TaxCalc validation",
+        "IDT validation",
+        "Mapping analysis",
+        "Jurisdiction validation"
+      ],
+      "status": "Dell internal product",
+      "availability": "Dell internal tool"
+    },
+    {
       "id": "shagun-ai-tutor",
       "name": "Shagun AI Tutor",
       "valueProposition": "AI-assisted learning companion for structured, conversational tutoring.",
